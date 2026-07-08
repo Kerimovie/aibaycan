@@ -1,8 +1,10 @@
+import 'dotenv/config';
 import * as z from 'zod';
 
 /**
  * Env dəyişənləri boundary-dir → Zod ilə validasiya olunur.
- * Yanlış/əskik konfiq zamanı server startda dərhal dayanır (fail-fast).
+ * `dotenv/config` bu modulun ən başında yüklənir — `.env` process.env-ə
+ * oxunmadan Zod parse edilməməlidir. Yanlış/əskik konfiq zamanı fail-fast.
  */
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
