@@ -13,3 +13,8 @@ build/
 .vscode/
 coverage/
 *.tsbuildinfo
+
+# monorepo / build tooling
+.turbo/
+.pnpm-store/
+dist-ssr/

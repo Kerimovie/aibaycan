@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.next/
+.turbo/
+coverage/
+pnpm-lock.yaml
+*.tsbuildinfo
+
+# ai-bootstrap-dan gələn agent/skill mətnləri — upstream idarə edir, formatlaşdırma
+.claude/
+
+# markdown sənədləri — insan yazısıdır, prettier onları əzməsin
+docs/
+*.md
