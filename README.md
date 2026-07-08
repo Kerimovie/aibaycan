@@ -33,16 +33,23 @@ pnpm dev
 
 ## Texnologiya
 
-Fullstack SaaS/monorepo yanaşması. Konkret framework, DB və deploy host seçimləri
-[docs/03 — Stack qərarları](./docs/03-stack-decisions.md)-da qeydə alınır.
+Single-tenant portfolio + admin panel. Tam əsaslandırma və tradeoff-lar üçün
+[docs/03 — Stack qərarları](./docs/03-stack-decisions.md).
+
+| Qat | Seçim |
+|-----|-------|
+| Public frontend (`apps/web`) | Next.js (App Router) |
+| Admin panel (`apps/admin`) | Vite + React SPA |
+| Backend API (`apps/api`) | Hono (TypeScript) |
+| Database | PostgreSQL + Prisma (`packages/db`) |
+| Monorepo | pnpm workspaces |
 
 Əsas qaydalar (bax [CLAUDE.md](./CLAUDE.md)):
 
-- TypeScript strict — `any` qadağan, boundary-lərdə Zod/class-validator
-- Multi-tenant — hər DB sorğusunda `tenantId` filter
-- Auth — JWT 15 dəq + rotating refresh, HttpOnly + Secure cookie
+- TypeScript strict — `any` qadağan, boundary-lərdə Zod
+- Admin auth — sadə session/JWT (multi-tenant tətbiq olunmur, bax docs/03)
 - Test piramidası — unit → integration → E2E
-- OWASP Top 10 — hər PR-da security audit
+- OWASP əsasları — admin auth + form giriş nöqtələri üçün
 
 ## Sənədlər
 
