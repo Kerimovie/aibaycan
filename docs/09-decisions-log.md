@@ -43,3 +43,11 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Supabase (managed Postgres + auth), SQLite + Prisma.
 **Tradeoff**: Auth/backup/hosting-i özümüz qururuq; müqabilində vendor asılılığı yoxdur. SQLite-dan Postgres-ə sonrakı migrasiya ağrısından qaçırıq.
 **Reversibility**: one-way (DB engine köçürməsi bahalıdır)
+
+## #006 — Prisma 7 (major) + driver adapter
+**Date**: 2026-07-09
+**Context**: `packages/db` scaffold edilərkən ən son Prisma 7.8.0 idi. Prisma 7 breaking dəyişikliklərlə gəlir.
+**Decision**: Ən son Prisma 7 istifadə olunur — `generator = prisma-client` (məcburi `output`), datasource URL `prisma.config.ts`-də, runtime-da `@prisma/adapter-pg` adapter. Generasiya olunan client gitignore.
+**Alternatives**: Prisma 6-da qalmaq (köhnə, amma sadə sintaksis).
+**Tradeoff**: Yeni sintaksis öyrənmə, adapter əlavə qurulum — müqabilində ən son, dəstəklənən major versiya (uzunömürlü). Köhnə versiyada qalmaq gələcəkdə upgrade borcu yaradardı.
+**Reversibility**: reversible (amma geriyə downgrade YAGNI)

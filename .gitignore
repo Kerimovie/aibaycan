@@ -18,3 +18,6 @@ coverage/
 .turbo/
 .pnpm-store/
 dist-ssr/
+
+# Prisma — generasiya olunan client (schema-dan yenidən yaradılır)
+**/src/generated/
