@@ -1,11 +1,12 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-brand: #2563eb;
-  --color-brand-dark: #1e40af;
-}
+/* Paylaşılan dizayn tokenləri */
+@import '@aibaycan/ui/styles.css';
+
+/* packages/ui komponentlərinin class-larını skan et (purge olunmasın) */
+@source '../../../packages/ui/src';
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
 }

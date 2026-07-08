@@ -44,9 +44,14 @@ Server komponentləri `lib/api.ts` vasitəsilə **apps/api-yə fetch** edir (Pos
 
 Hazırda ayrıca state kitabxanası yoxdur — server komponentləri + minimal client interaktivliyi (locale switcher). Portfolio miqyasında Redux/Zustand artıqdır (YAGNI). Lazım olsa əlavə olunacaq.
 
-## Design tokens
+## Design tokens + paylaşılan UI
 
-Tailwind 4 `@theme` (`globals.css`): `--color-brand`, `--font-sans`. Paylaşılan dizayn sistemi (`packages/ui`) sonra qurulanda tokenlər ora köçə bilər.
+Paylaşılan dizayn sistemi: [`packages/ui`](../packages/ui).
+
+- **Tokenlər** — `packages/ui/src/styles.css` (`@theme`: `--color-brand`, `--font-sans`). `web` və `admin` hər ikisi `@import '@aibaycan/ui/styles.css'` edir → tək mənbə, təkrar yoxdur.
+- **Komponentlər** — `Button`, `Card`, `Input` (+ `cn` util). Source-first (build-siz); `web` `transpilePackages`, `admin` birbaşa import.
+- **Tailwind skan** — hər app `@source '../../.../packages/ui/src'` ilə ui class-larını skan edir (purge olunmasın).
+- **Import qeydi** — `packages/ui` extensionless import istifadə edir (`./lib/cn`, `.js` yox) — Turbopack (web) və Vite (admin) hər ikisi ilə uyğun.
 
 ## Render strategiyası
 
