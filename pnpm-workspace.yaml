@@ -5,7 +5,10 @@ packages:
 # Build skriptlərinə açıq icazə (pnpm 11 default olaraq bloklayır — təhlükəsizlik).
 # Prisma engine yükləyir, esbuild native binary qurur — hər ikisi lazımdır.
 allowBuilds:
+  '@parcel/watcher': true
   '@prisma/engines': true
+  '@swc/core': true
   argon2: true
   esbuild: true
   prisma: true
+  sharp: true

@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Our Work",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "We build digital solutions",
+      "subtitle": "Explore the work we've done and the services we offer.",
+      "cta": "See our work"
+    },
+    "featured": {
+      "title": "Featured work",
+      "empty": "No projects added yet."
+    },
+    "services": {
+      "title": "Our services",
+      "empty": "No services added yet."
+    }
+  },
+  "projects": {
+    "title": "Our Work",
+    "empty": "No projects yet.",
+    "viewLive": "Live",
+    "viewRepo": "Code"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong"
+  }
+}

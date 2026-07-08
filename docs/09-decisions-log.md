@@ -51,3 +51,19 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Prisma 6-da qalmaq (köhnə, amma sadə sintaksis).
 **Tradeoff**: Yeni sintaksis öyrənmə, adapter əlavə qurulum — müqabilində ən son, dəstəklənən major versiya (uzunömürlü). Köhnə versiyada qalmaq gələcəkdə upgrade borcu yaradardı.
 **Reversibility**: reversible (amma geriyə downgrade YAGNI)
+
+## #007 — i18n: AZ + EN + RU (next-intl)
+**Date**: 2026-07-09
+**Context**: Portfolio saytı Azərbaycan bazarı üçündür; RU geniş istifadə olunur, EN beynəlxalq üçün.
+**Decision**: Üç dil (az default, en, ru), next-intl 4 + App Router `[locale]` segment, locale-prefiksli routing. Next 16-da middleware `proxy.ts`-ə köçüb.
+**Alternatives**: Tək dil (AZ), yalnız AZ+EN.
+**Tradeoff**: Hər dil üçün tərcümə saxlanması + i18n qat mürəkkəbliyi — müqabilində daha geniş auditoriya. Kontent (DB) hələ tək dildə; multi-lang kontent lazım olsa schema genişlənəcək (YAGNI).
+**Reversibility**: reversible (dil əlavə/çıxarmaq asandır)
+
+## #008 — apps/web: Next.js 16 + Tailwind 4
+**Date**: 2026-07-09
+**Context**: `apps/web` scaffold edilərkən ən son Next 16.2 + Tailwind 4 idi.
+**Decision**: Next.js 16 App Router + React 19 + Tailwind 4 (CSS-first config, `@theme`). Data apps/api-dən server-side fetch + ISR (revalidate 60s), graceful degradation.
+**Alternatives**: Tailwind 3 (JS config), statik mock data.
+**Tradeoff**: Tailwind 4 CSS-first yeni yanaşmadır (öyrənmə) — müqabilində sürətli, config-siz. API-dən data = admin panel kontenti idarə edə bilir.
+**Reversibility**: one-way (framework), reversible (data mənbəyi)

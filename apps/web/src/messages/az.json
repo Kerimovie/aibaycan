@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Ana səhifə",
+    "projects": "İşlərimiz",
+    "services": "Xidmətlər",
+    "contact": "Əlaqə"
+  },
+  "home": {
+    "hero": {
+      "title": "Rəqəmsal həllər yaradırıq",
+      "subtitle": "Gördüyümüz işlər və təklif etdiyimiz xidmətlərlə tanış olun.",
+      "cta": "İşlərimizə baxın"
+    },
+    "featured": {
+      "title": "Seçilmiş işlər",
+      "empty": "Hələ layihə əlavə olunmayıb."
+    },
+    "services": {
+      "title": "Xidmətlərimiz",
+      "empty": "Hələ xidmət əlavə olunmayıb."
+    }
+  },
+  "projects": {
+    "title": "İşlərimiz",
+    "empty": "Hələ layihə yoxdur.",
+    "viewLive": "Canlı bax",
+    "viewRepo": "Kod"
+  },
+  "common": {
+    "loading": "Yüklənir…",
+    "error": "Xəta baş verdi"
+  }
+}
