@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { mediaHooks } from '@/features/hooks';
 import type { MediaAsset } from '@/features/types';
+import { UploadButton } from './upload-button';
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -53,7 +54,7 @@ export function MediaPage() {
       <PageHeader
         title="Media"
         breadcrumb={['Admin', 'Media']}
-        action={<span className="text-sm text-text-tertiary">Yükləmə tezliklə (R2)</span>}
+        action={<UploadButton />}
       />
       <DataTable
         columns={columns}

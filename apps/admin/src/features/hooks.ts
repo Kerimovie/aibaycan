@@ -4,6 +4,7 @@ import type {
   CategoryCreateInput,
   CategoryUpdateInput,
   LeadUpdateInput,
+  MediaCreateInput,
   MediaUpdateInput,
   ServiceCreateInput,
   ServiceUpdateInput,
@@ -33,4 +34,4 @@ export const serviceHooks = createCrudHooks<Service, ServiceCreateInput, Service
 // Lead — create yox (public form), update yalnız status
 export const leadHooks = createCrudHooks<Lead, never, LeadUpdateInput>('leads');
 
-export const mediaHooks = createCrudHooks<MediaAsset, never, MediaUpdateInput>('media');
+export const mediaHooks = createCrudHooks<MediaAsset, MediaCreateInput, MediaUpdateInput>('media');

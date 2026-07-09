@@ -13,6 +13,8 @@
   "dependencies": {
     "@aibaycan/db": "workspace:*",
     "@aibaycan/shared": "workspace:*",
+    "@aws-sdk/client-s3": "^3.1083.0",
+    "@aws-sdk/s3-request-presigner": "^3.1083.0",
     "@hono/node-server": "^2.0.8",
     "argon2": "^0.44.0",
     "dotenv": "^16.4.7",

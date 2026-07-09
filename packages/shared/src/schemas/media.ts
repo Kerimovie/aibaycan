@@ -28,3 +28,24 @@ export const mediaUpdateSchema = z.object({
   alt: nonEmptyString.max(300).nullish(),
 });
 export type MediaUpdateInput = z.infer<typeof mediaUpdateSchema>;
+
+/**
+ * Presigned upload URL sorğusu — client faylı yükləmədən ƏVVƏL göndərir.
+ * Server R2 açarı + presigned PUT URL qaytarır.
+ */
+export const uploadUrlRequestSchema = z.object({
+  fileName: nonEmptyString.max(255),
+  contentType: nonEmptyString.max(120),
+  sizeBytes: z
+    .number()
+    .int()
+    .positive()
+    .max(50 * 1024 * 1024), // 50MB limit
+});
+export type UploadUrlRequest = z.infer<typeof uploadUrlRequestSchema>;
+
+export interface UploadUrlResponse {
+  uploadUrl: string; // presigned PUT (R2-yə birbaşa)
+  key: string; // R2 obyekt açarı
+  publicUrl: string; // yükləmədən sonra ictimai URL
+}

@@ -13,6 +13,13 @@ const envSchema = z.object({
   JWT_SECRET: z.string().min(32, 'JWT_SECRET ən azı 32 simvol olmalıdır'),
   // Vergüllə ayrılmış icazəli origin-lər (CORS) — admin/web frontend URL-ləri
   CORS_ORIGINS: z.string().default('http://localhost:3000,http://localhost:5173'),
+
+  // Cloudflare R2 (media upload) — opsional: yoxdursa server qalxır, yalnız upload işləməz.
+  R2_ACCOUNT_ID: z.string().optional(),
+  R2_ACCESS_KEY_ID: z.string().optional(),
+  R2_SECRET_ACCESS_KEY: z.string().optional(),
+  R2_BUCKET: z.string().optional(),
+  R2_PUBLIC_URL: z.string().url().optional(), // bucket-in ictimai baza URL-i
 });
 
 const parsed = envSchema.safeParse(process.env);
