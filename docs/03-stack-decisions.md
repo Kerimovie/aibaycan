@@ -76,11 +76,6 @@ Qüvvədə qalan qaydalar: **TypeScript strict + Zod boundary-lərdə**, **no si
 
 ---
 
-## Sonrakı addımlar
+## Status: tamamlandı ✅
 
-- [ ] pnpm workspace kök konfiqi (`package.json`, `pnpm-workspace.yaml`)
-- [ ] `packages/db` — Prisma schema + ilk migration ([07](./07-data-model.md), [13](./13-database.md))
-- [ ] `apps/api` — Hono skeleton + Zod ([06](./06-api-design.md))
-- [ ] `apps/web` — Next.js skeleton
-- [ ] `apps/admin` — Vite React skeleton + auth ([05](./05-auth-strategy.md))
-- [ ] Bu qərarları [09 — Decisions log](./09-decisions-log.md)-a #001–#005 kimi köçür
+pnpm workspace, `packages/db` (4 migration: init + phase1/2/3), `apps/api` (tam CRUD), `apps/web`, `apps/admin` (auth) qurulub. Qərarlar [09 — Decisions log](./09-decisions-log.md)-a #001–#017 köçürülüb. Növbəti iş: bax [11 — Backlog](./11-backlog.md).

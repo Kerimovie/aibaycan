@@ -21,7 +21,7 @@ Single-tenant portfolio + admin (bax [03](./03-stack-decisions.md)). Auth **yaln
 
 İki rol (Prisma `AdminRole`): `ADMIN`, `EDITOR`.
 
-- `EDITOR` — kontent CRUD (Project, Service, ContactMessage).
+- `EDITOR` — kontent CRUD (CaseStudy, Service, Lead, Category, Tag, Media, Testimonial, Client, TeamMember, Post).
 - `ADMIN` — yuxarıdakılar + admin istifadəçi idarəsi.
 
 ABAC (attribute-based) artıqdır — iki sadə rol kifayətdir.
@@ -49,6 +49,6 @@ Yalnız **ADMIN** rolu (`requireRole('ADMIN')`). CRUD:
 
 ## Təhlükəsizlik qeydləri (OWASP)
 
-- Login endpoint-ə **rate-limit** (brute-force qarşı) — TODO deploy-da (reverse proxy və ya middleware).
+- Login endpoint-ə **rate-limit** (brute-force qarşı) — ✅ tətbiq olundu: IP üzrə 10 cəhd / 15 dəq, aşanda 429 + `Retry-After` (`apps/api/src/lib/rate-limit.ts`, docs/16, decisions #019). In-memory (tək-instansiya).
 - Cookie: `Secure` yalnız production-da (lokal HTTP-də işləsin deyə `NODE_ENV` şərti).
 - Xətalar həmişə loglanır (CLAUDE.md: no silent catch), amma login xətası istifadəçiyə generik ("email və ya parol yanlış") qaytarılır — enumeration qarşısı.

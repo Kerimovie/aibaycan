@@ -15,14 +15,31 @@ Bu sənəd **ictimai portfolio** frontend-ini əhatə edir (`apps/web`). Admin p
 apps/web/src/
 ├── app/
 │   ├── layout.tsx            # root (children passthrough)
+│   ├── robots.ts             # robots.txt (Faza 3)
+│   ├── sitemap.ts            # sitemap.xml (Faza 3)
+│   ├── rss.xml/route.ts      # blog RSS feed (Faza 3)
 │   └── [locale]/
 │       ├── layout.tsx        # əsl <html>, NextIntlClientProvider, header
-│       └── page.tsx          # ana səhifə (hero + featured + services)
+│       ├── page.tsx          # ana səhifə (hero + featured + services + rəylər + loqo divarı)
+│       ├── about/page.tsx    # haqqımızda (Faza 2)
+│       ├── contact/page.tsx  # əlaqə + lead form (Faza 2)
+│       ├── projects/page.tsx           # case-study listing (Faza 2)
+│       ├── projects/[slug]/page.tsx    # case-study detalı, blocks render (Faza 2)
+│       ├── blog/page.tsx               # blog listing (Faza 3)
+│       └── blog/[slug]/page.tsx        # blog post, blocks render (Faza 3)
 ├── components/
 │   ├── site-header.tsx       # naviqasiya (server)
-│   └── locale-switcher.tsx   # dil dəyişdirici (client)
+│   ├── locale-switcher.tsx   # dil dəyişdirici (client)
+│   ├── analytics.tsx         # GA4 loader (consent arxası) (Faza 3b)
+│   ├── consent-banner.tsx    # GDPR razılıq banneri (Faza 3b)
+│   ├── view-tracker.tsx      # səhifə görüntü izləmə (Faza 3b)
+│   ├── block-renderer.tsx    # block-əsaslı kontent render (Faza 2/3)
+│   ├── json-ld.tsx           # JSON-LD structured data (Faza 3)
+│   └── lead-form.tsx         # RHF+Zod lead formu (Faza 2)
 ├── i18n/                     # routing, navigation, request (next-intl)
-├── lib/api.ts                # apps/api-yə server-side fetch
+├── lib/
+│   ├── api.ts                # apps/api-yə server-side fetch
+│   └── analytics.ts          # GA4 event helper-ləri (Faza 3b)
 ├── messages/                 # az.json, en.json, ru.json
 └── proxy.ts                  # locale middleware (Next 16: proxy.ts)
 ```
@@ -48,8 +65,8 @@ Hazırda ayrıca state kitabxanası yoxdur — server komponentləri + minimal c
 
 Paylaşılan dizayn sistemi: [`packages/ui`](../packages/ui).
 
-- **Tokenlər** — `packages/ui/src/styles.css` (`@theme`: `--color-brand`, `--font-sans`). `web` və `admin` hər ikisi `@import '@aibaycan/ui/styles.css'` edir → tək mənbə, təkrar yoxdur.
-- **Komponentlər** — `Button`, `Card`, `Input` (+ `cn` util). Source-first (build-siz); `web` `transpilePackages`, `admin` birbaşa import.
+- **Tokenlər** — `packages/ui/src/styles/index.css` (`@theme`: `--primary-500` (#845adf violet), `--color-primary-*`). `web` və `admin` hər ikisi `@import '@aibaycan/ui/styles.css'` edir (web: `apps/web/src/app/globals.css:4`) → tək mənbə, təkrar yoxdur.
+- **Komponentlər** — ~30 komponent (bax [doc 30](./30-shared-ui-library.md) barrel export) + `cn` util. `packages/ui` **tsup ilə build olunur → `dist`-dən export** (`package.json` exports → `./dist/index.js`); `web` `transpilePackages`, `admin` birbaşa import.
 - **Tailwind skan** — hər app `@source '../../.../packages/ui/src'` ilə ui class-larını skan edir (purge olunmasın).
 - **Import qeydi** — `packages/ui` extensionless import istifadə edir (`./lib/cn`, `.js` yox) — Turbopack (web) və Vite (admin) hər ikisi ilə uyğun.
 

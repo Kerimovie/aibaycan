@@ -13,7 +13,7 @@ docker compose down         # dayandır (data qalır — named volume)
 docker compose down -v      # data ilə birlikdə sil
 ```
 
-**Port qeydi:** Host portu **5434** (5432 deyil) — bu maşında 5432/5433 başqa proseslə (SSH tunnel) məşğuldur. Konteyner daxilində standart 5432. `DATABASE_URL` `localhost:5434`-ə işarə edir.
+**Port qeydi:** Committed default host portu **5434**-dür (5432 deyil — 5432/5433 çox vaxt başqa proseslə, məs. SSH tunnel ilə məşğul olur). Konteyner daxilində standart 5432. `DATABASE_URL` default olaraq `localhost:5434`-ə işarə edir. Əgər bu port da başqa proses tərəfindən tutulubsa, `docker-compose.override.yml` (gitignore-dadır) ilə host portu dəyişilə bilər — bu halda `.env`-dəki `DATABASE_URL` yeni porta uyğunlaşdırılmalıdır.
 
 ### Migrasiya + seed
 
@@ -43,6 +43,8 @@ Hər paketdə `.env.example` var — `.env`-ə kopyala. `.env` gitignore-dadır.
 
 | Dəyişən | Yer | Təsvir |
 |---------|-----|--------|
+| `NODE_ENV` | api | `development` / `production` / `test` (default: development) |
+| `PORT` | api | API portu (default: 7302) |
 | `DATABASE_URL` | db, api | Postgres bağlantısı |
 | `JWT_SECRET` | api | JWT imza açarı (min 32 simvol) |
 | `CORS_ORIGINS` | api | İcazəli origin-lər |

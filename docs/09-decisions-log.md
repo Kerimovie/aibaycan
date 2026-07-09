@@ -139,3 +139,19 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Standart portlarda qalmaq.
 **Tradeoff**: Yadda saxlamaq lazımdır — müqabilində toqquşma yoxdur.
 **Reversibility**: reversible
+
+## #018 — Web dev skripti: cross-platform launcher (Windows PORT fix)
+**Date**: 2026-07-10
+**Context**: `apps/web` dev/start skriptləri `next dev --port ${PORT:-7301}` işlədirdi. Bu POSIX shell expansion Windows-da pnpm cmd üzərindən icra edildikdə genişlənmir — `${PORT:-7301}` hərfi ötürülür və `next` "invalid port" ilə düşür. Sadəcə `--port 7301`-ə sabitləmək isə E2E-ni pozur: `e2e/playwright.config.ts` web-i 3100-də qaldırmaq üçün `PORT=3100` env ötürür və `${PORT:-...}` override-ına güvənir.
+**Decision**: `apps/web/scripts/dev.mjs` node launcher yaradıldı — `next dev --port ${PORT||7301}` məntiqini cross-platform (spawn, shell:true) təkrarlayır: committed default 7301, `PORT` env override saxlanılır. `"dev": "node scripts/dev.mjs"`. `start` prod üçün sabit 7301 qaldı (override lazım deyil, #017).
+**Alternatives**: (a) `--port 7301` sabit — E2E port izolyasiyasını pozur; (b) `.npmrc script-shell=bash` — maşına-xas bash yolu, committed repo üçün kövrək; (c) `.env`-də PORT — clone-da committed default olmur.
+**Tradeoff**: Kiçik əlavə fayl (launcher) — müqabilində həm Windows/macOS/Linux, həm də E2E PORT override işləyir.
+**Reversibility**: reversible
+
+## #019 — Rate-limiting: in-memory fixed-window (login + leads)
+**Date**: 2026-07-10
+**Context**: Təhlükəsizlik auditi (docs/16) yeganə real, exploit-edilə bilən boşluğu tapdı: `RATE_LIMITED`/429 yalnız sabit kimi vardı, middleware yox idi — admin login brute-force-a, ictimai `/leads` spam/flood-a açıq idi.
+**Decision**: `apps/api/src/lib/rate-limit.ts` — sadə yaddaşdaxili fixed-window limiter + Hono middleware factory. IP üzrə: login 10 cəhd/15 dəq, leads 10 sorğu/10 dəq. Aşılanda 429 + `Retry-After` + `X-RateLimit-*`. IP mənbəyi: `x-forwarded-for` (prod nginx) → `getConnInfo` fallback. Store tək-instansiya üçün (restart-da sıfırlanır).
+**Alternatives**: (a) `hono-rate-limiter` paketi — əlavə asılılıq, bu miqyasda artıq; (b) Redis/paylaşılan store — infra yükü, tək-instansiya self-host üçün YAGNI; (c) account-lockout — distributed brute-force-a qarşı güclü, amma legit user-i kilidləyir, IP-limit 80/20-dir.
+**Tradeoff**: Yaddaşdaxili store tək Node prosesi ilə məhduddur (çox-instansiyada paylaşılmır) və restart-da itir — müqabilində sıfır asılılıq, sıfır infra. `x-forwarded-for`-a güvənmək prod-da etibarlı reverse-proxy tələb edir (birbaşa expose zamanı saxtalaşdırıla bilər).
+**Reversibility**: reversible (Redis store-a keçid asandır — middleware interfeysi saxlanır)

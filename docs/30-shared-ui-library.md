@@ -55,7 +55,7 @@ ehtiyac yox.
 
 ```
 packages/ui/src/
-├── styles/index.css        # tam tema (violet, dark-siz, 850+ sətir)
+├── styles/index.css        # tam tema (violet, dark-siz, ~830 sətir)
 ├── i18n.ts                 # i18next shim (@/i18n import-ı üçün)
 ├── index.ts                # barrel export
 └── shared/
@@ -74,6 +74,11 @@ həll olunur. App-lər `dist`-i import edir (source-first deyil).
 pnpm --filter @aibaycan/ui build      # tsup
 pnpm --filter @aibaycan/ui typecheck  # tsc
 ```
+
+> ⚠️ **Operasional tələb:** Təmiz clone / ilk `pnpm install` sonrası app dev-dən əvvəl
+> `pnpm --filter @aibaycan/ui build` (və ya `pnpm --recursive build`) çağırılmalıdır —
+> əks halda `dist/` boş olur və web/admin `@aibaycan/ui`-ni həll edə bilmir.
+> Aktiv işdə `pnpm --filter @aibaycan/ui dev` (tsup `--watch`) dəyişiklikləri izləyir.
 
 ## İmport nümunəsi
 

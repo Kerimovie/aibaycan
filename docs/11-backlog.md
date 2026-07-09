@@ -9,13 +9,13 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 - [x] `apps/api` (Hono + auth), `apps/web` (Next 16 + i18n), `apps/admin` (Vite)
 - [x] Docker Postgres + migrate + seed + uçdan-uca auth testi
 
-## Faza 1 — Lead-gen nüvəsi (növbəti)
+## Faza 1 — Lead-gen nüvəsi (tamamlandı ✅)
 
 - [x] **Schema dizaynı** — Faza 1 entity-ləri (CaseStudy+blocks, Category, Tag, Service↔CaseStudy, Lead, MediaAsset), migrate ✅ (migrate + seed test edildi)
-- [x] **Media** — MediaAsset entity + admin list/delete ✅ (R2 upload hələ qalıb)
+- [x] **Media** — MediaAsset entity + admin list/delete ✅ (R2 upload aşağıda tamamlandı)
 - [x] **Work CRUD** — API + admin CRUD UI (m2m, switch, multi-select) ✅
 - [x] **Services** — genişləndi + CaseStudy cross-link + admin CRUD ✅
-- [x] **Lead** — admin inbox + status ✅; **web form** (honeypot) ✅; email bildiriş qalıb
+- [x] **Lead** — admin inbox + status ✅; **web form** (honeypot) ✅; email bildiriş aşağıda tamamlandı
 - [x] **Web** — case-study listing + detal (block render) + lead formu ✅
 - [x] **R2 upload** — presigned URL axını (env + client + upload-url API + admin upload UI) ✅ (kod hazır; real R2 credentials .env-də lazım)
 - [x] **Adminlər səhifəsi** — admin CRUD (rol, argon2 parol, öz-hesab qorunması, ADMIN-only) ✅
@@ -35,6 +35,6 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 
 ## Texniki borc / sonra
 
-- [ ] Login rate-limit (brute-force qorunma — docs/05 TODO)
+- [x] Login + lead rate-limit ✅ (IP üzrə: login 10/15dəq, leads 10/10dəq; 429 + Retry-After — `apps/api/src/lib/rate-limit.ts`, docs/16, decisions #019)
 - [ ] Production deploy (host, reverse proxy, TLS, backup — docs/14 TODO)
 - [x] E2E testlər ✅ (Playwright, ayrıca test DB, 11 test: auth/CRUD/lead form/kontent/GDPR — 2 real bug tapdı)

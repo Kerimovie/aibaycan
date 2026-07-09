@@ -45,7 +45,7 @@ Border:      #f3f3f3   (default), input #e9edf6
 ```
 ┌──────────────┬────────────────────────────────────────┐
 │              │  Header (60px, ağ)                      │
-│  Sidebar     │  axtarış · dil · dark-mode · avatar     │
+│  Sidebar     │  axtarış · avatar+ad+rol · logout       │
 │  (240px,     ├────────────────────────────────────────┤
 │   #111c43)   │  Səhifə başlığı ····· breadcrumb (sağ)  │
 │              │                                         │
@@ -64,14 +64,18 @@ Border:      #f3f3f3   (default), input #e9edf6
 - Genişlənən alt-menular (collapse).
 
 ### Header (60px, ağ)
-- Sol: sidebar toggle (hamburger).
-- Sağ: axtarış ikonu · dil · dark-mode toggle · notification (badge) · avatar+ad+rol.
+- Sol: axtarış (Search ikon + `search` input placeholder). *(sidebar toggle hələ yoxdur.)*
+- Sağ: avatar (email baş hərfi) + ad (email) + rol · logout düyməsi (LogOut ikon).
+- Real koda uyğun (`apps/admin/src/components/header.tsx`): yalnız axtarış + istifadəçi + logout.
+- **Planlaşdırılan (hələ yoxdur):** dil dəyişdirici · notification badge. **Dark-mode toggle YOX** (dark mode tam silindi — bax #014 / [doc 30](./30-shared-ui-library.md)).
 
 ### Səhifə başlığı zolağı
 - Sol: səhifə başlığı (böyük, qalın).
 - Sağ: breadcrumb (`Bölmə » Cari səhifə`).
 
-## Komponentlər (packages/ui-də qurulacaq / genişlənəcək)
+## Komponentlər (packages/ui-də — tamamlandı ✅)
+
+> Bu komponentlər `packages/ui`-də **artıq mövcuddur** (etehsil əsaslı, ~30 komponent — bax [doc 30](./30-shared-ui-library.md) barrel export). Aşağıdakı cədvəl admin stil referansıdır.
 
 | Komponent | Stil |
 |-----------|------|
@@ -91,8 +95,7 @@ Border:      #f3f3f3   (default), input #e9edf6
 
 ## Dark mode
 
-Ynex `html.light` / `html.dark` ilə tema dəyişir. Bizim admin də dark mode dəstəkləyəcək
-(Tailwind 4 `dark:` variant + `data-theme`). MVP-də light kifayətdir, dark sonra.
+**Silindi.** Admin yalnız light-dır — heç bir `dark:` variant / `.dark` selector yoxdur. Bax #014 / [doc 30 → Dark mode QADAĞAN](./30-shared-ui-library.md).
 
 ## İkonlar
 
@@ -100,11 +103,11 @@ Ynex `ti-` (Tabler-bənzər) icon font istifadə edir. Biz vendor icon-font gət
 əvəzinə **lucide-react** (React 19 uyğun, tree-shakeable, oxşar xətt-stili) istifadə
 edəcəyik — eyni vizual dil, təmiz React inteqrasiyası.
 
-## Tətbiq planı (admin panel — web-dən ƏVVƏL)
+## Tətbiq planı (admin panel — web-dən ƏVVƏL) — tamamlandı ✅
 
-1. `packages/ui` genişlət — dizayn tokenləri (violet tema) + Box, Button variant-ları, Input, Badge, Table.
-2. `apps/admin` shell — Ynex layout (dark sidebar + header + başlıq zolağı).
-3. Login səhifəsini signin-cover pattern-ə uyğunlaşdır.
-4. Dashboard/list/form səhifələrini Ynex komponent stilində qur (Faza 1 CRUD gələndə).
+Faza 1+2+3 bitib; addımların hamısı icra olundu:
 
-Web tərəf admin bitəndən SONRA (istifadəçi qərarı).
+1. ✅ `packages/ui` — dizayn tokenləri (violet tema) + Box, Button variant-ları, Input, Badge, Table (~30 komponent).
+2. ✅ `apps/admin` shell — Ynex layout (dark sidebar + light header + başlıq zolağı).
+3. ✅ Login səhifəsi signin-cover pattern-ə uyğunlaşdırıldı.
+4. ✅ Dashboard/list/form səhifələri Ynex komponent stilində quruldu (Faza 1 CRUD).

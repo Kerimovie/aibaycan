@@ -62,9 +62,15 @@ Cavab: `Paginated<T>` — `{ items, page, pageSize, total, totalPages }`.
 
 ## Naming
 
-- Resurs yolları cəm, kiçik hərf: `/case-studies`, `/services`, `/categories`, `/tags`, `/media`, `/leads`.
-- Admin route-ları `/admin/*` altında, auth arxasında.
-- İctimai read-only route-lar auth-suz (yalnız `published` kontent).
+- Resurs yolları cəm, kiçik hərf.
+- İctimai read-only route-lar auth-suz (yalnız `published` kontent) — `apps/api/src/routes/public.ts`:
+  `/case-studies`, `/services`, `/posts`, `/testimonials`, `/clients`, `/team` (hamısı `GET`),
+  `/leads` (`POST` — əlaqə formu).
+- Admin route-ları `/admin/*` altında, auth arxasında — `apps/api/src/routes/admin/index.ts`:
+  `/case-studies`, `/services`, `/posts`, `/testimonials`, `/clients`, `/team`, `/leads` üstünə
+  `/categories`, `/tags`, `/media`, `/admins` də (hamısı CRUD).
+
+> **Health:** `GET /health` (auth-suz, `/api` prefiksindən kənar, `apps/api/src/app.ts:25`).
 
 ## Versiyalama
 

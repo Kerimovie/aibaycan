@@ -21,10 +21,12 @@ Lead-gen-in əsası. Kontent **block-based** (docs/09 #010).
 | `blocks` | **JSON** — richText/image/gallery/video/quote/metrics/twoColumn. Struktur Zod-da (packages/shared) |
 | `coverImageId` → `MediaAsset` | Qapaq (relation, SetNull) |
 | `liveUrl`, `repoUrl` | Xarici linklər |
+| `completedAt` | İşin bitmə tarixi (`DateTime?`, opsional) |
 | `featured`, `published`, `order` | Görünürlük/sıralama |
 | `metaTitle`, `metaDescription` | SEO |
 
 **Əlaqələr (m2m):** `categories` (Category), `tags` (Tag), `services` (Service).
+**Əlaqələr (1-to-many):** `testimonials` (Testimonial — opsional geri-əlaqə).
 **İndekslər:** `(published, featured)`, `(order)`.
 
 ### Category + Tag (ortaq taksonomiya)
@@ -97,7 +99,7 @@ Zəngin, `ContactMessage`-i əvəz edir.
 - **Client** — name, logo? (MediaAsset), websiteUrl?, published, order (loqo divarı).
 - **TeamMember** — name, role, bio?, photo? (MediaAsset), socials (JSON), published, order.
 
-MediaAsset-ə geri-əlaqələr: `photoForTestimonials`, `logoForClients`, `photoForTeam`.
+MediaAsset-ə geri-əlaqələr: `coverForCaseStudies`, `photoForTestimonials`, `logoForClients`, `photoForTeam`, `coverForPosts`.
 
 ## Faza 3 entity-ləri (əlavə olundu)
 

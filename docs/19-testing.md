@@ -9,9 +9,12 @@ Test piramidası (CLAUDE.md): **unit (70%) → integration (20%) → E2E (10%)**
 | `packages/shared` | Zod sxemləri (blocks discriminated union, lead honeypot), util-lər (slugify) |
 | `apps/api` | App skeleton (health/404/401/validation envelope), `escapeHtml` (HTML injection), email no-op |
 
+Unit testi olan paketlər: **`@aibaycan/api`** və **`@aibaycan/shared`** (yalnız bu ikisində `test` skripti var). Kök `pnpm test` recursive-dir — test skripti olmayan paketləri ötür.
+
 ```bash
-pnpm test                    # bütün paketlər
+pnpm test                        # recursive (yalnız api + shared qaçır)
 pnpm --filter @aibaycan/api test
+pnpm --filter @aibaycan/shared test
 ```
 
 ## E2E (Playwright)
