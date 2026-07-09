@@ -19,7 +19,6 @@ interface Props {
 }
 
 const EMPTY: FormInput = {
-  slug: '',
   title: '',
   summary: '',
   blocks: [],
@@ -46,7 +45,6 @@ export function CaseStudyFormModal({ open, onClose, editing }: Props) {
       form.reset(
         editing
           ? {
-              slug: editing.slug,
               title: editing.title,
               tagline: editing.tagline,
               summary: editing.summary,
@@ -82,14 +80,9 @@ export function CaseStudyFormModal({ open, onClose, editing }: Props) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormRootError form={form} />
-          <div className="grid grid-cols-2 gap-4">
-            <Field name="title" label="Başlıq" required>
-              <Input placeholder="Layihə adı" />
-            </Field>
-            <Field name="slug" label="Slug" required>
-              <Input placeholder="layihe-adi" />
-            </Field>
-          </div>
+          <Field name="title" label="Başlıq" required>
+            <Input placeholder="Layihə adı" />
+          </Field>
           <Field name="tagline" label="Tagline">
             <Input placeholder="Qısa alt-başlıq" />
           </Field>

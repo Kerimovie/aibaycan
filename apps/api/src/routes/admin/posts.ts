@@ -10,6 +10,7 @@ import {
 import { prisma } from '@aibaycan/db';
 import { Hono } from 'hono';
 import { asDelegate, listPaginated } from '../../lib/crud.js';
+import { asSlugModel, ensureUniqueSlug } from '../../lib/slug.js';
 import { HttpError } from '../../lib/http.js';
 import { valid, validate } from '../../lib/validate.js';
 import type { AppEnv } from '../../types.js';
@@ -43,9 +44,12 @@ adminPostRoutes.get('/:id', async (c) => {
 
 adminPostRoutes.post('/', validate('json', postCreateSchema), async (c) => {
   const { categoryIds, tagIds, blocks, ...rest } = valid<PostCreateInput>(c, 'json');
+  // Slug gizli — başlıqdan avtomatik, server unikallıq təmin edir (lib/slug)
+  const slug = await ensureUniqueSlug(asSlugModel(prisma.post), rest.title);
   const created = await prisma.post.create({
     data: {
       ...rest,
+      slug,
       blocks: blocks as object[],
       categories: connectIds(categoryIds),
       tags: connectIds(tagIds),

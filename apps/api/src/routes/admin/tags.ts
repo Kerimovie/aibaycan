@@ -10,6 +10,7 @@ import {
 import { prisma } from '@aibaycan/db';
 import { Hono } from 'hono';
 import { asDelegate, listPaginated } from '../../lib/crud.js';
+import { asSlugModel, ensureUniqueSlug } from '../../lib/slug.js';
 import { HttpError } from '../../lib/http.js';
 import { valid, validate } from '../../lib/validate.js';
 import type { AppEnv } from '../../types.js';
@@ -30,7 +31,9 @@ adminTagRoutes.get('/:id', async (c) => {
 
 adminTagRoutes.post('/', validate('json', tagCreateSchema), async (c) => {
   const input = valid<TagCreateInput>(c, 'json');
-  const created = await prisma.tag.create({ data: input });
+  // Slug gizli — addan avtomatik, server unikallıq təmin edir (lib/slug)
+  const slug = await ensureUniqueSlug(asSlugModel(prisma.tag), input.name);
+  const created = await prisma.tag.create({ data: { ...input, slug } });
   return c.json(ok(created), 201);
 });
 

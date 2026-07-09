@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
-const API_URL = process.env.API_URL ?? 'http://localhost:3001';
+const API_URL = process.env.API_URL ?? 'http://localhost:7302';
 
 const nextConfig: NextConfig = {
   // Monorepo paketlərini transpile et (@aibaycan/shared)

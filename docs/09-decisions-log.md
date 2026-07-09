@@ -123,3 +123,19 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Plausible (cookie-siz, banner lazım deyil, pullu), hər ikisi.
 **Tradeoff**: GA4 pulsuz + güclü (funnel, Google Ads) — müqabilində cookie banner məcburiyyəti, ağır script, privacy narahatlığı. Consent olmadan GA4 yüklənmir (kod səviyyəsində zəmanət), bu, hüquqi tələbdir.
 **Reversibility**: reversible (Plausible-a keçid asandır — analytics.ts abstraksiyası var)
+
+## #016 — Slug: avtomatik + gizli + server unikallıq
+**Date**: 2026-07-09
+**Context**: Slug hər admin formasında əl ilə yazılırdı — səhv riski, təkrar iş, konflikt.
+**Decision**: Slug admin panelində GİZLİDİR — server başlıq/addan avtomatik yaradır (`slugify`, AZ hərfləri ASCII-yə). Unikallıq server tərəfdə suffikslə (`veb`, `veb-2`, `veb-3`) — mərkəzi `lib/slug.ts` (CLAUDE.md #070). Slug Zod create/update sxemlərindən silindi. **Update-də slug DƏYİŞMİR** (URL qorunur).
+**Alternatives**: Görünən amma avtomatik doldurulan slug; CONFLICT xətası göstərmək.
+**Tradeoff**: İstifadəçi slug-a nəzarət etmir — müqabilində səhv riski sıfır, konflikt heç olmur. Slug lazım olsa DB-də əl ilə dəyişilə bilər.
+**Reversibility**: reversible (sahə yenidən göstərilə bilər)
+
+## #017 — Lokal dev portları: 7301/7302/7303
+**Date**: 2026-07-09
+**Context**: Standart portlar (3000/3001/5173) başqa layihələrlə toqquşurdu.
+**Decision**: web=7301, api=7302, admin=7303. E2E ayrıca (3100/3101/3102). 7300 lokal Postgres tərəfindən tutulub.
+**Alternatives**: Standart portlarda qalmaq.
+**Tradeoff**: Yadda saxlamaq lazımdır — müqabilində toqquşma yoxdur.
+**Reversibility**: reversible

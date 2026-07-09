@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port ${PORT:-7301}",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port ${PORT:-7301}",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
   },

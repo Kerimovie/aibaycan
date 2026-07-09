@@ -1,12 +1,11 @@
 import * as z from 'zod';
-import { idSchema, nonEmptyString, slugSchema } from './common';
+import { idSchema, nonEmptyString } from './common';
 
 /**
  * Service create/update inputları.
  * Mənbə entity: packages/db Service modeli (docs/07).
  */
 export const serviceCreateSchema = z.object({
-  slug: slugSchema,
   title: nonEmptyString.max(200),
   description: nonEmptyString,
   icon: z.string().trim().nullish(),

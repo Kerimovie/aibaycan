@@ -30,9 +30,9 @@ Production-da `SEED_ADMIN_EMAIL` + `SEED_ADMIN_PASSWORD` env ilə override et.
 ### Servisləri işə salmaq
 
 ```bash
-pnpm --filter @aibaycan/api dev     # http://localhost:3001
-pnpm --filter @aibaycan/web dev     # http://localhost:3000
-pnpm --filter @aibaycan/admin dev   # http://localhost:5173
+pnpm --filter @aibaycan/api dev     # http://localhost:7302
+pnpm --filter @aibaycan/web dev     # http://localhost:7301
+pnpm --filter @aibaycan/admin dev   # http://localhost:7303
 ```
 
 Və ya kökdən hamısı: `pnpm dev`.

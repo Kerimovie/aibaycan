@@ -10,6 +10,7 @@ import {
 import { prisma } from '@aibaycan/db';
 import { Hono } from 'hono';
 import { asDelegate, listPaginated } from '../../lib/crud.js';
+import { asSlugModel, ensureUniqueSlug } from '../../lib/slug.js';
 import { HttpError } from '../../lib/http.js';
 import { valid, validate } from '../../lib/validate.js';
 import type { AppEnv } from '../../types.js';
@@ -32,8 +33,10 @@ adminServiceRoutes.get('/:id', async (c) => {
 
 adminServiceRoutes.post('/', validate('json', serviceCreateSchema), async (c) => {
   const { caseStudyIds, ...data } = valid<ServiceCreateInput>(c, 'json');
+  // Slug gizli — başlıqdan avtomatik, server unikallıq təmin edir (lib/slug)
+  const slug = await ensureUniqueSlug(asSlugModel(prisma.service), data.title);
   const created = await prisma.service.create({
-    data: { ...data, caseStudies: { connect: caseStudyIds.map((id) => ({ id })) } },
+    data: { ...data, slug, caseStudies: { connect: caseStudyIds.map((id) => ({ id })) } },
     include,
   });
   return c.json(ok(created), 201);

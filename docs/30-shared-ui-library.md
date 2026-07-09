@@ -27,6 +27,13 @@ istifadə olunmur. Həmişə `@aibaycan/ui` komponentləri:
 İşdən əvvəl `@aibaycan/ui` export-larını yoxla (`packages/ui/src/index.ts`).
 Varsa işlət; yoxdursa əvvəl `packages/ui`-ə əlavə et, sonra işlət.
 
+### ⛔ Slug əl ilə yazılmır
+
+Slug heç bir admin formasında göstərilmir. Server başlıq/addan avtomatik yaradır
+(`apps/api/src/lib/slug.ts` → `ensureUniqueSlug`), unikallığı suffikslə təmin edir
+(`veb`, `veb-2`). **Update-də slug dəyişmir** — URL qorunur. Yeni slug-lı entity
+əlavə edəndə `ensureUniqueSlug` istifadə et (bax qərar 09 #016).
+
 ### ⛔ Dark mode QADAĞAN
 
 Heç bir `dark:` variant, `.dark` selector, dark token branch. Yalnız light.

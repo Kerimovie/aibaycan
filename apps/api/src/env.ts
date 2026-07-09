@@ -8,11 +8,11 @@ import * as z from 'zod';
  */
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
-  PORT: z.coerce.number().int().positive().default(3001),
+  PORT: z.coerce.number().int().positive().default(7302),
   DATABASE_URL: z.string().min(1, 'DATABASE_URL tələb olunur'),
   JWT_SECRET: z.string().min(32, 'JWT_SECRET ən azı 32 simvol olmalıdır'),
   // Vergüllə ayrılmış icazəli origin-lər (CORS) — admin/web frontend URL-ləri
-  CORS_ORIGINS: z.string().default('http://localhost:3000,http://localhost:5173'),
+  CORS_ORIGINS: z.string().default('http://localhost:7301,http://localhost:7303'),
 
   // Cloudflare R2 (media upload) — opsional: yoxdursa server qalxır, yalnız upload işləməz.
   R2_ACCOUNT_ID: z.string().optional(),

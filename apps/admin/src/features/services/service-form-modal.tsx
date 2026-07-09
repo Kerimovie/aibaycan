@@ -24,7 +24,7 @@ export function ServiceFormModal({ open, onClose, editing }: Props) {
 
   const form = useForm<FormInput, unknown, ServiceCreateInput>({
     resolver: zodResolver(serviceCreateSchema),
-    defaultValues: { slug: '', title: '', description: '', icon: null, published: false, order: 0, caseStudyIds: [] },
+    defaultValues: { title: '', description: '', icon: null, published: false, order: 0, caseStudyIds: [] },
   });
 
   useEffect(() => {
@@ -32,7 +32,6 @@ export function ServiceFormModal({ open, onClose, editing }: Props) {
       form.reset(
         editing
           ? {
-              slug: editing.slug,
               title: editing.title,
               description: editing.description,
               icon: editing.icon,
@@ -40,7 +39,7 @@ export function ServiceFormModal({ open, onClose, editing }: Props) {
               order: editing.order,
               caseStudyIds: editing.caseStudies?.map((cs) => cs.id) ?? [],
             }
-          : { slug: '', title: '', description: '', icon: null, published: false, order: 0, caseStudyIds: [] },
+          : { title: '', description: '', icon: null, published: false, order: 0, caseStudyIds: [] },
       );
     }
   }, [open, editing, form]);
@@ -62,9 +61,6 @@ export function ServiceFormModal({ open, onClose, editing }: Props) {
           <FormRootError form={form} />
           <Field name="title" label="Başlıq" required>
             <Input placeholder="Veb Development" />
-          </Field>
-          <Field name="slug" label="Slug" required>
-            <Input placeholder="web-development" />
           </Field>
           <Field name="description" label="Təsvir" required>
             <Textarea rows={3} placeholder="Xidmətin təsviri" />

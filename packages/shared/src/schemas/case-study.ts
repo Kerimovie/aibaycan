@@ -1,6 +1,6 @@
 import * as z from 'zod';
 import { blocksSchema } from './blocks';
-import { idSchema, nonEmptyString, slugSchema } from './common';
+import { idSchema, nonEmptyString } from './common';
 
 /**
  * CaseStudy create/update inputları (docs/07).
@@ -8,7 +8,6 @@ import { idSchema, nonEmptyString, slugSchema } from './common';
  * m2m əlaqələr id massivi kimi ötürülür.
  */
 export const caseStudyCreateSchema = z.object({
-  slug: slugSchema,
   title: nonEmptyString.max(200),
   tagline: nonEmptyString.max(300).nullish(),
   summary: nonEmptyString.max(500),

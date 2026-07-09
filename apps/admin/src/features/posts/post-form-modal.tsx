@@ -19,7 +19,6 @@ interface Props {
 }
 
 const EMPTY: FormInput = {
-  slug: '',
   title: '',
   excerpt: '',
   blocks: [],
@@ -43,7 +42,6 @@ export function PostFormModal({ open, onClose, editing }: Props) {
       form.reset(
         editing
           ? {
-              slug: editing.slug,
               title: editing.title,
               excerpt: editing.excerpt,
               blocks: editing.blocks as FormInput['blocks'],
@@ -79,14 +77,9 @@ export function PostFormModal({ open, onClose, editing }: Props) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormRootError form={form} />
-          <div className="grid grid-cols-2 gap-4">
-            <Field name="title" label="Başlıq" required>
-              <Input placeholder="Məqalə başlığı" />
-            </Field>
-            <Field name="slug" label="Slug" required>
-              <Input placeholder="meqale-basligi" />
-            </Field>
-          </div>
+          <Field name="title" label="Başlıq" required>
+            <Input placeholder="Məqalə başlığı" />
+          </Field>
           <Field name="excerpt" label="Xülasə" required>
             <Textarea rows={2} placeholder="Listing üçün qısa təsvir" />
           </Field>

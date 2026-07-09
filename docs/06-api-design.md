@@ -49,6 +49,12 @@ Bütün cavablar vahid zərfə bükülür (`packages/shared` → `ApiResponse<T>
 
 Hər boundary-də **Zod** (CLAUDE.md sərt qaydası). Sxemlər `packages/shared/src/schemas`-də — həm API, həm frontend eyni sxemi istifadə edir. Create/update inputları entity başına ayrıca sxem (`projectCreateSchema`, `projectUpdateSchema` və s.).
 
+## Slug
+
+Slug client-dən GÖNDƏRİLMİR — server `title`/`name`-dən avtomatik yaradır
+(`ensureUniqueSlug`, unikal suffiks). Create sxemlərində `slug` sahəsi yoxdur.
+Update slug-a toxunmur (URL sabit qalır). Bax qərar [09](./09-decisions-log.md) #016.
+
 ## Səhifələmə
 
 Query: `?page=1&pageSize=20` (`paginationQuerySchema`, default 1/20, max pageSize 100).

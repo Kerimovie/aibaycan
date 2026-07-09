@@ -24,12 +24,12 @@ export function TagFormModal({ open, onClose, editing }: Props) {
 
   const form = useForm<FormInput, unknown, TagCreateInput>({
     resolver: zodResolver(tagCreateSchema),
-    defaultValues: { slug: '', name: '' },
+    defaultValues: { name: '' },
   });
 
   useEffect(() => {
     if (open) {
-      form.reset(editing ? { slug: editing.slug, name: editing.name } : { slug: '', name: '' });
+      form.reset(editing ? { name: editing.name } : { name: '' });
     }
   }, [open, editing, form]);
 
@@ -50,9 +50,6 @@ export function TagFormModal({ open, onClose, editing }: Props) {
           <FormRootError form={form} />
           <Field name="name" label="Ad" required>
             <Input placeholder="Next.js" />
-          </Field>
-          <Field name="slug" label="Slug" required>
-            <Input placeholder="nextjs" />
           </Field>
           <div className="flex justify-end gap-2 pt-2">
             <Button type="button" variant="secondary" onClick={onClose}>

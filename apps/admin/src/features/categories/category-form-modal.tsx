@@ -26,7 +26,7 @@ export function CategoryFormModal({ open, onClose, editing }: Props) {
 
   const form = useForm<FormInput, unknown, CategoryCreateInput>({
     resolver: zodResolver(categoryCreateSchema),
-    defaultValues: { slug: '', name: '', description: null, order: 0 },
+    defaultValues: { name: '', description: null, order: 0 },
   });
 
   useEffect(() => {
@@ -34,12 +34,11 @@ export function CategoryFormModal({ open, onClose, editing }: Props) {
       form.reset(
         editing
           ? {
-              slug: editing.slug,
               name: editing.name,
               description: editing.description,
               order: editing.order,
             }
-          : { slug: '', name: '', description: null, order: 0 },
+          : { name: '', description: null, order: 0 },
       );
     }
   }, [open, editing, form]);
@@ -68,9 +67,6 @@ export function CategoryFormModal({ open, onClose, editing }: Props) {
           <FormRootError form={form} />
           <Field name="name" label="Ad" required>
             <Input placeholder="Veb" />
-          </Field>
-          <Field name="slug" label="Slug" required>
-            <Input placeholder="veb" />
           </Field>
           <Field name="description" label="Təsvir">
             <Textarea rows={3} placeholder="Qısa təsvir (opsional)" />

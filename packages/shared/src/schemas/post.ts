@@ -1,13 +1,12 @@
 import * as z from 'zod';
 import { blocksSchema } from './blocks';
-import { idSchema, nonEmptyString, slugSchema } from './common';
+import { idSchema, nonEmptyString } from './common';
 
 /**
  * Post (blog məqaləsi) create/update — CaseStudy ilə eyni block sistemi (docs/28).
  * m2m əlaqələr id massivi kimi ötürülür.
  */
 export const postCreateSchema = z.object({
-  slug: slugSchema,
   title: nonEmptyString.max(200),
   excerpt: nonEmptyString.max(500),
 

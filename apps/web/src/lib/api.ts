@@ -1,6 +1,6 @@
 import type { ApiResponse, Blocks, Paginated } from '@aibaycan/shared';
 
-const API_URL = process.env.API_URL ?? 'http://localhost:3001';
+const API_URL = process.env.API_URL ?? 'http://localhost:7302';
 
 export interface PublicTaxonomy {
   id: string;
