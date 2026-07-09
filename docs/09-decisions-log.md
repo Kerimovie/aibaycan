@@ -67,3 +67,35 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Tailwind 3 (JS config), statik mock data.
 **Tradeoff**: Tailwind 4 CSS-first yeni yanaşmadır (öyrənmə) — müqabilində sürətli, config-siz. API-dən data = admin panel kontenti idarə edə bilir.
 **Reversibility**: one-way (framework), reversible (data mənbəyi)
+
+## #009 — Biznes məqsədi: lead-gen platforması (fazalı)
+**Date**: 2026-07-09
+**Context**: Sayt sadə portfolio kimi başladı; müzakirədə əsl məqsəd aydınlaşdı.
+**Decision**: Lead-generasiya edən böyük kontent platforması. 8 modul 3 fazaya bölünür (bax [28](./28-module-map.md)): Faza 1 nüvə (Work/Services/Lead/Media), Faza 2 konversiya (Testimonials/Team/SEO), Faza 3 authority (Blog/Analytics).
+**Alternatives**: Bütün modulları bir anda qurmaq.
+**Tradeoff**: Fazalı = nüvə tez canlıya çıxır, dəyər tez gəlir; hər şeyi bir anda = gec canlıya çıxış, lead gecikir. Modullar itmir, yalnız sıralanır.
+**Reversibility**: reversible (faza sırası dəyişə bilər)
+
+## #010 — Case-study: flexible block-based content
+**Date**: 2026-07-09
+**Context**: Böyük platform üçün case-study kontent modeli lazım.
+**Decision**: Flexible block-based (JSON `blocks` — richText/image/gallery/video/quote/metrics/twoColumn). Blog `Post` eyni sistemi təkrar istifadə edəcək.
+**Alternatives**: Sabit sahələr (challenge/approach/result), tək rich-text.
+**Tradeoff**: Admin editoru daha mürəkkəb — müqabilində elastik, güclü kontent (Sanity/Contentful pattern). Sabit sahələrdən block-based-ə sonrakı miqrasiya ağrılı olardı.
+**Reversibility**: one-way (kontent modeli köçürməsi bahalıdır)
+
+## #011 — Media storage: Cloudflare R2
+**Date**: 2026-07-09
+**Context**: Case-study/blog ağır şəkil-video kontentə malikdir.
+**Decision**: Cloudflare R2 (S3-uyğun). DB-də yalnız URL + metadata (`MediaAsset`), fayl R2-də.
+**Alternatives**: Cloudinary (hazır optimizasiya, vendor-lock), AWS S3 (egress pullu), DB-də saxlama (anti-pattern).
+**Tradeoff**: Image resize/optimizasiyanı özümüz qururuq — müqabilində ucuz (egress pulsuz), vendor-lock az. DB-də fayl saxlamaq heç vaxt.
+**Reversibility**: reversible (URL-abstrakt qat, provider dəyişə bilər)
+
+## #012 — Category/Tag ortaq (CaseStudy + Post)
+**Date**: 2026-07-09
+**Context**: Həm case-study, həm blog filtr/təsnifat tələb edir.
+**Decision**: `Category` və `Tag` entity-ləri həm CaseStudy, həm Post arasında paylaşılır (təkrar etməmək üçün).
+**Alternatives**: Hər tip üçün ayrı kateqoriya sistemi.
+**Tradeoff**: Ortaq = az təkrar, vahid filtr; müqabilində iki fərqli kontent tipinin təsnifatı qarışa bilər (polymorphic əlaqə diqqət tələb edir).
+**Reversibility**: reversible
