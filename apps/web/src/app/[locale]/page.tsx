@@ -19,12 +19,12 @@ export default async function HomePage({ params }: Props) {
       {/* Hero */}
       <section className="py-20 text-center">
         <h1 className="text-4xl font-bold sm:text-5xl">{t('hero.title')}</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-600">
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
           {t('hero.subtitle')}
         </p>
         <Link
           href="/projects"
-          className="mt-8 inline-flex rounded-lg bg-brand px-6 py-3 text-lg font-medium text-white transition-colors hover:bg-brand-dark"
+          className="mt-8 inline-flex rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white transition-colors hover:bg-primary-700"
         >
           {t('hero.cta')}
         </Link>
@@ -34,7 +34,7 @@ export default async function HomePage({ params }: Props) {
       <section className="py-12">
         <h2 className="mb-6 text-2xl font-semibold">{t('featured.title')}</h2>
         {projects.length === 0 ? (
-          <p className="text-neutral-500">{t('featured.empty')}</p>
+          <p className="text-text-tertiary">{t('featured.empty')}</p>
         ) : (
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p) => (
@@ -53,7 +53,7 @@ export default async function HomePage({ params }: Props) {
       <section id="services" className="py-12">
         <h2 className="mb-6 text-2xl font-semibold">{t('services.title')}</h2>
         {!services || services.length === 0 ? (
-          <p className="text-neutral-500">{t('services.empty')}</p>
+          <p className="text-text-tertiary">{t('services.empty')}</p>
         ) : (
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (

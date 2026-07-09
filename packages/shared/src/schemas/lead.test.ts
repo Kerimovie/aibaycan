@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { leadCreateSchema } from './lead.js';
+import { leadCreateSchema } from './lead';
 
 describe('leadCreateSchema', () => {
   const valid = {

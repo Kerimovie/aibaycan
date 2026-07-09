@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { nonEmptyString } from './common.js';
+import { nonEmptyString } from './common';
 
 /** Prisma LeadStatus enum ilə sinxron (docs/07) */
 export const leadStatusSchema = z.enum(['NEW', 'CONTACTED', 'QUALIFIED', 'WON', 'LOST']);

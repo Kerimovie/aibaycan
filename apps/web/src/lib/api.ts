@@ -1,6 +1,12 @@
-import type { ApiResponse, Paginated } from '@aibaycan/shared';
+import type { ApiResponse, Blocks, Paginated } from '@aibaycan/shared';
 
 const API_URL = process.env.API_URL ?? 'http://localhost:3001';
+
+export interface PublicTaxonomy {
+  id: string;
+  slug: string;
+  name: string;
+}
 
 /** İctimai case-study tipi — API cavab formatı (DB-dən müstəqil) */
 export interface PublicCaseStudy {
@@ -15,6 +21,15 @@ export interface PublicCaseStudy {
   repoUrl: string | null;
   featured: boolean;
   completedAt: string | null;
+  categories: PublicTaxonomy[];
+  tags: PublicTaxonomy[];
+}
+
+/** Case-study detalı — əlavə olaraq blocks + services */
+export interface PublicCaseStudyDetail extends PublicCaseStudy {
+  blocks: Blocks;
+  projectYear: number | null;
+  services?: { id: string; slug: string; title: string }[];
 }
 
 export interface PublicService {
@@ -48,6 +63,10 @@ async function apiGet<T>(path: string, revalidateSec = 60): Promise<T | null> {
 
 export function getCaseStudies(): Promise<Paginated<PublicCaseStudy> | null> {
   return apiGet<Paginated<PublicCaseStudy>>('/api/case-studies');
+}
+
+export function getCaseStudy(slug: string): Promise<PublicCaseStudyDetail | null> {
+  return apiGet<PublicCaseStudyDetail>(`/api/case-studies/${slug}`);
 }
 
 export function getServices(): Promise<PublicService[] | null> {

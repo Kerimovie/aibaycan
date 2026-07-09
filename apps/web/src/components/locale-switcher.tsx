@@ -30,8 +30,8 @@ export function LocaleSwitcher() {
           aria-current={loc === locale ? 'true' : undefined}
           className={
             loc === locale
-              ? 'font-semibold text-brand'
-              : 'text-neutral-500 hover:text-neutral-900'
+              ? 'font-semibold text-primary'
+              : 'text-text-tertiary hover:text-text-primary'
           }
         >
           {LABELS[loc]}

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { nonEmptyString, slugSchema } from './common.js';
+import { nonEmptyString, slugSchema } from './common';
 
 /** Category create/update (docs/07) */
 export const categoryCreateSchema = z.object({

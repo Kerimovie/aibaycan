@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { idSchema, nonEmptyString, slugSchema } from './common.js';
+import { idSchema, nonEmptyString, slugSchema } from './common';
 
 /**
  * Service create/update inputları.

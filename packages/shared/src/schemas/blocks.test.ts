@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { blocksSchema, contentBlockSchema } from './blocks.js';
+import { blocksSchema, contentBlockSchema } from './blocks';
 
 describe('contentBlockSchema (discriminated union)', () => {
   it('düzgün richText block qəbul edir', () => {

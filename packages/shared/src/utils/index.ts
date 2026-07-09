@@ -1,2 +1,2 @@
-export * from './slug.js';
-export * from './api-response.js';
+export * from './slug';
+export * from './api-response';

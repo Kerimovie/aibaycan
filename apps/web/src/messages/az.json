@@ -24,7 +24,27 @@
     "title": "İşlərimiz",
     "empty": "Hələ layihə yoxdur.",
     "viewLive": "Canlı bax",
-    "viewRepo": "Kod"
+    "viewRepo": "Kod",
+    "allCategories": "Hamısı",
+    "backToList": "İşlərə qayıt",
+    "client": "Müştəri",
+    "year": "İl",
+    "notFound": "İş tapılmadı"
+  },
+  "contact": {
+    "title": "Əlaqə",
+    "subtitle": "Layihəniz haqqında danışaq.",
+    "name": "Ad",
+    "email": "Email",
+    "phone": "Telefon",
+    "company": "Şirkət",
+    "interestedIn": "Maraqlandığınız xidmət",
+    "budgetRange": "Büdcə aralığı",
+    "message": "Mesaj",
+    "submit": "Göndər",
+    "sending": "Göndərilir…",
+    "success": "Sorğunuz göndərildi. Tezliklə əlaqə saxlayacağıq.",
+    "error": "Göndərilmədi. Yenidən cəhd edin."
   },
   "common": {
     "loading": "Yüklənir…",

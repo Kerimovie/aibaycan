@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { nonEmptyString } from './common.js';
+import { nonEmptyString } from './common';
 
 /** Prisma MediaType enum ilə sinxron (docs/07) */
 export const mediaTypeSchema = z.enum(['IMAGE', 'VIDEO', 'DOCUMENT']);

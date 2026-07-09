@@ -15,9 +15,10 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 - [x] **Media** — MediaAsset entity + admin list/delete ✅ (R2 upload hələ qalıb)
 - [x] **Work CRUD** — API + admin CRUD UI (m2m, switch, multi-select) ✅
 - [x] **Services** — genişləndi + CaseStudy cross-link + admin CRUD ✅
-- [~] **Lead** — admin inbox + status ✅; web form + email bildiriş qalıb
+- [x] **Lead** — admin inbox + status ✅; **web form** (honeypot) ✅; email bildiriş qalıb
+- [x] **Web** — case-study listing + detal (block render) + lead formu ✅
 - [ ] **R2 upload** — media faylların real yüklənməsi (presigned URL)
-- [ ] **Web** — case-study listing (filtr) + detal səhifə, xidmət səhifələri, lead formu
+- [ ] **Lead email bildiriş** — yeni lead → komandaya
 
 ## Faza 2 — Konversiya gücləndirmə
 

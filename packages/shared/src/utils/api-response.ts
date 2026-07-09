@@ -1,4 +1,4 @@
-import type { ApiErrorBody, ApiErrorCode, ApiSuccessBody, Paginated } from '../types/api.js';
+import type { ApiErrorBody, ApiErrorCode, ApiSuccessBody, Paginated } from '../types/api';
 
 export function ok<T>(data: T): ApiSuccessBody<T> {
   return { ok: true, data };

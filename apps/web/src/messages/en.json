@@ -24,10 +24,30 @@
     "title": "Our Work",
     "empty": "No projects yet.",
     "viewLive": "Live",
-    "viewRepo": "Code"
+    "viewRepo": "Code",
+    "allCategories": "All",
+    "backToList": "Back to work",
+    "client": "Client",
+    "year": "Year",
+    "notFound": "Project not found"
   },
   "common": {
     "loading": "Loading…",
     "error": "Something went wrong"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk about your project.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "interestedIn": "Service of interest",
+    "budgetRange": "Budget range",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending…",
+    "success": "Your request has been sent. We'll get in touch soon.",
+    "error": "Failed to send. Please try again."
   }
 }

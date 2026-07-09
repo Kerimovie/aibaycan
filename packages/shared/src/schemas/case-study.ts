@@ -1,6 +1,6 @@
 import * as z from 'zod';
-import { blocksSchema } from './blocks.js';
-import { idSchema, nonEmptyString, slugSchema } from './common.js';
+import { blocksSchema } from './blocks';
+import { idSchema, nonEmptyString, slugSchema } from './common';
 
 /**
  * CaseStudy create/update inputları (docs/07).
