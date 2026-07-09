@@ -2,6 +2,7 @@ import { leadCreateSchema, ok, paginate, type LeadCreateInput } from '@aibaycan/
 import { prisma } from '@aibaycan/db';
 import { Hono } from 'hono';
 import { sendError } from '../lib/http.js';
+import { notifyNewLead } from '../lib/lead-notification.js';
 import { valid, validate } from '../lib/validate.js';
 import type { AppEnv } from '../types.js';
 
@@ -118,7 +119,12 @@ publicRoutes.post('/leads', validate('json', leadCreateSchema), async (c) => {
   const { website, ...data } = valid<LeadCreateInput>(c, 'json');
   // website (honeypot) validate-dən keçib boşdursa — normal. Dolubsa Zod rədd edib.
   void website;
+
   await prisma.lead.create({ data });
+
+  // Komandaya bildiriş — BEST-EFFORT: email uğursuz olsa da lead itmir.
+  await notifyNewLead(data);
+
   // İctimai form — yaradılan lead-i geri qaytarmırıq (məlumat sızması yox)
   return c.json(ok({ received: true }), 201);
 });

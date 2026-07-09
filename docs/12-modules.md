@@ -16,4 +16,6 @@
 - Faza 2: Testimonials/Clients/Team + SEO qatı (sitemap/robots/JSON-LD) + web göstərmə ✅
 - Faza 3: Blog (Post block-based, RSS, JSON-LD Article) + Analytics (GA4 consent-gated + GDPR banner) ✅
 
-**Bütün 3 faza tamamlandı.** Qalan: lead email bildirişi, R2 credentials (.env).
+**Bütün 3 faza + lead email bildirişi tamamlandı.**
+
+Qalan (yalnız konfiq — sən .env-ə əlavə edirsən): R2 credentials, RESEND_API_KEY, NEXT_PUBLIC_GA_ID.

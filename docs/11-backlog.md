@@ -19,7 +19,7 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 - [x] **Web** — case-study listing + detal (block render) + lead formu ✅
 - [x] **R2 upload** — presigned URL axını (env + client + upload-url API + admin upload UI) ✅ (kod hazır; real R2 credentials .env-də lazım)
 - [x] **Adminlər səhifəsi** — admin CRUD (rol, argon2 parol, öz-hesab qorunması, ADMIN-only) ✅
-- [ ] **Lead email bildiriş** — yeni lead → komandaya
+- [x] **Lead email bildiriş** ✅ (Resend, best-effort — email uğursuz olsa da lead itmir; HTML escape)
 
 ## Faza 2 — Konversiya gücləndirmə
 

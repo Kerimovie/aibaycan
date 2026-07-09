@@ -48,6 +48,10 @@ Hər paketdə `.env.example` var — `.env`-ə kopyala. `.env` gitignore-dadır.
 | `CORS_ORIGINS` | api | İcazəli origin-lər |
 | `API_URL` | web | apps/api ünvanı (SSR fetch) |
 | `SEED_ADMIN_*` | db | Seed admin (production) |
+| `R2_*` | api | Cloudflare R2 media upload (opsional) |
+| `RESEND_API_KEY`, `LEAD_NOTIFY_FROM/TO` | api | Lead email bildirişi (opsional) |
+| `SITE_URL` | web | Sitemap/robots/JSON-LD/RSS üçün ictimai URL |
+| `NEXT_PUBLIC_GA_ID` | web | GA4 (opsional; yalnız consent ilə yüklənir) |
 
 Env-lər `dotenv/config` ilə yüklənir (api `env.ts`, db `prisma.config.ts` + `seed.ts`). API env-i Zod ilə validasiya edir — yanlış konfiqdə fail-fast.
 

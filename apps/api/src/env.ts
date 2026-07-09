@@ -20,6 +20,11 @@ const envSchema = z.object({
   R2_SECRET_ACCESS_KEY: z.string().optional(),
   R2_BUCKET: z.string().optional(),
   R2_PUBLIC_URL: z.string().url().optional(), // bucket-in ictimai baza URL-i
+
+  // Email (lead bildirişi) — opsional: yoxdursa email göndərilmir, lead yenə yazılır.
+  RESEND_API_KEY: z.string().optional(),
+  LEAD_NOTIFY_FROM: z.email().optional(), // təsdiqlənmiş göndərən domen
+  LEAD_NOTIFY_TO: z.string().optional(), // vergüllə ayrılmış alıcılar
 });
 
 const parsed = envSchema.safeParse(process.env);
