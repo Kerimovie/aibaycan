@@ -1,4 +1,4 @@
-import type { LeadStatus, MediaType } from '@aibaycan/shared';
+import type { AdminRole, LeadStatus, MediaType } from '@aibaycan/shared';
 
 /**
  * Admin entity tipləri — API cavab formatı (Prisma-dan müstəqil, admin db-yə bağlı deyil).
@@ -80,5 +80,15 @@ export interface Lead {
   source: string | null;
   pageUrl: string | null;
   status: LeadStatus;
+  createdAt: string;
+}
+
+export interface AdminUser {
+  id: string;
+  email: string;
+  name: string | null;
+  role: AdminRole;
+  active: boolean;
+  lastLoginAt: string | null;
   createdAt: string;
 }

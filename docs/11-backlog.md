@@ -18,8 +18,8 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 - [x] **Lead** — admin inbox + status ✅; **web form** (honeypot) ✅; email bildiriş qalıb
 - [x] **Web** — case-study listing + detal (block render) + lead formu ✅
 - [x] **R2 upload** — presigned URL axını (env + client + upload-url API + admin upload UI) ✅ (kod hazır; real R2 credentials .env-də lazım)
+- [x] **Adminlər səhifəsi** — admin CRUD (rol, argon2 parol, öz-hesab qorunması, ADMIN-only) ✅
 - [ ] **Lead email bildiriş** — yeni lead → komandaya
-- [ ] **Adminlər səhifəsi** — admin CRUD (hələ placeholder)
 
 ## Faza 2 — Konversiya gücləndirmə
 

@@ -40,6 +40,13 @@ ABAC (attribute-based) artıqdır — iki sadə rol kifayətdir.
 | `POST` | `/api/admin/auth/logout` | Cookie sil |
 | `GET`  | `/api/admin/auth/me` | Cari admin (auth arxası) |
 
+## Admin idarəetməsi (`/api/admin/admins`)
+
+Yalnız **ADMIN** rolu (`requireRole('ADMIN')`). CRUD:
+- Parol create-də məcburi, update-də opsional (boş = dəyişmə); argon2id hash.
+- **`passwordHash` heç vaxt cavabda qaytarılmır** (`select` ilə istisna).
+- **Öz hesabını silmə/deaktiv etmə qorunması** (özünü kilidləmə əleyhinə).
+
 ## Təhlükəsizlik qeydləri (OWASP)
 
 - Login endpoint-ə **rate-limit** (brute-force qarşı) — TODO deploy-da (reverse proxy və ya middleware).

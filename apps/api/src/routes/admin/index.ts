@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { authMiddleware } from '../../middleware/auth.js';
 import type { AppEnv } from '../../types.js';
+import { adminUserRoutes } from './admins.js';
 import { adminCaseStudyRoutes } from './case-studies.js';
 import { adminCategoryRoutes } from './categories.js';
 import { adminLeadRoutes } from './leads.js';
@@ -22,3 +23,4 @@ adminRoutes.route('/tags', adminTagRoutes);
 adminRoutes.route('/services', adminServiceRoutes);
 adminRoutes.route('/leads', adminLeadRoutes);
 adminRoutes.route('/media', adminMediaRoutes);
+adminRoutes.route('/admins', adminUserRoutes);

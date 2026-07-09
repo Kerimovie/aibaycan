@@ -2,13 +2,14 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from '@/auth/auth-context';
 import { RequireAuth } from '@/auth/require-auth';
 import { DashboardLayout } from '@/components/dashboard-layout';
+import { AdminsPage } from '@/features/admins/admins-page';
 import { CaseStudiesPage } from '@/features/case-studies/case-studies-page';
 import { CategoriesPage } from '@/features/categories/categories-page';
 import { LeadsPage } from '@/features/leads/leads-page';
 import { MediaPage } from '@/features/media/media-page';
 import { ServicesPage } from '@/features/services/services-page';
 import { TagsPage } from '@/features/tags/tags-page';
-import { DashboardPage, PlaceholderPage } from '@/pages/dashboard-page';
+import { DashboardPage } from '@/pages/dashboard-page';
 import { LoginPage } from '@/pages/login-page';
 
 export function App() {
@@ -28,7 +29,7 @@ export function App() {
               <Route path="tags" element={<TagsPage />} />
               <Route path="media" element={<MediaPage />} />
               <Route path="leads" element={<LeadsPage />} />
-              <Route path="admins" element={<PlaceholderPage title="Adminlər" />} />
+              <Route path="admins" element={<AdminsPage />} />
             </Route>
           </Route>
 

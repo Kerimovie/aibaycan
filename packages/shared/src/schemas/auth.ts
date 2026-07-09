@@ -17,3 +17,21 @@ export const strongPasswordSchema = z
   .string()
   .min(10, 'parol ən azı 10 simvol olmalıdır')
   .max(200);
+
+/** Admin istifadəçi yaratma (parol məcburi) */
+export const adminUserCreateSchema = z.object({
+  email: z.email().max(200),
+  name: z.string().trim().max(120).nullish(),
+  role: adminRoleSchema.default('EDITOR'),
+  password: strongPasswordSchema,
+});
+export type AdminUserCreateInput = z.infer<typeof adminUserCreateSchema>;
+
+/** Admin yeniləmə (parol opsional — dəyişmək istəməyəndə boş) */
+export const adminUserUpdateSchema = z.object({
+  name: z.string().trim().max(120).nullish(),
+  role: adminRoleSchema.optional(),
+  active: z.boolean().optional(),
+  password: strongPasswordSchema.optional(),
+});
+export type AdminUserUpdateInput = z.infer<typeof adminUserUpdateSchema>;
