@@ -91,6 +91,14 @@ Zəngin, `ContactMessage`-i əvəz edir.
 - **Soft visibility:** `published` bayrağı (kontent entity-ləri).
 - **m2m:** Prisma implicit join cədvəlləri (`_CaseStudyCategories` və s.).
 
-## Gələcək (Faza 2-3)
+## Faza 2 entity-ləri (əlavə olundu)
 
-`Testimonial`, `Client`, `TeamMember` (Faza 2), `Post` (Faza 3 — CaseStudy block sistemini təkrar). Bax [28](./28-module-map.md).
+- **Testimonial** — quote, author, role?, company?, photo? (MediaAsset), caseStudy? (opsional bağlantı), published, order.
+- **Client** — name, logo? (MediaAsset), websiteUrl?, published, order (loqo divarı).
+- **TeamMember** — name, role, bio?, photo? (MediaAsset), socials (JSON), published, order.
+
+MediaAsset-ə geri-əlaqələr: `photoForTestimonials`, `logoForClients`, `photoForTeam`.
+
+## Gələcək (Faza 3)
+
+`Post` (blog — CaseStudy block sistemini təkrar). Bax [28](./28-module-map.md).

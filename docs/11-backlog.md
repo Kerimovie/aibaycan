@@ -23,9 +23,9 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 
 ## Faza 2 — Konversiya gücləndirmə
 
-- [ ] Testimonials + Clients (loqo divarı)
-- [ ] Team / About
-- [ ] SEO qatı — generateMetadata, sitemap, robots, JSON-LD
+- [x] Testimonials + Clients ✅ (schema + API + admin CRUD + public read)
+- [x] Team / About ✅ (TeamMember CRUD)
+- [x] SEO qatı ✅ (sitemap.xml dinamik, robots.txt, JSON-LD Organization+CreativeWork)
 
 ## Faza 3 — Authority / trafik
 

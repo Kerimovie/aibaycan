@@ -11,4 +11,8 @@
 | `apps/admin` (Vite SPA) | 🟢 Dizayn | — | Ynex dizayn sistemi (docs/29) tətbiq: dark sidebar + header + PageHeader; login signin-cover pattern (gradient); dashboard + stat box-lar; naviqasiya modul xəritəsinə uyğun. Uçdan-uca test: real login → dashboard ✓ |
 | `packages/ui` | 🟢 Dizayn | — | **etehsil-az əsaslı** tam UI kitabxanası (tsup build): 30+ komponent (Button/Input/Select/Checkbox/Radio/Switch/Form/Dialog/Modal/Tabs/Tooltip/Popover/Dropdown/Card/Badge/Avatar + form komponentləri). Radix+CVA+RHF. Violet #845adf tema. **Dark mode TAM silindi.** Native HTML form QADAĞAN. |
 
-**Admin panel dizaynı hazır** (Ynex əsaslı). Növbəti: Faza 1 CRUD (schema → API → admin UI). Sonra web tərəf.
+**Faza 1 + Faza 2 tamamlandı.**
+- Faza 1: Work/Services/Lead/Media (schema→API→admin CRUD→web) ✅
+- Faza 2: Testimonials/Clients/Team (CRUD) + SEO qatı (sitemap/robots/JSON-LD) ✅
+
+Növbəti: Faza 3 (Blog + Analytics) və ya qalan kiçik işlər (lead email, web-də Faza 2 göstərmə).

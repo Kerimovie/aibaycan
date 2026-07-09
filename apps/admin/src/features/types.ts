@@ -92,3 +92,39 @@ export interface AdminUser {
   lastLoginAt: string | null;
   createdAt: string;
 }
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  author: string;
+  role: string | null;
+  company: string | null;
+  photoId: string | null;
+  photo: MediaAsset | null;
+  caseStudyId: string | null;
+  caseStudy: { id: string; title: string } | null;
+  published: boolean;
+  order: number;
+}
+
+export interface Client {
+  id: string;
+  name: string;
+  logoId: string | null;
+  logo: MediaAsset | null;
+  websiteUrl: string | null;
+  published: boolean;
+  order: number;
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string | null;
+  photoId: string | null;
+  photo: MediaAsset | null;
+  socials: Record<string, string>;
+  published: boolean;
+  order: number;
+}

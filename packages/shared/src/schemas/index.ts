@@ -5,4 +5,7 @@ export * from './taxonomy';
 export * from './media';
 export * from './service';
 export * from './lead';
+export * from './testimonial';
+export * from './client';
+export * from './team-member';
 export * from './auth';

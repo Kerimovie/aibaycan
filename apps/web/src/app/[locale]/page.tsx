@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { JsonLd, organizationJsonLd } from '@/components/json-ld';
 import { Link } from '@/i18n/navigation';
 import { getCaseStudies, getServices } from '@/lib/api';
 
@@ -16,6 +17,7 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-5xl px-4">
+      <JsonLd data={organizationJsonLd()} />
       {/* Hero */}
       <section className="py-20 text-center">
         <h1 className="text-4xl font-bold sm:text-5xl">{t('hero.title')}</h1>

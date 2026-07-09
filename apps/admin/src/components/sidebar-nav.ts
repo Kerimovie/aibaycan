@@ -6,6 +6,9 @@ import {
   Image,
   Tags,
   Users,
+  Quote,
+  Building2,
+  UsersRound,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -38,6 +41,14 @@ export const NAV_SECTIONS: NavSection[] = [
       { to: '/categories', label: 'Kateqoriyalar', icon: Tags },
       { to: '/tags', label: 'Teqlər', icon: Tags },
       { to: '/media', label: 'Media', icon: Image },
+    ],
+  },
+  {
+    heading: 'Sayt',
+    items: [
+      { to: '/testimonials', label: 'Rəylər', icon: Quote },
+      { to: '/clients', label: 'Müştərilər', icon: Building2 },
+      { to: '/team', label: 'Komanda', icon: UsersRound },
     ],
   },
   {

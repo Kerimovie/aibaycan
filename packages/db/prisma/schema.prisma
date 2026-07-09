@@ -32,7 +32,10 @@ model MediaAsset {
   createdAt DateTime       @default(now())
 
   // Geri-əlaqələr (bu asset harada istifadə olunur)
-  coverForCaseStudies CaseStudy[] @relation("CaseStudyCover")
+  coverForCaseStudies CaseStudy[]    @relation("CaseStudyCover")
+  photoForTestimonials Testimonial[] @relation("TestimonialPhoto")
+  logoForClients       Client[]      @relation("ClientLogo")
+  photoForTeam         TeamMember[]  @relation("TeamMemberPhoto")
 
   @@index([type, createdAt])
 }
@@ -111,6 +114,7 @@ model CaseStudy {
   categories Category[] @relation("CaseStudyCategories")
   tags       Tag[]      @relation("CaseStudyTags")
   services   Service[]  @relation("ServiceCaseStudies")
+  testimonials Testimonial[] @relation("CaseStudyTestimonials")
 
   completedAt DateTime?
   createdAt   DateTime  @default(now())
@@ -180,6 +184,63 @@ enum LeadStatus {
   QUALIFIED
   WON
   LOST
+}
+
+// ============================================================================
+// FAZA 2 — konversiya gücləndirmə (Testimonial, Client, TeamMember; docs/28)
+// ============================================================================
+
+/// Müştəri rəyləri — sosial sübut (loqo divarı / rəy bölməsi)
+model Testimonial {
+  id        String      @id @default(cuid())
+  quote     String
+  author    String
+  role      String? // müəllifin vəzifəsi
+  company   String?
+  photoId   String?
+  photo     MediaAsset? @relation("TestimonialPhoto", fields: [photoId], references: [id], onDelete: SetNull)
+  // Opsional: bu rəy hansı case-study-yə aiddir
+  caseStudyId String?
+  caseStudy   CaseStudy? @relation("CaseStudyTestimonials", fields: [caseStudyId], references: [id], onDelete: SetNull)
+  published Boolean     @default(false)
+  order     Int         @default(0)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([published, order])
+}
+
+/// Müştərilər — loqo divarı (sosial sübut)
+model Client {
+  id        String      @id @default(cuid())
+  name      String
+  logoId    String?
+  logo      MediaAsset? @relation("ClientLogo", fields: [logoId], references: [id], onDelete: SetNull)
+  websiteUrl String?
+  published Boolean     @default(false)
+  order     Int         @default(0)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([published, order])
+}
+
+/// Komanda üzvləri (About / etibar)
+model TeamMember {
+  id        String      @id @default(cuid())
+  name      String
+  role      String
+  bio       String?
+  photoId   String?
+  photo     MediaAsset? @relation("TeamMemberPhoto", fields: [photoId], references: [id], onDelete: SetNull)
+  // Sosial linklər (JSON — platform:url)
+  socials   Json        @default("{}")
+  published Boolean     @default(false)
+  order     Int         @default(0)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([published, order])
 }
 
 // ============================================================================

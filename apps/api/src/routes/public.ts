@@ -51,6 +51,36 @@ publicRoutes.get('/services', async (c) => {
   return c.json(ok(items));
 });
 
+// Testimonials (published, sıralı)
+publicRoutes.get('/testimonials', async (c) => {
+  const items = await prisma.testimonial.findMany({
+    where: { published: true },
+    orderBy: { order: 'asc' },
+    include: { photo: true },
+  });
+  return c.json(ok(items));
+});
+
+// Clients (loqo divarı)
+publicRoutes.get('/clients', async (c) => {
+  const items = await prisma.client.findMany({
+    where: { published: true },
+    orderBy: { order: 'asc' },
+    include: { logo: true },
+  });
+  return c.json(ok(items));
+});
+
+// Team üzvləri
+publicRoutes.get('/team', async (c) => {
+  const items = await prisma.teamMember.findMany({
+    where: { published: true },
+    orderBy: { order: 'asc' },
+    include: { photo: true },
+  });
+  return c.json(ok(items));
+});
+
 // Lead formu (saytdan müştəri sorğusu — auth-suz, honeypot qorunması)
 publicRoutes.post('/leads', validate('json', leadCreateSchema), async (c) => {
   const { website, ...data } = valid<LeadCreateInput>(c, 'json');

@@ -5,6 +5,8 @@ import type {
   CaseStudyUpdateInput,
   CategoryCreateInput,
   CategoryUpdateInput,
+  ClientCreateInput,
+  ClientUpdateInput,
   LeadUpdateInput,
   MediaCreateInput,
   MediaUpdateInput,
@@ -12,9 +14,24 @@ import type {
   ServiceUpdateInput,
   TagCreateInput,
   TagUpdateInput,
+  TeamMemberCreateInput,
+  TeamMemberUpdateInput,
+  TestimonialCreateInput,
+  TestimonialUpdateInput,
 } from '@aibaycan/shared';
 import { createCrudHooks } from '@/lib/crud-hooks';
-import type { AdminUser, CaseStudy, Category, Lead, MediaAsset, Service, Tag } from './types';
+import type {
+  AdminUser,
+  CaseStudy,
+  Category,
+  Client,
+  Lead,
+  MediaAsset,
+  Service,
+  Tag,
+  TeamMember,
+  Testimonial,
+} from './types';
 
 /** Hər entity üçün CRUD hooks (mərkəzi factory, docs/30 pattern) */
 export const caseStudyHooks = createCrudHooks<
@@ -40,4 +57,16 @@ export const mediaHooks = createCrudHooks<MediaAsset, MediaCreateInput, MediaUpd
 
 export const adminUserHooks = createCrudHooks<AdminUser, AdminUserCreateInput, AdminUserUpdateInput>(
   'admins',
+);
+
+export const testimonialHooks = createCrudHooks<
+  Testimonial,
+  TestimonialCreateInput,
+  TestimonialUpdateInput
+>('testimonials');
+
+export const clientHooks = createCrudHooks<Client, ClientCreateInput, ClientUpdateInput>('clients');
+
+export const teamHooks = createCrudHooks<TeamMember, TeamMemberCreateInput, TeamMemberUpdateInput>(
+  'team',
 );
