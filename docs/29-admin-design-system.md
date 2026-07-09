@@ -1,11 +1,21 @@
-# 29 — Admin panel dizayn sistemi (Ynex əsaslı)
+# 29 — Admin panel dizayn sistemi
 
-Admin panel (`apps/admin`) dizaynı **Ynex** template-indən (Spruko, Tailwind CSS
-admin) götürülür. Yanaşma: dizayndan ilhamlanmaq — rənglər/font/spacing/layout/
-komponent stili birebir, amma **öz Tailwind 4 + React 19 komponentlərimizlə**
-(Preline/jQuery vendor asılılığı YOX). Bax qərar [09](./09-decisions-log.md) #013.
+> **YENİLƏNDİ (#014):** Dizayn mənbəyi **Ynex → etehsil-az** UI kitabxanasına
+> keçdi. İstifadəçi qərarı: etehsil-az-ın bütün generik shared komponentləri +
+> sərt qaydaları gətirildi. Aşağıdakı Ynex tokenləri (violet #845adf, dark
+> sidebar) SAXLANILDI, amma komponentlər indi etehsil əsaslıdır (Radix+CVA+RHF).
+>
+> **İki sərt qayda (etehsil-dən):**
+> - **Native HTML form elementləri QADAĞAN** — həmişə `@aibaycan/ui` komponentləri
+>   (Input, Select, Checkbox, RadioGroup, Switch, PasswordInput...).
+> - **Dark mode TAM silindi** — heç bir `dark:` variant, `.dark` selector yox.
+>
+> Detal: [30 — shared UI kitabxanası](./30-shared-ui-library.md).
 
-Mənbə: https://laravelui.spruko.com/tailwind/ynex/
+## Tarixçə (Ynex referansı)
+
+İlkin admin dizaynı **Ynex** template-indən (Spruko) götürülmüşdü. Rəng/font/
+layout tokenləri oradan gəlir və qalır. Mənbə: https://laravelui.spruko.com/tailwind/ynex/
 
 ## Dizayn tokenləri (dəqiq)
 

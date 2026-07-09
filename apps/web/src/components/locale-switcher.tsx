@@ -31,7 +31,7 @@ export function LocaleSwitcher() {
           className={
             loc === locale
               ? 'font-semibold text-brand'
-              : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100'
+              : 'text-neutral-500 hover:text-neutral-900'
           }
         >
           {LABELS[loc]}

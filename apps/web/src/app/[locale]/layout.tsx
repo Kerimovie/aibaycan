@@ -26,7 +26,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+      <body className="min-h-screen bg-white text-neutral-900">
         <NextIntlClientProvider>
           <SiteHeader />
           <main>{children}</main>

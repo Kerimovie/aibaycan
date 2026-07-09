@@ -107,3 +107,11 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Ynex-in hazır CSS/ti-/hs- class sistemini olduğu kimi gətirmək.
 **Tradeoff**: Öz komponentlərimizlə = bir az çox iş, amma təmiz, Tailwind 4/React 19-a uyğun, vendor borcu yox. Hazır CSS gətirmək sürətli olardı amma Preline+jQuery+node-waves asılılığı və versiya ziddiyyəti gətirərdi.
 **Reversibility**: reversible (dizayn dəyişə bilər)
+
+## #014 — Shared UI: etehsil-az kitabxanası (Ynex-i əvəz etdi)
+**Date**: 2026-07-09
+**Context**: İstifadəçi etehsil-az layihəsinin bütün generik shared komponentlərini + sərt qaydalarını aibaycan.az-a gətirməyi istədi. İki tələb: (1) dark mode tam sil, (2) native HTML form elementləri heç vaxt.
+**Decision**: etehsil-az `packages/ui` (Radix+CVA+RHF, tsup build) tam gətirildi — 30+ generik komponent. Ynex violet #845adf tema + dark sidebar saxlanıldı (teal→violet çevrildi). Dark mode TAM silindi (dark: variant, .dark selector, token branch). Domen-spesifik (StudentCard və s.) və ağır (DataTable/TipTap/Calendar) komponentlər gətirilmədi. Zod 3→4 uyğunluğu (zod-locale) həll olundu. Detal: [30](./30-shared-ui-library.md).
+**Alternatives**: Ynex komponentlərini saxlamaq (öncəki #013), yalnız əsas primitivlər.
+**Tradeoff**: İstehsal-hazır, zəngin, tutarlı UI (Radix a11y + RHF form sistemi) — müqabilində böyük asılılıq dəsti (40+ Radix), tsup build addımı, i18n tələbi. Ynex-in yüngül öz-komponentləri sadə idi amma az funksional.
+**Reversibility**: one-way praktik olaraq (UI bütün admin-ə hopur)

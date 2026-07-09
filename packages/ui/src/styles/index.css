@@ -1,0 +1,830 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+ * Brand Foundation (2026-05-18 canonical):
+ *   - Primary: Violet (#845adf — Ynex brand)
+ *   - Surface: Linear-style light canvas + slate cool neutrals
+ *   - Sidebar: always-dark slate-900
+ *   - Typography: Manrope + JetBrains Mono
+ *   - Component primitives: Linear precision (40px controls, 6-8px radius, hairlines)
+ *
+ * Source of truth: docs/design-system/01-brand-foundation.md
+ *
+ * Phase 2 (dormant): dark mode tokens scaffold-da yazılır amma `.dark` selector
+ * yalnız user explicit-də açır. Default: light mode məcburi.
+ */
+
+/* ===========================================================================
+   Raw token layer — semantic mapping üçün CSS custom properties.
+   Yalnız light — dark mode TAM silinib (aibaycan.az qərarı).
+   =========================================================================== */
+
+:root {
+  /* Primary violet palette (aibaycan.az brand — Ynex #845adf ətrafında) */
+  --primary-50: #f3eefc;
+  --primary-100: #e7ddfa;
+  --primary-200: #cbb8f3;
+  --primary-300: #ad90ec;
+  --primary-400: #9a75e6;
+  --primary-500: #845adf; /* canonical brand mark */
+  --primary-600: #7546d9;
+  --primary-700: #6d3fd6; /* active/pressed button */
+  --primary-800: #5a34b3;
+  --primary-900: #472a8c;
+  --primary-foreground: #ffffff;
+
+  /* Surface ladder (light mode) */
+  --canvas: #eef2f6; /* page background — slate-50/100 arası (bir az tünd, #132) */
+  --surface-1: #ffffff; /* cards, drawers, modals default */
+  --surface-2: #f1f5f9; /* nested cards, hover rows (slate-100) */
+  --surface-3: #e2e8f0; /* disabled bg, popover edge (slate-200) */
+  --hover-overlay: #f1f5f9;
+
+  /* Text colors */
+  --text-primary: #0f172a; /* slate-900 — body, headings */
+  --text-secondary: #475569; /* slate-600 — supporting */
+  --text-tertiary: #94a3b8; /* slate-400 — muted, placeholders */
+  --text-on-dark: #ffffff;
+
+  /* Borders */
+  --border-subtle: #f1f5f9; /* slate-100, row dividers (ən açıq) */
+  --border-default: #e2e8f0; /* slate-200, hairline */
+  --border-strong: #cbd5e1; /* slate-300, hovered */
+
+  /* Sidebar (always-dark — Variant A defining feature) */
+  --sidebar-bg: #0f172a; /* slate-900 anchor */
+  --sidebar-bg-hover: #1e293b; /* slate-800 */
+  --sidebar-bg-active: #1e293b;
+  --sidebar-text: #cbd5e1; /* slate-300 */
+  --sidebar-text-active: #ffffff;
+  --sidebar-text-muted: #64748b; /* slate-500 */
+  --sidebar-border: #1e293b;
+  --sidebar-accent: #9a75e6; /* violet-400 — active item left-border */
+
+  /* Semantic state colors */
+  --success: #10b981; /* emerald-500 */
+  --success-bg: #d1fae5; /* emerald-100 */
+  --success-fg: #15803d; /* green-700 — açıq fon üzərində WCAG-uyğun mətn (soft chip) */
+  /* Success scale (emerald) — text-success-600 və s. shade class-ları üçün (#136c
+     kateqoriyası: qeydiyyatsız shade heç CSS yaratmır → ikon/mətn qara görünürdü). */
+  --success-50: #ecfdf5;
+  --success-100: #d1fae5;
+  --success-200: #a7f3d0;
+  --success-500: #10b981;
+  --success-600: #059669;
+  --success-700: #047857;
+  --success-800: #065f46;
+  --warning: #f59e0b; /* amber-500 */
+  --warning-bg: #fef3c7; /* amber-100 */
+  --warning-fg: #b45309; /* amber-700 — açıq fon üzərində WCAG-uyğun mətn (soft badge) */
+  --danger: #e11d48; /* rose-600 (brand foundation: error.600) */
+  --danger-bg: #ffe4e6; /* rose-50 */
+  --info: #3b82f6; /* blue-500 */
+  --info-bg: #dbeafe; /* blue-100 */
+
+  /* shadcn semantic aliases (component-level naming) */
+  --background: var(--canvas);
+  --foreground: var(--text-primary);
+  --card: var(--surface-1);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface-1);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--primary-500); /* #845adf — Ynex violet brand mark */
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--surface-2);
+  --muted-foreground: var(--text-secondary);
+  --accent: var(--surface-2);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--border-default);
+  --input: var(--border-default);
+  --ring: var(--primary-500); /* focus ring */
+
+  /* Radius (Linear precision — 6-8px) */
+  --radius: 0.5rem; /* 8px default */
+
+  /*
+   * Focus ring variables 2026-05-23-də silindi — qlobal `:focus-visible`
+   * qaydası ləğv olundu, hər komponent öz focus indicator-ını verir.
+   * Tarixçə: əvvəl `--focus-ring-outline: 2px` + `--focus-ring-halo: 4px`.
+   */
+}
+
+/* ===========================================================================
+   Tailwind v4 @theme — semantic naming Tailwind utility-ləri üçün
+   `bg-primary`, `text-foreground`, `border-border`, `ring-ring` və s.
+   =========================================================================== */
+
+@theme inline {
+  /* Primary palette */
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+
+  /* Semantic (shadcn) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Surface ladder direct access */
+  --color-canvas: var(--canvas);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+
+  /* Text ladder direct access */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+
+  /* Sidebar */
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar-bg-hover: var(--sidebar-bg-hover);
+  --color-sidebar-bg-active: var(--sidebar-bg-active);
+  --color-sidebar-text: var(--sidebar-text);
+  --color-sidebar-text-active: var(--sidebar-text-active);
+  --color-sidebar-text-muted: var(--sidebar-text-muted);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  /* Semantic states */
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-success-fg: var(--success-fg);
+  --color-success-50: var(--success-50);
+  --color-success-100: var(--success-100);
+  --color-success-200: var(--success-200);
+  --color-success-500: var(--success-500);
+  --color-success-600: var(--success-600);
+  --color-success-700: var(--success-700);
+  --color-success-800: var(--success-800);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-fg: var(--warning-fg);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+
+  /* Typography */
+  --font-sans:
+    'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  --font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+
+  /* Radius scale (Linear precision) */
+  --radius-sm: calc(var(--radius) - 4px); /* 4px */
+  --radius-md: calc(var(--radius) - 2px); /* 6px */
+  --radius-lg: var(--radius); /* 8px */
+  --radius-xl: calc(var(--radius) + 4px); /* 12px */
+
+  /* Breakpoints — xs added for compact mobile (<30rem / 480px) */
+  --breakpoint-xs: 30rem;
+}
+
+/* ===========================================================================
+   Base layer — global element resets
+   =========================================================================== */
+
+@layer base {
+  /* ⛔ #205 (kateqoriya #136c — "qara border" kökü): Tailwind v4-də rəngsiz `border`
+     class-ı currentColor(qara)-ya düşür (v3-də boz idi). Rəsmi v4 compat qaydası:
+     default border rəngi = bizim token. Bununla rəng verilməyən HƏR border
+     avtomatik düzgün olur (modal/dialoq daxil). */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentColor);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* WCAG 2.4.11 Focus Not Obscured — focused element keeps clear of
+       sticky banner (40px) + topbar (64px) = 104px. */
+    scroll-padding-top: 104px;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100dvh;
+  }
+
+  /*
+   * Cursor pointer — hər click oluna bilən element üzərində (user 2026-05-23, 2026-07-03).
+   * Chrome 120+/Tailwind v4 Preflight `<button>`-larda pointer-ı default-da
+   * təyin etmir; qlobal qaydaya görə hər interactive element-də pointer
+   * affordance vermək məcburidir. ⛔ HƏR <a> və <button> pointer (href/onClick fərqi yox —
+   * user 2026-07-03: "nə qədər a təqi və button təqi varsa hamısı cursor pointer olmalıdır").
+   *
+   * İstisnalar:
+   *   - disabled / aria-disabled → cursor-not-allowed (Tailwind utility)
+   *   - text input-lar → text cursor (browser default, override etmirik)
+   */
+  a,
+  button:not(:disabled):not([aria-disabled='true']),
+  [role='button']:not([aria-disabled='true']),
+  label[for],
+  select:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  /* disabled button/link → not-allowed (pointer override etməmək üçün ayrıca). */
+  button:disabled,
+  button[aria-disabled='true'],
+  [role='button'][aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+
+  /*
+   * Native scrollbar — slim + subtle (2026-05-23 rework).
+   * Default: 6px (10px-dən endirildi), thumb visible olmadan default-da.
+   * Hover: bir az daha aydın görünür. Tinted-track sidebar-da gizlədilir.
+   */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 999px;
+    transition: background-color 150ms ease;
+  }
+  *:hover > ::-webkit-scrollbar-thumb,
+  *:hover::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-tertiary);
+  }
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  *:hover {
+    scrollbar-color: var(--border-strong) transparent;
+  }
+
+  /*
+   * Sidebar-spesifik scrollbar — qara fon üzərində translucent ağ.
+   * Default-da görünməz, container hover-də işıqlanır.
+   */
+  .scrollbar-sidebar::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  .scrollbar-sidebar:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .scrollbar-sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .scrollbar-sidebar {
+    scrollbar-color: transparent transparent;
+  }
+  .scrollbar-sidebar:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  }
+
+  /*
+   * Global outline qaydası (#188 — istifadəçi 2026-07-04):
+   * "bütün sistemdə inputlarda focus-dan başqa hər yerdə outline none olmalıdır."
+   *
+   * Qayda: brauzer default outline HƏR HALDA none (default/hover/active) — YALNIZ
+   * `:focus-visible`-də görünür (klaviatura naviqasiyası — WCAG focus indikatoru qorunur).
+   * `:focus` (siçan kliki) outline YOX — yalnız fokus-visible (klaviatura) indikator alır.
+   *
+   * ⚠️ WCAG: `outline:none` tək başına klaviatura fokusunu itirər → ona görə komponent-
+   * lər öz focus-visible indikatorunu təyin edir (Input→teal border, Button→ring). Bu
+   * qayda brauzer default (bəzən ikiqat/çirkin) outline-ı kəsir, bizim stil qalır.
+   */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+  /* Real form input elementləri — default outline heç vaxt (border/ring biz veririk). */
+  input:not(:focus-visible),
+  textarea:not(:focus-visible),
+  select:not(:focus-visible),
+  button:not(:focus-visible),
+  [role='button']:not(:focus-visible),
+  a:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Selection — teal tint */
+  ::selection {
+    background-color: var(--primary-200);
+    color: var(--primary-900);
+  }
+
+  /*
+   * Radix form bubble input bug fix (user 2026-06-04).
+   *
+   * Radix Select / Switch / Checkbox hər instance üçün form fallback olaraq
+   * gizli native input render edir (SelectBubbleInput / Switch BubbleInput /
+   * Checkbox BubbleInput), @radix-ui/react-visually-hidden
+   * VISUALLY_HIDDEN_STYLES ilə:
+   *   position: absolute; opacity: 0; pointer-events: none; margin: 0;
+   *   (bəzilərində width/height: 1px; clip: rect(0,0,0,0))
+   *
+   * Bu Chrome-da scroll height-ə bir neçə yüz piksel əlavə edir
+   * (eyni bug class — sr-only file input commit 497e9434, 2026-06-01;
+   * Radix Select PR #749, 2026-06-04).
+   *
+   * Profile aggregated page (5 section, 14 hidden checkbox + 4 select)
+   * 3733 → 720 px html.scrollHeight (3013 px azalma — 81%).
+   *
+   * Həll: bütün belə hidden form fallback element-lərini `display:none`
+   * ilə layoutdan kəsiririk. Radix bu element-lərə .value set + .dispatchEvent
+   * ilə müraciət edir — JavaScript DOM API `display:none`-da işləyir, form
+   * submission semantikası saxlanır.
+   *
+   * Selector strategiyası: Radix bu element-lərə həmişə `aria-hidden="true"`
+   * əlavə edir, native form element-lər (real input/select/checkbox) aria-hidden
+   * istifadə etmir → false positive yoxdur.
+   */
+  select[aria-hidden='true'][tabindex='-1'],
+  input[type='checkbox'][aria-hidden='true'],
+  input[type='radio'][aria-hidden='true'] {
+    display: none !important;
+  }
+}
+
+/* ===========================================================================
+   Collapsible (#229) — Radix collapsible smooth açıl/qatla (content-height CSS var).
+   `animate-collapsible-down/up` = CollapsibleSection. reduced-motion honored below.
+   =========================================================================== */
+@keyframes collapsible-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+.animate-collapsible-down {
+  animation: collapsible-down 0.2s ease-out;
+}
+.animate-collapsible-up {
+  animation: collapsible-up 0.2s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-collapsible-down,
+  .animate-collapsible-up {
+    animation: none;
+  }
+}
+
+/* ===========================================================================
+   Auth hero — float keyframes for snippet cards + particles.
+   Used by AuthHeroSplit + FloatingSnippetCard.
+   `prefers-reduced-motion` honors WCAG 2.3.3 Animation from Interactions.
+   =========================================================================== */
+
+@keyframes float-a {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+}
+@keyframes float-b {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0deg);
+  }
+}
+@keyframes float-c {
+  0%,
+  100% {
+    transform: translateY(0) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(2deg);
+  }
+}
+@keyframes float-d {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+@keyframes float-e {
+  0%,
+  100% {
+    transform: translateY(0) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(3deg);
+  }
+}
+@keyframes float-particle {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.32;
+  }
+  50% {
+    transform: translateY(-12px);
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-auth-snippet],
+  [data-auth-particle] {
+    animation: none !important;
+  }
+}
+
+
+/* ═══ Calendar (#132) — FullCalendar design-system override ═══ */
+/* Web @etehsil/ui/styles.css import edir. FullCalendar default CSS-i JS-ə inject
+ * edir → override-lar güclü selector + !important (specificity). Google Calendar
+ * look + etehsil token (teal event, açıq slate border #131, Manrope font). */
+
+.etehsil-calendar {
+  --fc-border-color: #e2e8f0;
+  --fc-page-bg-color: #ffffff;
+  --fc-neutral-bg-color: #f8fafc;
+  --fc-today-bg-color: #f3eefc; /* teal-50 — Google bugün vurğu */
+  --fc-now-indicator-color: #6d3fd6;
+  font-family: var(--font-sans);
+}
+.etehsil-calendar .fc {
+  font-size: 13px;
+}
+
+/* Grid border açıq slate (#131 — dark token YOX). */
+.etehsil-calendar .fc-scrollgrid,
+.etehsil-calendar .fc-scrollgrid td,
+.etehsil-calendar .fc-scrollgrid th,
+.etehsil-calendar .fc-theme-standard td,
+.etehsil-calendar .fc-theme-standard th {
+  border-color: #e2e8f0 !important;
+}
+.etehsil-calendar .fc-scrollgrid {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Gün başlığı — slate-50, mono, uppercase. */
+.etehsil-calendar .fc-col-header-cell {
+  background: #f8fafc;
+  padding: 8px 4px;
+}
+.etehsil-calendar .fc-col-header-cell-cushion {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  padding: 4px;
+}
+
+/* Saat sütunu — mono slate-500. */
+.etehsil-calendar .fc-timegrid-slot-label-cushion,
+.etehsil-calendar .fc-timegrid-axis-cushion {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #64748b;
+}
+.etehsil-calendar .fc-timegrid-slot {
+  height: 42px;
+}
+
+/* Ay gün nömrəsi. */
+.etehsil-calendar .fc-daygrid-day-number {
+  font-size: 12px;
+  color: #334155;
+  padding: 6px 8px;
+}
+.etehsil-calendar .fc-day-today .fc-daygrid-day-number {
+  color: #6d3fd6;
+  font-weight: 700;
+}
+
+/* Event — teal (default mavi əvəz), radius, font. !important FullCalendar default-u keçir. */
+.etehsil-calendar .fc-event,
+.etehsil-calendar .fc-event-main {
+  border: none !important;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  overflow: hidden; /* dar event-də mətn daşmasın (#185) */
+}
+.etehsil-calendar .fc-event {
+  padding: 1px 5px;
+  box-shadow: none !important;
+}
+/* #185 — event title tək sətir, kəsilirsə "…" (dar sütunda oxunaqlı). */
+.etehsil-calendar .fc-event-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.etehsil-calendar .fc-event-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  opacity: 0.9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* #185 — "+N daha" link (eventMaxStack aşanda). */
+.etehsil-calendar .fc-timegrid-more-link {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6d3fd6;
+  background: #f1f5f9;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+/* Status rəngləri — !important default mavini keçir. */
+.etehsil-calendar .fc-event.fc-ev-planned,
+.etehsil-calendar .fc-ev-planned .fc-event-main {
+  background: #e7ddfa !important;
+  color: #6d3fd6 !important;
+}
+.etehsil-calendar .fc-event.fc-ev-held,
+.etehsil-calendar .fc-ev-held .fc-event-main {
+  background: #d1fae5 !important;
+  color: #047857 !important;
+}
+.etehsil-calendar .fc-event.fc-ev-cancelled,
+.etehsil-calendar .fc-ev-cancelled .fc-event-main {
+  background: #ffe4e6 !important;
+  color: #be123c !important;
+  text-decoration: line-through;
+}
+.etehsil-calendar .fc-event.fc-ev-moved,
+.etehsil-calendar .fc-ev-moved .fc-event-main {
+  background: #fef3c7 !important;
+  color: #b45309 !important;
+}
+
+/* Now-indicator (cari vaxt) — teal. */
+.etehsil-calendar .fc-timegrid-now-indicator-line {
+  border-color: #6d3fd6 !important;
+}
+.etehsil-calendar .fc-timegrid-now-indicator-arrow {
+  border-color: #6d3fd6 !important;
+  color: #6d3fd6 !important;
+}
+
+/* Boş slot seçim mirror — teal. */
+.etehsil-calendar .fc-highlight {
+  background: rgba(20, 184, 166, 0.12) !important;
+}
+
+/* İl görünüşü (multiMonth). */
+.etehsil-calendar .fc-multimonth-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  padding: 8px;
+}
+
+/* ===========================================================================
+ * #224 — MathRichEditor + RichMathContent (riyazi formul redaktoru)
+ * ======================================================================== */
+
+/* Redaktorda boş placeholder (TipTap first-child empty). */
+.etehsil-math-editor-content p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--text-tertiary, #94a3b8);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.etehsil-math-editor-content {
+  line-height: 1.7;
+  word-break: break-word;
+}
+.etehsil-math-editor-content p {
+  margin: 0 0 8px;
+}
+.etehsil-math-editor-content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Rich-text elementləri (#224b — tam funksiyalı editor). */
+.etehsil-math-editor-content h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 6px 0 8px;
+  line-height: 1.3;
+}
+.etehsil-math-editor-content ul,
+.etehsil-math-editor-content ol {
+  margin: 0 0 8px;
+  padding-left: 22px;
+}
+.etehsil-math-editor-content ul {
+  list-style: disc;
+}
+.etehsil-math-editor-content ol {
+  list-style: decimal;
+}
+.etehsil-math-editor-content li {
+  margin: 2px 0;
+}
+.etehsil-math-editor-content li > p {
+  margin: 0;
+}
+.etehsil-math-editor-content blockquote {
+  border-left: 3px solid var(--primary-300, #ad90ec);
+  padding-left: 12px;
+  margin: 0 0 8px;
+  color: var(--text-secondary, #475569);
+}
+.etehsil-math-editor-content a {
+  color: var(--primary-600, #845adf);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.etehsil-math-editor-content mark {
+  border-radius: 3px;
+  padding: 0 2px;
+}
+/* Cədvəl */
+.etehsil-math-editor-content table {
+  border-collapse: collapse;
+  margin: 4px 0 10px;
+  width: auto;
+  overflow: hidden;
+}
+.etehsil-math-editor-content th,
+.etehsil-math-editor-content td {
+  border: 1px solid var(--border-strong, #cbd5e1);
+  padding: 5px 9px;
+  min-width: 44px;
+  text-align: left;
+  vertical-align: top;
+}
+.etehsil-math-editor-content th {
+  background: var(--surface-2, #f1f5f9);
+  font-weight: 600;
+}
+.etehsil-math-editor-content .selectedCell {
+  background: var(--primary-50, #f3eefc);
+}
+
+/* Inline formul node — mətnlə təbii axar (səliqəli). */
+.etehsil-math-inline {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* Redaktə rejimi: math-field yığcam inline, border yalnız fokusda (təmiz). */
+.etehsil-math-inline--edit {
+  margin: 0 1px;
+}
+.etehsil-math-editor-content math-field {
+  display: inline-block;
+  font-size: 1.05em;
+  padding: 1px 3px;
+  border-radius: 5px;
+  min-width: 1.4ch;
+  vertical-align: middle;
+  /* Boş vəziyyətdə incə göstərici (border yox — səliqəli). */
+  background: var(--primary-50, #f3eefc);
+  outline: none;
+  transition:
+    background 0.12s,
+    box-shadow 0.12s;
+  --hue: 174; /* teal accent MathLive caret/selection üçün */
+  --contains-highlight-background-color: transparent;
+  --selection-background-color: var(--primary-200, #cbb8f3);
+}
+/* Fokusda yüngül teal ring (aktiv redaktə görüntüsü). */
+.etehsil-math-editor-content math-field:focus,
+.etehsil-math-editor-content math-field:focus-within {
+  background: var(--primary-100, #e7ddfa);
+  box-shadow: 0 0 0 2px var(--primary-300, #ad90ec);
+}
+/* Seçili node (klik → mavi outline). */
+.etehsil-math-inline.is-selected math-field {
+  box-shadow: 0 0 0 2px var(--primary-400, #9a75e6);
+}
+/* MathLive-in menü/prompt düymələrini gizlət (inline yığcam qalır). */
+.etehsil-math-editor-content math-field::part(menu-toggle),
+.etehsil-math-editor-content math-field::part(virtual-keyboard-toggle) {
+  display: none;
+}
+
+/* Read-only məzmun — inline math dikey mərkəz + mətnlə axar. */
+.etehsil-math-content {
+  line-height: 1.6;
+}
+.etehsil-math-content .etehsil-math-inline {
+  vertical-align: -0.1em;
+  margin: 0 1px;
+}
+/* Read-only rich-text (#224b) — göstərmədə başlıq/siyahı/cədvəl/marker düzgün. */
+.etehsil-math-content p {
+  margin: 0 0 6px;
+}
+.etehsil-math-content > :last-child {
+  margin-bottom: 0;
+}
+.etehsil-math-content h2 {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 4px 0 6px;
+}
+.etehsil-math-content ul,
+.etehsil-math-content ol {
+  margin: 0 0 6px;
+  padding-left: 20px;
+}
+.etehsil-math-content ul {
+  list-style: disc;
+}
+.etehsil-math-content ol {
+  list-style: decimal;
+}
+.etehsil-math-content blockquote {
+  border-left: 3px solid var(--primary-300, #ad90ec);
+  padding-left: 10px;
+  color: var(--text-secondary, #475569);
+  margin: 0 0 6px;
+}
+.etehsil-math-content a {
+  color: var(--primary-600, #845adf);
+  text-decoration: underline;
+}
+.etehsil-math-content mark {
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.etehsil-math-content table {
+  border-collapse: collapse;
+  margin: 4px 0;
+}
+.etehsil-math-content th,
+.etehsil-math-content td {
+  border: 1px solid var(--border-strong, #cbd5e1);
+  padding: 4px 8px;
+  text-align: left;
+}
+.etehsil-math-content th {
+  background: var(--surface-2, #f1f5f9);
+  font-weight: 600;
+}

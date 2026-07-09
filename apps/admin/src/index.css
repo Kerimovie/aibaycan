@@ -1,15 +1,5 @@
-@import 'tailwindcss';
-
-/* Ortaq tokenlər + admin Ynex teması (violet, sidebar rəngləri) */
+/* etehsil-az əsaslı tam dizayn sistemi (violet, dark-siz) — bax docs/29 */
 @import '@aibaycan/ui/styles.css';
-@import '@aibaycan/ui/admin-theme.css';
 
-/* packages/ui komponentlərinin class-larını skan et (purge olunmasın) */
+/* packages/ui komponentlərinin Tailwind class-larını skan et (purge olunmasın) */
 @source '../../../packages/ui/src';
-
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  background: var(--color-admin-bg);
-  color: var(--color-admin-text);
-}

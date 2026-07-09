@@ -8,7 +8,7 @@ import { Sidebar } from './sidebar';
  */
 export function DashboardLayout() {
   return (
-    <div className="min-h-screen bg-admin-bg">
+    <div className="min-h-screen bg-canvas">
       <Sidebar />
       <div className="ml-60 flex min-h-screen flex-col">
         <Header />

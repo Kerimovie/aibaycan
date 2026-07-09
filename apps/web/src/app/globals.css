@@ -1,15 +1,7 @@
 @import 'tailwindcss';
 
-/* Paylaşılan dizayn tokenləri (brand rəngləri, font) */
+/* Paylaşılan dizayn sistemi (etehsil əsaslı, violet, dark-siz) */
 @import '@aibaycan/ui/styles.css';
 
 /* packages/ui komponentlərinin Tailwind class-larını skan et (purge olunmasın) */
 @source '../../../../packages/ui/src';
-
-:root {
-  color-scheme: light dark;
-}
-
-body {
-  font-family: var(--font-sans);
-}

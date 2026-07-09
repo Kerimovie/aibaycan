@@ -1,4 +1,3 @@
-import { Card, CardBody, CardTitle } from '@aibaycan/ui';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getProjects, getServices } from '@/lib/api';
@@ -20,7 +19,7 @@ export default async function HomePage({ params }: Props) {
       {/* Hero */}
       <section className="py-20 text-center">
         <h1 className="text-4xl font-bold sm:text-5xl">{t('hero.title')}</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-600">
           {t('hero.subtitle')}
         </p>
         <Link
@@ -40,10 +39,10 @@ export default async function HomePage({ params }: Props) {
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p) => (
               <li key={p.id}>
-                <Card>
-                  <CardTitle>{p.title}</CardTitle>
-                  <CardBody>{p.summary}</CardBody>
-                </Card>
+                <div className="rounded-lg border border-border bg-card p-5">
+                  <h3 className="font-medium">{p.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{p.summary}</p>
+                </div>
               </li>
             ))}
           </ul>
@@ -59,10 +58,10 @@ export default async function HomePage({ params }: Props) {
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <li key={s.id}>
-                <Card>
-                  <CardTitle>{s.title}</CardTitle>
-                  <CardBody>{s.description}</CardBody>
-                </Card>
+                <div className="rounded-lg border border-border bg-card p-5">
+                  <h3 className="font-medium">{s.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{s.description}</p>
+                </div>
               </li>
             ))}
           </ul>
