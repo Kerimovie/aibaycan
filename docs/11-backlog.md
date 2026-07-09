@@ -12,10 +12,11 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 ## Faza 1 — Lead-gen nüvəsi (növbəti)
 
 - [x] **Schema dizaynı** — Faza 1 entity-ləri (CaseStudy+blocks, Category, Tag, Service↔CaseStudy, Lead, MediaAsset), migrate ✅ (migrate + seed test edildi)
-- [ ] **Media (R2)** — MediaAsset entity, R2 upload, API + admin upload UI
-- [ ] **Work CRUD** — API endpoint-ləri (CaseStudy block editor daxil), admin CRUD UI
-- [ ] **Services** — genişləndir + CaseStudy cross-link
-- [ ] **Lead** — zəngin form (web), spam qorunma, email bildiriş, admin inbox + status
+- [x] **Media** — MediaAsset entity + admin list/delete ✅ (R2 upload hələ qalıb)
+- [x] **Work CRUD** — API + admin CRUD UI (m2m, switch, multi-select) ✅
+- [x] **Services** — genişləndi + CaseStudy cross-link + admin CRUD ✅
+- [~] **Lead** — admin inbox + status ✅; web form + email bildiriş qalıb
+- [ ] **R2 upload** — media faylların real yüklənməsi (presigned URL)
 - [ ] **Web** — case-study listing (filtr) + detal səhifə, xidmət səhifələri, lead formu
 
 ## Faza 2 — Konversiya gücləndirmə

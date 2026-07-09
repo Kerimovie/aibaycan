@@ -36,6 +36,7 @@ export const NAV_SECTIONS: NavSection[] = [
       { to: '/case-studies', label: 'İşlər', icon: Briefcase },
       { to: '/services', label: 'Xidmətlər', icon: Wrench },
       { to: '/categories', label: 'Kateqoriyalar', icon: Tags },
+      { to: '/tags', label: 'Teqlər', icon: Tags },
       { to: '/media', label: 'Media', icon: Image },
     ],
   },

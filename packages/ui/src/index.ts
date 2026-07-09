@@ -34,6 +34,7 @@ export * from './shared/components/ui/tabs';
 export * from './shared/components/ui/segmented-tabs';
 export * from './shared/components/ui/scroll-area';
 export * from './shared/components/ui/collapsible';
+export * from './shared/components/ui/data-table';
 
 // Form komponentləri
 export { Field } from './shared/components/form/field';
