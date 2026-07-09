@@ -2,16 +2,15 @@ import type { ApiResponse, Paginated } from '@aibaycan/shared';
 
 const API_URL = process.env.API_URL ?? 'http://localhost:3001';
 
-/** İctimai portfolio tipləri — API cavab formatı (DB-dən müstəqil) */
-export interface PublicProject {
+/** İctimai case-study tipi — API cavab formatı (DB-dən müstəqil) */
+export interface PublicCaseStudy {
   id: string;
   slug: string;
   title: string;
+  tagline: string | null;
   summary: string;
-  description: string;
-  coverImage: string | null;
-  images: string[];
-  techStack: string[];
+  clientName: string | null;
+  coverImage: { url: string; alt: string | null } | null;
   liveUrl: string | null;
   repoUrl: string | null;
   featured: boolean;
@@ -47,8 +46,8 @@ async function apiGet<T>(path: string, revalidateSec = 60): Promise<T | null> {
   }
 }
 
-export function getProjects(): Promise<Paginated<PublicProject> | null> {
-  return apiGet<Paginated<PublicProject>>('/api/projects');
+export function getCaseStudies(): Promise<Paginated<PublicCaseStudy> | null> {
+  return apiGet<Paginated<PublicCaseStudy>>('/api/case-studies');
 }
 
 export function getServices(): Promise<PublicService[] | null> {

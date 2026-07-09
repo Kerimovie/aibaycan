@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { getProjects, getServices } from '@/lib/api';
+import { getCaseStudies, getServices } from '@/lib/api';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -11,8 +11,8 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations('home');
-  const [projectsResult, services] = await Promise.all([getProjects(), getServices()]);
-  const projects = projectsResult?.items.filter((p) => p.featured) ?? [];
+  const [caseStudiesResult, services] = await Promise.all([getCaseStudies(), getServices()]);
+  const projects = caseStudiesResult?.items.filter((p) => p.featured) ?? [];
 
   return (
     <div className="mx-auto max-w-5xl px-4">

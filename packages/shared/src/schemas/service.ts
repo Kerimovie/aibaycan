@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { nonEmptyString, slugSchema } from './common.js';
+import { idSchema, nonEmptyString, slugSchema } from './common.js';
 
 /**
  * Service create/update inputları.
@@ -12,6 +12,8 @@ export const serviceCreateSchema = z.object({
   icon: z.string().trim().nullish(),
   published: z.boolean().default(false),
   order: z.number().int().default(0),
+  // "Bu xidmətə uyğun işlərimiz" cross-link (m2m)
+  caseStudyIds: z.array(idSchema).default([]),
 });
 
 export const serviceUpdateSchema = serviceCreateSchema.partial();

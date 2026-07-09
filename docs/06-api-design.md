@@ -56,7 +56,7 @@ Cavab: `Paginated<T>` — `{ items, page, pageSize, total, totalPages }`.
 
 ## Naming
 
-- Resurs yolları cəm, kiçik hərf: `/projects`, `/services`, `/contact-messages`.
+- Resurs yolları cəm, kiçik hərf: `/case-studies`, `/services`, `/categories`, `/tags`, `/media`, `/leads`.
 - Admin route-ları `/admin/*` altında, auth arxasında.
 - İctimai read-only route-lar auth-suz (yalnız `published` kontent).
 
