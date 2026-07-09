@@ -1,72 +1,96 @@
 # 07 — Data model
 
 Mənbə həqiqəti: [`packages/db/prisma/schema.prisma`](../packages/db/prisma/schema.prisma).
-Bu sənəd entity-ləri yüksək səviyyədə izah edir; dəqiq sahələr üçün schema-ya bax.
+Modul planı: [28](./28-module-map.md). Bu sənəd Faza 1 entity-lərini izah edir.
 
 ## Əhatə
 
-Single-tenant portfolio + admin (bax [03](./03-stack-decisions.md)). Tenant modeli yoxdur.
+Single-tenant lead-gen platforması (bax [03](./03-stack-decisions.md)). Tenant modeli yoxdur.
 
-## Entity-lər
+## Faza 1 entity-ləri
 
-### Project (görülən işlər / case-study)
+### CaseStudy (görülən işlər — block-based)
 
-Portfolio-nun əsası. Hər layihə bir case-study.
-
-| Sahə | Qeyd |
-|------|------|
-| `slug` | Unikal — URL üçün (`/projects/{slug}`) |
-| `title`, `summary`, `description` | Mətn kontenti |
-| `coverImage`, `images[]` | Şəkillər (URL massivi) |
-| `techStack[]` | İstifadə olunan texnologiyalar |
-| `liveUrl`, `repoUrl` | Xarici linklər (opsional) |
-| `featured` | Ana səhifədə önə çıxarılsın |
-| `published` | Yalnız `true` olanlar ictimai göstərilir |
-| `order` | Manual sıralama |
-| `completedAt` | Layihənin bitmə tarixi (opsional) |
-
-**İndekslər:** `(published, featured)` — ictimai listing sorğuları; `(order)` — sıralama.
-
-### Service (təklif olunan xidmətlər)
+Lead-gen-in əsası. Kontent **block-based** (docs/09 #010).
 
 | Sahə | Qeyd |
 |------|------|
-| `slug` | Unikal |
-| `title`, `description` | Mətn |
-| `icon` | İkon adı/URL (opsional) |
-| `published`, `order` | Project ilə eyni pattern |
+| `slug` | Unikal — URL |
+| `title`, `tagline`, `summary` | Mətn (summary listing üçün) |
+| `clientName`, `projectYear` | Müştəri konteksti |
+| `blocks` | **JSON** — richText/image/gallery/video/quote/metrics/twoColumn. Struktur Zod-da (packages/shared) |
+| `coverImageId` → `MediaAsset` | Qapaq (relation, SetNull) |
+| `liveUrl`, `repoUrl` | Xarici linklər |
+| `featured`, `published`, `order` | Görünürlük/sıralama |
+| `metaTitle`, `metaDescription` | SEO |
 
-**İndekslər:** `(published)`, `(order)`.
+**Əlaqələr (m2m):** `categories` (Category), `tags` (Tag), `services` (Service).
+**İndekslər:** `(published, featured)`, `(order)`.
 
-### ContactMessage (əlaqə formu)
+### Category + Tag (ortaq taksonomiya)
 
-Saytdakı əlaqə formundan gələn mesajlar.
+Həm CaseStudy, həm gələcək Post üçün (docs/09 #012).
+- **Category** — slug, name, description, order.
+- **Tag** — slug, name.
+
+### Service (xidmətlər)
 
 | Sahə | Qeyd |
 |------|------|
-| `name`, `email`, `subject?`, `message` | Form məzmunu |
-| `status` | `NEW` / `READ` / `ARCHIVED` (enum) |
+| `slug`, `title`, `description`, `icon` | Kontent |
+| `published`, `order` | Görünürlük |
+| `caseStudies` (m2m) | "Bu xidmətə uyğun işlərimiz" cross-link |
 
-**İndeks:** `(status, createdAt)` — admin panel inbox filtrləmə/sıralama.
+### MediaAsset (media kitabxanası — R2)
 
-### AdminUser (admin panel girişi)
+Mərkəzi media (docs/09 #011). Fayl R2-də, DB-də URL + metadata.
 
 | Sahə | Qeyd |
 |------|------|
-| `email` | Unikal — login identifikatoru |
-| `passwordHash` | Argon2/bcrypt hash (bax [05](./05-auth-strategy.md)) — heç vaxt plaintext |
-| `role` | `ADMIN` / `EDITOR` (enum) |
-| `active` | Deaktiv edilmiş hesab login edə bilməz |
-| `lastLoginAt` | Audit üçün |
+| `url` | R2 public URL |
+| `key` | R2 obyekt açarı (unikal — silmə üçün) |
+| `type` | IMAGE / VIDEO / DOCUMENT (enum) |
+| `mimeType`, `fileName`, `sizeBytes` | Fayl metadata |
+| `alt`, `width`, `height` | Əlçatanlıq/SEO/ölçü |
 
-**Qeyd:** `tenantId` YOXDUR — single-tenant (bax [03](./03-stack-decisions.md)).
+### Lead (müştəri sorğuları — mini-CRM)
 
-## Relations
+Zəngin, `ContactMessage`-i əvəz edir.
 
-Hazırda entity-lər arasında birbaşa relation yoxdur — hər biri müstəqildir. Gələcəkdə lazım olsa (məs. Project ↔ Service kateqoriyası), schema genişləndiriləcək və burada qeyd olunacaq.
+| Sahə | Qeyd |
+|------|------|
+| `name`, `email`, `phone?`, `company?` | Əlaqə |
+| `interestedIn`, `budgetRange`, `message` | Kontekst |
+| `source`, `pageUrl` | Mənbə (UTM/referrer, marketinq) |
+| `status` | NEW → CONTACTED → QUALIFIED → WON → LOST (enum) |
+
+**İndekslər:** `(status, createdAt)`, `(email)`.
+
+### AdminUser (admin girişi)
+
+| Sahə | Qeyd |
+|------|------|
+| `email` | Unikal — login |
+| `passwordHash` | argon2id (bax [05](./05-auth-strategy.md)) |
+| `role` | ADMIN / EDITOR (enum) |
+| `active`, `lastLoginAt` | Status/audit |
+
+`tenantId` YOXDUR — single-tenant.
+
+## Köhnə → yeni (Faza 1 miqrasiyası)
+
+- `Project` → **`CaseStudy`** (block content + taksonomiya + media + SEO)
+- `ContactMessage` → **`Lead`** (zəngin + CRM status + mənbə)
+- `Service` genişləndi (↔ CaseStudy m2m)
+- Yeni: `Category`, `Tag`, `MediaAsset`
 
 ## Konvensiyalar
 
-- **ID:** `cuid()` — sıralanabilən, URL-safe, kolliziyasız.
-- **Timestamp:** `createdAt` (default now) + `updatedAt` (`@updatedAt`) hər mutable entity-də.
-- **Soft visibility:** silmək əvəzinə `published` bayrağı (kontent entity-ləri üçün).
+- **ID:** `cuid()`.
+- **Timestamp:** `createdAt` + `updatedAt` hər mutable entity-də.
+- **Soft visibility:** `published` bayrağı (kontent entity-ləri).
+- **m2m:** Prisma implicit join cədvəlləri (`_CaseStudyCategories` və s.).
+
+## Gələcək (Faza 2-3)
+
+`Testimonial`, `Client`, `TeamMember` (Faza 2), `Post` (Faza 3 — CaseStudy block sistemini təkrar). Bax [28](./28-module-map.md).

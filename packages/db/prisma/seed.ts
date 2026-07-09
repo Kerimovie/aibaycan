@@ -30,7 +30,7 @@ async function main(): Promise<void> {
   });
 
   // Nümunə xidmət
-  await prisma.service.upsert({
+  const webService = await prisma.service.upsert({
     where: { slug: 'web-development' },
     update: {},
     create: {
@@ -39,6 +39,41 @@ async function main(): Promise<void> {
       description: 'Müasir, sürətli və SEO-dostu veb saytlar və tətbiqlər.',
       published: true,
       order: 1,
+    },
+  });
+
+  // Nümunə kateqoriya + teq
+  const webCategory = await prisma.category.upsert({
+    where: { slug: 'web' },
+    update: {},
+    create: { slug: 'web', name: 'Veb', order: 1 },
+  });
+  const nextTag = await prisma.tag.upsert({
+    where: { slug: 'nextjs' },
+    update: {},
+    create: { slug: 'nextjs', name: 'Next.js' },
+  });
+
+  // Nümunə case-study (block-based content + əlaqələr)
+  await prisma.caseStudy.upsert({
+    where: { slug: 'numune-layihe' },
+    update: {},
+    create: {
+      slug: 'numune-layihe',
+      title: 'Nümunə Layihə',
+      tagline: 'Müasir veb platforma',
+      summary: 'Bir müştəri üçün qurduğumuz nümunə case-study.',
+      clientName: 'Nümunə Müştəri',
+      projectYear: 2026,
+      blocks: [
+        { type: 'richText', html: '<p>Layihənin təsviri buraya gələcək.</p>' },
+      ],
+      published: true,
+      featured: true,
+      order: 1,
+      categories: { connect: { id: webCategory.id } },
+      tags: { connect: { id: nextTag.id } },
+      services: { connect: { id: webService.id } },
     },
   });
 

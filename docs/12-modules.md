@@ -3,7 +3,7 @@
 | Modul | Status | Owner | Notlar |
 |---|---|---|---|
 | Monorepo kök konfiqi | ✅ Hazır | — | pnpm workspace, tsconfig.base, prettier |
-| `packages/db` (Prisma) | 🟡 Scaffold | — | Schema (4 entity) + client + seed hazır; DB hələ deploy olunmayıb |
+| `packages/db` (Prisma) | 🟢 Faza 1 | — | Faza 1 schema: CaseStudy (block JSON), Category, Tag, Service (↔CS m2m), Lead (CRM), MediaAsset (R2), AdminUser. Migrate + seed (əlaqələrlə) test edildi. Project→CaseStudy, ContactMessage→Lead |
 | `packages/shared` | 🟡 Scaffold | — | Zod sxemləri (entity + auth) + API müqavilə tipləri + util-lər; testlər yaşıl |
 | `apps/api` (Hono) | 🟡 Scaffold | — | App skeleton + işləyən admin auth (argon2 + JWT cookie + RBAC); ictimai read stublar; 4 test yaşıl |
 | `apps/web` (Next.js) | 🟡 Scaffold | — | Next 16 + Tailwind 4 + i18n (AZ/EN/RU); ana səhifə API-dən data çəkir; prod build yaşıl (3 locale SSG) |

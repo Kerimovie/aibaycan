@@ -1,6 +1,6 @@
 // aibaycan.az — Prisma schema
 // Prisma 7: generator "prisma-client" + məcburi output + driver adapter (@prisma/adapter-pg)
-// Data model əsaslandırması: docs/07-data-model.md
+// Data model əsaslandırması: docs/07-data-model.md, docs/28-module-map.md (Faza 1)
 
 generator client {
   provider = "prisma-client"
@@ -13,65 +13,180 @@ datasource db {
   // CLI/migrate üçün prisma.config.ts-də, runtime üçün adapter-də (src/client.ts).
 }
 
-/// Görülən işlər / case-study-lər — portfolio-nun əsası
-model Project {
-  id          String   @id @default(cuid())
-  slug        String   @unique
+// ============================================================================
+// MEDIA — mərkəzi media kitabxanası (Cloudflare R2, bax docs/09 #011)
+// ============================================================================
+
+/// Yüklənmiş media faylları — R2-də saxlanır, DB-də yalnız URL + metadata
+model MediaAsset {
+  id        String         @id @default(cuid())
+  url       String // R2 public URL
+  key       String         @unique // R2 obyekt açarı (silmə üçün)
+  type      MediaType      @default(IMAGE)
+  mimeType  String
+  fileName  String
+  alt       String? // əlçatanlıq / SEO
+  width     Int?
+  height    Int?
+  sizeBytes Int
+  createdAt DateTime       @default(now())
+
+  // Geri-əlaqələr (bu asset harada istifadə olunur)
+  coverForCaseStudies CaseStudy[] @relation("CaseStudyCover")
+
+  @@index([type, createdAt])
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  DOCUMENT
+}
+
+// ============================================================================
+// TAXONOMY — Category + Tag (CaseStudy + gələcək Post üçün ortaq, docs/09 #012)
+// ============================================================================
+
+/// Kateqoriyalar (case-study təsnifatı, filtr)
+model Category {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  name        String
+  description String?
+  order       Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  caseStudies CaseStudy[] @relation("CaseStudyCategories")
+
+  @@index([order])
+}
+
+/// Sərbəst teqlər (filtr)
+model Tag {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  name        String
+  createdAt   DateTime    @default(now())
+
+  caseStudies CaseStudy[] @relation("CaseStudyTags")
+}
+
+// ============================================================================
+// WORK — CaseStudy (block-based content, docs/09 #010)
+// ============================================================================
+
+/// Görülən işlər / case-study-lər — portfolio + lead-gen-in əsası
+model CaseStudy {
+  id          String       @id @default(cuid())
+  slug        String       @unique
   title       String
-  summary     String
-  description String
-  coverImage  String?
-  images      String[] @default([])
-  techStack   String[] @default([])
-  liveUrl     String?
-  repoUrl     String?
-  featured    Boolean  @default(false)
-  published   Boolean  @default(false)
-  order       Int      @default(0)
+  tagline     String? // qısa alt-başlıq
+  summary     String // listing üçün qısa təsvir
+  clientName  String?
+  projectYear Int?
+
+  // Block-based kontent (JSON — richText/image/gallery/video/quote/metrics/twoColumn)
+  // Struktur Zod ilə validasiya olunur (packages/shared), bax docs/28.
+  blocks      Json         @default("[]")
+
+  // Media
+  coverImageId String?
+  coverImage   MediaAsset? @relation("CaseStudyCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+
+  // Xarici linklər
+  liveUrl String?
+  repoUrl String?
+
+  // Görünürlük / sıralama
+  featured  Boolean @default(false)
+  published Boolean @default(false)
+  order     Int     @default(0)
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  // Əlaqələr (many-to-many)
+  categories Category[] @relation("CaseStudyCategories")
+  tags       Tag[]      @relation("CaseStudyTags")
+  services   Service[]  @relation("ServiceCaseStudies")
+
   completedAt DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
   @@index([published, featured])
   @@index([order])
 }
 
+// ============================================================================
+// SERVICES — təklif olunan xidmətlər (↔ CaseStudy cross-link)
+// ============================================================================
+
 /// Təklif etdiyimiz xidmətlər
 model Service {
-  id          String   @id @default(cuid())
-  slug        String   @unique
+  id          String      @id @default(cuid())
+  slug        String      @unique
   title       String
   description String
   icon        String?
-  published   Boolean  @default(false)
-  order       Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  published   Boolean     @default(false)
+  order       Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // "Bu xidmətə uyğun işlərimiz" cross-link
+  caseStudies CaseStudy[] @relation("ServiceCaseStudies")
 
   @@index([published])
   @@index([order])
 }
 
-/// Əlaqə formundan gələn mesajlar
-model ContactMessage {
-  id        String               @id @default(cuid())
-  name      String
-  email     String
-  subject   String?
-  message   String
-  status    ContactMessageStatus @default(NEW)
-  createdAt DateTime             @default(now())
+// ============================================================================
+// LEAD — müştəri sorğuları (zəngin + mini-CRM, ContactMessage-i əvəz edir)
+// ============================================================================
+
+/// Saytdan gələn müştəri sorğuları (lead-gen)
+model Lead {
+  id      String  @id @default(cuid())
+  name    String
+  email   String
+  phone   String?
+  company String?
+
+  // Kontekst
+  interestedIn String? // maraqlandığı xidmət(lər)
+  budgetRange  String?
+  message      String
+
+  // Mənbə (marketinq atributu)
+  source   String? // UTM / referrer
+  pageUrl  String? // hansı səhifədən gəldi
+
+  // Mini-CRM status
+  status LeadStatus @default(NEW)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([status, createdAt])
+  @@index([email])
 }
 
-enum ContactMessageStatus {
+enum LeadStatus {
   NEW
-  READ
-  ARCHIVED
+  CONTACTED
+  QUALIFIED
+  WON
+  LOST
 }
 
-/// Admin panel istifadəçiləri (single-tenant — tenantId yoxdur, bax docs/03)
+// ============================================================================
+// AUTH — admin panel istifadəçiləri (single-tenant, bax docs/03)
+// ============================================================================
+
+/// Admin panel istifadəçiləri (tenantId yoxdur — single-tenant)
 model AdminUser {
   id           String    @id @default(cuid())
   email        String    @unique
