@@ -24,6 +24,28 @@ export function organizationJsonLd() {
   };
 }
 
+/** Article schema — blog məqaləsi (SEO rich results) */
+export function articleJsonLd(post: {
+  title: string;
+  excerpt: string;
+  slug: string;
+  coverImage: { url: string } | null;
+  author: { name: string } | null;
+  publishedAt: string | null;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    ...(post.coverImage ? { image: post.coverImage.url } : {}),
+    ...(post.author ? { author: { '@type': 'Person', name: post.author.name } } : {}),
+    ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+    publisher: { '@type': 'Organization', name: 'aibaycan.az' },
+  };
+}
+
 /** CreativeWork schema — case-study detal */
 export function caseStudyJsonLd(cs: {
   title: string;

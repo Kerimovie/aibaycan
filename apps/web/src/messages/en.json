@@ -4,7 +4,8 @@
     "projects": "Our Work",
     "services": "Services",
     "contact": "Contact",
-    "about": "About"
+    "about": "About",
+    "blog": "Blog"
   },
   "home": {
     "hero": {
@@ -62,5 +63,13 @@
     "subtitle": "Meet our team.",
     "team": "Team",
     "empty": "No team members yet."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Our thoughts and experience.",
+    "empty": "No posts yet.",
+    "backToList": "Back to blog",
+    "by": "By",
+    "readMore": "Read"
   }
 }

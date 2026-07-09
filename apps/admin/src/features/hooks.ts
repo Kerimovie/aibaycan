@@ -10,6 +10,8 @@ import type {
   LeadUpdateInput,
   MediaCreateInput,
   MediaUpdateInput,
+  PostCreateInput,
+  PostUpdateInput,
   ServiceCreateInput,
   ServiceUpdateInput,
   TagCreateInput,
@@ -27,6 +29,7 @@ import type {
   Client,
   Lead,
   MediaAsset,
+  Post,
   Service,
   Tag,
   TeamMember,
@@ -70,3 +73,5 @@ export const clientHooks = createCrudHooks<Client, ClientCreateInput, ClientUpda
 export const teamHooks = createCrudHooks<TeamMember, TeamMemberCreateInput, TeamMemberUpdateInput>(
   'team',
 );
+
+export const postHooks = createCrudHooks<Post, PostCreateInput, PostUpdateInput>('posts');

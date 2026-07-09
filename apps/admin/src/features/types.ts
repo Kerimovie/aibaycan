@@ -128,3 +128,21 @@ export interface TeamMember {
   published: boolean;
   order: number;
 }
+
+export interface Post {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  blocks: unknown[];
+  coverImageId: string | null;
+  coverImage: MediaAsset | null;
+  authorId: string | null;
+  author: { id: string; name: string } | null;
+  categories: Category[];
+  tags: Tag[];
+  published: boolean;
+  publishedAt: string | null;
+  metaTitle: string | null;
+  metaDescription: string | null;
+}

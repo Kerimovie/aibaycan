@@ -4,7 +4,8 @@
     "projects": "İşlərimiz",
     "services": "Xidmətlər",
     "contact": "Əlaqə",
-    "about": "Haqqımızda"
+    "about": "Haqqımızda",
+    "blog": "Bloq"
   },
   "home": {
     "hero": {
@@ -62,5 +63,13 @@
     "subtitle": "Komandamızla tanış olun.",
     "team": "Komanda",
     "empty": "Hələ komanda üzvü əlavə olunmayıb."
+  },
+  "blog": {
+    "title": "Bloq",
+    "subtitle": "Fikirlərimiz və təcrübəmiz.",
+    "empty": "Hələ məqalə yoxdur.",
+    "backToList": "Bloqa qayıt",
+    "by": "Müəllif",
+    "readMore": "Oxu"
   }
 }

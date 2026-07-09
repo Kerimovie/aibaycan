@@ -8,4 +8,5 @@ export * from './lead';
 export * from './testimonial';
 export * from './client';
 export * from './team-member';
+export * from './post';
 export * from './auth';

@@ -30,7 +30,7 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 
 ## Faza 3 — Authority / trafik
 
-- [ ] Blog / Insights (block content — case-study sistemini təkrar)
+- [x] Blog / Insights ✅ (Post entity, block content, admin CRUD, /blog + /blog/[slug], RSS, sitemap, JSON-LD Article)
 - [ ] Analytics (GA4/Plausible + event tracking)
 
 ## Texniki borc / sonra

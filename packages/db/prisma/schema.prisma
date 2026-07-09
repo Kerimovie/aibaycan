@@ -36,6 +36,7 @@ model MediaAsset {
   photoForTestimonials Testimonial[] @relation("TestimonialPhoto")
   logoForClients       Client[]      @relation("ClientLogo")
   photoForTeam         TeamMember[]  @relation("TeamMemberPhoto")
+  coverForPosts        Post[]        @relation("PostCover")
 
   @@index([type, createdAt])
 }
@@ -61,6 +62,7 @@ model Category {
   updatedAt   DateTime    @updatedAt
 
   caseStudies CaseStudy[] @relation("CaseStudyCategories")
+  posts       Post[]      @relation("PostCategories")
 
   @@index([order])
 }
@@ -73,6 +75,7 @@ model Tag {
   createdAt   DateTime    @default(now())
 
   caseStudies CaseStudy[] @relation("CaseStudyTags")
+  posts       Post[]      @relation("PostTags")
 }
 
 // ============================================================================
@@ -240,7 +243,47 @@ model TeamMember {
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
 
+  // Blog müəllifi (Faza 3)
+  posts Post[] @relation("PostAuthor")
+
   @@index([published, order])
+}
+
+// ============================================================================
+// FAZA 3 — Blog / Insights (block content — CaseStudy sistemini təkrar, docs/28)
+// ============================================================================
+
+/// Blog məqalələri — SEO trafiki / authority
+model Post {
+  id      String  @id @default(cuid())
+  slug    String  @unique
+  title   String
+  excerpt String // listing üçün qısa təsvir
+
+  // Block-based kontent — CaseStudy ilə EYNİ sistem (docs/09 #010)
+  blocks Json @default("[]")
+
+  coverImageId String?
+  coverImage   MediaAsset? @relation("PostCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+
+  authorId String?
+  author   TeamMember? @relation("PostAuthor", fields: [authorId], references: [id], onDelete: SetNull)
+
+  // Ortaq taksonomiya (docs/09 #012)
+  categories Category[] @relation("PostCategories")
+  tags       Tag[]      @relation("PostTags")
+
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([published, publishedAt])
 }
 
 // ============================================================================

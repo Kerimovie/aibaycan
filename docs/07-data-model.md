@@ -99,6 +99,10 @@ Zəngin, `ContactMessage`-i əvəz edir.
 
 MediaAsset-ə geri-əlaqələr: `photoForTestimonials`, `logoForClients`, `photoForTeam`.
 
-## Gələcək (Faza 3)
+## Faza 3 entity-ləri (əlavə olundu)
 
-`Post` (blog — CaseStudy block sistemini təkrar). Bax [28](./28-module-map.md).
+- **Post** — slug, title, excerpt, `blocks` (JSON — **CaseStudy ilə eyni block sistemi**),
+  coverImage? (MediaAsset), author? (TeamMember), categories/tags (m2m — ortaq taksonomiya),
+  published, publishedAt, SEO meta.
+
+**İndeks:** `(published, publishedAt)`.

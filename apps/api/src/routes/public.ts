@@ -51,6 +51,38 @@ publicRoutes.get('/services', async (c) => {
   return c.json(ok(items));
 });
 
+// Blog listing (published, ən yeni əvvəl)
+publicRoutes.get('/posts', async (c) => {
+  const items = await prisma.post.findMany({
+    where: { published: true },
+    orderBy: [{ publishedAt: 'desc' }, { createdAt: 'desc' }],
+    include: {
+      coverImage: true,
+      author: { select: { id: true, name: true } },
+      categories: true,
+      tags: true,
+    },
+  });
+  return c.json(ok(paginate(items, items.length, 1, items.length || 1)));
+});
+
+// Blog detalı (slug üzrə)
+publicRoutes.get('/posts/:slug', async (c) => {
+  const post = await prisma.post.findFirst({
+    where: { slug: c.req.param('slug'), published: true },
+    include: {
+      coverImage: true,
+      author: { select: { id: true, name: true, role: true } },
+      categories: true,
+      tags: true,
+    },
+  });
+  if (!post) {
+    return sendError(c, 'NOT_FOUND', 'Məqalə tapılmadı');
+  }
+  return c.json(ok(post));
+});
+
 // Testimonials (published, sıralı)
 publicRoutes.get('/testimonials', async (c) => {
   const items = await prisma.testimonial.findMany({

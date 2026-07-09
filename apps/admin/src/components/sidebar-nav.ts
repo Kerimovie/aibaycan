@@ -9,6 +9,7 @@ import {
   Quote,
   Building2,
   UsersRound,
+  FileText,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -40,6 +41,7 @@ export const NAV_SECTIONS: NavSection[] = [
       { to: '/services', label: 'Xidmətlər', icon: Wrench },
       { to: '/categories', label: 'Kateqoriyalar', icon: Tags },
       { to: '/tags', label: 'Teqlər', icon: Tags },
+      { to: '/posts', label: 'Bloq', icon: FileText },
       { to: '/media', label: 'Media', icon: Image },
     ],
   },

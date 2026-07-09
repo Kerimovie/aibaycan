@@ -40,6 +40,25 @@ export interface PublicService {
   icon: string | null;
 }
 
+/** Faza 3 — blog */
+export interface PublicPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  coverImage: { url: string; alt: string | null } | null;
+  author: { id: string; name: string } | null;
+  categories: PublicTaxonomy[];
+  tags: PublicTaxonomy[];
+  publishedAt: string | null;
+}
+
+export interface PublicPostDetail extends PublicPost {
+  blocks: Blocks;
+  metaTitle: string | null;
+  metaDescription: string | null;
+}
+
 /** Faza 2 — sosial sübut + komanda */
 export interface PublicTestimonial {
   id: string;
@@ -97,6 +116,14 @@ export function getCaseStudy(slug: string): Promise<PublicCaseStudyDetail | null
 
 export function getServices(): Promise<PublicService[] | null> {
   return apiGet<PublicService[]>('/api/services');
+}
+
+export function getPosts(): Promise<Paginated<PublicPost> | null> {
+  return apiGet<Paginated<PublicPost>>('/api/posts');
+}
+
+export function getPost(slug: string): Promise<PublicPostDetail | null> {
+  return apiGet<PublicPostDetail>(`/api/posts/${slug}`);
 }
 
 export function getTestimonials(): Promise<PublicTestimonial[] | null> {

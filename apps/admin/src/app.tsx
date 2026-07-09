@@ -8,6 +8,7 @@ import { CategoriesPage } from '@/features/categories/categories-page';
 import { ClientsPage } from '@/features/clients/clients-page';
 import { LeadsPage } from '@/features/leads/leads-page';
 import { MediaPage } from '@/features/media/media-page';
+import { PostsPage } from '@/features/posts/posts-page';
 import { ServicesPage } from '@/features/services/services-page';
 import { TagsPage } from '@/features/tags/tags-page';
 import { TeamPage } from '@/features/team/team-page';
@@ -30,6 +31,7 @@ export function App() {
               <Route path="services" element={<ServicesPage />} />
               <Route path="categories" element={<CategoriesPage />} />
               <Route path="tags" element={<TagsPage />} />
+              <Route path="posts" element={<PostsPage />} />
               <Route path="media" element={<MediaPage />} />
               <Route path="testimonials" element={<TestimonialsPage />} />
               <Route path="clients" element={<ClientsPage />} />
