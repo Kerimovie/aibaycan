@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { BlockRenderer } from '@/components/block-renderer';
 import { articleJsonLd, JsonLd } from '@/components/json-ld';
+import { ViewTracker } from '@/components/view-tracker';
 import { Link } from '@/i18n/navigation';
 import { getPost } from '@/lib/api';
 
@@ -38,6 +39,7 @@ export default async function PostPage({ params }: Props) {
   return (
     <article className="mx-auto max-w-3xl px-4 py-12">
       <JsonLd data={articleJsonLd(post)} />
+      <ViewTracker type="post" slug={post.slug} />
 
       <Link href="/blog" className="text-sm text-primary hover:underline">
         ← {t('backToList')}

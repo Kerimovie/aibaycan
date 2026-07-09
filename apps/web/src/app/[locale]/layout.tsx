@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { routing } from '@/i18n/routing';
+import { Analytics } from '@/components/analytics';
+import { ConsentBanner } from '@/components/consent-banner';
 import { SiteHeader } from '@/components/site-header';
 
 export function generateStaticParams() {
@@ -30,7 +32,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider>
           <SiteHeader />
           <main>{children}</main>
+          <ConsentBanner />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

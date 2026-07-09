@@ -5,6 +5,7 @@ import { Button, Input, Label, Textarea } from '@aibaycan/ui';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { analytics } from '@/lib/analytics';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
@@ -61,7 +62,12 @@ export function LeadForm() {
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(parsed.data),
       });
-      setStatus(res.ok ? 'success' : 'error');
+      if (res.ok) {
+        analytics.leadSubmit(values.interestedIn || undefined);
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
     } catch {
       setStatus('error');
     }

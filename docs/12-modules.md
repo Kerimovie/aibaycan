@@ -14,6 +14,6 @@
 **Faza 1 + 2 + Blog (Faza 3a) tamamlandı.**
 - Faza 1: Work/Services/Lead/Media (schema→API→admin CRUD→web) ✅
 - Faza 2: Testimonials/Clients/Team + SEO qatı (sitemap/robots/JSON-LD) + web göstərmə ✅
-- Faza 3a: Blog (Post block-based, admin CRUD, /blog, RSS, JSON-LD Article) ✅
+- Faza 3: Blog (Post block-based, RSS, JSON-LD Article) + Analytics (GA4 consent-gated + GDPR banner) ✅
 
-Qalan: Analytics (GA4/Plausible seçimi), lead email bildirişi, R2 credentials.
+**Bütün 3 faza tamamlandı.** Qalan: lead email bildirişi, R2 credentials (.env).

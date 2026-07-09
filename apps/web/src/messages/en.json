@@ -71,5 +71,11 @@
     "backToList": "Back to blog",
     "by": "By",
     "readMore": "Read"
+  },
+  "consent": {
+    "title": "Cookie consent",
+    "message": "We use cookies to analyse site usage. The site works fully even if you decline.",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

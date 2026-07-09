@@ -71,5 +71,11 @@
     "backToList": "Bloqa qayıt",
     "by": "Müəllif",
     "readMore": "Oxu"
+  },
+  "consent": {
+    "title": "Cookie razılığı",
+    "message": "Saytın istifadəsini analiz etmək üçün cookie istifadə edirik. Razılıq verməsəniz də sayt tam işləyir.",
+    "accept": "Qəbul et",
+    "decline": "İmtina et"
   }
 }

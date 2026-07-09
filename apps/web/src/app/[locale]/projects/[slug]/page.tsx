@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { BlockRenderer } from '@/components/block-renderer';
 import { caseStudyJsonLd, JsonLd } from '@/components/json-ld';
+import { ViewTracker } from '@/components/view-tracker';
 import { Link } from '@/i18n/navigation';
 import { getCaseStudy } from '@/lib/api';
 
@@ -36,6 +37,7 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <article className="mx-auto max-w-3xl px-4 py-12">
       <JsonLd data={caseStudyJsonLd(cs)} />
+      <ViewTracker type="caseStudy" slug={cs.slug} />
       <Link href="/projects" className="text-sm text-primary hover:underline">
         ← {t('backToList')}
       </Link>

@@ -115,3 +115,11 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Ynex komponentlərini saxlamaq (öncəki #013), yalnız əsas primitivlər.
 **Tradeoff**: İstehsal-hazır, zəngin, tutarlı UI (Radix a11y + RHF form sistemi) — müqabilində böyük asılılıq dəsti (40+ Radix), tsup build addımı, i18n tələbi. Ynex-in yüngül öz-komponentləri sadə idi amma az funksional.
 **Reversibility**: one-way praktik olaraq (UI bütün admin-ə hopur)
+
+## #015 — Analytics: GA4 (consent-gated) + GDPR banner
+**Date**: 2026-07-09
+**Context**: Faza 3 analytics tələb edir. GA4 cookie istifadə edir → GDPR razılığı məcburidir.
+**Decision**: GA4 (`NEXT_PUBLIC_GA_ID`), amma script YALNIZ istifadəçi cookie razılığı verəndə yüklənir. Cookie consent banner (qəbul/imtina, localStorage). Event tracking: `lead_submit`, `case_study_view`, `post_view`. `anonymize_ip: true`.
+**Alternatives**: Plausible (cookie-siz, banner lazım deyil, pullu), hər ikisi.
+**Tradeoff**: GA4 pulsuz + güclü (funnel, Google Ads) — müqabilində cookie banner məcburiyyəti, ağır script, privacy narahatlığı. Consent olmadan GA4 yüklənmir (kod səviyyəsində zəmanət), bu, hüquqi tələbdir.
+**Reversibility**: reversible (Plausible-a keçid asandır — analytics.ts abstraksiyası var)
