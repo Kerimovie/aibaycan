@@ -8,7 +8,8 @@
       "types": "./src/index.ts",
       "default": "./src/index.ts"
     },
-    "./styles.css": "./src/styles.css"
+    "./styles.css": "./src/styles.css",
+    "./admin-theme.css": "./src/admin-theme.css"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

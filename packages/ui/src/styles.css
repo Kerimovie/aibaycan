@@ -2,11 +2,20 @@
  * Paylaşılan dizayn tokenləri (Tailwind 4 @theme).
  * web və admin bunu öz global CSS-lərində import edir:
  *   @import '@aibaycan/ui/styles.css';
- * Tək mənbə — brand rəngləri/font hər app-də təkrarlanmır.
+ *
+ * Bu fayl ORTAQ tokenlərdir (font + status rəngləri + neytrallar).
+ * Admin-in Ynex violet teması ayrıca: admin-theme.css (yalnız admin import edir).
  */
 @theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Status rəngləri (Ynex palitrası) — hər iki app üçün ortaq */
+  --color-success: #26bf94;
+  --color-warning: #f5b849;
+  --color-danger: #e6533c;
+  --color-info: #49b6f5;
+
+  /* web üçün default brand (portfolio) — admin bunu admin-theme ilə override edir */
   --color-brand: #2563eb;
   --color-brand-dark: #1e40af;
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }

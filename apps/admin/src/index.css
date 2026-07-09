@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
-/* Paylaşılan dizayn tokenləri */
+/* Ortaq tokenlər + admin Ynex teması (violet, sidebar rəngləri) */
 @import '@aibaycan/ui/styles.css';
+@import '@aibaycan/ui/admin-theme.css';
 
 /* packages/ui komponentlərinin class-larını skan et (purge olunmasın) */
 @source '../../../packages/ui/src';
@@ -9,4 +10,6 @@
 body {
   margin: 0;
   font-family: var(--font-sans);
+  background: var(--color-admin-bg);
+  color: var(--color-admin-text);
 }

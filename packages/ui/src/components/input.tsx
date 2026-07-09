@@ -14,7 +14,7 @@ export function Input({ label, error, className, id, ...props }: InputProps) {
   return (
     <div>
       {label && (
-        <label htmlFor={inputId} className="mb-1 block text-sm font-medium">
+        <label htmlFor={inputId} className="mb-1.5 block text-sm font-medium text-admin-text dark:text-neutral-200">
           {label}
         </label>
       )}
@@ -22,14 +22,15 @@ export function Input({ label, error, className, id, ...props }: InputProps) {
         id={inputId}
         aria-invalid={error ? true : undefined}
         className={cn(
-          'w-full rounded-lg border px-3 py-2 outline-none transition-colors focus:border-brand',
-          error ? 'border-red-400' : 'border-neutral-300 dark:border-neutral-700',
+          // Ynex input: incə border, ~6px radius, ~40px hündürlük (bax docs/29)
+          'w-full rounded-md border px-3.5 py-2 text-sm outline-none transition-colors placeholder:text-admin-muted focus:border-brand',
+          error ? 'border-danger' : 'border-admin-border dark:border-neutral-700',
           'bg-white dark:bg-neutral-900',
           className,
         )}
         {...props}
       />
-      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-1 text-sm text-danger">{error}</p>}
     </div>
   );
 }

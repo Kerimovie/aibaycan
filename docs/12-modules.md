@@ -7,7 +7,7 @@
 | `packages/shared` | 🟡 Scaffold | — | Zod sxemləri (entity + auth) + API müqavilə tipləri + util-lər; testlər yaşıl |
 | `apps/api` (Hono) | 🟡 Scaffold | — | App skeleton + işləyən admin auth (argon2 + JWT cookie + RBAC); ictimai read stublar; 4 test yaşıl |
 | `apps/web` (Next.js) | 🟡 Scaffold | — | Next 16 + Tailwind 4 + i18n (AZ/EN/RU); ana səhifə API-dən data çəkir; prod build yaşıl (3 locale SSG) |
-| `apps/admin` (Vite SPA) | 🟡 Scaffold | — | Vite 8 + React 19 + Tailwind 4; işləyən login (cookie auth), auth guard, qorunan dashboard layout; CRUD stub; build yaşıl |
-| `packages/ui` | 🟡 Scaffold | — | Paylaşılan tokenlər + Button/Card/Input + cn; web & admin real inteqrasiya olunub; hər iki build yaşıl |
+| `apps/admin` (Vite SPA) | 🟢 Dizayn | — | Ynex dizayn sistemi (docs/29) tətbiq: dark sidebar + header + PageHeader; login signin-cover pattern (gradient); dashboard + stat box-lar; naviqasiya modul xəritəsinə uyğun. Uçdan-uca test: real login → dashboard ✓ |
+| `packages/ui` | 🟢 Dizayn | — | Ynex komponentləri: Button (variant-lar), Box/BoxHeader/BoxBody, Input, Badge, Table; violet tema (admin-theme.css); Card (web üçün) saxlanılıb; lucide ikonlar |
 
-**Monorepo scaffold tamamlandı** — bütün 6 modul qurulub. Növbəti mərhələ: canlı DB + migrate, sonra CRUD implementasiyası.
+**Admin panel dizaynı hazır** (Ynex əsaslı). Növbəti: Faza 1 CRUD (schema → API → admin UI). Sonra web tərəf.

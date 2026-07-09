@@ -1,0 +1,26 @@
+/**
+ * Admin panel teması — Ynex dizayn sistemi (bax docs/29).
+ * Yalnız apps/admin import edir:
+ *   @import '@aibaycan/ui/admin-theme.css';
+ * `--color-brand`-i violet-ə override edir → mövcud UI komponentləri (Button və s.)
+ * avtomatik Ynex rənginə keçir.
+ */
+@theme {
+  /* Primary — Ynex violet (brand override) */
+  --color-brand: #845adf;
+  --color-brand-dark: #6d3fd6;
+  --color-brand-light: #f3eefc;
+
+  /* Ynex səth rəngləri */
+  --color-admin-bg: #f0f1f7; /* məzmun fonu */
+  --color-admin-sidebar: #111c43; /* dark navy sidebar */
+  --color-admin-card: #ffffff;
+  --color-admin-border: #eaedf1; /* box/input border */
+  --color-admin-text: #2f3237; /* əsas mətn */
+  --color-admin-muted: #8c9097; /* ikinci dərəcəli mətn */
+
+  /* Sidebar daxili rənglər */
+  --color-sidebar-text: #a4b0d3; /* passiv menu item */
+  --color-sidebar-active: rgba(255, 255, 255, 0.05);
+  --color-sidebar-heading: #6b7794; /* bölmə başlıqları */
+}

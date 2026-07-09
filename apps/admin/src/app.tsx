@@ -12,13 +12,16 @@ export function App() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
 
-          {/* Qorunan sahə */}
+          {/* Qorunan sahə — route-lar sidebar naviqasiyasına uyğun (docs/28) */}
           <Route element={<RequireAuth />}>
             <Route element={<DashboardLayout />}>
               <Route index element={<DashboardPage />} />
-              <Route path="projects" element={<PlaceholderPage title="İşlər" />} />
+              <Route path="case-studies" element={<PlaceholderPage title="İşlər" />} />
               <Route path="services" element={<PlaceholderPage title="Xidmətlər" />} />
-              <Route path="messages" element={<PlaceholderPage title="Mesajlar" />} />
+              <Route path="categories" element={<PlaceholderPage title="Kateqoriyalar" />} />
+              <Route path="media" element={<PlaceholderPage title="Media" />} />
+              <Route path="leads" element={<PlaceholderPage title="Sorğular" />} />
+              <Route path="admins" element={<PlaceholderPage title="Adminlər" />} />
             </Route>
           </Route>
 
