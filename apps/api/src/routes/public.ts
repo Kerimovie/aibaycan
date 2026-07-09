@@ -3,6 +3,7 @@ import { prisma } from '@aibaycan/db';
 import { Hono } from 'hono';
 import { sendError } from '../lib/http.js';
 import { notifyNewLead } from '../lib/lead-notification.js';
+import { rateLimit } from '../lib/rate-limit.js';
 import { valid, validate } from '../lib/validate.js';
 import type { AppEnv } from '../types.js';
 
@@ -114,8 +115,11 @@ publicRoutes.get('/team', async (c) => {
   return c.json(ok(items));
 });
 
-// Lead formu (saytdan müştəri sorğusu — auth-suz, honeypot qorunması)
-publicRoutes.post('/leads', validate('json', leadCreateSchema), async (c) => {
+// Spam/flood qorunması: IP üzrə 10 lead / 10 dəq (honeypot-a əlavə, docs/16)
+const leadRateLimit = rateLimit({ name: 'leads', windowMs: 10 * 60_000, limit: 10 });
+
+// Lead formu (saytdan müştəri sorğusu — auth-suz, honeypot + rate-limit qorunması)
+publicRoutes.post('/leads', leadRateLimit, validate('json', leadCreateSchema), async (c) => {
   const { website, ...data } = valid<LeadCreateInput>(c, 'json');
   // website (honeypot) validate-dən keçib boşdursa — normal. Dolubsa Zod rədd edib.
   void website;

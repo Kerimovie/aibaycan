@@ -6,13 +6,17 @@ import { isProd } from '../env.js';
 import { sendError } from '../lib/http.js';
 import { AUTH_COOKIE, AUTH_COOKIE_MAX_AGE, signAuthToken } from '../lib/jwt.js';
 import { fakeVerify, verifyPassword } from '../lib/password.js';
+import { rateLimit } from '../lib/rate-limit.js';
 import { validate, valid } from '../lib/validate.js';
 import { authMiddleware, type AuthUser } from '../middleware/auth.js';
 import type { AppEnv } from '../types.js';
 
 export const authRoutes = new Hono<AppEnv>();
 
-authRoutes.post('/login', validate('json', loginSchema), async (c) => {
+// Brute-force qorunması: IP üzrə 10 login cəhdi / 15 dəq (docs/16)
+const loginRateLimit = rateLimit({ name: 'login', windowMs: 15 * 60_000, limit: 10 });
+
+authRoutes.post('/login', loginRateLimit, validate('json', loginSchema), async (c) => {
   const { email, password } = valid<LoginInput>(c, 'json');
 
   const user = await prisma.adminUser.findUnique({ where: { email } });

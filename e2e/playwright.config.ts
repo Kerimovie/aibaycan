@@ -29,6 +29,8 @@ const apiEnv = {
   DATABASE_URL: TEST_DB_URL,
   JWT_SECRET: 'e2e-test-secret-at-least-32-characters-long',
   CORS_ORIGINS: `http://localhost:${WEB_PORT},http://localhost:${ADMIN_PORT}`,
+  // Fixture hər test üçün yenidən login edir — rate-limit axını süni sındırmasın (docs/16).
+  RATE_LIMIT_DISABLED: 'true',
 };
 
 export default defineConfig({
