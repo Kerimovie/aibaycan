@@ -38,3 +38,24 @@ export class HttpError extends Error {
     this.name = 'HttpError';
   }
 }
+
+/**
+ * Prisma xətasını (known error code) HttpError-a çevirir — CRUD-da ümumi.
+ * P2002 = unique pozuntu (slug təkrarı) → CONFLICT
+ * P2025 = qeyd tapılmadı (update/delete) → NOT_FOUND
+ * Digərləri → null (mərkəzi handler INTERNAL edir).
+ */
+export function toHttpError(error: unknown): HttpError | null {
+  const code = (error as { code?: string }).code;
+  if (code === 'P2002') {
+    const target = (error as { meta?: { target?: string[] } }).meta?.target;
+    const field = target?.[0] ?? 'dəyər';
+    return new HttpError('CONFLICT', `Bu ${field} artıq mövcuddur`, {
+      [field]: ['artıq istifadə olunub'],
+    });
+  }
+  if (code === 'P2025') {
+    return new HttpError('NOT_FOUND', 'Qeyd tapılmadı');
+  }
+  return null;
+}
