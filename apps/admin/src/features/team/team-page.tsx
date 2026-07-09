@@ -20,6 +20,7 @@ import type { z } from 'zod';
 import { PageHeader } from '@/components/page-header';
 import { teamHooks } from '@/features/hooks';
 import type { TeamMember } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 type FormInput = z.input<typeof teamMemberCreateSchema>;
@@ -57,6 +58,7 @@ function TeamFormModal({ open, onClose, editing }: { open: boolean; onClose: () 
     <Modal open={open} onClose={onClose} title={isEdit ? 'Üzvü redaktə et' : 'Yeni üzv'} size="lg">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <div className="grid grid-cols-2 gap-4">
             <Field name="name" label="Ad" required><Input placeholder="Ad Soyad" /></Field>
             <Field name="role" label="Vəzifə" required><Input placeholder="Developer" /></Field>

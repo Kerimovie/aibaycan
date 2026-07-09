@@ -6,6 +6,7 @@ import { Controller, useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { testimonialHooks } from '@/features/hooks';
 import type { Testimonial } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 type FormInput = z.input<typeof testimonialCreateSchema>;
@@ -57,6 +58,7 @@ export function TestimonialFormModal({ open, onClose, editing }: Props) {
     <Modal open={open} onClose={onClose} title={isEdit ? 'Rəyi redaktə et' : 'Yeni rəy'} size="lg">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <Field name="quote" label="Rəy" required>
             <Textarea rows={3} placeholder="Müştərinin rəyi" />
           </Field>

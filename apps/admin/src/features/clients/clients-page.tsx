@@ -19,6 +19,7 @@ import type { z } from 'zod';
 import { PageHeader } from '@/components/page-header';
 import { clientHooks } from '@/features/hooks';
 import type { Client } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 type FormInput = z.input<typeof clientCreateSchema>;
@@ -56,6 +57,7 @@ function ClientFormModal({ open, onClose, editing }: { open: boolean; onClose: (
     <Modal open={open} onClose={onClose} title={isEdit ? 'Müştərini redaktə et' : 'Yeni müştəri'}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <Field name="name" label="Ad" required>
             <Input placeholder="Şirkət adı" />
           </Field>

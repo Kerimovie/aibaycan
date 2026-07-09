@@ -16,7 +16,8 @@
     "typecheck": "pnpm --recursive run typecheck",
     "test": "pnpm --recursive run test",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\"",
+    "test:e2e": "pnpm --filter @aibaycan/e2e test"
   },
   "devDependencies": {
     "prettier": "^3.4.2",

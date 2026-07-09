@@ -14,9 +14,10 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      // /api sorğularını apps/api-yə yönləndir — cookie auth same-origin işləsin
+      // /api sorğularını apps/api-yə yönləndir — cookie auth same-origin işləsin.
+      // Target env-dən (E2E fərqli portda API qaldırır).
       '/api': {
-        target: 'http://localhost:3001',
+        target: process.env.API_PROXY_TARGET ?? 'http://localhost:3001',
         changeOrigin: true,
       },
     },

@@ -22,3 +22,8 @@ dist-ssr/
 
 # Prisma — generasiya olunan client (schema-dan yenidən yaradılır)
 **/src/generated/
+
+# Playwright
+/e2e/test-results/
+/e2e/playwright-report/
+/e2e/.playwright/

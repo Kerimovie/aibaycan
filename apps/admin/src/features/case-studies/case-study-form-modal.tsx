@@ -6,6 +6,7 @@ import { Controller, useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { caseStudyHooks } from '@/features/hooks';
 import type { CaseStudy } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 import { MultiSelectField } from './multi-select-field';
 
@@ -80,6 +81,7 @@ export function CaseStudyFormModal({ open, onClose, editing }: Props) {
     <Modal open={open} onClose={onClose} title={isEdit ? 'İşi redaktə et' : 'Yeni iş'} size="2xl">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <div className="grid grid-cols-2 gap-4">
             <Field name="title" label="Başlıq" required>
               <Input placeholder="Layihə adı" />

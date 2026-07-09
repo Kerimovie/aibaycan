@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { categoryHooks } from '@/features/hooks';
 import type { Category } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 // Zod default sahələr input tipini optional edir → RHF üçün input tipi ayrıca
@@ -64,6 +65,7 @@ export function CategoryFormModal({ open, onClose, editing }: Props) {
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <Field name="name" label="Ad" required>
             <Input placeholder="Veb" />
           </Field>

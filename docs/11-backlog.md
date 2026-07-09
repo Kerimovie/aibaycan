@@ -37,4 +37,4 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 
 - [ ] Login rate-limit (brute-force qorunma — docs/05 TODO)
 - [ ] Production deploy (host, reverse proxy, TLS, backup — docs/14 TODO)
-- [ ] E2E testlər (Playwright — kritik axınlar)
+- [x] E2E testlər ✅ (Playwright, ayrıca test DB, 11 test: auth/CRUD/lead form/kontent/GDPR — 2 real bug tapdı)

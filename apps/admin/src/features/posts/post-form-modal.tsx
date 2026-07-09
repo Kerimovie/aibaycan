@@ -7,6 +7,7 @@ import type { z } from 'zod';
 import { MultiSelectField } from '@/features/case-studies/multi-select-field';
 import { postHooks } from '@/features/hooks';
 import type { Post } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 type FormInput = z.input<typeof postCreateSchema>;
@@ -77,6 +78,7 @@ export function PostFormModal({ open, onClose, editing }: Props) {
     <Modal open={open} onClose={onClose} title={isEdit ? 'Məqaləni redaktə et' : 'Yeni məqalə'} size="2xl">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <div className="grid grid-cols-2 gap-4">
             <Field name="title" label="Başlıq" required>
               <Input placeholder="Məqalə başlığı" />

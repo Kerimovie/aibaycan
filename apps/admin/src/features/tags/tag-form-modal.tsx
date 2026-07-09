@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { tagHooks } from '@/features/hooks';
 import type { Tag } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 type FormInput = z.input<typeof tagCreateSchema>;
@@ -46,6 +47,7 @@ export function TagFormModal({ open, onClose, editing }: Props) {
     <Modal open={open} onClose={onClose} title={isEdit ? 'Teqi redaktə et' : 'Yeni teq'}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <Field name="name" label="Ad" required>
             <Input placeholder="Next.js" />
           </Field>

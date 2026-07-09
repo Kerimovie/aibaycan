@@ -6,6 +6,7 @@ import { Controller, useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { serviceHooks } from '@/features/hooks';
 import type { Service } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 type FormInput = z.input<typeof serviceCreateSchema>;
@@ -58,6 +59,7 @@ export function ServiceFormModal({ open, onClose, editing }: Props) {
     <Modal open={open} onClose={onClose} title={isEdit ? 'Xidməti redaktə et' : 'Yeni xidmət'} size="lg">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <Field name="title" label="Başlıq" required>
             <Input placeholder="Veb Development" />
           </Field>

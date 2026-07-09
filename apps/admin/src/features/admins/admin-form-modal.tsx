@@ -17,6 +17,7 @@ import { Controller, useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { adminUserHooks } from '@/features/hooks';
 import type { AdminUser } from '@/features/types';
+import { FormRootError } from '@/components/form-root-error';
 import { applyApiError } from '@/lib/apply-api-error';
 
 type CreateInput = z.input<typeof adminUserCreateSchema>;
@@ -72,6 +73,7 @@ export function AdminFormModal({ open, onClose, editing }: Props) {
     <Modal open={open} onClose={onClose} title={isEdit ? 'Admini redaktə et' : 'Yeni admin'}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormRootError form={form} />
           <Field name="email" label="Email" required>
             <Input type="email" placeholder="admin@aibaycan.az" disabled={isEdit} />
           </Field>
