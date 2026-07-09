@@ -3,7 +3,8 @@
     "home": "Home",
     "projects": "Our Work",
     "services": "Services",
-    "contact": "Contact"
+    "contact": "Contact",
+    "about": "About"
   },
   "home": {
     "hero": {
@@ -18,6 +19,12 @@
     "services": {
       "title": "Our services",
       "empty": "No services added yet."
+    },
+    "testimonials": {
+      "title": "What clients say"
+    },
+    "clients": {
+      "title": "Trusted by"
     }
   },
   "projects": {
@@ -49,5 +56,11 @@
     "sending": "Sending…",
     "success": "Your request has been sent. We'll get in touch soon.",
     "error": "Failed to send. Please try again."
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Meet our team.",
+    "team": "Team",
+    "empty": "No team members yet."
   }
 }

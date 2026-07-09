@@ -40,6 +40,32 @@ export interface PublicService {
   icon: string | null;
 }
 
+/** Faza 2 — sosial sübut + komanda */
+export interface PublicTestimonial {
+  id: string;
+  quote: string;
+  author: string;
+  role: string | null;
+  company: string | null;
+  photo: { url: string; alt: string | null } | null;
+}
+
+export interface PublicClient {
+  id: string;
+  name: string;
+  logo: { url: string; alt: string | null } | null;
+  websiteUrl: string | null;
+}
+
+export interface PublicTeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string | null;
+  photo: { url: string; alt: string | null } | null;
+  socials: Record<string, string>;
+}
+
 /**
  * apps/api-yə server-side fetch. Xəta baş verərsə null qaytarır
  * (səhifə çökmür — no silent crash, amma loglanır).
@@ -71,4 +97,16 @@ export function getCaseStudy(slug: string): Promise<PublicCaseStudyDetail | null
 
 export function getServices(): Promise<PublicService[] | null> {
   return apiGet<PublicService[]>('/api/services');
+}
+
+export function getTestimonials(): Promise<PublicTestimonial[] | null> {
+  return apiGet<PublicTestimonial[]>('/api/testimonials');
+}
+
+export function getClients(): Promise<PublicClient[] | null> {
+  return apiGet<PublicClient[]>('/api/clients');
+}
+
+export function getTeam(): Promise<PublicTeamMember[] | null> {
+  return apiGet<PublicTeamMember[]>('/api/team');
 }

@@ -9,7 +9,7 @@ const SITE_URL = process.env.SITE_URL ?? 'https://aibaycan.az';
  * Locale-prefiksli (docs/18): /az, /en, /ru.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticPaths = ['', '/projects', '/contact'];
+  const staticPaths = ['', '/projects', '/about', '/contact'];
 
   const staticEntries: MetadataRoute.Sitemap = routing.locales.flatMap((locale) =>
     staticPaths.map((path) => ({

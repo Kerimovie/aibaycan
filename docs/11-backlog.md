@@ -26,6 +26,7 @@ Modul xəritəsi və faza planı: [28](./28-module-map.md). Aşağıdakı sıra 
 - [x] Testimonials + Clients ✅ (schema + API + admin CRUD + public read)
 - [x] Team / About ✅ (TeamMember CRUD)
 - [x] SEO qatı ✅ (sitemap.xml dinamik, robots.txt, JSON-LD Organization+CreativeWork)
+- [x] **Web-də göstərmə** ✅ (ana səhifə: rəylər + loqo divarı; /about: komanda)
 
 ## Faza 3 — Authority / trafik
 

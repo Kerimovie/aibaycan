@@ -3,7 +3,8 @@
     "home": "Ana səhifə",
     "projects": "İşlərimiz",
     "services": "Xidmətlər",
-    "contact": "Əlaqə"
+    "contact": "Əlaqə",
+    "about": "Haqqımızda"
   },
   "home": {
     "hero": {
@@ -18,6 +19,12 @@
     "services": {
       "title": "Xidmətlərimiz",
       "empty": "Hələ xidmət əlavə olunmayıb."
+    },
+    "testimonials": {
+      "title": "Müştəri rəyləri"
+    },
+    "clients": {
+      "title": "Bizə etibar edənlər"
     }
   },
   "projects": {
@@ -49,5 +56,11 @@
   "common": {
     "loading": "Yüklənir…",
     "error": "Xəta baş verdi"
+  },
+  "about": {
+    "title": "Haqqımızda",
+    "subtitle": "Komandamızla tanış olun.",
+    "team": "Komanda",
+    "empty": "Hələ komanda üzvü əlavə olunmayıb."
   }
 }
