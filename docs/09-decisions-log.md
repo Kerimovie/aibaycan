@@ -99,3 +99,11 @@ Tam əsaslandırma üçün bax [03 — Stack qərarları](./03-stack-decisions.m
 **Alternatives**: Hər tip üçün ayrı kateqoriya sistemi.
 **Tradeoff**: Ortaq = az təkrar, vahid filtr; müqabilində iki fərqli kontent tipinin təsnifatı qarışa bilər (polymorphic əlaqə diqqət tələb edir).
 **Reversibility**: reversible
+
+## #013 — Admin dizaynı: Ynex template (öz komponentlərimizlə)
+**Date**: 2026-07-09
+**Context**: İstifadəçi Ynex admin template-ini (Spruko) referans verdi; admin panel əvvəl bitəcək, sonra web.
+**Decision**: Ynex dizaynı (rəng/font/spacing/layout/komponent stili) birebir götürülür, amma öz Tailwind 4 + React 19 komponentlərimizlə qurulur (Preline/jQuery vendor yox). İkonlar: lucide-react. Tam dizayn sistemi [29](./29-admin-design-system.md)-də. Primary rəng violet #845adf, font Inter, dark sidebar #111c43.
+**Alternatives**: Ynex-in hazır CSS/ti-/hs- class sistemini olduğu kimi gətirmək.
+**Tradeoff**: Öz komponentlərimizlə = bir az çox iş, amma təmiz, Tailwind 4/React 19-a uyğun, vendor borcu yox. Hazır CSS gətirmək sürətli olardı amma Preline+jQuery+node-waves asılılığı və versiya ziddiyyəti gətirərdi.
+**Reversibility**: reversible (dizayn dəyişə bilər)
