@@ -5,31 +5,72 @@
     "services": "Xidmətlər",
     "contact": "Əlaqə",
     "about": "Haqqımızda",
-    "blog": "Bloq"
+    "blog": "Bloq",
+    "cta": "Danışaq"
   },
   "home": {
     "hero": {
+      "eyebrow": "Rəqəmsal studiya",
       "title": "Rəqəmsal həllər yaradırıq",
       "subtitle": "Gördüyümüz işlər və təklif etdiyimiz xidmətlərlə tanış olun.",
-      "cta": "İşlərimizə baxın"
+      "cta": "İşlərimizə baxın",
+      "ctaSecondary": "Əlaqə saxla"
     },
     "featured": {
+      "eyebrow": "Portfolio",
       "title": "Seçilmiş işlər",
+      "viewAll": "Bütün işlər",
       "empty": "Hələ layihə əlavə olunmayıb."
     },
     "services": {
+      "eyebrow": "Nə edirik",
       "title": "Xidmətlərimiz",
       "empty": "Hələ xidmət əlavə olunmayıb."
     },
     "testimonials": {
+      "eyebrow": "Rəylər",
       "title": "Müştəri rəyləri"
     },
     "clients": {
       "title": "Bizə etibar edənlər"
+    },
+    "cta": {
+      "title": "Növbəti layihəni birlikdə quraq",
+      "subtitle": "İdeyanı danış — nəticəyə çevirək.",
+      "button": "Layihə barədə danış"
+    },
+    "whyUs": {
+      "eyebrow": "Niyə biz",
+      "title": "Niyə bizimlə işləməlisən",
+      "point1Title": "Nəticə-yönlü",
+      "point1Text": "Hər layihəni ölçülə bilən nəticə üçün qururuq — təkcə gözəl görünən yox.",
+      "point2Title": "Uçdan-uca komanda",
+      "point2Text": "Strategiya, dizayn və development — hamısı bir yerdə, əl-ələ.",
+      "point3Title": "Şəffaf proses",
+      "point3Text": "Hər addımda harada olduğunu bilirsən — sürpriz yox."
+    },
+    "howItWorks": {
+      "eyebrow": "Necə işləyirik",
+      "title": "Fikirdən nəticəyə — 3 addımda",
+      "step1Title": "Kəşf",
+      "step1Text": "Məqsədini, auditoriyanı və uğur meyarını birlikdə müəyyən edirik.",
+      "step2Title": "Dizayn və development",
+      "step2Text": "Prototipdən canlı məhsula — tez, keyfiyyətli və test edilmiş.",
+      "step3Title": "Təhvil və böyümə",
+      "step3Text": "İşə salırıq, ölçürük və davamlı yaxşılaşdırırıq."
+    },
+    "stats": {
+      "eyebrow": "Rəqəmlərlə",
+      "item1": "Tamamlanmış layihə",
+      "item2": "Məmnun müştəri",
+      "item3": "İl təcrübə",
+      "item4": "Vaxtında təhvil"
     }
   },
   "projects": {
+    "eyebrow": "Portfolio",
     "title": "İşlərimiz",
+    "subtitle": "Müştərilərimiz üçün gördüyümüz seçilmiş işlər.",
     "empty": "Hələ layihə yoxdur.",
     "viewLive": "Canlı bax",
     "viewRepo": "Kod",
@@ -77,5 +118,23 @@
     "message": "Saytın istifadəsini analiz etmək üçün cookie istifadə edirik. Razılıq verməsəniz də sayt tam işləyir.",
     "accept": "Qəbul et",
     "decline": "İmtina et"
+  },
+  "footer": {
+    "tagline": "AI-güclü, çoxsahəli rəqəmsal məhsul studiyası.",
+    "navTitle": "Naviqasiya",
+    "slogan": "Bizneslə birlikdə irəliləyən sistemlər.",
+    "rights": "Bütün hüquqlar qorunur."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Tez-tez verilən suallar",
+    "q1": "Bir layihə nə qədər çəkir?",
+    "a1": "Həcmindən asılıdır — kiçik saytlar 2–4 həftə, böyük platformalar 2–3 ay. Kəşf mərhələsində dəqiq qrafik veririk.",
+    "q2": "Qiymət necə formalaşır?",
+    "a2": "Hər layihə fərqlidir. Tələbləri dinləyib şəffaf təklif hazırlayırıq — gizli xərc yoxdur.",
+    "q3": "Təhvildən sonra dəstək varmı?",
+    "a3": "Bəli. İşə saldıqdan sonra da yanınızdayıq — dəstək və inkişaf paketləri təklif edirik.",
+    "q4": "Mövcud saytımı yeniləyə bilərsiniz?",
+    "a4": "Əlbəttə. Mövcud məhsulu audit edib yenidən dizayn və ya mərhələli təkmilləşdirmə təklif edirik."
   }
 }

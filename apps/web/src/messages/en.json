@@ -5,31 +5,72 @@
     "services": "Services",
     "contact": "Contact",
     "about": "About",
-    "blog": "Blog"
+    "blog": "Blog",
+    "cta": "Let's talk"
   },
   "home": {
     "hero": {
+      "eyebrow": "Digital studio",
       "title": "We build digital solutions",
       "subtitle": "Explore the work we've done and the services we offer.",
-      "cta": "See our work"
+      "cta": "See our work",
+      "ctaSecondary": "Get in touch"
     },
     "featured": {
+      "eyebrow": "Portfolio",
       "title": "Featured work",
+      "viewAll": "All work",
       "empty": "No projects added yet."
     },
     "services": {
+      "eyebrow": "What we do",
       "title": "Our services",
       "empty": "No services added yet."
     },
     "testimonials": {
+      "eyebrow": "Testimonials",
       "title": "What clients say"
     },
     "clients": {
       "title": "Trusted by"
+    },
+    "cta": {
+      "title": "Let's build your next project",
+      "subtitle": "Tell us your idea — we'll turn it into results.",
+      "button": "Start a project"
+    },
+    "whyUs": {
+      "eyebrow": "Why us",
+      "title": "Why work with us",
+      "point1Title": "Outcome-driven",
+      "point1Text": "We build every project for measurable results — not just good looks.",
+      "point2Title": "End-to-end team",
+      "point2Text": "Strategy, design and development — all in one place, working together.",
+      "point3Title": "Transparent process",
+      "point3Text": "You always know where things stand — no surprises."
+    },
+    "howItWorks": {
+      "eyebrow": "How we work",
+      "title": "From idea to result — in 3 steps",
+      "step1Title": "Discovery",
+      "step1Text": "We define your goals, audience and success metrics together.",
+      "step2Title": "Design & build",
+      "step2Text": "From prototype to live product — fast, high-quality and tested.",
+      "step3Title": "Launch & grow",
+      "step3Text": "We ship, measure and keep improving."
+    },
+    "stats": {
+      "eyebrow": "By the numbers",
+      "item1": "Projects delivered",
+      "item2": "Happy clients",
+      "item3": "Years of experience",
+      "item4": "On-time delivery"
     }
   },
   "projects": {
+    "eyebrow": "Portfolio",
     "title": "Our Work",
+    "subtitle": "Selected work we've delivered for our clients.",
     "empty": "No projects yet.",
     "viewLive": "Live",
     "viewRepo": "Code",
@@ -77,5 +118,23 @@
     "message": "We use cookies to analyse site usage. The site works fully even if you decline.",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "footer": {
+    "tagline": "AI-powered, multi-disciplinary digital product studio.",
+    "navTitle": "Navigation",
+    "slogan": "Systems that move business forward.",
+    "rights": "All rights reserved."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "q1": "How long does a project take?",
+    "a1": "It depends on scope — small sites 2–4 weeks, large platforms 2–3 months. We give an exact timeline during discovery.",
+    "q2": "How is pricing decided?",
+    "a2": "Every project is different. We listen to your needs and prepare a transparent quote — no hidden costs.",
+    "q3": "Is there support after launch?",
+    "a3": "Yes. We stay with you after launch — offering support and growth packages.",
+    "q4": "Can you revamp my existing site?",
+    "a4": "Absolutely. We audit your current product and propose a redesign or step-by-step improvement."
   }
 }

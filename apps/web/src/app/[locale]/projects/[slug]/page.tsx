@@ -30,71 +30,87 @@ export default async function CaseStudyPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('projects');
+  const tHome = await getTranslations('home');
 
   const cs = await getCaseStudy(slug);
   if (!cs) notFound();
 
+  const meta = [
+    cs.clientName ? { label: t('client'), value: cs.clientName } : null,
+    cs.projectYear ? { label: t('year'), value: String(cs.projectYear) } : null,
+  ].filter((x): x is { label: string; value: string } => x !== null);
+
   return (
-    <article className="mx-auto max-w-3xl px-4 py-12">
+    <article className="px-6 py-14">
       <JsonLd data={caseStudyJsonLd(cs)} />
       <ViewTracker type="caseStudy" slug={cs.slug} />
-      <Link href="/projects" className="text-sm text-primary hover:underline">
-        ← {t('backToList')}
-      </Link>
 
-      <header className="mt-6">
-        <h1 className="text-4xl font-bold">{cs.title}</h1>
-        {cs.tagline && <p className="mt-2 text-lg text-text-secondary">{cs.tagline}</p>}
-
-        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-tertiary">
-          {cs.clientName && (
-            <span>
-              {t('client')}: <span className="text-text-primary">{cs.clientName}</span>
-            </span>
-          )}
-          {cs.projectYear && (
-            <span>
-              {t('year')}: <span className="text-text-primary">{cs.projectYear}</span>
-            </span>
-          )}
-        </div>
+      {/* ── Başlıq ───────────────────────────────────────────── */}
+      <header className="mx-auto max-w-3xl">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-text-secondary transition-colors hover:text-primary"
+        >
+          <span aria-hidden>←</span> {t('backToList')}
+        </Link>
 
         {cs.categories.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
+          <div className="mt-6 flex flex-wrap gap-1.5">
             {cs.categories.map((cat) => (
               <span
                 key={cat.id}
-                className="rounded-full bg-primary-50 px-2 py-0.5 text-xs text-primary"
+                className="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary"
               >
                 {cat.name}
               </span>
             ))}
           </div>
         )}
+
+        <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl">
+          {cs.title}
+        </h1>
+        {cs.tagline && <p className="mt-4 text-xl text-text-secondary">{cs.tagline}</p>}
+
+        {meta.length > 0 && (
+          <dl className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-2 text-sm">
+            {meta.map((m) => (
+              <div key={m.label} className="flex items-center gap-2">
+                <dt className="text-text-tertiary">{m.label}:</dt>
+                <dd className="font-medium text-text-primary">{m.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </header>
 
+      {/* ── Cover ────────────────────────────────────────────── */}
       {cs.coverImage && (
-        <img
-          src={cs.coverImage.url}
-          alt={cs.coverImage.alt ?? cs.title}
-          className="mt-8 w-full rounded-lg"
-        />
+        <div className="mx-auto mt-10 max-w-5xl">
+          <img
+            src={cs.coverImage.url}
+            alt={cs.coverImage.alt ?? cs.title}
+            className="aspect-[16/9] w-full rounded-2xl object-cover ring-1 ring-black/5"
+          />
+        </div>
       )}
 
-      <div className="mt-10">
+      {/* ── Kontent blokları ─────────────────────────────────── */}
+      <div className="mx-auto mt-14 max-w-3xl">
         <BlockRenderer blocks={cs.blocks} />
       </div>
 
+      {/* ── Xarici linklər ───────────────────────────────────── */}
       {(cs.liveUrl || cs.repoUrl) && (
-        <div className="mt-10 flex gap-4">
+        <div className="mx-auto mt-12 flex max-w-3xl flex-wrap gap-3">
           {cs.liveUrl && (
             <a
               href={cs.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg bg-primary px-5 py-2.5 font-medium text-white hover:bg-primary-700"
+              className="rounded-xl bg-primary px-5 py-2.5 font-semibold text-white transition hover:bg-primary-700"
             >
-              {t('viewLive')}
+              {t('viewLive')} ↗
             </a>
           )}
           {cs.repoUrl && (
@@ -102,13 +118,26 @@ export default async function CaseStudyPage({ params }: Props) {
               href={cs.repoUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg border border-border px-5 py-2.5 font-medium hover:bg-surface-2"
+              className="rounded-xl border border-border px-5 py-2.5 font-semibold text-text-primary transition hover:border-primary/40 hover:text-primary"
             >
-              {t('viewRepo')}
+              {t('viewRepo')} ↗
             </a>
           )}
         </div>
       )}
+
+      {/* ── Yekun CTA ────────────────────────────────────────── */}
+      <div className="mx-auto mt-16 max-w-3xl">
+        <div className="flex flex-col items-center gap-4 rounded-2xl border border-border bg-surface-1 px-8 py-10 text-center sm:flex-row sm:justify-between sm:text-left">
+          <p className="text-lg font-semibold text-text-primary">{tHome('cta.title')}</p>
+          <Link
+            href="/contact"
+            className="shrink-0 rounded-xl bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary-700"
+          >
+            {tHome('cta.button')}
+          </Link>
+        </div>
+      </div>
     </article>
   );
 }

@@ -22,7 +22,7 @@ function Block({ block }: { block: ContentBlock }) {
           <img
             src={block.media.url}
             alt={block.media.alt ?? ''}
-            className="w-full rounded-lg"
+            className="w-full rounded-xl object-cover ring-1 ring-black/5"
             loading="lazy"
           />
           {block.caption && (
@@ -57,10 +57,10 @@ function Block({ block }: { block: ContentBlock }) {
 
     case 'quote':
       return (
-        <blockquote className="border-l-4 border-primary pl-6 text-lg italic text-text-primary">
+        <blockquote className="border-l-4 border-primary py-1 pl-6 text-xl italic leading-relaxed text-text-primary">
           <p>{block.text}</p>
           {block.author && (
-            <footer className="mt-2 text-sm not-italic text-text-tertiary">
+            <footer className="mt-3 text-sm not-italic text-text-tertiary">
               — {block.author}
               {block.role && `, ${block.role}`}
             </footer>
@@ -70,10 +70,10 @@ function Block({ block }: { block: ContentBlock }) {
 
     case 'metrics':
       return (
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {block.items.map((m, i) => (
-            <div key={i} className="text-center">
-              <p className="text-3xl font-bold text-primary">{m.value}</p>
+            <div key={i} className="rounded-2xl border border-border bg-surface-1 p-5 text-center">
+              <p className="text-3xl font-bold tracking-tight text-primary">{m.value}</p>
               <p className="mt-1 text-sm text-text-secondary">{m.label}</p>
             </div>
           ))}
