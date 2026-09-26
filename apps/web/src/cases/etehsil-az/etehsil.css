@@ -1,0 +1,182 @@
+/*
+ * eTəhsil case page (/[locale]/projects/etehsil-az; Atlas src/styles/cases/etehsil.css): shared primitives of its mockups. Every selector starts with `.et-`, because the
+ * [slug] route bundles all case pages' styles together.
+ *
+ * Identity: bright "classroom-white" product screens floating on the kit's dark surfaces, the blue preset, a school-day
+ * clock in the chapter badges, and timetable blocks coloured by room.
+ * Measured contrast on white (#fff): text #161a22 17:1 · muted #5b6475 6.0:1 (5.5:1 on #f4f6fb) · ink #2f55cc 6.4:1 ·
+ * white on fill #3a5fe0 5.4:1 · green #0f7a4d 4.8:1 on its tint · red #c02a3b 4.9:1 on its tint · amber #8a5300 5.8:1.
+ */
+@layer theme, base, components, utilities;
+
+@layer components {
+  .et-screen {
+    --et-bg: #fff;
+    --et-bg-2: #f4f6fb;
+    --et-line: #e3e7f0;
+    --et-text: #161a22;
+    --et-muted: #5b6475;
+    --et-ink: #2f55cc;
+    --et-fill: #3a5fe0;
+    --et-tint: #e8eeff;
+    --et-green: #0f7a4d;
+    --et-green-bg: #e3f6ee;
+    --et-red: #c02a3b;
+    --et-red-bg: #fde8ea;
+    --et-amber: #8a5300;
+    --et-amber-bg: #fff3dc;
+    --et-room-1: #4f7cff;
+    --et-room-2: #1f9d6b;
+    --et-room-3: #e09a1a;
+    --et-room-1-bg: #e8eeff;
+    --et-room-2-bg: #e3f6ee;
+    --et-room-3-bg: #fff3dc;
+
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--et-bg);
+    color: var(--et-text);
+    font-family: var(--font-geologica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.08),
+      0 40px 100px -30px rgb(0 0 0 / 0.75);
+  }
+  .cine-surface--paper .et-screen {
+    box-shadow:
+      0 0 0 1px #d5cbb5,
+      0 30px 60px -30px rgb(22 26 34 / 0.35);
+  }
+
+  /* Browser chrome */
+  .et-chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--et-line);
+    background: var(--et-bg-2);
+  }
+  .et-chrome i {
+    flex: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d3d8e3;
+  }
+  .et-chrome span {
+    min-width: 0;
+    margin-left: 8px;
+    padding: 3px 12px;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--et-bg);
+    color: var(--et-muted);
+    font-family: var(--cine-mono);
+    font-size: 0.6875rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .et-label {
+    font-family: var(--cine-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: var(--et-muted);
+  }
+  .et-num {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .et-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--et-bg-2);
+    color: var(--et-muted);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+  .et-chip[data-tone='ok'] {
+    background: var(--et-green-bg);
+    color: var(--et-green);
+  }
+  .et-chip[data-tone='bad'] {
+    background: var(--et-red-bg);
+    color: var(--et-red);
+  }
+  .et-chip[data-tone='warn'] {
+    background: var(--et-amber-bg);
+    color: var(--et-amber);
+  }
+  .et-chip[data-tone='info'] {
+    background: var(--et-tint);
+    color: var(--et-ink);
+  }
+
+  .et-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--et-fill);
+    color: #fff;
+    font-size: 0.71875rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Handset with a light screen (auto height, unlike the kit's fixed-ratio phone). */
+  .et-phone {
+    width: min(300px, 100%);
+    padding: 9px;
+    border: 1px solid #2a3550;
+    border-radius: 42px;
+    background: #05080f;
+    box-shadow:
+      0 50px 110px -20px rgb(0 0 0 / 0.65),
+      inset 0 0 0 2px #121a2b;
+  }
+  .et-phone > .et-screen {
+    border-radius: 33px;
+    box-shadow: none;
+  }
+  .et-phone__notch {
+    display: block;
+    width: 96px;
+    height: 22px;
+    margin: 0 auto 4px;
+    border-radius: 0 0 14px 14px;
+    background: #05080f;
+  }
+
+  /* Graph-paper backdrop used behind scenes (the school notebook motif). */
+  .et-grid-paper {
+    position: relative;
+    isolation: isolate;
+  }
+  .et-grid-paper::before {
+    content: '';
+    position: absolute;
+    inset: -2.5rem -1rem;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--cine-accent) 14%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--cine-accent) 14%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 75%);
+  }
+}

@@ -1,0 +1,12 @@
+/*
+ * Aibaycan-only: the case page renders inside the site layout, whose <main> has `pt-[76px]` for the fixed header.
+ * The dark hero runs under the floating header instead of leaving a light strip above it (the projects list page
+ * does the same with `-mt-[76px]`). CaseHero adds `--header-h` to its top padding.
+ */
+@layer theme, base, components, utilities;
+
+@layer components {
+  .cine.case {
+    margin-top: -76px;
+  }
+}

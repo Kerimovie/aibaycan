@@ -1,0 +1,160 @@
+import type { IndustryId, Locale, ServiceId } from '../types';
+
+/** Aibaycan contact e-mail (same as the site footer / contact page). Replaces Atlas' WhatsApp button. */
+export const CONTACT_EMAIL = 'hello@aibaycan.az';
+
+/**
+ * Labels shared by every case page. Port of the `case` block of Atlas `src/i18n/<locale>/work.ts`, rebranded
+ * (Atlas BIP → Aibaycan) and with the WhatsApp button replaced by an e-mail button. Plus the service / industry
+ * names the facts band shows, and the breadcrumb labels.
+ */
+const en = {
+  typePlatform: 'Our platform',
+  typeClient: 'Client project',
+  typeProduct: 'Our product',
+  type: 'Project type',
+  industry: 'Industry',
+  services: 'Services',
+  platforms: 'Platforms',
+  languages: 'Languages',
+  liveProduct: 'Live product',
+  visitLive: 'Visit the live product',
+  newTab: 'opens in a new tab',
+  discussSimilar: 'Discuss a similar project',
+  readStory: 'Read the story',
+  viewProject: 'View the project',
+  ourRole: 'What Aibaycan did',
+  stack: 'Technology stack',
+  faq: 'Questions and answers',
+  nextProject: 'Next project',
+  allProjects: 'All projects',
+  breadcrumbAriaLabel: 'Breadcrumb',
+  factsAriaLabel: 'Project facts',
+  railAriaLabel: 'Page chapters',
+  progressAriaLabel: 'Reading progress',
+  rail: { start: 'Start', role: 'Our role', stack: 'Stack', faq: 'FAQ', next: 'Next' },
+  final: {
+    eyebrow: 'Your project',
+    title: 'Your system is next',
+    accent: 'next',
+    lead: 'Tell us how orders, money and documents move through your company today. We reply within 24 hours with questions and a concrete plan.',
+    email: `Write to ${CONTACT_EMAIL}`,
+    backToTop: 'Back to the start',
+  },
+  serviceNames: {
+    'logistics-software': 'Logistics software & TMS',
+    'data-analytics': 'Data, BI & forecasting',
+    'ai-automation': 'AI & automation',
+    'saas-development': 'SaaS platform development',
+    erp: 'ERP & business management systems',
+  } satisfies Record<ServiceId, string>,
+  industryNames: {
+    logistics: 'Logistics and transport',
+    education: 'Education',
+    hospitality: 'Hospitality and HoReCa',
+    services: 'Service businesses',
+    retail: 'Retail',
+  } satisfies Record<IndustryId, string>,
+};
+
+export type CaseLabels = typeof en;
+
+const az: CaseLabels = {
+  typePlatform: 'Öz platformamız',
+  typeClient: 'Müştəri layihəsi',
+  typeProduct: 'Öz məhsulumuz',
+  type: 'Layihə növü',
+  industry: 'Sahə',
+  services: 'Xidmətlər',
+  platforms: 'Platformalar',
+  languages: 'Dillər',
+  liveProduct: 'Canlı məhsul',
+  visitLive: 'Canlı məhsula baxın',
+  newTab: 'yeni pəncərədə açılır',
+  discussSimilar: 'Oxşar layihəni müzakirə edək',
+  readStory: 'Hekayəni oxuyun',
+  viewProject: 'Layihəyə baxın',
+  ourRole: 'Aibaycan nə etdi',
+  stack: 'Texnologiyalar',
+  faq: 'Suallar və cavablar',
+  nextProject: 'Növbəti layihə',
+  allProjects: 'Bütün layihələr',
+  breadcrumbAriaLabel: 'Naviqasiya yolu',
+  factsAriaLabel: 'Layihə haqqında əsas faktlar',
+  railAriaLabel: 'Səhifə bölmələri',
+  progressAriaLabel: 'Oxuma irəliləyişi',
+  rail: { start: 'Başlanğıc', role: 'Rolumuz', stack: 'Texnologiyalar', faq: 'Suallar', next: 'Növbəti' },
+  final: {
+    eyebrow: 'Sizin layihəniz',
+    title: 'Növbəti sistem sizinkidir',
+    accent: 'sizinkidir',
+    lead: 'Sifarişlərin, pulun və sənədlərin bu gün şirkətinizdə necə hərəkət etdiyini bizə danışın. 24 saat ərzində suallarımız və konkret planla cavab veririk.',
+    email: `${CONTACT_EMAIL} ünvanına yazın`,
+    backToTop: 'Əvvələ qayıt',
+  },
+  serviceNames: {
+    'logistics-software': 'Logistika proqramları və TMS',
+    'data-analytics': 'Data, BI və proqnozlaşdırma',
+    'ai-automation': 'Süni intellekt və avtomatlaşdırma',
+    'saas-development': 'SaaS platformalarının hazırlanması',
+    erp: 'ERP və biznes idarəetmə sistemləri',
+  },
+  industryNames: {
+    logistics: 'Logistika və nəqliyyat',
+    education: 'Təhsil',
+    hospitality: 'İaşə və HoReCa',
+    services: 'Xidmət biznesi',
+    retail: 'Pərakəndə ticarət',
+  },
+};
+
+const ru: CaseLabels = {
+  typePlatform: 'Наша платформа',
+  typeClient: 'Клиентский проект',
+  typeProduct: 'Наш продукт',
+  type: 'Тип проекта',
+  industry: 'Отрасль',
+  services: 'Услуги',
+  platforms: 'Платформы',
+  languages: 'Языки',
+  liveProduct: 'Работающий продукт',
+  visitLive: 'Открыть сайт продукта',
+  newTab: 'откроется в новой вкладке',
+  discussSimilar: 'Обсудить похожий проект',
+  readStory: 'Читать историю проекта',
+  viewProject: 'Смотреть проект',
+  ourRole: 'Что сделал Aibaycan',
+  stack: 'Технологии',
+  faq: 'Вопросы и ответы',
+  nextProject: 'Следующий проект',
+  allProjects: 'Все проекты',
+  breadcrumbAriaLabel: 'Навигационная цепочка',
+  factsAriaLabel: 'Ключевые факты о проекте',
+  railAriaLabel: 'Разделы страницы',
+  progressAriaLabel: 'Прогресс чтения',
+  rail: { start: 'Старт', role: 'Наша роль', stack: 'Технологии', faq: 'Вопросы', next: 'Дальше' },
+  final: {
+    eyebrow: 'Ваш проект',
+    title: 'Следующая система — ваша',
+    accent: 'ваша',
+    lead: 'Расскажите, как сегодня в компании движутся заказы, деньги и документы. Мы ответим в течение 24 часов — с вопросами и конкретным планом.',
+    email: `Написать на ${CONTACT_EMAIL}`,
+    backToTop: 'Вернуться к началу',
+  },
+  serviceNames: {
+    'logistics-software': 'Логистическое ПО и TMS',
+    'data-analytics': 'Данные, BI и прогнозирование',
+    'ai-automation': 'ИИ и автоматизация',
+    'saas-development': 'Разработка SaaS-платформ',
+    erp: 'ERP и системы управления бизнесом',
+  },
+  industryNames: {
+    logistics: 'Логистика и транспорт',
+    education: 'Образование',
+    hospitality: 'Гостеприимство и HoReCa',
+    services: 'Сфера услуг',
+    retail: 'Розничная торговля',
+  },
+};
+
+export const caseLabels: Record<Locale, CaseLabels> = { az, en, ru };

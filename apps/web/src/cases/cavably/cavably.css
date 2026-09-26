@@ -1,0 +1,376 @@
+/*
+ * Cavably case page (/[locale]/projects/cavably; Atlas src/styles/cases/cavably.css): shared mockup language — channel colours, chat bubbles, dark and paper UI cards.
+ * All five case pages are bundled by one route, so every rule here is scoped under `.cav` (set on each Cavably mockup root).
+ * Colours of the violet preset come from cinematic.css tokens; the only hex values here are channel brand tints and UI greys.
+ */
+@layer theme, base, components, utilities;
+
+@layer components {
+  .cav {
+    --cav-ui: #0f1526;
+    --cav-ui-2: #141b2e;
+    --cav-ui-3: #1a2238;
+    --cav-edge: #232d48;
+    --cav-text: #eceef6;
+    --cav-muted: #9aa3bb;
+    --cav-bubble: #1b2439;
+    --cav-ai: color-mix(in srgb, var(--cine-accent) 26%, #121829);
+    --cav-ai-edge: color-mix(in srgb, var(--cine-accent) 55%, transparent);
+    --cav-human: #12302b;
+    --cav-human-edge: #1f5a4c;
+    --cav-sans: var(--font-geologica), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--cav-sans);
+  }
+
+  /* ---------- Channels ---------- */
+  .cav [data-ch='whatsapp'] {
+    --ch: #25d366;
+  }
+  .cav [data-ch='instagram'] {
+    --ch: #f35b93;
+  }
+  .cav [data-ch='messenger'] {
+    --ch: #5b95ff;
+  }
+  .cav [data-ch='telegram'] {
+    --ch: #38b6f1;
+  }
+  .cav [data-ch='web'] {
+    --ch: var(--cine-accent-soft);
+  }
+  .cav-ch {
+    flex: none;
+    width: 1em;
+    height: 1em;
+    color: var(--ch, var(--cav-muted));
+  }
+  /* Round channel badge (icon on a tinted disc). */
+  .cav-chip {
+    display: inline-grid;
+    flex: none;
+    place-items: center;
+    width: 1.75em;
+    height: 1.75em;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--ch, #95a1b8) 16%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ch, #95a1b8) 38%, transparent);
+  }
+
+  /* ---------- Avatars ---------- */
+  .cav-avatar {
+    position: relative;
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #2a3452, #1b2238);
+    color: var(--cav-text);
+    font-size: 0.8125rem;
+    font-weight: 650;
+  }
+  .cav-avatar .cav-chip {
+    position: absolute;
+    right: -4px;
+    bottom: -3px;
+    font-size: 0.5625rem;
+    background: var(--cav-ui);
+  }
+
+  /* ---------- UI card (dark mock surface) ---------- */
+  .cav-ui {
+    overflow: hidden;
+    border: 1px solid var(--cav-edge);
+    border-radius: 18px;
+    background: var(--cav-ui);
+    color: var(--cav-text);
+    box-shadow:
+      0 40px 100px -30px rgb(0 0 0 / 0.7),
+      0 0 0 1px rgb(255 255 255 / 0.02) inset;
+  }
+  .cav-ui__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--cav-edge);
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+  .cav-label {
+    font-family: var(--cine-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: var(--cav-muted);
+  }
+
+  /* ---------- Status tags ---------- */
+  .cav-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3125rem;
+    padding: 0.1875rem 0.4375rem;
+    border-radius: 999px;
+    font-size: 0.625rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    background: rgb(149 161 184 / 0.14);
+    color: var(--cav-muted);
+  }
+  .cav-state[data-state='ai'] {
+    background: color-mix(in srgb, var(--cine-accent) 22%, transparent);
+    color: #c9b8fd;
+  }
+  .cav-state[data-state='human'] {
+    background: rgb(56 217 150 / 0.14);
+    color: var(--cine-green);
+  }
+  .cav-state[data-state='new'] {
+    background: rgb(91 149 255 / 0.18);
+    color: #a9c3ff;
+  }
+  .cav-state[data-state='overdue'] {
+    background: rgb(255 84 104 / 0.16);
+    color: var(--cine-red-soft);
+  }
+  .cav-state[data-state='typing'] {
+    background: color-mix(in srgb, var(--cine-accent) 14%, transparent);
+    color: #c9b8fd;
+  }
+
+  /* ---------- Chat bubbles ---------- */
+  .cav-msgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  .cav-msg {
+    position: relative;
+    max-width: 86%;
+    padding: 0.625rem 0.8125rem 0.5rem;
+    border-radius: 16px;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+  .cav-msg[data-from='customer'] {
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+    background: var(--cav-bubble);
+  }
+  .cav-msg[data-from='ai'],
+  .cav-msg[data-from='agent'] {
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+  }
+  .cav-msg[data-from='ai'] {
+    background: var(--cav-ai);
+    box-shadow: inset 0 0 0 1px var(--cav-ai-edge);
+  }
+  .cav-msg[data-from='agent'] {
+    background: var(--cav-human);
+    box-shadow: inset 0 0 0 1px var(--cav-human-edge);
+  }
+  .cav-msg[data-from='system'] {
+    align-self: center;
+    max-width: 100%;
+    padding: 0.3125rem 0.75rem;
+    border-radius: 999px;
+    background: rgb(56 217 150 / 0.1);
+    color: var(--cine-green);
+    font-family: var(--cine-mono);
+    font-size: 0.65625rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  .cav-msg__who {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 0.1875rem;
+    font-size: 0.6875rem;
+    font-weight: 650;
+    color: #c9b8fd;
+  }
+  .cav-msg[data-from='agent'] .cav-msg__who {
+    color: var(--cine-green);
+  }
+  .cav-msg__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem 0.5rem;
+    margin-top: 0.25rem;
+    font-size: 0.625rem;
+    color: var(--cav-muted);
+  }
+  .cav-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3125rem;
+    margin-right: auto;
+    padding: 0.125rem 0.4375rem;
+    border-radius: 999px;
+    background: rgb(0 0 0 / 0.22);
+    color: #d6cafe;
+    font-family: var(--cine-mono);
+    font-size: 0.59375rem;
+    letter-spacing: 0.02em;
+  }
+  .cav-source::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--cine-accent-soft);
+  }
+
+  /* Voice note: play button + waveform bars. */
+  .cav-voice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.375rem;
+  }
+  .cav-voice__play {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: #25d366;
+    color: #0a1a10;
+  }
+  .cav-voice__svg {
+    flex: 1;
+    min-width: 4rem;
+    height: 1.5rem;
+  }
+  .cav-voice__svg rect {
+    fill: #7f8aa6;
+  }
+  .cav-voice__svg rect[data-played] {
+    fill: #25d366;
+  }
+  .cav-voice__time {
+    color: var(--cav-muted);
+    font-family: var(--cine-mono);
+    font-size: 0.625rem;
+  }
+
+  /* Photo attachment (illustrated). */
+  .cav-photo {
+    position: relative;
+    display: block;
+    width: min(11rem, 100%);
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    border-radius: 11px;
+  }
+  .cav-photo svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .cav-photo__tag {
+    position: absolute;
+    top: 0.375rem;
+    left: 0.375rem;
+    padding: 0.125rem 0.4375rem;
+    border-radius: 999px;
+    background: rgb(10 15 26 / 0.7);
+    color: #fff;
+    font-family: var(--cine-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .cav-transcript {
+    display: block;
+    padding-left: 0.5rem;
+    border-left: 2px solid var(--cine-accent-soft);
+    color: #cfd4e3;
+    font-style: italic;
+  }
+
+  /* Typing dots. */
+  .cav-dots {
+    display: inline-flex;
+    gap: 3px;
+  }
+  .cav-dots i {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.5;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .cav-dots i {
+      animation: cav-dot 1.2s ease-in-out infinite;
+    }
+    .cav-dots i:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+    .cav-dots i:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+  }
+
+  /* ---------- Paper UI card (mockups on the paper surface) ---------- */
+  .cav-sheet {
+    overflow: hidden;
+    border: 1px solid #d9cfb9;
+    border-radius: 18px;
+    background: var(--cine-paper-card);
+    color: var(--cine-ink);
+    box-shadow: 0 30px 70px -40px rgb(40 30 10 / 0.45);
+  }
+  .cav-sheet .cav-label {
+    color: var(--cine-ink-2);
+  }
+  .cav-sheet__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.875rem 1.125rem;
+    border-bottom: 1px solid #e6dcc8;
+    font-size: 0.875rem;
+    font-weight: 650;
+  }
+
+  /* Chapter timestamps: the kit's KM badge becomes a chat-style time chip on this page. */
+  .cine .cav-chapter .cine-km b {
+    min-width: 0;
+    padding-inline: 0.75rem;
+    border-radius: 999px 999px 999px 4px;
+    background: var(--cine-accent-soft);
+    color: var(--cine-ink);
+  }
+  .cine .cav-chapter.cine-surface--paper .cine-km b {
+    background: var(--cine-accent-ink);
+    color: var(--cine-paper-card);
+  }
+}
+
+@keyframes cav-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}

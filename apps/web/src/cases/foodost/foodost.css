@@ -1,0 +1,37 @@
+/*
+ * Foodost case page (/[locale]/projects/foodost): page-level touches shared by its chapters.
+ * Port of Atlas `src/styles/cases/foodost.css` (not scoped on Atlas, copied as is).
+ * Every rule here is scoped to `.fd-*` classes.
+ */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Chapter badges read like kitchen-ticket times (19:52, 20:14…). */
+  .cine .fd-ch .cine-km b {
+    background: var(--cine-accent);
+    color: var(--cine-ink);
+  }
+
+  /* The paper chapter is torn like a till roll at both edges. */
+  .cine .fd-torn {
+    z-index: 1;
+  }
+  .cine .fd-torn::before,
+  .cine .fd-torn::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 10px;
+    background: var(--cine-paper);
+    pointer-events: none;
+  }
+  .cine .fd-torn::before {
+    top: -10px;
+    mask: conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) 50% / 20px 100%;
+  }
+  .cine .fd-torn::after {
+    bottom: -10px;
+    mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 20px 100%;
+  }
+}

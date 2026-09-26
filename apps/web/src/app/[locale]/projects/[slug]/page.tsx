@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { getBespokeCase } from '@/cases/registry';
+import { absoluteHref } from '@/cases/_shared/schema';
+import { routing, type Locale } from '@/i18n/routing';
 import { BlockRenderer } from '@/components/block-renderer';
 import { caseStudyJsonLd, JsonLd } from '@/components/json-ld';
 import { ViewTracker } from '@/components/view-tracker';
@@ -11,8 +14,34 @@ type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
+/** Metadata of a bespoke case page (cases/registry.ts): the case's own SEO copy, with locale alternates. */
+function bespokeMetadata(locale: Locale, slug: string, seo: { title: string; description: string }): Metadata {
+  const path = `projects/${slug}`;
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: {
+      canonical: absoluteHref(locale, path),
+      languages: Object.fromEntries(routing.locales.map((l) => [l, absoluteHref(l, path)])),
+    },
+    openGraph: { title: seo.title, description: seo.description, url: absoluteHref(locale, path), type: 'article' },
+  };
+}
+
+function asLocale(value: string): Locale {
+  return routing.locales.find((l) => l === value) ?? routing.defaultLocale;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+
+  // Bespoke case pages (src/cases) take precedence over the DB-driven flow.
+  const bespoke = getBespokeCase(slug);
+  if (bespoke) {
+    const loc = asLocale(locale);
+    return bespokeMetadata(loc, slug, bespoke.copy[loc].seo);
+  }
+
   const cs = await getCaseStudy(slug);
   if (!cs) return {};
   return {
@@ -29,6 +58,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CaseStudyPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
+
+  // Bespoke case pages (src/cases): Atlas-ported cinematic pages keyed by slug; everything else stays DB-driven.
+  const bespoke = getBespokeCase(slug);
+  if (bespoke) {
+    const { Component } = bespoke;
+    return (
+      <>
+        <ViewTracker type="caseStudy" slug={slug} />
+        <Component locale={asLocale(locale)} />
+      </>
+    );
+  }
+
   const t = await getTranslations('projects');
   const tHome = await getTranslations('home');
 

@@ -1,0 +1,628 @@
+/*
+ * Cinematic kit for the bespoke case pages (/[locale]/projects/<slug>). Port of Atlas `src/styles/cinematic.css`,
+ * unchanged below the "Atlas cinematic.css" marker, plus (first) the bits of Atlas `global.css` the kit relies on,
+ * re-scoped under `.cine` so no other Aibaycan page is affected.
+ *
+ * Everything is scoped under `.cine` (see CinematicPage.tsx). Override the accent with `data-accent` presets or a
+ * page stylesheet: `.cine { --cine-accent: …; }`.
+ *
+ * The layer order statement mirrors Tailwind's so utilities in markup still win over kit classes,
+ * whichever stylesheet the bundler happens to emit first. NOTE: Aibaycan's own globals.css is mostly UNLAYERED,
+ * so any unlayered rule there beats these layered rules; see the unlayered block at the end of this file.
+ */
+@layer theme, base, components, utilities;
+
+/* ---------- Atlas global.css, re-scoped (base layer: every kit class still wins) ---------- */
+@layer base {
+  .cine {
+    /* Aibaycan's fixed header: 76px bar floating .7rem from the top. Sticky scenes and the hero use it. */
+    --header-h: 5.5rem;
+    /* Atlas body font (system UI stack), not Aibaycan's Inter. */
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .cine :where(h1, h2, h3, h4) {
+    font-family: var(--font-geologica), ui-sans-serif, system-ui, sans-serif;
+    color: #0c1626;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  .cine :where(p) {
+    text-wrap: pretty;
+  }
+  .cine :where(:focus-visible) {
+    outline: 2px solid #0099ff;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Atlas `.container-page` (mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8). `:where` keeps its specificity at 0-1-0. */
+  :where(.cine) .container-page {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    :where(.cine) .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    :where(.cine) .container-page {
+      padding-inline: 2rem;
+    }
+  }
+}
+
+/* ======================= Atlas cinematic.css (verbatim below) ======================= */
+
+/*
+ * Fallback for the display font while Alumni Sans loads (`adjustFontFallback: false` in _shared/fonts.ts, so this
+ * is the only fallback face and it covers every platform). Astro's own adjusted face resolved local("Arial Bold")
+ * only, which Chrome on Android and most Linux systems cannot find: they fell through to an unadjusted
+ * sans-serif and the hero re-wrapped when Alumni Sans arrived (measured CLS 0.13-0.17 at 390px).
+ *
+ * `size-adjust` is tuned for UPPERCASE display text, which is what this font sets. Matching average character
+ * width (Astro's 66.67%) still renders Arial's capitals ~17% wider than Alumni Sans's condensed ones, which
+ * costs the hero statement an extra line; 57.2% was measured against the real face so the line count holds.
+ * The ascent/descent overrides are Alumni Sans's own metrics (0.9 em / 0.3 em) expressed against that size.
+ */
+@font-face {
+  font-family: 'Alumni Metric Fallback';
+  src:
+    local('Arial Bold'),
+    local('Arial'),
+    local('Roboto'),
+    local('Liberation Sans'),
+    local('DejaVu Sans'),
+    local('Helvetica');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 57.2%;
+  ascent-override: 157.34%;
+  descent-override: 52.45%;
+  line-gap-override: 0%;
+}
+
+@layer components {
+  .cine {
+    --cine-asphalt: #0a0f1a;
+    --cine-night: #101828;
+    --cine-night-2: #16213a;
+    --cine-rule: #243150;
+    --cine-white: #f3eee2;
+    --cine-fog: #95a1b8;
+    --cine-dim: #7a86a0;
+    --cine-accent: #ff8a1f;
+    --cine-accent-soft: #ffb066;
+    --cine-accent-hover: #ffa04d;
+    /* Accent for small text on paper (AA on #eee8da). */
+    --cine-accent-ink: #a84a06;
+    /* Accent for huge titles on paper (large-text AA). */
+    --cine-accent-deep: #c2560a;
+    --cine-blue: #4a74ff;
+    --cine-blue-soft: #9db4ff;
+    --cine-green: #38d996;
+    --cine-red: #ff5468;
+    --cine-red-soft: #ff8d9b;
+    --cine-yellow: #ffd24a;
+    --cine-paper: #eee8da;
+    --cine-paper-2: #e2dac8;
+    --cine-paper-card: #fbf8f1;
+    --cine-ink: #161a22;
+    --cine-ink-2: #4a505c;
+    --cine-radius: 14px;
+    --cine-display: var(--font-alumni-sans), 'Arial Narrow', Impact, sans-serif;
+    --cine-mono: var(--font-jetbrains-mono), ui-monospace, Menlo, Consolas, monospace;
+
+    /* Surface-dependent roles (dark by default, redefined by .cine-surface--paper). */
+    --cine-bg: var(--cine-asphalt);
+    --cine-fg: var(--cine-white);
+    --cine-muted: var(--cine-fog);
+    --cine-line: var(--cine-rule);
+    --cine-card: var(--cine-night);
+    --cine-accent-text: var(--cine-accent);
+    --cine-title-accent: var(--cine-accent);
+
+    background: var(--cine-asphalt);
+    color: var(--cine-fg);
+    overflow-x: clip;
+  }
+
+  /*
+   * Accent presets. Measured contrast: `--cine-accent` ≥ 4.5:1 on asphalt (#0a0f1a); `--cine-accent-ink` ≥ 4.5:1 on
+   * paper (#eee8da) and paper cards (#fbf8f1); `--cine-accent-deep` ≥ 3:1 on paper (large text only).
+   * A nested `[data-accent]` inside `.cine` (e.g. a next-project card on a dark surface) swaps the accent for its subtree.
+   */
+  .cine [data-accent] {
+    --cine-accent-text: var(--cine-accent);
+    --cine-title-accent: var(--cine-accent);
+  }
+  .cine [data-accent='orange'] {
+    --cine-accent: #ff8a1f;
+    --cine-accent-soft: #ffb066;
+    --cine-accent-hover: #ffa04d;
+    --cine-accent-ink: #a84a06;
+    --cine-accent-deep: #c2560a;
+  }
+  .cine[data-accent='teal'],
+  .cine [data-accent='teal'] {
+    --cine-accent: #00d4aa;
+    --cine-accent-soft: #5eeacb;
+    --cine-accent-hover: #33ddb9;
+    /* 4.8:1 on paper (was #007a64, 4.3:1). */
+    --cine-accent-ink: #00735e;
+    --cine-accent-deep: #00866d;
+  }
+  .cine[data-accent='azure'],
+  .cine [data-accent='azure'] {
+    --cine-accent: #33adff;
+    --cine-accent-soft: #7cc8ff;
+    --cine-accent-hover: #5cbdff;
+    --cine-accent-ink: #005fa8;
+    --cine-accent-deep: #0079d1;
+  }
+  /* eTəhsil. Accent 5.2:1 on asphalt, 4.7:1 under ink button text; ink 5.2:1 on paper; deep 4.4:1. */
+  .cine[data-accent='blue'],
+  .cine [data-accent='blue'] {
+    --cine-accent: #4f7cff;
+    --cine-accent-soft: #8aa6ff;
+    --cine-accent-hover: #6b91ff;
+    --cine-accent-ink: #2f55cc;
+    --cine-accent-deep: #3a5fe0;
+  }
+  /* Cavably. Accent 4.5:1 on asphalt but 4.2:1 on night cards, so small accent text on dark uses the soft tint (6.5:1+). */
+  .cine[data-accent='violet'],
+  .cine [data-accent='violet'] {
+    --cine-accent: #8b5cf6;
+    --cine-accent-soft: #a78bfa;
+    --cine-accent-hover: #9d74f8;
+    --cine-accent-ink: #6d3fd6;
+    --cine-accent-deep: #7a4ce8;
+    --cine-accent-text: var(--cine-accent-soft);
+  }
+  /* Ink text on #8b5cf6 is 4.1:1: the filled button uses the soft tint (6.4:1). */
+  .cine[data-accent='violet'] .cine-btn--primary {
+    border-color: var(--cine-accent-soft);
+    background: var(--cine-accent-soft);
+  }
+  .cine[data-accent='violet'] .cine-btn--primary:hover {
+    border-color: #b69cfb;
+    background: #b69cfb;
+  }
+  /* Foodost. Accent 5.2:1 on asphalt, 4.8:1 under ink button text; ink 5.1:1 on paper; deep 4.0:1. */
+  .cine[data-accent='rose'],
+  .cine [data-accent='rose'] {
+    --cine-accent: #f43f5e;
+    --cine-accent-soft: #fb7185;
+    --cine-accent-hover: #f65c76;
+    --cine-accent-ink: #be123c;
+    --cine-accent-deep: #dc1f46;
+  }
+  /*
+   * Molecion. Accent 8.0:1 on asphalt, 8.0:1 under ink button text; ink 4.8:1 on paper; deep 4.1:1.
+   * The Molecion page itself also warms its whole surface set (src/styles/cases/molecion.css); this copy is what
+   * a "next project" card pointing at Molecion needs on the other case pages, which do not load that stylesheet.
+   */
+  .cine[data-accent='gold'],
+  .cine [data-accent='gold'] {
+    --cine-accent: #c9a34a;
+    --cine-accent-soft: #e6cf84;
+    --cine-accent-hover: #d8b968;
+    --cine-accent-ink: #806012;
+    --cine-accent-deep: #8a6a12;
+  }
+
+  /* Construction ERP. Accent 12.7:1 on asphalt and under ink button text; ink 5.1:1 on paper, 5.9:1 on paper cards; deep 3.4:1. */
+  .cine[data-accent='lime'],
+  .cine [data-accent='lime'] {
+    --cine-accent: #a3e635;
+    --cine-accent-soft: #bef264;
+    --cine-accent-hover: #b4ec53;
+    --cine-accent-ink: #446b0d;
+    --cine-accent-deep: #5a8a12;
+  }
+
+  .cine ::selection {
+    background: var(--cine-accent);
+    color: var(--cine-ink);
+  }
+  .cine :focus-visible {
+    outline-color: var(--cine-accent);
+  }
+  /* Chapters receive programmatic focus on ArrowLeft/ArrowRight jumps. */
+  .cine [tabindex='-1']:focus {
+    outline: none;
+  }
+
+  /* ---------- Surfaces ---------- */
+  .cine-surface {
+    position: relative;
+    isolation: isolate;
+    background: var(--cine-bg);
+    color: var(--cine-fg);
+    border-top: 1px solid var(--cine-line);
+    padding-block: clamp(4.5rem, 12vh, 9rem);
+  }
+  .cine-surface--navy {
+    --cine-card: #0c1322;
+    background:
+      radial-gradient(1200px 600px at 80% 0%, #15223f 0%, transparent 60%),
+      var(--cine-asphalt);
+  }
+  .cine-surface--paper {
+    --cine-bg: var(--cine-paper);
+    --cine-fg: var(--cine-ink);
+    --cine-muted: var(--cine-ink-2);
+    --cine-line: #d5cbb5;
+    --cine-card: var(--cine-paper-card);
+    --cine-accent-text: var(--cine-accent-ink);
+    --cine-title-accent: var(--cine-accent-deep);
+    border-top-color: var(--cine-paper-2);
+  }
+  .cine-surface--paper ::selection {
+    background: var(--cine-ink);
+    color: var(--cine-paper);
+  }
+  /* Orange focus rings fall below 3:1 on cream paper; ink is 14:1. */
+  .cine .cine-surface--paper :focus-visible {
+    outline-color: var(--cine-ink);
+  }
+
+  /* ---------- Typography ---------- */
+  .cine-km {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    font-family: var(--cine-mono);
+    font-size: 0.78125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--cine-muted);
+  }
+  .cine-km b {
+    display: inline-grid;
+    place-items: center;
+    min-width: 4rem;
+    height: 1.875rem;
+    padding-inline: 0.625rem;
+    border-radius: 4px;
+    background: var(--cine-fg);
+    color: var(--cine-bg);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .cine-title {
+    font-family: var(--cine-display);
+    font-weight: 800;
+    font-size: clamp(3rem, 7.8vw, 7.5rem);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    hyphens: manual;
+    color: var(--cine-fg);
+  }
+  .cine-accent {
+    color: var(--cine-title-accent);
+  }
+
+  .cine-lead {
+    max-width: 62ch;
+    font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--cine-muted);
+    text-wrap: pretty;
+  }
+
+  .cine-eyebrow {
+    font-family: var(--cine-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--cine-accent-text);
+  }
+
+  .cine-h3 {
+    font-family: var(--cine-display);
+    font-weight: 800;
+    font-size: clamp(1.625rem, 2.4vw, 2.25rem);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    color: var(--cine-fg);
+  }
+
+  .cine-text {
+    font-size: 0.96875rem;
+    line-height: 1.6;
+    color: var(--cine-muted);
+    text-wrap: pretty;
+  }
+
+  .cine-mono {
+    font-family: var(--cine-mono);
+  }
+  /* Tabular figures for UI text only: in the display face `tnum` also widens spaces. */
+  .cine-num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cine-note {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    font-family: var(--cine-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--cine-muted);
+  }
+  .cine-note::before {
+    content: '';
+    flex: none;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    background: var(--cine-accent);
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Buttons ---------- */
+  .cine-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 3rem;
+    padding: 0.8125rem 1.375rem;
+    border: 1px solid var(--cine-line);
+    border-radius: 999px;
+    background: rgb(16 24 40 / 0.6);
+    color: var(--cine-fg);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .cine-btn:hover {
+    transform: translateY(-1px);
+    border-color: #3a4b70;
+    background: rgb(22 33 58 / 0.8);
+  }
+  .cine-btn--primary {
+    border-color: var(--cine-accent);
+    background: var(--cine-accent);
+    color: var(--cine-ink);
+    box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--cine-accent) 70%, transparent);
+  }
+  .cine-btn--primary:hover {
+    border-color: var(--cine-accent-hover);
+    background: var(--cine-accent-hover);
+  }
+  .cine-surface--paper .cine-btn:not(.cine-btn--primary) {
+    background: var(--cine-paper-card);
+    border-color: var(--cine-line);
+  }
+
+  /* ---------- Status pills ---------- */
+  .cine-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: var(--cine-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: rgb(149 161 184 / 0.14);
+    color: var(--cine-fog);
+  }
+  .cine-pill[data-tone='ok'] {
+    background: rgb(56 217 150 / 0.14);
+    color: var(--cine-green);
+  }
+  .cine-pill[data-tone='warn'] {
+    background: rgb(255 138 31 / 0.16);
+    color: var(--cine-accent-soft);
+  }
+  .cine-pill[data-tone='bad'] {
+    background: rgb(255 84 104 / 0.16);
+    color: var(--cine-red-soft);
+  }
+  .cine-pill[data-tone='info'] {
+    background: rgb(74 116 255 / 0.18);
+    color: var(--cine-blue-soft);
+  }
+
+  /* ---------- Tags ---------- */
+  .cine-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .cine-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--cine-line);
+    border-radius: 999px;
+    font-family: var(--cine-mono);
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--cine-muted);
+  }
+
+  /* ---------- Feature grid (rule on top of each item) ---------- */
+  .cine-features {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+  .cine-feature {
+    border-top: 1px solid var(--cine-line);
+    padding: 1.375rem 0 1.625rem;
+  }
+  .cine-feature__title {
+    font-family: var(--font-geologica), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 650;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--cine-fg);
+    text-wrap: balance;
+  }
+  .cine-feature__text {
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--cine-muted);
+    text-wrap: pretty;
+  }
+  @media (min-width: 640px) {
+    .cine-features[data-cols='2'],
+    .cine-features[data-cols='3'],
+    .cine-features[data-cols='4'] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .cine-features[data-cols='3'] {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .cine-features[data-cols='4'] {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  /* ---------- Definition rows (mono label + text) ---------- */
+  .cine-rows > * {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+    padding-block: 0.9375rem;
+    border-top: 1px solid var(--cine-line);
+  }
+  .cine-rows dt {
+    padding-top: 0.1875rem;
+    font-family: var(--cine-mono);
+    font-size: 0.71875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--cine-accent-text);
+  }
+  .cine-rows dd {
+    font-size: 0.96875rem;
+    line-height: 1.6;
+    color: var(--cine-muted);
+    text-wrap: pretty;
+  }
+  @media (min-width: 640px) {
+    .cine-rows > * {
+      grid-template-columns: 9.5rem minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  /* ---------- Panels (mockup cards) ---------- */
+  .cine-panel {
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid #1c2740;
+    border-radius: 10px;
+    background: #111a2c;
+  }
+  .cine-panel__head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--cine-white);
+  }
+  .cine-panel__head span {
+    font-weight: 400;
+    color: var(--cine-dim);
+  }
+
+  /* ---------- Off-screen sections pause their looping animations (motion.ts → initOffscreenPause) ---------- */
+  .cine [data-cine-offscreen],
+  .cine [data-cine-offscreen] *,
+  .cine [data-cine-offscreen] *::before,
+  .cine [data-cine-offscreen] *::after {
+    animation-play-state: paused !important;
+  }
+
+  /* ---------- Entrance helpers (JS adds data-inview; without JS everything is static and visible) ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-inview='pending'] .cine-rise {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    [data-inview='in'] .cine-rise {
+      transition:
+        opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+  }
+}
+
+@keyframes cine-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes cine-dash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+@keyframes cine-pulse {
+  50% {
+    box-shadow: 0 0 0 6px rgb(255 84 104 / 0.18);
+  }
+}
+
+/*
+ * ---------- Unlayered overrides of Aibaycan globals ----------
+ * Aibaycan's globals.css sets an unlayered `a/button/summary/[tabindex]:focus-visible { outline: 3px solid red/40% }`,
+ * which beats every layered rule above. `revert-layer` in this (higher-specificity) unlayered rule hands the outline
+ * back to the kit's layered rules, so focus rings look exactly as on Atlas.
+ */
+.cine :is(a, button, summary, [tabindex]):focus-visible {
+  outline: revert-layer;
+  outline-offset: revert-layer;
+}
+
+/*
+ * Aibaycan's globals.css adds `section[id] { scroll-margin-top: 100px }` on top of `html { scroll-padding-top: 100px }`,
+ * so anchor jumps (rail, "read the story", ArrowLeft/Right) would stop ~200px above a chapter. Atlas stops a header
+ * plus 1rem above it: 100px of scroll-padding + 4px ≈ the floating header (≈88px) + 1rem.
+ */
+.cine section[id] {
+  scroll-margin-top: 4px;
+}

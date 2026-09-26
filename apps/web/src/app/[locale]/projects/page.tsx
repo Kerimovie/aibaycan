@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { CaseStudyEffects } from '@/components/case-study-effects';
+import { Link } from '@/i18n/navigation';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -286,7 +287,10 @@ export default async function ProjectsPage({ params }: Props) {
               </div>
 
               <div className="case-action-row">
-                <a className="case-link-primary focus-ring" href="https://etehsil.az" target="_blank" rel="noopener">
+                <Link className="case-link-primary focus-ring" href="/projects/etehsil-az">
+                  Keysi oxu →
+                </Link>
+                <a className="case-link-secondary focus-ring" href="https://etehsil.az" target="_blank" rel="noopener">
                   Canlı məhsula bax ↗
                 </a>
               </div>
@@ -379,7 +383,10 @@ export default async function ProjectsPage({ params }: Props) {
               </div>
 
               <div className="case-action-row">
-                <a className="case-link-primary focus-ring" href="https://foodost.com" target="_blank" rel="noopener">
+                <Link className="case-link-primary focus-ring" href="/projects/foodost">
+                  Keysi oxu →
+                </Link>
+                <a className="case-link-secondary focus-ring" href="https://foodost.com" target="_blank" rel="noopener">
                   Canlı məhsula bax ↗
                 </a>
               </div>
@@ -463,7 +470,10 @@ export default async function ProjectsPage({ params }: Props) {
               </div>
 
               <div className="case-action-row">
-                <a className="case-link-primary focus-ring" href="https://molecion.az" target="_blank" rel="noopener">
+                <Link className="case-link-primary focus-ring" href="/projects/molecion-az">
+                  Keysi oxu →
+                </Link>
+                <a className="case-link-secondary focus-ring" href="https://molecion.az" target="_blank" rel="noopener">
                   Canlı məhsula bax ↗
                 </a>
               </div>
@@ -545,7 +555,10 @@ export default async function ProjectsPage({ params }: Props) {
               </div>
 
               <div className="case-action-row">
-                <a className="case-link-primary focus-ring" href="https://cavably.com" target="_blank" rel="noopener">
+                <Link className="case-link-primary focus-ring" href="/projects/cavably">
+                  Keysi oxu →
+                </Link>
+                <a className="case-link-secondary focus-ring" href="https://cavably.com" target="_blank" rel="noopener">
                   Canlı məhsula bax ↗
                 </a>
               </div>
@@ -643,7 +656,10 @@ export default async function ProjectsPage({ params }: Props) {
               </div>
 
               <div className="case-action-row">
-                <a className="case-link-primary focus-ring" href="#contact">
+                <Link className="case-link-primary focus-ring" href="/projects/sahil-transport">
+                  Keysi oxu →
+                </Link>
+                <a className="case-link-secondary focus-ring" href="#contact">
                   Demo istə →
                 </a>
               </div>
