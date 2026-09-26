@@ -32,17 +32,17 @@ const list = <T,>(items: T[]) => items;
 
 const en = {
   seo: {
-    title: 'Cavably: AI CRM with a WhatsApp and Instagram Shared Inbox',
+    title: 'Cavably: WhatsApp & Instagram CRM with an AI Assistant',
     description:
-      'Cavably, our AI CRM for service businesses: a WhatsApp, Instagram, Messenger and Telegram shared inbox, an AI assistant, bookings, debt reminders and flows.',
+      'Cavably is the AI CRM we built for salons and clinics: one inbox for WhatsApp, Instagram, Messenger and Telegram, AI replies, online booking and debt reminders.',
   },
-  h1: 'AI CRM for service businesses with a shared WhatsApp and Instagram inbox',
+  h1: 'AI messaging CRM for salons and clinics: WhatsApp and Instagram together',
   hero: {
     eyebrow: 'CRM · AI SaaS',
-    title: 'Five channels. One inbox. Answers at any hour.',
-    accent: 'Answers at any hour.',
-    lead: 'Cavably is our AI-first CRM for salons, clinics, courses and other service businesses. We designed, built and run it. Messages from every channel land in one inbox, an AI assistant answers from the business’s own knowledge, and a conversation turns into a booking, a payment or a deal without leaving the screen.',
-    primaryCta: 'Discuss a similar project',
+    title: 'Five channels, one screen, replies at midnight.',
+    accent: 'replies at midnight.',
+    lead: 'We designed, built and still operate Cavably, an AI-first CRM for clinics, salons, courses and similar service businesses. Whatever channel a customer writes from, the message reaches a single inbox; the AI assistant replies using what the business has taught it; and on that same screen the chat becomes a booking, a payment or a deal.',
+    primaryCta: 'Start a project like this',
   },
   facts: { platforms: 'Web app · Web chat · WhatsApp · Instagram · Messenger · Telegram', languages: 'AZ · EN · RU' },
 
@@ -85,14 +85,14 @@ const en = {
   challenge: {
     id: 'challenge' as const,
     km: '23:40',
-    eyebrow: 'The challenge',
-    title: 'Customers write at midnight. The front desk opens at ten.',
-    accent: 'The front desk opens at ten.',
-    lead: 'A service business lives in its messengers. Questions, bookings and promises to pay arrive on WhatsApp, Instagram, Telegram and the website, at any hour and on several phones. Whether anyone answers depends on who is holding which phone.',
+    eyebrow: 'The problem',
+    title: 'Messages arrive at 23:40. The admin arrives at ten.',
+    accent: 'The admin arrives at ten.',
+    lead: 'For a service business, the messengers are the shop window. Questions, booking requests and “I’ll pay tomorrow” promises come in through WhatsApp, Instagram, Telegram and the website, day and night, spread across several phones. Whether a customer hears back is down to luck: who happens to have which phone.',
     clock: {
       ariaLabel:
         'Sample chart of one day of messages on five channels: many arrive in the evening and at night, outside opening hours, and wait until morning',
-      title: 'One day of messages at a sample studio',
+      title: 'A sample studio’s messages over one day',
       hours: 'Opening hours',
       answered: 'Answered while open',
       waiting: 'Waits until morning',
@@ -100,24 +100,24 @@ const en = {
     },
     pains: [
       {
-        title: 'The message nobody saw',
-        text: 'A booking request arrives on Instagram at 23:40. By the time the studio opens, the customer has booked with someone who answered.',
+        title: 'Seen by no one',
+        text: 'An Instagram booking request lands at 23:40. When the studio opens in the morning, the customer has already gone to a place that replied.',
       },
       {
-        title: 'One slot, two promises',
-        text: 'An admin confirms 15:00 on WhatsApp while a colleague gives the same slot to a caller. Both customers arrive.',
+        title: 'Two customers, one slot',
+        text: 'On WhatsApp an admin confirms 15:00; on the phone a colleague gives away the same time. Both customers turn up.',
       },
       {
-        title: 'Debts in a notebook',
-        text: 'Who paid a deposit and who still owes for the last visit lives in someone’s memory, a notebook or a spreadsheet nobody updates.',
+        title: 'Debts kept on paper',
+        text: 'Deposits paid and balances left over from the last visit are tracked in someone’s head, a paper notebook or a spreadsheet that stopped being updated.',
       },
       {
-        title: 'The fiftieth price question',
-        text: 'Prices, the address, parking and opening hours are typed by hand all day, by the people who should be serving customers.',
+        title: '“How much?” for the fiftieth time',
+        text: 'All day, the staff who should be looking after customers retype the prices, the address, parking tips and opening hours by hand.',
       },
       {
-        title: 'No idea what works',
-        text: 'Which post, ad or link brought a customer is gone the moment the chat scrolls away.',
+        title: 'Marketing in the dark',
+        text: 'Once the chat scrolls out of view, nobody can tell which post, ad or link brought that customer in.',
       },
     ],
   },
@@ -125,10 +125,10 @@ const en = {
   inbox: {
     id: 'inbox' as const,
     km: '23:40',
-    eyebrow: 'Shared inbox',
-    title: 'Every channel lands in one inbox',
-    accent: 'one inbox',
-    lead: 'WhatsApp, Instagram, Messenger, Telegram and the website chat arrive in one shared inbox. Every conversation has an owner, a full history and a customer profile, and the whole team sees in real time who is answering what.',
+    eyebrow: 'One inbox for the team',
+    title: 'Five channels, one shared inbox',
+    accent: 'one shared inbox',
+    lead: 'Chats from WhatsApp, Instagram, Messenger, Telegram and the website widget all arrive in the same team inbox. Each one carries an assigned owner, its complete history and the customer’s profile, and everyone can see live which colleague is handling which chat.',
     screen: {
       ariaLabel:
         'Sample Cavably inbox screen: a conversation list from five channels, an Instagram chat answered by the AI assistant, and the customer’s profile with next visit and balance',
@@ -184,28 +184,28 @@ const en = {
     },
     features: [
       {
-        title: 'Routing by workload',
-        text: 'Rules hand each new conversation to the right operator. Anyone already at capacity is skipped, so nobody drowns while a colleague waits.',
+        title: 'Load-aware routing',
+        text: 'Assignment rules pass each new chat to a suitable operator and skip anyone who has hit their limit, so one person is not buried while another sits idle.',
       },
       {
-        title: 'No double replies',
-        text: 'Typing and “already replying” signals appear the moment a colleague opens the same chat.',
+        title: 'One reply, not two',
+        text: 'As soon as a colleague opens the same conversation, you see that they are typing or already replying.',
       },
       {
-        title: 'Quick replies with “/”',
-        text: 'Saved answers drop into the chat with a slash, and their variables fill in with the customer’s own details.',
+        title: 'Saved replies on “/”',
+        text: 'Type a slash to insert a saved answer; its variables are filled with this customer’s details.',
       },
       {
-        title: 'Follow-ups that go out on their own',
-        text: 'An unanswered chat gets a nudge: free text inside WhatsApp’s 24-hour window, an approved template after it.',
+        title: 'Automatic follow-ups',
+        text: 'If a chat goes unanswered, a nudge is sent: free-form text while WhatsApp’s 24-hour window is open, an approved template once it has closed.',
       },
       {
-        title: 'Comments that turn into chats',
-        text: 'A keyword under an Instagram post triggers a public reply and a private message with the details.',
+        title: 'From comment to DM',
+        text: 'When someone leaves a keyword under an Instagram post, they get a public reply to the comment and the details in a private message.',
       },
       {
-        title: 'Every lead with its source',
-        text: 'Tracked links, QR codes and click-to-WhatsApp ads tag each new conversation with where it came from.',
+        title: 'A source on every lead',
+        text: 'Every new chat is labelled with where it came from: a tracked link, a QR code or a click-to-WhatsApp ad.',
       },
     ],
   },
@@ -214,9 +214,9 @@ const en = {
     id: 'ai' as const,
     km: '23:41',
     eyebrow: 'AI assistant',
-    title: 'An assistant that knows the price list and knows when to stop',
-    accent: 'knows when to stop',
-    lead: 'The AI assistant replies at once in Azerbaijani, Russian or English. It answers only from what the business has taught it, understands voice notes and photos, and passes the conversation to a person the moment it should.',
+    title: 'It knows the prices, and it knows its limits',
+    accent: 'knows its limits',
+    lead: 'Replies go out instantly in Azerbaijani, Russian or English. The assistant sticks to what the business has taught it, makes sense of voice notes and photos, and brings in a human as soon as the situation calls for one.',
     chat: {
       business: 'Demo Beauty Studio',
       status: 'AI assistant',
@@ -227,8 +227,8 @@ const en = {
       {
         id: 'knowledge',
         label: 'Knowledge base',
-        title: 'Answers from the business’s own knowledge',
-        text: 'The team adds FAQs, free text and pages of its website. Cavably splits and indexes them automatically, and the assistant grounds every answer in those sources.',
+        title: 'Replies built on the business’s own material',
+        text: 'The team uploads FAQs, free-form notes and pages from its website. Cavably chunks and indexes this material automatically, and every reply the assistant gives is based on it.',
         ariaLabel: 'Sample chat: the AI assistant answers a price question from the knowledge base and shows its source',
         messages: list<CavMessage>([
           { from: 'customer', text: 'How much is gel manicure and how long does it take?', time: '23:40' },
@@ -244,8 +244,8 @@ const en = {
       {
         id: 'voice',
         label: 'Voice notes',
-        title: 'Hears voice notes',
-        text: 'Customers often record instead of typing. The assistant transcribes the voice note, shows the transcript in the conversation and answers. It can also reply with a voice note of its own.',
+        title: 'Listens to voice notes',
+        text: 'Plenty of customers would rather record than type. The assistant turns the recording into text, shows that transcript in the chat and replies, and it can answer with a voice note too.',
         ariaLabel: 'Sample chat: a customer sends a voice note, the transcript appears and the AI assistant answers',
         messages: list<CavMessage>([
           {
@@ -265,8 +265,8 @@ const en = {
       {
         id: 'photo',
         label: 'Photos',
-        title: 'Understands photos',
-        text: 'A customer sends a screenshot or replies to a Story. The assistant recognises what is in the picture and finds the closest match in the business’s catalogue.',
+        title: 'Reads photos',
+        text: 'When a customer sends a screenshot or answers a Story, the assistant works out what the image shows and looks up the nearest item in the business’s catalogue.',
         ariaLabel: 'Sample chat: a customer sends a photo of a nail colour and the AI assistant finds the matching item in the catalogue',
         messages: list<CavMessage>([
           { from: 'customer', photo: 'Photo', text: 'Can you do this colour?', time: '23:42' },
@@ -282,8 +282,8 @@ const en = {
       {
         id: 'handoff',
         label: 'Handoff',
-        title: 'Hands over at the right moment',
-        text: 'When the knowledge base does not confidently cover a question, such as a complaint or a medical concern, the conversation goes to a person with the whole history attached. The business decides how readily the assistant hands off.',
+        title: 'Knows when to step aside',
+        text: 'If the knowledge base cannot answer with confidence, as with a complaint or a health concern, a person takes over and sees the entire history. How quickly the assistant steps aside is a setting the business controls.',
         ariaLabel: 'Sample chat: a customer complains, the AI assistant hands the conversation to a person and a manager replies',
         messages: list<CavMessage>([
           { from: 'customer', text: 'My colour faded in a week. I want someone to fix it.', time: '23:44' },
@@ -304,10 +304,10 @@ const en = {
   bookings: {
     id: 'bookings' as const,
     km: '23:42',
-    eyebrow: 'Bookings and payments',
-    title: 'The chat becomes a booking. The booking gets paid.',
-    accent: 'The booking gets paid.',
-    lead: 'A time agreed in a conversation goes straight into the right specialist’s calendar. Clashes are caught before they happen, confirmations and reminders go out on their own, and money owed is tracked next to the visit.',
+    eyebrow: 'Booking and payment',
+    title: 'Agreed in the chat. Booked, reminded, paid.',
+    accent: 'Booked, reminded, paid.',
+    lead: 'Once a time is agreed in the chat, it goes directly into the calendar of the right specialist. Double bookings are blocked up front, confirmations and reminders are sent automatically, and any money owed sits right beside the appointment.',
     calendar: {
       ariaLabel:
         'Sample booking calendar for three specialists: a booking from WhatsApp lands at 15:30, a second booking is refused because the specialist is busy and moves to a free colleague',
@@ -348,20 +348,20 @@ const en = {
     },
     features: [
       {
-        title: 'No double bookings',
-        text: 'Each specialist has a calendar. A time that is already taken is refused before anyone confirms it.',
+        title: 'Clashes blocked up front',
+        text: 'Every specialist gets a separate calendar, and a slot that is already taken is rejected before anyone can confirm it.',
       },
       {
-        title: 'Confirmations and reminders',
-        text: 'The customer gets an automatic confirmation when the visit is booked and a reminder before it.',
+        title: 'Automatic confirmations',
+        text: 'Booking a visit sends the customer an instant confirmation, and a reminder follows ahead of the appointment.',
       },
       {
-        title: 'Money next to the visit',
-        text: 'Payments and balances are recorded against the customer, so the admin sees who owes what before the visit starts.',
+        title: 'Payments beside the booking',
+        text: 'Payments and balances belong to the customer record, so before a visit begins the admin already knows who owes how much.',
       },
       {
-        title: 'Debt reminders on the due date',
-        text: 'Add a payment with a due date, and a polite reminder goes out on that day without anyone remembering to send it.',
+        title: 'Reminders on the due date',
+        text: 'Enter a payment with its due date; on that day a courteous reminder goes out, and nobody has to keep it in mind.',
       },
     ],
   },
@@ -369,10 +369,10 @@ const en = {
   growth: {
     id: 'growth' as const,
     km: 'Day 60',
-    eyebrow: 'Pipeline, campaigns and loyalty',
-    title: 'Conversations become deals. Customers come back.',
-    accent: 'Customers come back.',
-    lead: 'Larger sales like a course, a treatment package or a corporate order move through a pipeline that starts from the conversation itself. Regular customers collect points, and a customer who has gone quiet gets a well-timed message instead of being forgotten.',
+    eyebrow: 'Deals, broadcasts and loyalty',
+    title: 'Chats turn into sales. Regulars keep returning.',
+    accent: 'Regulars keep returning.',
+    lead: 'Bigger purchases, such as a course, a package of treatments or a corporate order, travel through a sales pipeline that begins inside the chat. Regulars earn points, and customers who have drifted away get a timely message rather than being quietly forgotten.',
     pipeline: {
       ariaLabel:
         'Sample deals pipeline with four stages; a course deal moves from proposal to won and the open pipeline value updates',
@@ -425,16 +425,16 @@ const en = {
     },
     features: [
       {
-        title: 'A pipeline born in the chat',
-        text: 'A deal is created from the conversation and stays linked to it. Stages, won and lost reasons, pipeline value and forecast are one click away.',
+        title: 'Deals that start in the chat',
+        text: 'Each deal is opened from a conversation and remains tied to it. Stages, reasons for winning or losing, pipeline value and the forecast are all a click away.',
       },
       {
-        title: 'Campaigns that respect consent',
-        text: 'Broadcasts go only to customers who opted in, use approved WhatsApp templates, and drop anyone who writes STOP.',
+        title: 'Consent-first campaigns',
+        text: 'Broadcasts reach only customers who agreed to receive them, go out as approved WhatsApp templates, and automatically remove anyone who replies STOP.',
       },
       {
-        title: 'Loyalty points and reactivation',
-        text: 'Points for every visit, and automatic win-back messages when a regular customer goes quiet.',
+        title: 'Points and win-back',
+        text: 'Each visit earns points, and when a regular stops coming, win-back messages go out automatically.',
       },
     ],
   },
@@ -442,10 +442,10 @@ const en = {
   flows: {
     id: 'flows' as const,
     km: '23:41',
-    eyebrow: 'No-code flow builder',
-    title: 'Automations drawn, not coded',
-    accent: 'drawn, not coded',
-    lead: 'Owners and managers draw their own conversation logic on a canvas: triggers, questions, conditions, waits, AI steps and handoffs. A built-in simulator runs a sample message through the flow before it is published.',
+    eyebrow: 'No-code automation',
+    title: 'Draw the automation. Skip the code.',
+    accent: 'Skip the code.',
+    lead: 'Owners and managers lay out their own chat logic on a visual canvas, with triggers, questions, conditions, delays, AI steps and handoffs to people. Before a flow goes live, a built-in simulator plays a test message through it.',
     builder: {
       ariaLabel:
         'Sample flow in the visual builder: a new Instagram message goes to an AI intent step and branches into booking, price question and other paths, while the simulator lists the executed steps',
@@ -496,16 +496,16 @@ const en = {
     },
     features: [
       {
-        title: 'Every building block',
-        text: 'Text and buttons, media, lists, WhatsApp templates, questions saved to variables, if/else, A/B splits, waits and business-hours branches.',
+        title: 'All the pieces you need',
+        text: 'Text with buttons, media, lists, WhatsApp templates, questions that store answers in variables, if/else logic, A/B splits, waits and branches for business hours.',
       },
       {
-        title: 'AI inside the flow',
-        text: 'An AI step classifies what the customer wants and picks the branch, answers from the knowledge base, or keeps the chat with the assistant.',
+        title: 'AI as a step',
+        text: 'An AI step works out what the customer is asking for and chooses the branch, replies from the knowledge base, or leaves the conversation with the assistant.',
       },
       {
-        title: 'Connected to the rest',
-        text: 'CRM actions, handoff to an operator, HTTP requests, Google Sheets rows, email and other flows are nodes on the same canvas.',
+        title: 'Linked to everything else',
+        text: 'Nodes on the same canvas cover CRM actions, HTTP requests, new Google Sheets rows, emails, handing over to an operator and jumps to other flows.',
       },
     ],
   },
@@ -514,9 +514,9 @@ const en = {
     id: 'analytics' as const,
     km: 'Mon 09:00',
     eyebrow: 'Analytics',
-    title: 'Monday morning, the whole week on one screen',
-    accent: 'on one screen',
-    lead: 'The owner sees how conversations turn into bookings and money: the lead funnel, the revenue trend, which channel brings which customers, how fast the team replies and how satisfied customers are after each chat.',
+    title: 'Last week at a glance, first thing Monday',
+    accent: 'at a glance',
+    lead: 'The owner can trace how chats become bookings and revenue: the lead funnel, where revenue is heading, which channel brings in which customers, how quickly the team responds, and how happy customers are once a chat ends.',
     dashboard: {
       ariaLabel:
         'Sample analytics dashboard: lead funnel, weekly revenue trend, conversations by channel, first response time and customer satisfaction with a low-score alert',
@@ -559,26 +559,26 @@ const en = {
     },
     features: [
       {
-        title: 'From message to money',
-        text: 'The funnel follows each lead from the first message to a booking and a payment.',
+        title: 'First message to payment',
+        text: 'The funnel tracks every lead from its opening message through the booking to the payment.',
       },
       {
-        title: 'Satisfaction after every chat',
-        text: 'A short rating request goes out when a conversation closes. A low score alerts the manager and reopens the chat.',
+        title: 'A rating after each chat',
+        text: 'Closing a conversation sends the customer a quick rating request. A poor score notifies the manager and reopens the chat.',
       },
       {
-        title: 'Channels and sources compared',
-        text: 'See which channel, link, QR code or ad brings conversations, and how quickly each one is answered.',
+        title: 'Compare channels and sources',
+        text: 'Find out which channel, link, QR code or ad generates conversations, and how fast each one gets a reply.',
       },
     ],
   },
 
   engineering: {
     id: 'engineering' as const,
-    eyebrow: 'Engineering and security',
-    title: 'Enterprise controls inside a small-business CRM',
-    accent: 'Enterprise controls',
-    lead: 'Cavably is a multi-tenant SaaS built to satisfy a company’s IT team as well as a salon owner. Single sign-on, an append-only audit log, SLA policies and custom roles sit next to the inbox.',
+    eyebrow: 'Architecture and security',
+    title: 'Small-business CRM, enterprise-grade controls',
+    accent: 'enterprise-grade controls',
+    lead: 'Cavably is a multi-tenant SaaS designed to pass an IT department’s review while still suiting a salon owner. Right beside the inbox sit custom roles, SLA policies, single sign-on and an audit log that can only be appended to.',
     controls: {
       ariaLabel:
         'Sample enterprise settings: SAML and OIDC single sign-on, an append-only audit log, an SLA policy for VIP customers and a custom role with permissions',
@@ -624,35 +624,35 @@ const en = {
         ],
       },
     },
-    principlesTitle: 'How it is built',
+    principlesTitle: 'Under the hood',
     principles: [
       {
         label: 'Multi-tenant',
-        text: 'One platform, many businesses: each company works in its own tenant, and its data is isolated from every other.',
+        text: 'Many businesses share the platform, yet each company has a tenant of its own, and its data stays separated from everyone else’s.',
       },
       {
         label: 'Real time',
-        text: 'New messages, typing, presence and “already replying” signals reach every operator’s screen the moment they happen.',
+        text: 'New messages, typing indicators, presence and “already replying” flags show up on every operator’s screen instantly.',
       },
       {
         label: 'Grounded AI',
-        text: 'Retrieval over each business’s own sources, with a handoff threshold and a monthly AI usage limit that the business sets itself.',
+        text: 'The AI retrieves from each business’s own sources, and the business itself sets the handoff threshold and a monthly cap on AI usage.',
       },
       {
         label: 'Security',
-        text: 'Role-based permissions, Google sign-in, SAML 2.0 and OIDC single sign-on, an append-only audit log, and channel keys stored encrypted.',
+        text: 'Role-based access, sign-in with Google, SSO via SAML 2.0 or OIDC, encrypted storage of channel keys and an audit log that cannot be edited.',
       },
       {
         label: 'Open',
-        text: 'Webhooks, an open API with scoped keys, and ready connectors such as Google Sheets.',
+        text: 'Webhooks, an open API whose keys are scoped, and ready-made connectors like Google Sheets.',
       },
       {
         label: 'Three languages',
-        text: 'Azerbaijani, Russian and English across the interface and the AI; each business sets its language, time zone and working hours.',
+        text: 'The interface and the AI both speak Azerbaijani, Russian and English, and every business chooses its own language, time zone and working hours.',
       },
     ],
     hub: {
-      title: 'Connected channels and systems',
+      title: 'Channels and systems it connects to',
       channelsLabel: 'Messaging channels',
       systemsLabel: 'Systems and sign-in',
       core: ['Inbox', 'AI assistant', 'CRM'],
@@ -665,34 +665,34 @@ const en = {
     title: 'What Aibaycan did',
     items: [
       {
-        title: 'Product and UX',
-        text: 'We shaped Cavably around the working day of a salon, clinic or course: the inbox first, and bookings, payments and deals one click from the conversation.',
+        title: 'Product design and UX',
+        text: 'We organised the product around how a salon, clinic or course actually spends its day: the inbox at the centre, with bookings, payments and deals a single click from any chat.',
       },
       {
         title: 'AI engineering',
-        text: 'Retrieval over each business’s knowledge, intent routing, voice transcription and voice replies, photo understanding and confidence-based handoff.',
+        text: 'Retrieval over every business’s knowledge, routing by intent, voice-note transcription and spoken replies, image understanding, and handoff driven by confidence.',
       },
       {
         title: 'Channel integrations',
-        text: 'WhatsApp, Instagram, Messenger, Telegram and an embeddable web chat, with templates, broadcasts, opt-outs and comment-to-message rules.',
+        text: 'Instagram, WhatsApp, Messenger and Telegram, plus a web chat that embeds on any site, along with templates, broadcasts, opt-outs and rules that turn comments into messages.',
       },
       {
         title: 'Platform engineering',
-        text: 'A multi-tenant, real-time SaaS where the inbox, bookings, payments, pipeline, campaigns, flow builder and analytics share one data model.',
+        text: 'A real-time, multi-tenant SaaS where one data model sits under everything: inbox and bookings, payments and pipeline, campaigns, flows and analytics.',
       },
       {
-        title: 'Enterprise security',
-        text: 'Single sign-on with SAML 2.0 and OIDC, an append-only audit log, SLA policies and custom roles with fine-grained permissions.',
+        title: 'Enterprise-grade security',
+        text: 'Custom roles with granular permissions, SLA policies, an append-only audit log, and single sign-on via SAML 2.0 or OIDC.',
       },
       {
-        title: 'Launch and operation',
-        text: 'We localised the product and its AI in three languages, launched it at cavably.com and run it as our own platform.',
+        title: 'Launch and operations',
+        text: 'We localised both the product and its AI for three languages, put it live on cavably.com, and operate it as a platform of our own.',
       },
     ],
   },
   stack: {
     eyebrow: 'Stack',
-    title: 'What Cavably runs on',
+    title: 'The technology behind Cavably',
     groups: [
       { label: 'Frontend', items: ['TypeScript', 'React', 'Tailwind CSS'] },
       { label: 'Backend', items: ['Node.js', 'NestJS', 'WebSockets'] },
@@ -701,27 +701,27 @@ const en = {
     ],
   },
   faq: {
-    title: 'What buyers ask about Cavably',
+    title: 'Questions about Cavably',
     items: [
       {
-        q: 'Is Cavably a real product I can open today?',
-        a: 'Yes. Cavably is our own platform, live at cavably.com. We designed it, built it and run it, from the AI assistant and channel integrations to the enterprise controls.',
+        q: 'Can I see Cavably live right now?',
+        a: 'Yes. It is our own platform, running at cavably.com. Everything in it, the AI assistant, the channel integrations and the enterprise controls alike, was designed and built by us, and we operate it ourselves.',
       },
       {
-        q: 'How does the AI avoid making things up?',
-        a: 'It answers only from the sources the business adds: FAQs, text and website pages. When an answer is not confidently covered, or the customer asks for a person, the chat goes to an operator with the full history. The business sets how readily that happens.',
+        q: 'What stops the AI from inventing answers?',
+        a: 'The assistant uses only the material the business supplies: FAQs, text and website pages. If it cannot answer with confidence, or the customer wants a human, an operator takes over the chat with the complete history. The business decides how quickly that handoff kicks in.',
       },
       {
-        q: 'Which channels and systems does it connect?',
-        a: 'WhatsApp, Instagram, Messenger, Telegram and a web chat widget on the business’s site, plus click-to-WhatsApp ads, Google Sheets, webhooks, an open API, Google sign-in and SAML 2.0 or OIDC single sign-on.',
+        q: 'What does Cavably integrate with?',
+        a: 'For messaging: WhatsApp, Instagram, Messenger and Telegram, plus a web chat widget for the business’s website. It also works with Google Sheets, webhooks, an open API and click-to-WhatsApp ads, and supports Google sign-in and single sign-on over SAML 2.0 or OIDC.',
       },
       {
-        q: 'Does it work in Azerbaijani?',
-        a: 'Yes. Azerbaijani is the default language, and the full interface and the AI assistant also work in Russian and English.',
+        q: 'Is Azerbaijani supported?',
+        a: 'Yes, it is the default. The whole interface and the AI assistant are also available in Russian and English.',
       },
       {
-        q: 'Can you build an AI assistant or messaging CRM like this for our company?',
-        a: 'Yes. We build the same pieces for other businesses: knowledge-base AI with handoff, voice and photo understanding, WhatsApp and Instagram integrations, bookings, pipelines and no-code automations, either inside your existing system or as a new product.',
+        q: 'Could you build a similar AI assistant or messaging CRM for us?',
+        a: 'Yes. We build these same components for other companies too: a knowledge-base AI that hands off to people, voice and image understanding, WhatsApp and Instagram integrations, booking, sales pipelines and no-code automation, either added to the system you already have or delivered as a new product.',
       },
     ],
   },
@@ -735,7 +735,7 @@ const en = {
     analytics: 'Analytics',
     engineering: 'Engineering',
   },
-  sampleDataNote: 'Names and figures on screens are sample data.',
+  sampleDataNote: 'All names and numbers shown on the screens are sample data.',
   mockupAriaLabel: 'Illustrative Cavably screen with sample data',
 } satisfies CaseBase;
 

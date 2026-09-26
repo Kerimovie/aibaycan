@@ -1,20 +1,20 @@
-// Sahil Transport case study (/[locale]/projects/sahil-transport), AZ. Ported from Atlas
-// `src/i18n/az/cases/sahil-transport.ts`, typed against the EN type source. Plates, names and figures are sample data.
+// Sahil Transport case study (/[locale]/projects/sahil-transport), AZ. Structure ported from Atlas
+// `src/i18n/az/cases/sahil-transport.ts`; prose rewritten for Aibaycan, typed against the EN type source. Plates, names and figures are sample data.
 import type { SahilTransportCopy } from './en';
 
 const az: SahilTransportCopy = {
   seo: {
-    title: 'Sahil Transport: avtopark monitorinqi, GPS yanacaq nəzarəti',
+    title: 'Sahil Transport: GPS ilə avtopark və yanacaq nəzarəti',
     description:
-      'Bakı yük daşıma şirkəti üçün qurduğumuz proqram: avtopark monitorinqi, GPS yanacaq nəzarəti, CAN çəki sensorları, dayanmaların təsnifatı və gözləmə haqqı.',
+      'Aibaycan Bakıdakı yük daşıyıcısı üçün telematika qurdu: yanacaq və CAN çəki sensorları, dayanma səbəbləri, müqaviləyə görə gözləmə haqqı, AI ilə qaimə oxuma.',
   },
-  h1: 'Yük daşıma şirkəti üçün proqram: avtopark monitorinqi və gözləmə haqqı',
+  h1: 'Yük daşıyıcısı üçün telematika və gözləmə haqqı platforması',
   hero: {
-    eyebrow: 'Logistika · Avtopark data platforması',
-    title: 'GPS siqnalından hesab-faktura sətrinə',
-    accent: 'hesab-faktura sətrinə',
-    lead: 'Sahil Transport 180-ə yaxın maşını olan Bakı yük daşıma şirkətidir. Onun avtopark data platformasını biz qurduq: GPS, yanacaq və CAN çəki sensorlarının axınları bir yerdə birləşir, hər dayanmanın səbəbi müəyyən olunur, müştəri obyektlərində gözləmə vaxtı müqaviləyə əsasən qiymətləndirilir, sürücülərin qaimə şəkilləri isə AI ilə oxunur və reyslər, maliyyə qeydləri ilə tutuşdurulur.',
-    primaryCta: 'Oxşar layihəni müzakirə edək',
+    eyebrow: 'Logistika · Telematika və hesablaşma',
+    title: 'GPS siqnalı hesab-fakturaya çevrilir',
+    accent: 'hesab-fakturaya çevrilir',
+    lead: 'Sahil Transport Bakıda fəaliyyət göstərən, təxminən 180 yük maşını olan daşıma şirkətidir. Onlar üçün qurduğumuz platforma GPS, yanacaq və CAN çəki göstəricilərini vahid axına yığır, hər maşının niyə dayandığını izah edir, müştəri obyektində keçən gözləmə vaxtını müqavilədəki tariflə hesablayır, sürücülərin göndərdiyi qaimə şəkillərini isə AI ilə oxuyub reyslər və maliyyə uçotu ilə yoxlayır.',
+    primaryCta: 'Bənzər layihə barədə danışaq',
   },
   facts: {
     platforms: 'Veb panel · Telegram botu · Excel hesabatları',
@@ -23,7 +23,7 @@ const az: SahilTransportCopy = {
 
   console: {
     label:
-      'Abşeron yarımadasının avtopark xəritəsi: maşınlar müştəri zonaları arasında hərəkət edir, biri zonada gözləyir, aşağıda isə bir maşının sürət, yanacaq və xalis çəki qrafikləri axır (nümunə məlumatlar)',
+      'Abşeron yarımadası xəritəsində avtopark: maşınlar müştəri zonaları arasında gedir, biri zonanın içində gözləyir; ekranın aşağısında seçilmiş maşının sürəti, yanacağı və xalis çəkisi canlı xətlərlə sürüşür (nümunə məlumatlar)',
     title: 'Avtopark · Abşeron',
     realtime: 'Real vaxt',
     clock: '09:52',
@@ -57,38 +57,38 @@ const az: SahilTransportCopy = {
   challenge: {
     id: 'challenge',
     badge: 'Əvvəl',
-    eyebrow: 'Problem',
-    title: 'Hər maşın siqnal göndərir. Onları birləşdirən yoxdur.',
-    accent: 'Onları birləşdirən yoxdur.',
-    lead: 'Daşıyıcının bir günü minlərlə siqnal yaradır: bir neçə dəqiqədən bir mövqe, çəndəki yanacaq səviyyəsi, ox çəkiləri, kabinada çəkilmiş kağız qaimə şəkilləri. Sahil Transport-da bunlar bir-biri ilə əlaqəsi olmayan üç ayrı yerdə saxlanılırdı, pul isə məhz onların arasındakı boşluqlardan sızıb gedirdi.',
+    eyebrow: 'Başlanğıc nöqtəsi',
+    title: 'Siqnal çoxdur. Ümumi mənzərə yoxdur.',
+    accent: 'Ümumi mənzərə yoxdur.',
+    lead: 'Yolda olan yük maşınları gün ərzində minlərlə məlumat nöqtəsi yaradır: hər bir neçə dəqiqədən mövqe, çəndəki yanacaq, oxlara düşən yük, kabinada çəkilmiş kağız qaimə fotoları. Sahil Transport bunların hamısını bir-birinə bağlı olmayan üç ayrı mənbədə saxlayırdı və gəlir məhz bu mənbələrin qovuşmadığı yerlərdə itirdi.',
     scale: {
       value: '≈180',
       unit: 'maşın',
-      text: 'Bütün avtopark üzrə GPS izləyiciləri, yanacaq çəni sensorları və CAN çəki sensorları ilə — hər biri bir neçə dəqiqədən bir məlumat ötürür.',
+      text: 'avtoparkın hamısında: hər maşında GPS izləyicisi, çən yanacaq sensoru və CAN çəki sensoru var, göstəricilər bir neçə dəqiqədən bir ötürülür.',
     },
-    sourcesTitle: 'Məlumat harada saxlanılırdı',
+    sourcesTitle: 'Bir-birindən xəbərsiz üç mənbə',
     sources: [
       { name: 'Telematika portalı', detail: 'Mövqe, sürət, yanacaq, ox çəkisi', sample: '10-XX-027 · 0 km/saat · 148 L' },
       { name: 'Messencer qrupları', detail: 'Sürücülərin qaimə şəkilləri', sample: 'IMG_4417.jpg · IMG_4418.jpg' },
       { name: 'Maliyyə qeydləri', detail: 'Müştərilər, müqavilələr, ödənişlər', sample: 'FR-2291 · 412,00 ₼' },
     ],
-    gap: 'Ortaq reys yoxdur. Ortaq həqiqət də yoxdur.',
+    gap: 'Onları eyni reysə bağlayan heç nə yox idi.',
     pains: [
       {
-        title: 'Gözləmə vaxtı hesab-fakturaya düşmürdü',
-        text: 'Maşınlar yükləmə məntəqələrində müqavilədəki pulsuz vaxtdan artıq növbədə dayanırdı, amma nə qədər gözlədiklərini heç kim göstərə bilmirdi.',
+        title: 'Darvaza önündə itən vaxt',
+        text: 'Müqavilə müştəriyə pulsuz yükləmə vaxtı verirdi, maşınlar isə növbədə ondan xeyli artıq qalırdı. Bunun nə qədər çəkdiyi heç yerdə qeyd olunmurdu.',
       },
       {
-        title: 'Bütün dayanmalar eyni görünürdü',
-        text: 'Xam GPS məlumatında müştəri obyektindəki növbə, yanacaq doldurma və tıxac eyni şeydir: sürət sıfırdır.',
+        title: 'Dayanma sadəcə dayanma idi',
+        text: 'Maşın müştəri növbəsində, yanacaqdoldurma məntəqəsində və ya tıxacda olsa da, xam GPS eyni şeyi göstərir: sürət sıfır.',
       },
       {
-        title: 'Qaimələr əl ilə yenidən yazılırdı',
-        text: 'Sürücülər kağız qaimələrin şəklini çəkirdi, ofis isə onları gecikmə və səhvlərlə cədvələ köçürürdü.',
+        title: 'Qaimələr iki dəfə yazılırdı',
+        text: 'Kağız qaimələr ofisə foto kimi çatır, sonra gecikmə və səhvlərlə cədvələ yenidən daxil edilirdi.',
       },
       {
-        title: 'Üç qeyd, üç fərqli həqiqət',
-        text: 'Reyslər, qaimələr və maliyyə qeydləri nadir hallarda üst-üstə düşürdü, düzgününü tapmaq üçün isə sətir-sətir yoxlamaq lazım gəlirdi.',
+        title: 'Hər reysin üç versiyası',
+        text: 'Reys qeydləri, qaimələr və maliyyə uçotu çox vaxt bir-birini təsdiqləmirdi; hansının doğru olduğunu anlamaq üçün hər sətri ayrıca yoxlamaq gərək idi.',
       },
     ],
   },
@@ -96,13 +96,13 @@ const az: SahilTransportCopy = {
   fleet: {
     id: 'fleet',
     badge: '06:00',
-    eyebrow: 'Real vaxtda avtopark',
-    title: 'Bütün avtopark bir ekranda',
-    accent: 'bir ekranda',
-    lead: 'Platforma hər maşının mövqeyini, sürətini, yanacağını və çəkisini Wialon-dan alır və dispetçer üçün aydın mənzərəyə çevirir: hansı maşın hərəkətdədir, hansı müştərinin yanında gözləyir, hansı öz işi üçün dayanıb və hansından siqnal gəlmir.',
+    eyebrow: 'Canlı avtopark görünüşü',
+    title: 'Bütün maşınlar vahid ekranda',
+    accent: 'vahid ekranda',
+    lead: 'Hər maşının mövqeyi, sürəti, yanacaq səviyyəsi və çəkisi Wialon-dan gəlir. Platforma bu axını dispetçerin həqiqətən bilməli olduğu suallara cavaba çevirir: kim yoldadır, kim müştərinin yanında ləngiyir, kim öz səbəbi ilə dayanıb, kimdən isə məlumat gəlmir.',
     screen: {
       label:
-        'Status göstəriciləri, sürət, yanacaq və xalis yükü göstərən maşın kartları, avtopark statusu diaqramı, mənbələr üzrə məlumatın təzəliyi və diqqət tələb edən maşınların siyahısı olan dispetçer paneli (nümunə məlumatlar)',
+        'Dispetçer paneli: status sayğacları, sürət, yanacaq və xalis yük göstərən maşın kartları, avtopark statusunun dairəvi diaqramı, hər mənbənin son sinxronizasiya vaxtı və diqqət tələb edən maşınlar siyahısı (nümunə məlumatlar)',
       title: 'Avtopark paneli · real vaxt',
       tiles: [
         { tone: 'moving', label: 'Hərəkətdə', value: '103' },
@@ -193,28 +193,28 @@ const az: SahilTransportCopy = {
     },
     features: [
       {
-        title: 'Mənası olan dörd status',
-        text: 'Hərəkətdə, müştəri gözləməsi, əməliyyat dayanması və oflayn — xəritədə, kartlarda, bildirişlərdə və hesabatlarda eyni rənglərlə.',
+        title: 'Dörd status, vahid rəng kodu',
+        text: 'Hərəkətdə, müştəri gözləməsi, əməliyyat dayanması və oflayn statusları xəritədə, maşın kartlarında, bildirişlərdə və istənilən hesabatda eyni cür görünür.',
       },
       {
-        title: 'Xam sensor göstəricisi deyil, xalis yük',
-        text: 'Platforma hər maşının boş çəkisini öyrənir, buna görə CAN sensoru xam göstərici yerinə xalis yükü tonla göstərir.',
+        title: 'Yük tonla',
+        text: 'Platforma hər maşının boş çəkisini öyrənir; nəticədə CAN sensorunun verdiyi emal olunmamış rəqəm yox, tonla xalis yük göstərilir.',
       },
       {
-        title: 'Yanacaq litrlə, kilometrlə yanaşı',
-        text: 'Çən sensorunun göstəriciləri qət edilən məsafə ilə yanaşı litr və faizlə saxlanılır — həm maşın kartında, həm də hər reys üzrə.',
+        title: 'Litr kilometrin yanında',
+        text: 'Çən sensorundan gələn yanacaq qət olunan məsafənin yanında litr və faizlə qeyd olunur; bunu maşın kartında da, ayrı-ayrı reyslər üzrə də görmək olar.',
       },
       {
-        title: 'Nöqtələr yığını yox, diqqət siyahısı',
-        text: 'Siqnalı kəsilən, yanacağı azalan və ya pulsuz vaxtı bitmək üzrə olan maşınlar siyahının yuxarısına çıxır.',
+        title: 'Əvvəlcə problemlər',
+        text: 'Nöqtələrlə dolu xəritə əvəzinə siqnalı itən, yanacağı azalan və ya pulsuz vaxtı tükənmək üzrə olan maşınlar siyahının başına keçir.',
       },
       {
-        title: 'Məlumatın təzəliyi göz önündə',
-        text: 'Hər məlumat mənbəyi son dəfə nə vaxt sinxronlaşdığını göstərir, buna görə susan məlumat axını dayanmış maşınla qarışdırılmır.',
+        title: 'Sinxronizasiya vaxtı görünür',
+        text: 'Hər mənbə son sinxronizasiyasını göstərir ki, məlumat göndərməyi dayandırmış axın yerində duran maşınla səhvən eyniləşdirilməsin.',
       },
       {
-        title: 'Dispetçer üçün hazırlanmış xəritə',
-        text: 'Status süzgəcləri, nömrə üzrə axtarış və hər maşının son marşrutunu, sürücüsünü və sensor göstəricilərini açan ətraflı görünüş.',
+        title: 'Dispetçer işi üçün xəritə',
+        text: 'Statusa görə süzgəc, nömrəyə görə axtarış; istənilən maşını açıb son marşrutunu, sürücüsünü və sensor göstəricilərini görmək olar.',
       },
     ],
   },
@@ -222,10 +222,10 @@ const az: SahilTransportCopy = {
   stops: {
     id: 'stops',
     badge: '09:40',
-    eyebrow: 'Dayanmaların təsnifatı',
-    title: 'Sıfır sürət hələ cavab deyil',
-    accent: 'hələ cavab deyil',
-    lead: 'Dayanmış maşın müştərinin darvazası önündə növbədə ola, yanacaq doldura və ya tıxacda qala bilər — bunlardan yalnız birincisinə görə müştəriyə hesab kəsmək olar. Platforma hər dayanmanı dörd yoxlamadan keçirir və onun səbəbini müəyyən edir.',
+    eyebrow: 'Maşın niyə dayandı',
+    title: 'Sıfır km/saat heç nə demir',
+    accent: 'heç nə demir',
+    lead: 'Yerində duran maşın müştərinin növbəsində ola, yanacaq ala və ya tıxaca düşə bilər, müştəri isə yalnız birincisinə görə ödəyir. Buna görə hər dayanma dörd yoxlamadan keçir və onun səbəbini məhz bu yoxlamalar müəyyənləşdirir.',
     timeline: {
       title: '10-XX-027 · nümunə gün',
       weight: 'Xalis çəki',
@@ -234,14 +234,14 @@ const az: SahilTransportCopy = {
       hours: ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00'],
       legend: { drive: 'Hərəkət', waiting: 'Müştəri gözləməsi', operational: 'Əməliyyat dayanması' },
     },
-    checksTitle: 'Hər dayanma üçün dörd yoxlama',
+    checksTitle: 'Dörd yoxlama',
     checks: [
-      { name: 'Zona', question: 'Maşın müştərinin geozonasının içindədirmi?', outcome: 'Xeyr → əməliyyat dayanması' },
-      { name: 'Reys', question: 'Həmin müştəri bu maşının reysindədirmi?', outcome: 'Xeyr → əməliyyat dayanması' },
-      { name: 'Yük', question: 'Çəki sensoru artdı, yoxsa azaldı?', outcome: 'Artdı → yükləmə · azaldı → boşaltma' },
-      { name: 'Müqavilə', question: 'Müqavilə nə qədər pulsuz vaxt verir?', outcome: 'Ondan artıq → ödənişli gözləmə' },
+      { name: 'Zona', question: 'Maşın müştərinin geozonası daxilindədirmi?', outcome: 'Xeyr → əməliyyat dayanması' },
+      { name: 'Reys', question: 'Bu maşının reysinə həmin müştəri daxildirmi?', outcome: 'Xeyr → əməliyyat dayanması' },
+      { name: 'Yük', question: 'Çəki göstəricisi artıb, yoxsa azalıb?', outcome: 'Artdı → yükləmə · azaldı → boşaltma' },
+      { name: 'Müqavilə', question: 'Müqavilə hansı pulsuz vaxtı nəzərdə tutur?', outcome: 'Ondan artıq → ödənişli gözləmə' },
     ],
-    logTitle: 'Gün necə təsnif olundu',
+    logTitle: 'Nümunə gün, dayanma-dayanma',
     logLabels: { zone: 'Zona', trip: 'Reys', load: 'Yük' },
     log: [
       {
@@ -300,16 +300,16 @@ const az: SahilTransportCopy = {
         reason: 'Boşaltma · pulsuz vaxt daxilində',
       },
     ],
-    note: 'Bir neçə dəqiqəlik dayanmalar GPS «küyü» sayılır, zona sərhədində girib-çıxan maşının mövqeyi isə təsnifatdan əvvəl hamarlanır.',
+    note: 'Çox qısa dayanmalar GPS küyü kimi nəzərə alınmır, zona sərhədində irəli-geri «tərpənən» maşının mövqeyi isə təsnifatdan əvvəl hamarlanır.',
   },
 
   waiting: {
     id: 'waiting',
     badge: '11:40',
-    eyebrow: 'Gözləmə haqqının hesablanması',
-    title: 'Gözləmə vaxtı ödənişli sətrə çevrilir',
-    accent: 'ödənişli sətrə',
-    lead: 'Hər müştəri müqaviləsində yükləmə və boşaltma üçün öz pulsuz vaxtı və öz saatlıq tarifi var. Maşın bundan artıq gözləyəndə platforma artıq vaxtı sayır, haqqı həmin müqavilə üzrə hesablayır və sübutları ilə birlikdə reysə əlavə edir.',
+    eyebrow: 'Gözləmə haqqı',
+    title: 'Darvaza önündəki vaxt haqqa çevrilir',
+    accent: 'haqqa çevrilir',
+    lead: 'Müqavilələr bir-birinə bənzəmir: hər müştərinin yükləmə və boşaltma üçün ayrı-ayrı pulsuz vaxt limiti, bir də özünə məxsus saatlıq tarifi olur. Maşın limiti keçəndə platforma əlavə vaxtı ölçür, həmin müştərinin tarifini tətbiq edir və çıxan haqqı sübutları ilə birgə reysə bağlayır.',
     clock: {
       inZone: 'zonada',
       elapsed: '2:25',
@@ -343,16 +343,16 @@ const az: SahilTransportCopy = {
     },
     features: [
       {
-        title: 'Yükləmə və boşaltma üçün ayrı limitlər',
-        text: 'Hər müqavilədə hər iki əməliyyat üçün ayrıca pulsuz vaxt var, buna görə eyni gözləmə bir müştəridə pulsuz, digərində ödənişli ola bilər.',
+        title: 'Yükləmə və boşaltma limitləri ayrıdır',
+        text: 'Müqavilə pulsuz vaxtı hər əməliyyat üçün ayrıca müəyyən edir, ona görə də eyni gözləmə bir müştəridə heç nəyə başa gəlmir, başqasında isə hesaba yazılır.',
       },
       {
-        title: 'Maşın hələ darvaza önündə ikən xəbərdarlıq',
-        text: 'Pulsuz vaxt bitməyə yaxınlaşanda dispetçer xəbərdarlıq, vaxt aşılanda isə kritik bildiriş alır.',
+        title: 'Hələ vaxt varkən xəbərdarlıq',
+        text: 'Maşının pulsuz vaxtı azaldıqca dispetçer xəbərdarlıq, vaxt bitən anda isə kritik bildiriş alır.',
       },
       {
-        title: 'Sübutu ilə birlikdə haqq',
-        text: 'Gəliş, gediş, zona və çəki dəyişikliyi hər haqla birlikdə saxlanılır, buna görə mübahisə doğuran sətir öz sübutları ilə gəlir.',
+        title: 'Hər haqqın sübutu var',
+        text: 'Gəliş və gediş vaxtları, zona və çəki dəyişikliyi haqla birlikdə saxlanılır. Müştəri etiraz etsə, sübut artıq əldədir.',
       },
     ],
   },
@@ -360,13 +360,13 @@ const az: SahilTransportCopy = {
   invoices: {
     id: 'invoices',
     badge: '14:30',
-    eyebrow: 'AI ilə qaimə oxuma',
-    title: 'Kabinadan gələn şəkil yoxlanılmış qeydə çevrilir',
-    accent: 'yoxlanılmış qeydə',
-    lead: 'Sürücülər kağız qaimələrin şəklini çəkib Telegram qrupuna göndərir. Platforma şəkli düzəldir, AI hər sahəni etibarlılıq dərəcəsi ilə oxuyur, biznes yoxlamaları isə təkcə oxumaqla tutulmayan səhvləri aşkarlayır. AI əmin olmayanda qərarı insan verir.',
+    eyebrow: 'Qaimələri AI oxuyur',
+    title: 'Kabinadan şəkil, sistemdə yoxlanmış qeyd',
+    accent: 'yoxlanmış qeyd',
+    lead: 'Sürücü kağız qaimənin şəklini çəkib Telegram qrupuna atır. Şəkil düzəldilir, AI hər sahəni çıxarır və nə dərəcədə əmin olduğunu qiymətləndirir, biznes qaydaları isə yalnız oxumaqla gözdən qaçacaq səhvləri tutur. AI tərəddüd edəndə son sözü insan deyir.',
     scene: {
       label:
-        'Sürücü qaimə şəklini Telegram qrupuna göndərir; şəkil skan olunur, hər sahə etibarlılıq dərəcəsinə görə işarələnir, aydın olmayan tarix yoxlama növbəsinə düşür və operator onu təsdiqləyir (nümunə məlumatlar)',
+        'Sürücü qaimə şəklini Telegram-a göndərir; skan zamanı hər sahə etibarlılığa görə rənglənir, şübhəli tarix yoxlama növbəsinə keçir və operator onu təsdiqləyir (nümunə məlumatlar)',
       chat: {
         group: 'Qaimələr · sürücülər',
         members: 'bot, sürücülər, ofis',
@@ -401,42 +401,42 @@ const az: SahilTransportCopy = {
         done: 'Ofis təsdiqlədi',
       },
     },
-    pipelineTitle: 'Hər şəkillə nə baş verir',
+    pipelineTitle: 'Bir şəklin yolu',
     pipeline: [
       {
-        title: 'Şəkil daxil olur',
-        text: 'Telegram botu sürücü qruplarından şəkilləri qəbul edir və dərhal cavab verir ki, sürücü şəklin çatdığını bilsin.',
+        title: 'Şəkil gəlir',
+        text: 'Telegram botu sürücü qruplarındakı şəkilləri toplayır və dərhal cavab yazır ki, sürücü şəklin çatdığından əmin olsun.',
       },
       {
-        title: 'Şəkil təmizlənir',
-        text: 'Oxunmazdan əvvəl şəkil fırladılır, ölçüsü dəyişdirilir və kəskinləşdirilir, çünki kabinada çəkilən şəkillər nadir hallarda düz və aydın olur.',
+        title: 'Şəkil hazırlanır',
+        text: 'Kabinada çəkilən foto nadir hallarda düz və aydın olur, ona görə hər biri əvvəlcə fırladılır, ölçüsü dəyişdirilir və kəskinləşdirilir.',
       },
       {
-        title: 'AI sahələri oxuyur',
-        text: 'Maşın, tarix, marşrut, müştəri, çəki və məbləğ strukturlaşdırılmış məlumat kimi qayıdır — hər biri öz etibarlılıq dərəcəsi ilə, hətta bir səhifədə Azərbaycan, rus və ingilis dilləri qarışıq olsa belə.',
+        title: 'Sahələr çıxarılır',
+        text: 'AI maşın, tarix, marşrut, müştəri, çəki və məbləği strukturlaşdırılmış məlumat kimi qaytarır və hər sahəyə ayrıca etibarlılıq dərəcəsi verir. Səhifədə üç dil (Azərbaycan, rus, ingilis) qarışıq yazılsa belə.',
       },
       {
-        title: 'Biznes yoxlamaları işə düşür',
-        text: 'Heç nə saxlanılmazdan əvvəl nömrə formatı, tarixin düzgünlüyü, müştərinin sistemdə olması və cəmin düz gəlməsi yoxlanılır.',
+        title: 'Qaydalar tətbiq olunur',
+        text: 'Yadda saxlamazdan əvvəl platforma nömrə formatını, tarixin keçərli olduğunu, müştərinin sistemdə mövcudluğunu və cəmlərin düz gəldiyini təsdiqləyir.',
       },
       {
-        title: 'Qeydə alınır və ya yoxlamaya gedir',
-        text: 'Əmin oxunuşlar qeydə alınır. Şübhəli olanları ikinci AI modeli yenidən oxuyur, hələ də aydın olmayanlar isə yoxlama növbəsində insanı gözləyir.',
+        title: 'Saxlanılır və ya yoxlamaya gedir',
+        text: 'Etibarlı oxunuşlar yadda saxlanılır. Zəif olanlara başqa AI modeli ikinci dəfə baxır, yenə aydın olmayan hər şey isə yoxlama növbəsində insanı gözləyir.',
       },
     ],
-    note: 'Hər oxunuş AI-nin xam cavabını, etibarlılıq dərəcəsini və cavabı verən modeli saxlayır, buna görə istənilən qeydi öz şəklinə qədər izləmək olur.',
+    note: 'Hər oxunuşla birlikdə AI-dən gələn ilkin cavab, onun etibarlılıq balı və cavabı verən modelin adı saxlanılır. Beləliklə, istənilən qeydi ilkin şəklə qədər izləmək mümkündür.',
   },
 
   reconcile: {
     id: 'reconcile',
     badge: '23:00',
-    eyebrow: 'Üçtərəfli tutuşdurma',
-    title: 'Reys, qaimə və maliyyə qeydi üst-üstə düşməlidir',
-    accent: 'üst-üstə düşməlidir',
-    lead: 'Hər gecə platforma günü xam məlumatdan yenidən qurur: GPS-dən reysləri, dayanmaları və gözləmə haqlarını çıxarır, sonra hər reysi onun qaiməsi və maliyyə qeydi ilə üçtərəfli tutuşdurur. Uyğun gələnlər tutuşdurulmuş kimi işarələnir. Uyğun gəlməyənlər isə hansı sahənin fərqləndiyini göstərən növbəyə düşür.',
+    eyebrow: 'Üç mənbənin tutuşdurulması',
+    title: 'Reys, qaimə və maliyyə eyni şeyi deməlidir',
+    accent: 'eyni şeyi deməlidir',
+    lead: 'Gecə ərzində platforma bütün günü xam məlumatdan yenidən hesablayır (GPS reysləri, dayanmalar, gözləmə haqları), sonra hər reysi öz qaiməsi və maliyyə qeydi ilə müqayisə edir. Uyğun gələnlər tutuşdurulmuş sayılır; qalanları isə fərqin məhz hansı sahədə olduğunu göstərən növbəyə düşür.',
     board: {
       label:
-        'GPS-dən gələn reys, AI-nin oxuduğu qaimə və maliyyə qeydi bir-birinə yaxınlaşır və sahə-sahə tutuşdurulur, ardınca təsdiq və ya rədd üçün üç uyğunsuzluqdan ibarət növbə görünür (nümunə məlumatlar)',
+        'Üç kart (GPS-dən gələn reys, AI ilə oxunmuş qaimə və maliyyə qeydi) bir araya gəlir və sahə-sahə müqayisə olunur, ardınca təsdiq və ya rədd gözləyən üç uyğunsuzluq növbəsi açılır (nümunə məlumatlar)',
       columns: [
         { title: 'Reys', source: 'GPS-dən', code: 'T-0412' },
         { title: 'Qaimə', source: 'AI oxudu', code: '№ 0417' },
@@ -465,16 +465,16 @@ const az: SahilTransportCopy = {
     },
     features: [
       {
-        title: 'Sahə-sahə tutuşdurma',
-        text: 'Maşın, tarix, marşrut, çəki və məbləğ bir-bir müqayisə olunur, buna görə uyğunsuzluq sadəcə qırmızı sətir kimi deyil, səbəbi ilə birlikdə gəlir.',
+        title: 'Hər sahə ayrıca yoxlanır',
+        text: 'Maşın, tarix, marşrut, çəki və məbləğ ayrı-ayrılıqda müqayisə edilir, ona görə uyğunsuzluq sadəcə qırmızıya boyanmır, səbəbini də göstərir.',
       },
       {
-        title: 'Toplu qərarlar',
-        text: 'Mühasiblər uyğunsuzluqları toplu şəkildə təsdiqləyir və ya rədd edir, hər qərar isə qeyddə qalır.',
+        title: 'Toplu təsdiq',
+        text: 'Mühasiblər uyğunsuzluqları dəstə şəklində qəbul edir ya da geri qaytarır; hər qərar qeydin tarixçəsində qalır.',
       },
       {
-        title: 'Yamanmır, yenidən qurulur',
-        text: 'Eyni gecəni təkrar emal etmək eyni nəticəni verir, qayda dəyişəndə isə tarixçə xam məlumatdan yenidən qurulur.',
+        title: 'Yamaq yox, yenidən hesablama',
+        text: 'Gecəni təkrar emal etmək tam eyni nəticə verir; qayda dəyişəndə tarixçə xam məlumat əsasında yenidən hesablanır.',
       },
     ],
   },
@@ -482,13 +482,13 @@ const az: SahilTransportCopy = {
   reports: {
     id: 'reports',
     badge: '08:00',
-    eyebrow: 'Hesabatlar və bot',
-    title: 'Səhər hesabatı artıq hazırdır',
-    accent: 'artıq hazırdır',
-    lead: 'Rəhbərlik rəqəmləri heç kimdən hazırlamağı xahiş etmədən alır. Platforma dispetçerlərin gördüyü eyni məlumatdan on vərəqli Excel faylı və qrafiklər yaradır, Telegram botu isə sürücüləri və ofisi prosesdən xəbərdar saxlayır.',
+    eyebrow: 'Hesabatlar və Telegram',
+    title: 'Səhərə hesabat hazır olur',
+    accent: 'hazır olur',
+    lead: 'Rəhbərlik üçün rəqəmləri toplamağı heç kimdən xahiş etmək lazım deyil. Dispetçerlərin işlədiyi həmin məlumatdan platforma on vərəqli Excel faylı və qrafiklər hazırlayır, Telegram botu isə sürücüləri və ofisi məlumatlandırır.',
     workbook: {
       label:
-        'On vərəqli Excel hesabatı: icmal cədvəli, günlər üzrə müştəri gözləməsi və əməliyyat dayanmaları qrafiki, maşınlar üzrə yanacaq və məsafə qrafiki növbə ilə göstərilir (nümunə məlumatlar)',
+        'On vərəqli Excel faylı növbə ilə icmal vərəqini, müştəri gözləməsi ilə əməliyyat dayanmalarının günlük qrafikini və hər maşın üzrə yanacaq-məsafə qrafikini göstərir (nümunə məlumatlar)',
       file: 'avtopark-hesabati-14-09.xlsx',
       tabs: [
         'İcmal',
@@ -506,8 +506,8 @@ const az: SahilTransportCopy = {
         head: ['Göstərici', 'Həftə'],
         rows: [
           { label: 'Reyslər', value: '212' },
-          { label: 'Məsafə', value: '41 300 km' },
-          { label: 'Sərf olunan yanacaq', value: '18 940 L' },
+          { label: 'Məsafə', value: '41 300 km' },
+          { label: 'Sərf olunan yanacaq', value: '18 940 L' },
           { label: 'Müştəri gözləməsi', value: '61 saat' },
           { label: 'Əməliyyat dayanmaları', value: '148' },
           { label: 'AI ilə oxunan qaimələr', value: '209' },
@@ -518,29 +518,29 @@ const az: SahilTransportCopy = {
       stops: { title: 'Müştəri gözləməsi və əməliyyat dayanmaları, saat', days: ['B.e.', 'Ç.a.', 'Ç.', 'C.a.', 'C.', 'Ş.'] },
       fuel: { title: 'Maşınlar üzrə yanacaq və məsafə', x: 'km', y: 'L' },
     },
-    tabsTitle: 'Hesabat hansı suallara cavab verir',
+    tabsTitle: 'Excel faylı nəyi göstərir',
     tabNotes: [
-      { label: 'İcmal', text: 'Dövr üzrə reyslər, məsafə, yanacaq, gözləmə vaxtı və haqlar bir vərəqdə.' },
-      { label: 'Problemlər', text: 'Pulsuz vaxtdan artıq müştəri gözləmələri və boş qayıdışlar, süzgəcdən keçirməyə hazır.' },
-      { label: 'Dayanma analizi', text: 'Hər dayanma səbəbi, zonası, müddəti və haqqı ilə.' },
-      { label: 'GPS analizi', text: 'Hər maşın üzrə yanacağın məsafəyə nisbəti və sürət göstəriciləri.' },
-      { label: 'Müştərilər, sürücülər', text: 'Eyni rəqəmlər müştəri və sürücü kəsimində.' },
-      { label: 'Tutuşdurma', text: 'Nə uyğun gəldi, nə gəlmədi və hansı qaimələrə insan baxmalı oldu.' },
+      { label: 'İcmal', text: 'Dövrün bütün yekunları bir vərəqdə: reyslər, kilometrlər, yanacaq, gözləmə saatları, haqlar.' },
+      { label: 'Problemlər', text: 'Pulsuz vaxtı aşan gözləmələr və boş qayıdan maşınlar, süzgəclə seçilə bilən siyahıda.' },
+      { label: 'Dayanma analizi', text: 'Hər dayanma üçün səbəb, zona, müddət və haqq.' },
+      { label: 'GPS analizi', text: 'Hər maşın üçün yanacaq-məsafə nisbəti və sürət rejimi.' },
+      { label: 'Müştərilər, sürücülər', text: 'Eyni göstəricilər müştəriyə və sürücüyə görə bölünmüş halda.' },
+      { label: 'Tutuşdurma', text: 'Uyğun gələnlər, gəlməyənlər və insanın yoxlamalı olduğu qaimələr.' },
     ],
-    chartsTitle: 'Rəhbərlik üçün qrafiklər',
+    chartsTitle: 'Rəhbərliyin gördüyü qrafiklər',
     charts: ['Dayanmaların təsnifat bölgüsü', 'Yanacaq və gözləmə analizi', 'Aylıq dinamika', 'Optimallaşdırma potensialı'],
     bot: {
       title: 'Telegram botu',
-      text: 'Sürücülər qaimə şəkillərini onsuz da yazışdıqları yerə göndərir. Bot nəticə ilə cavab verir, ofis isə yoxlama tələb edən hər qaimənin keçidini alır.',
+      text: 'Sürücülər qaimə şəklini artıq istifadə etdikləri çatda göndərir. Bot nə oxuduğunu cavab kimi yazır, yoxlanmalı qaimələrin linkləri isə ofisə göndərilir.',
     },
   },
 
   engineering: {
     id: 'engineering',
-    eyebrow: 'Necə qurulub',
-    title: 'Hər rəqəmin arxasında sübut var',
-    accent: 'sübut var',
-    lead: 'Müştəriyə hesab kəsən platforma hər rəqəmini əsaslandırmalıdır. Biz onu elə layihələndirdik ki, hər haqq, dayanma və tutuşdurma GPS mesajına, şəklə və ya maliyyə qeydinə qədər izlənsin və qaydalar dəyişəndə yenidən qurulsun.',
+    eyebrow: 'Texniki tərəf',
+    title: 'Hər rəqəm öz mənbəyini göstərir',
+    accent: 'öz mənbəyini göstərir',
+    lead: 'Müştəriyə hesab göndərən sistemdə hər rəqəmin mənbəyi olmalıdır. Platformanın arxitekturasında haqların, dayanmaların və tutuşdurmaların hər biri konkret GPS mesajı, foto və ya maliyyə qeydi ilə əlaqələndirilir, qaydalar dəyişəndə isə hamısı yenidən hesablanır.',
     flow: {
       sourcesTitle: 'Mənbələr',
       coreTitle: 'Platforma',
@@ -571,40 +571,40 @@ const az: SahilTransportCopy = {
     },
     principles: [
       {
-        title: 'Xam məlumat heç vaxt dəyişdirilmir',
-        text: 'GPS mesajları gəldiyi kimi saxlanılır. Reyslər, dayanmalar və haqlar onlardan hesablanır, buna görə yeni qayda tarixçəni yamamır, yenidən qurur.',
+        title: 'Xam məlumata toxunulmur',
+        text: 'GPS mesajları daxil olduğu formada saxlanılır. Reys, dayanma və haqlar bu mesajlardan törədilir, ona görə yeni qayda tarixçəni yamaqlamır, yenidən hesablayır.',
       },
       {
-        title: 'Eyni giriş, eyni nəticə',
-        text: 'Gecə emalı idempotentdir: eyni günü iki dəfə emal etmək heç vaxt reysi, haqqı və ya tutuşdurmanı təkrarlamır.',
+        title: 'İki dəfə işlət, eyni nəticəni al',
+        text: 'Gecə prosesi idempotentdir: bir günü yenidən emal etmək reysin, haqqın və ya tutuşdurmanın dublikatını yaratmır.',
       },
       {
-        title: 'Real vaxt və ehtiyat yol',
-        text: 'Panellər dəyişiklikləri baş verdiyi anda alır, birbaşa bağlantı kəsiləndə isə dövri sorğuya keçir.',
+        title: 'Canlı yeniləmə və ehtiyat kanal',
+        text: 'Dəyişikliklər panellərə dərhal çatır, push bağlantısı itəndə isə panellər dövri sorğuya keçir.',
       },
       {
-        title: 'Öz məlumatı ilə işləyir',
-        text: 'Tətbiq öz verilənlər bazasından oxuyur, xarici məlumat axını yavaşlayanda və ya əlçatmaz olanda isə «circuit breaker» mexanizmi onu işlək saxlayır.',
+        title: 'Öz nüsxəsi ilə işləyir',
+        text: 'Tətbiq öz verilənlər bazası ilə işləyir; xarici axın gecikəndə və ya tamam kəsiləndə «circuit breaker» onun işlək qalmasını təmin edir.',
       },
       {
-        title: 'Uzun çəkən işlər növbədə',
-        text: 'AI oxuması təkrar cəhdlərlə fon proseslərində işləyir, buna görə birdən gələn çoxlu şəkil də paneli yavaşlatmır.',
+        title: 'Ağır işlər arxa planda',
+        text: 'AI oxuması növbəyə qoyulan fon proseslərində, təkrar cəhdlərlə icra olunur, buna görə şəkil seli paneli ləngitmir.',
       },
       {
-        title: 'Rola görə giriş',
-        text: 'Dispetçerlər, mühasiblər, operatorlar və rəhbərlik üçün rollara əsaslanan giriş: hər kəs işi üçün lazım olan ekranları görür.',
+        title: 'Rollara əsaslanan giriş',
+        text: 'Dispetçer, mühasib, operator və rəhbər öz rolu ilə daxil olur və yalnız öz işinə aid ekranlara baxır.',
       },
     ],
   },
 
   erp: {
     id: 'erp',
-    eyebrow: 'Növbəti addım',
-    title: 'Yol Aibaycan Logistics ERP ilə davam edir',
+    eyebrow: 'Növbəti mərhələ',
+    title: 'Yolun davamı: Aibaycan Logistics ERP',
     accent: 'Aibaycan Logistics ERP',
-    lead: 'Avtopark data platforması hər maşının harada olduğunu və vaxtının nəyə dəydiyini göstərir. Sahil Transport ilə əməkdaşlığımız Aibaycan Logistics ERP ilə davam edir — daşıyıcı şirkətin işini ilk sifarişdən pulun hesaba düşməsinə qədər idarə edən logistika ERP-miz.',
+    lead: 'Hər maşının yerini və vaxtının dəyərini avtopark data platforması göstərir. Sahil Transport ilə işimiz indi Aibaycan Logistics ERP ilə davam edir. Bu, daşıyıcının bütün dövrünü, ilk sifarişdən ödənişin banka daxil olmasına qədər əhatə edən logistika ERP-mizdir.',
     from: {
-      label: 'Sahil Transport üçün qurulub',
+      label: 'Sahil Transport üçün hazırlandı',
       title: 'Avtopark data platforması',
       items: [
         'GPS, yanacaq və çəki bir yerdə',
@@ -627,38 +627,38 @@ const az: SahilTransportCopy = {
         'Təsdiq zəncirləri',
       ],
     },
-    cta: 'Aibaycan Logistics ERP haqqında danışaq',
+    cta: 'Aibaycan Logistics ERP barədə soruşun',
   },
 
   role: {
-    eyebrow: 'Rolumuz',
-    title: 'Aibaycan nə etdi',
+    eyebrow: 'Bizim payımız',
+    title: 'Aibaycan-ın töhfəsi',
     items: [
       {
-        title: 'Haqq hesablama məntiqi',
-        text: 'Daşıyıcının gözləmə vaxtına görə necə haqq aldığını proqramın tətbiq edə biləcəyi qaydalara çevirdik: müştəri zonaları, reyslər, yük dəyişiklikləri və müqavilədəki pulsuz vaxt.',
+        title: 'Hesablaşma qaydaları',
+        text: 'Gözləmə vaxtından gəlir əldə etmə üsulunu proqramın avtomatik icra etdiyi qaydalar toplusuna çevirdik: müştəri geozonaları, reysin tərkibi, yük çəkisinin dəyişməsi və hər müqavilədəki pulsuz vaxt.',
       },
       {
-        title: 'Telematika inteqrasiyası',
-        text: '180-ə yaxın maşın üçün Wialon GPS-i yanacaq çəni sensorları və CAN çəki sensorları ilə birləşdirdik; xalis yük üçün hər maşının boş çəkisi öyrənilir.',
+        title: 'Telematikanın qoşulması',
+        text: 'Təxminən 180 maşında Wialon GPS, çən yanacaq sensorları və CAN çəki sensorları bir sistemdə birləşdi; yükün xalis göstərilməsi üçün hər maşının boş çəkisi öyrənilir.',
       },
       {
-        title: 'Platforma mühəndisliyi',
-        text: 'Real vaxt paneli, dayanmaların təsnifatı, gözləmə haqqının hesablanması, gecə emalı və üçtərəfli tutuşdurma.',
+        title: 'Platformanın qurulması',
+        text: 'Gecə emalı, canlı panel, dayanmaların təsnifatı, gözləmə haqlarının hesabı və üç mənbə üzrə tutuşdurma.',
       },
       {
-        title: 'AI ilə avtomatlaşdırma',
-        text: 'Telegram botu vasitəsilə qaimə şəkillərinin qəbulu, sahələrin etibarlılıq dərəcəsi ilə AI tərəfindən oxunması, biznes yoxlamaları və insan yoxlaması üçün növbə.',
+        title: 'AI avtomatlaşdırması',
+        text: 'Qaimə şəkillərini Telegram botu toplayır, AI sahələri etibarlılıq dərəcəsi ilə oxuyur, ardınca biznes qaydaları yoxlanılır, insan yoxlaması üçün isə ayrıca növbə var.',
       },
       {
-        title: 'Hesabatlar və dizayn',
-        text: 'Telefonlara uyğunlaşan, Azərbaycan dilində tünd əməliyyat interfeysi, rəhbərlik üçün isə Excel hesabatı və qrafiklər.',
+        title: 'Dizayn və hesabatlar',
+        text: 'Azərbaycan dilində, telefonda rahat işləyən tünd əməliyyat interfeysi, üstəlik rəhbərlik üçün Excel faylı və qrafiklər.',
       },
     ],
   },
   stack: {
     eyebrow: 'Texnologiyalar',
-    title: 'Məlumat axınları üçün seçilmiş texnologiyalar',
+    title: 'Canlı məlumat axınına uyğun stek',
     groups: [
       { label: 'İnterfeys', items: ['TypeScript', 'React', 'Tailwind CSS'] },
       { label: 'Backend', items: ['Node.js', 'Fastify', 'WebSockets'] },
@@ -667,27 +667,27 @@ const az: SahilTransportCopy = {
     ],
   },
   faq: {
-    title: 'Daşıyıcıların bu platforma haqqında verdiyi suallar',
+    title: 'Daşıyıcıların platforma ilə bağlı sualları',
     items: [
       {
-        q: 'Platforma müştəri gözləməsini adi dayanmadan necə ayırır?',
-        a: 'Hər dayanma üçün dörd yoxlama ilə: maşın müştərinin zonasındadırmı, həmin müştəri bu reysdədirmi, çəki sensoru yükləmə və ya boşaltma göstəribmi və müqavilə nə qədər pulsuz vaxt verir. Yalnız dörd yoxlamanın hamısından keçən dayanma ödənişli gözləmə vaxtı sayılır.',
+        q: 'Gözləmə haqqı üçün mövcud sistemlərimizi dəyişməliyik?',
+        a: 'Xeyr. Platforma artıq istifadə etdiyiniz telematika və mühasibat sistemləri ilə yanaşı işləyir: onlardan oxuyur, öz nüsxəsini saxlayır və üzərinə dayanma təsnifatı, haqlar, tutuşdurma və hesabatlar əlavə edir.',
       },
       {
-        q: 'Hansı telematika və sensorlarla işləyir?',
-        a: 'Platforma yanacaq çəni sensorları və CAN çəki sensorları ilə Wialon GPS üzərində qurulub. API-si olan digər telematika platformaları da eyni qaydada qoşulur: mövqelər, geozonalar və sensor göstəriciləri sistemə daxil olur və reyslərə bağlanır.',
+        q: 'Müştəri yanında gözləməni digər dayanmalardan necə ayırır?',
+        a: 'Hər dayanma dörd cəhətdən yoxlanır: maşın müştəri zonasındadırmı, həmin müştəri reysə aiddirmi, çəki sensoru yükləmə və ya boşaltma qeyd edibmi və müqavilədə hansı pulsuz vaxt nəzərdə tutulub. Gözləmə yalnız dörd yoxlamanın hamısı keçəndə ödənişli olur.',
       },
       {
-        q: 'AI qaiməni oxuya bilməyəndə nə baş verir?',
-        a: 'Heç nə təxmin edilmir. Hər sahənin öz etibarlılıq dərəcəsi var. Şübhəli oxunuşu ikinci AI modeli yenidən oxuyur, hələ də aydın deyilsə, qaimə şübhəli sahəsi işarələnmiş halda yoxlama növbəsində insanın təsdiqini gözləyir.',
+        q: 'Hansı telematika və sensorlar dəstəklənir?',
+        a: 'Layihədə Wialon GPS çən yanacaq sensorları və CAN çəki sensorları ilə birgə işləyir. API-si olan istənilən başqa telematika platforması da eyni yolla qoşula bilər: mövqelər, geozonalar və sensor məlumatları reyslərə ötürülür.',
       },
       {
-        q: 'Gözləmə haqqını hesablamaq üçün mövcud sistemlərimizi dəyişmək lazımdırmı?',
-        a: 'Xeyr. Belə platforma telematika və mühasibat sistemlərinizin yanında işləyir: onlardan məlumat oxuyur, məlumatın öz nüsxəsini saxlayır və üzərinə təsnifat, haqlar, tutuşdurma və hesabatlar əlavə edir.',
+        q: 'AI qaiməni oxuya bilməsə nə olur?',
+        a: 'Sistem təxminə yer qoymur. Hər sahə etibarlılıq balı alır; zəif bal alan dəyərləri ikinci AI modeli yenidən oxuyur, yenə aydınlaşmayan hallar isə problemli sahə vurğulanmış şəkildə yoxlama növbəsində insana çatır.',
       },
       {
-        q: 'Sahil Transport ilə iş davam edirmi?',
-        a: 'Bəli. Əməkdaşlıq Aibaycan Logistics ERP ilə davam edir — daşımanı sifarişdən pulun hesaba düşməsinə qədər aparan logistika ERP-miz.',
+        q: 'Aibaycan Sahil Transport ilə işləməyə davam edir?',
+        a: 'Bəli. Əməkdaşlıq Aibaycan Logistics ERP ilə davam edir: yükü sifarişdən ödənişin banka düşməsinə qədər izləyən logistika ERP-miz.',
       },
     ],
   },
@@ -702,8 +702,8 @@ const az: SahilTransportCopy = {
     engineering: 'Mühəndislik',
     erp: 'Növbəti addım',
   },
-  sampleDataNote: 'Ekranlardakı adlar, nömrələr və rəqəmlər nümunə məlumatlardır.',
-  mockupAriaLabel: 'Nümunə məlumatlarla məhsul ekranının təsviri',
+  sampleDataNote: 'Ekranlarda görünən bütün adlar, nömrələr və rəqəmlər nümunə üçündür.',
+  mockupAriaLabel: 'Nümunə məlumatlı məhsul ekranının illüstrasiyası',
 };
 
 export default az;

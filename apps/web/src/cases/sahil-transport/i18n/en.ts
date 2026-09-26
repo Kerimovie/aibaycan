@@ -1,21 +1,21 @@
-// Sahil Transport case study (/[locale]/projects/sahil-transport), EN. Ported from Atlas
-// `src/i18n/en/cases/sahil-transport.ts`. Type source for the case: AZ/RU are typed `SahilTransportCopy`.
+// Sahil Transport case study (/[locale]/projects/sahil-transport), EN. Structure ported from Atlas
+// `src/i18n/en/cases/sahil-transport.ts`; prose rewritten for Aibaycan. Type source for the case: AZ/RU are typed `SahilTransportCopy`.
 // Client project: describe what we built, never its operating status. Plates, names and figures are sample data.
 import type { CaseBase } from '../../types';
 
 const en = {
   seo: {
-    title: 'Sahil Transport: Fleet Monitoring & Demurrage Platform',
+    title: 'Sahil Transport: Truck GPS Tracking & Demurrage Billing',
     description:
-      'The fleet monitoring platform we built for a Baku road-freight carrier: GPS fuel control, CAN weight sensors, stop classification and demurrage calculation.',
+      'How Aibaycan built truck telematics for a Baku haulier: fuel and CAN load sensors, automatic stop reasons, contract-based demurrage and AI invoice reading.',
   },
-  h1: 'Fleet monitoring platform with demurrage calculation for road freight',
+  h1: 'Truck telematics and demurrage billing for a road-freight carrier',
   hero: {
-    eyebrow: 'Logistics · Fleet data platform',
-    title: 'From a GPS ping to a line on the invoice',
-    accent: 'a line on the invoice',
-    lead: 'Sahil Transport is a Baku road-freight carrier with about 180 trucks. We built its fleet data platform: GPS, fuel and CAN weight sensor streams meet in one place, every stop gets a reason, waiting time at customer sites is priced from the contract, and driver invoice photos are read by AI and matched with trips and finance records.',
-    primaryCta: 'Discuss a similar project',
+    eyebrow: 'Logistics · Telematics and billing data',
+    title: 'Every GPS ping, priced into the invoice',
+    accent: 'priced into the invoice',
+    lead: 'About 180 trucks, one Baku road-freight carrier: Sahil Transport. For them we built a platform that gathers GPS, fuel and CAN weight readings into a single stream, explains why each truck stopped, bills time spent waiting at customer sites at the rate set in the contract, and lets AI read the invoice photos drivers send before checking them against trips and the finance ledger.',
+    primaryCta: 'Talk to us about a similar build',
   },
   facts: {
     platforms: 'Web dashboard · Telegram bot · Excel reports',
@@ -25,7 +25,7 @@ const en = {
   // Hero visual: fleet map of the Absheron peninsula + sensor traces of one truck.
   console: {
     label:
-      'Fleet map of the Absheron peninsula: trucks move between customer zones, one waits inside a zone, and the speed, fuel and net weight traces of one truck scroll below (sample data)',
+      'The fleet on a map of the Absheron peninsula: trucks travel between customer zones while one sits waiting inside a zone; below, one truck’s speed, fuel and net weight readings scroll past (sample data)',
     title: 'Fleet · Absheron',
     realtime: 'Real time',
     clock: '09:52',
@@ -59,38 +59,38 @@ const en = {
   challenge: {
     id: 'challenge' as const,
     badge: 'Before',
-    eyebrow: 'The challenge',
-    title: 'Every truck reports. Nobody connects the dots.',
-    accent: 'Nobody connects the dots.',
-    lead: 'A carrier’s day throws off thousands of signals: positions every few minutes, tank levels, axle weights, paper invoices photographed in the cab. At Sahil Transport they lived in three places that never talked to each other, and money was slipping through the gaps between them.',
+    eyebrow: 'The starting point',
+    title: 'Plenty of signals. No single picture.',
+    accent: 'No single picture.',
+    lead: 'Trucks on the road produce thousands of data points a day: a position every few minutes, the fuel in the tank, the weight on each axle, photos of paper invoices taken in the cab. Sahil Transport kept all of it in three separate places with no link between them, and revenue leaked out wherever those places failed to meet.',
     scale: {
       value: '≈180',
       unit: 'trucks',
-      text: 'with GPS trackers, tank fuel sensors and CAN weight sensors across the whole fleet, each reporting every few minutes.',
+      text: 'across the fleet, each fitted with a GPS tracker, a tank fuel sensor and a CAN weight sensor that send readings every few minutes.',
     },
-    sourcesTitle: 'Where the data lived',
+    sourcesTitle: 'Three disconnected sources',
     sources: [
       { name: 'Telematics portal', detail: 'Positions, speed, fuel, axle weight', sample: '10-XX-027 · 0 km/h · 148 L' },
       { name: 'Chat groups', detail: 'Invoice photos from drivers', sample: 'IMG_4417.jpg · IMG_4418.jpg' },
       { name: 'Finance records', detail: 'Customers, contracts, payments', sample: 'FR-2291 · 412.00 ₼' },
     ],
-    gap: 'No shared trip. No shared truth.',
+    gap: 'Nothing tied them to the same trip.',
     pains: [
       {
-        title: 'Waiting time went unbilled',
-        text: 'Trucks queued at loading sites beyond the free time in the contract, and nobody could show for how long.',
+        title: 'Unbilled time at the gate',
+        text: 'Contracts gave customers free loading time, trucks queued well past it, and no record showed by how much.',
       },
       {
-        title: 'Every stop looked the same',
-        text: 'In raw GPS data a customer queue, a fuel stop and a traffic jam are one and the same thing: speed zero.',
+        title: 'A stop was just a stop',
+        text: 'Raw GPS shows zero speed whether the truck is in a customer queue, at the pump or stuck in traffic.',
       },
       {
-        title: 'Invoices were retyped by hand',
-        text: 'Drivers photographed paper invoices, and the office copied them into spreadsheets, late and with typos.',
+        title: 'Invoices typed up twice',
+        text: 'Paper invoices reached the office as photos and were re-entered into spreadsheets, late and full of errors.',
       },
       {
-        title: 'Three records, three truths',
-        text: 'Trips, invoices and finance records rarely agreed, and finding the right one meant checking line by line.',
+        title: 'Three versions of every trip',
+        text: 'Trip logs, invoices and the finance ledger seldom matched, and working out which one was right took a line-by-line check.',
       },
     ],
   },
@@ -98,13 +98,13 @@ const en = {
   fleet: {
     id: 'fleet' as const,
     badge: '06:00',
-    eyebrow: 'The fleet in real time',
-    title: 'The whole fleet on one screen',
-    accent: 'one screen',
-    lead: 'The platform pulls position, speed, fuel and weight for every truck from Wialon and turns them into a dispatcher’s view: who is moving, who is waiting at a customer, who has stopped for its own reasons and who has gone quiet.',
+    eyebrow: 'Live fleet view',
+    title: 'Every truck on a single screen',
+    accent: 'a single screen',
+    lead: 'Wialon supplies each truck’s position, speed, fuel level and weight. The platform turns that feed into what a dispatcher actually needs to know: which trucks are on the road, which are held up at a customer, which have stopped for reasons of their own and which have stopped reporting.',
     screen: {
       label:
-        'Dispatcher dashboard with status tiles, truck cards showing speed, fuel and net load, a fleet status ring, data freshness per source and an attention queue (sample data)',
+        'Dispatch dashboard: status counters, per-truck cards with speed, fuel and net load, a ring chart of fleet status, the last sync time of each source and a list of trucks that need attention (sample data)',
       title: 'Fleet dashboard · real time',
       tiles: [
         { tone: 'moving', label: 'Moving', value: '103' },
@@ -195,28 +195,28 @@ const en = {
     },
     features: [
       {
-        title: 'Four states that mean something',
-        text: 'Moving, customer waiting, operational stop and offline, in the same colours on the map, the cards, the alerts and the reports.',
+        title: 'Four statuses, one colour code',
+        text: 'Moving, customer waiting, operational stop and offline look identical on the map, the truck cards, the alerts and every report.',
       },
       {
-        title: 'Net cargo, not raw sensor readings',
-        text: 'For every truck the platform learns its empty weight, so the CAN sensor reads as net cargo in tonnes instead of a raw value.',
+        title: 'Payload in tonnes',
+        text: 'The platform learns each truck’s unladen weight, so CAN sensor output is shown as net cargo in tonnes rather than an unprocessed number.',
       },
       {
-        title: 'Fuel in litres, next to kilometres',
-        text: 'Tank sensor levels are kept in litres and per cent alongside the distance driven, on the truck card and for every trip.',
+        title: 'Litres alongside kilometres',
+        text: 'Fuel from the tank sensor is recorded in litres and percent next to the distance covered, both on the truck card and per trip.',
       },
       {
-        title: 'An attention queue, not a wall of dots',
-        text: 'Trucks that went quiet, run low on fuel or are close to the end of their free time rise to the top of the list.',
+        title: 'Problems first',
+        text: 'Instead of a map full of dots, trucks that lost signal, run low on fuel or are about to use up their free time move to the top of a list.',
       },
       {
-        title: 'Freshness you can see',
-        text: 'Every data source shows when it last synced, so a silent feed is never mistaken for a parked truck.',
+        title: 'Sync times on display',
+        text: 'Every feed displays the time of its latest sync, so a source that went silent is never mistaken for a truck standing still.',
       },
       {
-        title: 'A map made for dispatchers',
-        text: 'Status filters, plate search and a detail view with each truck’s latest trail, driver and sensor readings.',
+        title: 'A map built around dispatch work',
+        text: 'Filter by status, search by plate, and open any truck to see its recent trail, its driver and its sensor values.',
       },
     ],
   },
@@ -224,10 +224,10 @@ const en = {
   stops: {
     id: 'stops' as const,
     badge: '09:40',
-    eyebrow: 'Stop classification',
-    title: 'Speed zero is not an answer',
-    accent: 'not an answer',
-    lead: 'A truck standing still may be queueing at a customer’s gate, refuelling or stuck in traffic, and only the first one can be billed. The platform puts every stop through four checks and gives it a reason.',
+    eyebrow: 'Why the truck stopped',
+    title: 'Zero km/h tells you nothing',
+    accent: 'tells you nothing',
+    lead: 'A stationary truck could be queuing at a customer, filling up or sitting in traffic, and the customer pays only for the first of these. So every stop runs through four checks, and together they decide its reason.',
     timeline: {
       title: '10-XX-027 · one sample day',
       weight: 'Net weight',
@@ -236,14 +236,14 @@ const en = {
       hours: ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00'],
       legend: { drive: 'Driving', waiting: 'Customer waiting', operational: 'Operational stop' },
     },
-    checksTitle: 'Four checks on every stop',
+    checksTitle: 'The four checks',
     checks: [
-      { name: 'Zone', question: 'Is the truck inside a customer’s geofence?', outcome: 'No → operational stop' },
-      { name: 'Trip', question: 'Is that customer on this truck’s trip?', outcome: 'No → operational stop' },
-      { name: 'Load', question: 'Did the weight sensor go up or down?', outcome: 'Up → loading · down → unloading' },
-      { name: 'Contract', question: 'How much free time does the contract allow?', outcome: 'Beyond it → billable waiting' },
+      { name: 'Zone', question: 'Is the truck within a customer geofence?', outcome: 'No → operational stop' },
+      { name: 'Trip', question: 'Does this truck’s trip include that customer?', outcome: 'No → operational stop' },
+      { name: 'Load', question: 'Has the weight reading risen or fallen?', outcome: 'Up → loading · down → unloading' },
+      { name: 'Contract', question: 'What free time does the contract grant?', outcome: 'Beyond it → billable waiting' },
     ],
-    logTitle: 'How the day was classified',
+    logTitle: 'The sample day, stop by stop',
     logLabels: { zone: 'Zone', trip: 'Trip', load: 'Load' },
     log: [
       {
@@ -302,16 +302,16 @@ const en = {
         reason: 'Unloading · within free time',
       },
     ],
-    note: 'Stops of a few minutes are treated as GPS noise, and a truck hovering on a zone border is smoothed out before it is classified.',
+    note: 'Very short stops are discarded as GPS noise, and a truck jittering along a zone boundary is smoothed out before any classification happens.',
   },
 
   waiting: {
     id: 'waiting' as const,
     badge: '11:40',
-    eyebrow: 'Demurrage calculation',
-    title: 'Waiting time turns into a billable line',
-    accent: 'a billable line',
-    lead: 'Every customer contract sets its own free time for loading and unloading and its own hourly rate. When a truck waits longer, the platform counts the excess, prices it from that contract and attaches the fee to the trip, together with the evidence.',
+    eyebrow: 'Demurrage billing',
+    title: 'Time at the gate becomes a charge',
+    accent: 'becomes a charge',
+    lead: 'No two contracts are alike: each customer has one free-time allowance for loading, another for unloading, and an hourly rate of its own. Once a truck overstays, the platform measures the extra time, applies that customer’s rate and attaches the resulting fee, evidence included, to the trip.',
     clock: {
       inZone: 'in the zone',
       elapsed: '2:25',
@@ -345,16 +345,16 @@ const en = {
     },
     features: [
       {
-        title: 'Separate limits for loading and unloading',
-        text: 'Each contract carries its own free time for both operations, so the same wait can be free at one customer and billable at another.',
+        title: 'Loading and unloading limits kept apart',
+        text: 'Contracts define free time per operation, which is why an identical wait can cost nothing at one customer and be billed at another.',
       },
       {
-        title: 'Warnings while the truck is still at the gate',
-        text: 'Dispatchers get a warning as a truck nears the end of its free time and a critical alert once it is exceeded.',
+        title: 'Alerts while there is still time',
+        text: 'A dispatcher is warned as a truck’s free time runs down and receives a critical alert the moment it runs out.',
       },
       {
-        title: 'A fee with its proof attached',
-        text: 'Arrival, departure, zone and weight change are stored with every fee, so a disputed line arrives with its own evidence.',
+        title: 'Every fee comes with proof',
+        text: 'Arrival and departure times, the zone and the weight change are saved with the fee, so if a customer disputes it, the evidence is already there.',
       },
     ],
   },
@@ -362,13 +362,13 @@ const en = {
   invoices: {
     id: 'invoices' as const,
     badge: '14:30',
-    eyebrow: 'AI invoice reading',
-    title: 'A photo from the cab becomes a checked record',
-    accent: 'a checked record',
-    lead: 'Drivers photograph paper invoices and send them to a Telegram group. The platform straightens the image, AI reads every field with a confidence score, and business checks catch what reading alone misses. When the AI is unsure, a person decides.',
+    eyebrow: 'AI reads the invoices',
+    title: 'Cab photo in, verified record out',
+    accent: 'verified record out',
+    lead: 'A driver snaps the paper invoice and posts it to a Telegram group. The image is straightened, AI extracts each field and rates how confident it is, and business rules catch the errors that reading alone would let through. Where the AI has doubts, a person makes the call.',
     scene: {
       label:
-        'A driver sends an invoice photo to a Telegram group; the photo is scanned, each field is highlighted by confidence, the unclear date goes to a review lane and an operator confirms it (sample data)',
+        'A driver posts an invoice photo in Telegram; the scan highlights every field by confidence, the doubtful date is pushed to the review lane, where an operator approves it (sample data)',
       chat: {
         group: 'Invoices · drivers',
         members: 'bot, drivers, office',
@@ -403,42 +403,42 @@ const en = {
         done: 'Confirmed by the office',
       },
     },
-    pipelineTitle: 'What happens to every photo',
+    pipelineTitle: 'The path of one photo',
     pipeline: [
       {
-        title: 'The photo arrives',
-        text: 'The Telegram bot takes photos from the drivers’ groups and replies at once, so the driver knows it landed.',
+        title: 'Photo in',
+        text: 'The Telegram bot collects photos from the driver groups and replies straight away, so the driver knows it arrived.',
       },
       {
-        title: 'The image is cleaned up',
-        text: 'Rotated, resized and sharpened before reading, because cab photos are rarely straight or sharp.',
+        title: 'Image prepared',
+        text: 'Cab photos are seldom level or in focus, so each one is rotated, resized and sharpened first.',
       },
       {
-        title: 'AI reads the fields',
-        text: 'Vehicle, date, route, customer, weight and amount come back as structured data, each with its own confidence, even with Azerbaijani, Russian and English on one page.',
+        title: 'Fields extracted',
+        text: 'AI returns the vehicle, date, route, customer, weight and amount as structured data with a confidence per field, even when one page mixes Azerbaijani, Russian and English.',
       },
       {
-        title: 'Business checks run',
-        text: 'The plate format, a valid date, a known customer and totals that add up are verified before anything is saved.',
+        title: 'Rules applied',
+        text: 'Before saving, the platform confirms the plate format, that the date is valid, that the customer exists and that the totals add up.',
       },
       {
-        title: 'Recorded or reviewed',
-        text: 'Confident reads are recorded. Unsure ones are read again by a second AI model, and anything still unclear waits in the review lane for a person.',
+        title: 'Saved or sent for review',
+        text: 'High-confidence reads are saved. Low-confidence ones get a second pass from another AI model, and whatever remains unclear waits for a person in the review lane.',
       },
     ],
-    note: 'Every read keeps the raw AI answer, its confidence and the model that produced it, so any record can be traced back to its photo.',
+    note: 'Each read is stored together with the raw AI answer, its confidence score and the name of the model behind it, which makes every record traceable to its original photo.',
   },
 
   reconcile: {
     id: 'reconcile' as const,
     badge: '23:00',
-    eyebrow: 'Three-way reconciliation',
-    title: 'Trip, invoice and finance record must agree',
-    accent: 'must agree',
-    lead: 'Every night the platform rebuilds the day from raw data: trips from GPS, stops and waiting fees, then a three-way match between each trip, its invoice and its finance record. What agrees is marked reconciled. What does not lands in a queue that names the field that differs.',
+    eyebrow: 'Three-way matching',
+    title: 'Trip, invoice and ledger have to line up',
+    accent: 'have to line up',
+    lead: 'Overnight the platform recomputes the whole day from raw data (GPS trips, stops, waiting fees) and then compares each trip with its invoice and its finance record. Matches are marked reconciled; everything else goes to a queue that points to the exact field that differs.',
     board: {
       label:
-        'A trip from GPS, an AI-read invoice and a finance record slide together and match field by field, followed by a queue of three mismatches to approve or reject (sample data)',
+        'Three cards (the trip from GPS, the invoice as read by AI and the finance record) slide together and are compared field by field; a queue of three mismatches then waits for approval or rejection (sample data)',
       columns: [
         { title: 'Trip', source: 'from GPS', code: 'T-0412' },
         { title: 'Invoice', source: 'read by AI', code: 'No. 0417' },
@@ -467,16 +467,16 @@ const en = {
     },
     features: [
       {
-        title: 'Field-level matching',
-        text: 'Vehicle, date, route, weight and amount are compared one by one, so a mismatch arrives with its reason instead of a red row.',
+        title: 'Compared field by field',
+        text: 'Each of the five fields (vehicle, date, route, weight, amount) is checked on its own, so every mismatch shows why it failed rather than simply turning red.',
       },
       {
-        title: 'Decisions in batches',
-        text: 'Accountants approve or reject mismatches in bulk, and every decision stays on the record.',
+        title: 'Bulk approval',
+        text: 'Accountants accept or reject mismatches in batches, and each decision is kept in the record’s history.',
       },
       {
-        title: 'Rebuilt, never patched',
-        text: 'Running a night again gives the same result, and a changed rule rebuilds the history from raw data.',
+        title: 'Recomputed, not patched',
+        text: 'Reprocessing a night produces an identical result, and when a rule changes, history is recomputed from the raw data.',
       },
     ],
   },
@@ -484,13 +484,13 @@ const en = {
   reports: {
     id: 'reports' as const,
     badge: '08:00',
-    eyebrow: 'Reports and the bot',
-    title: 'The morning report is already written',
-    accent: 'already written',
-    lead: 'Management gets its numbers without asking anyone to build them. The platform generates a ten-tab Excel workbook and charts from the same data the dispatchers see, and the Telegram bot keeps drivers and the office in the loop.',
+    eyebrow: 'Reporting and Telegram',
+    title: 'By morning the report is done',
+    accent: 'the report is done',
+    lead: 'Nobody has to be asked to pull numbers together for management. From the very data dispatchers work with, the platform produces a ten-tab Excel workbook and a set of charts, while drivers and the office stay up to date through the Telegram bot.',
     workbook: {
       label:
-        'Excel workbook with ten tabs, cycling through the summary table, a chart of customer waiting against operational stops by day, and fuel against distance per truck (sample data)',
+        'A ten-tab Excel workbook that rotates between the summary sheet, a day-by-day chart comparing customer waiting with operational stops, and per-truck fuel versus distance (sample data)',
       file: 'fleet-report-14-09.xlsx',
       tabs: [
         'Summary',
@@ -520,29 +520,29 @@ const en = {
       stops: { title: 'Customer waiting vs operational stops, h', days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
       fuel: { title: 'Fuel against distance, per truck', x: 'km', y: 'L' },
     },
-    tabsTitle: 'What the workbook answers',
+    tabsTitle: 'Questions the workbook answers',
     tabNotes: [
-      { label: 'Summary', text: 'Trips, distance, fuel, waiting time and fees for the period on one sheet.' },
-      { label: 'Issues', text: 'Customer waiting beyond free time and empty return legs, ready to filter.' },
-      { label: 'Stop analysis', text: 'Every stop with its reason, zone, duration and fee.' },
-      { label: 'GPS analysis', text: 'Fuel against distance and speed patterns for each truck.' },
-      { label: 'Customers, drivers', text: 'The same numbers cut by customer and by driver.' },
-      { label: 'Reconciliation', text: 'What matched, what did not, and which invoices needed a person.' },
+      { label: 'Summary', text: 'One sheet with the period’s trips, kilometres, fuel, waiting hours and fees.' },
+      { label: 'Issues', text: 'A filterable list of waits past the free time and trucks coming back empty.' },
+      { label: 'Stop analysis', text: 'Each stop listed with its reason, zone, length and fee.' },
+      { label: 'GPS analysis', text: 'Per truck: fuel versus distance, plus speed patterns.' },
+      { label: 'Customers, drivers', text: 'The same figures broken down per customer and per driver.' },
+      { label: 'Reconciliation', text: 'Matches, mismatches and the invoices a person had to check.' },
     ],
-    chartsTitle: 'Charts for management',
+    chartsTitle: 'Charts management sees',
     charts: ['Stop classification breakdown', 'Fuel and waiting analysis', 'Monthly trend', 'Optimisation potential'],
     bot: {
       title: 'The Telegram bot',
-      text: 'Drivers send invoice photos where they already chat. The bot answers with the result, and the office gets a link to anything that needs review.',
+      text: 'Drivers post invoice photos in the chat they already use. The bot replies with what it read, and the office receives a link to every invoice that needs checking.',
     },
   },
 
   engineering: {
     id: 'engineering' as const,
-    eyebrow: 'How it is built',
-    title: 'Built to trust its own numbers',
-    accent: 'its own numbers',
-    lead: 'A platform that bills customers has to prove every figure. We designed this one so each fee, stop and match traces back to a GPS message, a photo or a finance record, and can be rebuilt when the rules change.',
+    eyebrow: 'Under the hood',
+    title: 'Every figure can prove itself',
+    accent: 'can prove itself',
+    lead: 'When a system sends bills to customers, each number needs a source. We designed this one so that every fee, stop and match can be traced to the GPS message, photo or finance record it came from, and is recomputed whenever the rules change.',
     flow: {
       sourcesTitle: 'Sources',
       coreTitle: 'Platform',
@@ -567,40 +567,40 @@ const en = {
     },
     principles: [
       {
-        title: 'Raw data is never edited',
-        text: 'GPS messages are stored as they arrive. Trips, stops and fees are derived from them, so a new rule rebuilds history instead of patching it.',
+        title: 'Raw data stays untouched',
+        text: 'GPS messages are saved exactly as received. Trips, stops and fees are calculated from them, so a new rule recomputes history rather than patching it.',
       },
       {
-        title: 'Same input, same answer',
-        text: 'Nightly processing is idempotent: running a day twice never duplicates a trip, a fee or a match.',
+        title: 'Run it twice, get the same result',
+        text: 'The nightly job is idempotent: reprocessing a day never creates a duplicate trip, fee or match.',
       },
       {
-        title: 'Real time, with a fallback',
-        text: 'Dashboards receive changes the moment they happen and fall back to polling if the push connection drops.',
+        title: 'Live updates with a backup path',
+        text: 'Changes reach the dashboards instantly, and if the push connection is lost they switch to polling.',
       },
       {
-        title: 'Serves its own data',
-        text: 'The app reads from its own database, and a circuit breaker keeps it responsive when an outside feed is slow or unreachable.',
+        title: 'Works from its own copy',
+        text: 'The app answers from a database it owns; when an outside feed lags or goes offline, a circuit breaker keeps it responsive.',
       },
       {
-        title: 'Slow work runs in queues',
-        text: 'AI reading runs in background workers with retries, so a burst of photos never slows the dashboard.',
+        title: 'Heavy jobs in the background',
+        text: 'AI reading happens in queued background workers with retries, so a flood of photos does not slow the dashboard down.',
       },
       {
-        title: 'Access by role',
-        text: 'Sign-in with role-based access for dispatchers, accountants, operators and management, each seeing the screens their work needs.',
+        title: 'Role-based access',
+        text: 'Dispatchers, accountants, operators and managers sign in under their own roles and get the screens their job requires.',
       },
     ],
   },
 
   erp: {
     id: 'erp' as const,
-    eyebrow: 'What comes next',
-    title: 'The road continues with Aibaycan Logistics ERP',
+    eyebrow: 'Next step',
+    title: 'Next on the road: Aibaycan Logistics ERP',
     accent: 'Aibaycan Logistics ERP',
-    lead: 'The fleet data platform shows where every truck is and what its time is worth. Our partnership with Sahil Transport continues with Aibaycan Logistics ERP, our logistics ERP that runs a carrier from the first order to the money in the bank.',
+    lead: 'The fleet data platform shows the location of every truck and the value of its time. Our work with Sahil Transport now continues with Aibaycan Logistics ERP, our logistics ERP that covers a carrier’s whole cycle, from the first order to payment landing in the bank.',
     from: {
-      label: 'Built for Sahil Transport',
+      label: 'Delivered to Sahil Transport',
       title: 'Fleet data platform',
       items: [
         'GPS, fuel and weight in one place',
@@ -623,38 +623,38 @@ const en = {
         'Approval workflows',
       ],
     },
-    cta: 'Discuss Aibaycan Logistics ERP',
+    cta: 'Ask about Aibaycan Logistics ERP',
   },
 
   role: {
-    eyebrow: 'Our role',
-    title: 'What Aibaycan did',
+    eyebrow: 'Our part',
+    title: 'Aibaycan’s contribution',
     items: [
       {
-        title: 'Billing logic',
-        text: 'We turned how a carrier earns from waiting time into rules a machine can apply: customer zones, trips, load changes and contract free time.',
+        title: 'Billing rules',
+        text: 'We captured how a haulier makes money on waiting time as rules software can run: customer geofences, trip membership, load changes and the free time set in each contract.',
       },
       {
-        title: 'Telematics integration',
-        text: 'We connected Wialon GPS with tank fuel sensors and CAN weight sensors across about 180 trucks, with learned empty weights for net cargo.',
+        title: 'Connecting the telematics',
+        text: 'Roughly 180 trucks now report through one system that combines Wialon GPS with tank fuel and CAN weight sensors; each truck’s empty weight is learned so cargo shows net.',
       },
       {
-        title: 'Platform engineering',
-        text: 'The real-time dashboard, stop classification, demurrage calculation, nightly processing and three-way reconciliation.',
+        title: 'Building the platform',
+        text: 'Nightly processing, the live dashboard, stop classification, demurrage calculation and matching across three sources.',
       },
       {
-        title: 'AI automation',
-        text: 'Invoice photo intake through a Telegram bot, AI field reading with confidence scores, business checks and a human review lane.',
+        title: 'Automation with AI',
+        text: 'A Telegram bot that collects invoice photos, AI that reads their fields with confidence scores, business rule checks and a separate lane for human review.',
       },
       {
-        title: 'Reporting and design',
-        text: 'A dark operations interface in Azerbaijani that adapts to phones, plus the Excel workbook and charts for management.',
+        title: 'Design and reporting',
+        text: 'A dark, phone-friendly operations interface in Azerbaijani, plus management’s Excel workbook and charts.',
       },
     ],
   },
   stack: {
     eyebrow: 'Stack',
-    title: 'Built on a stack made for streams',
+    title: 'A stack chosen for streaming data',
     groups: [
       { label: 'Interface', items: ['TypeScript', 'React', 'Tailwind CSS'] },
       { label: 'Backend', items: ['Node.js', 'Fastify', 'WebSockets'] },
@@ -663,27 +663,27 @@ const en = {
     ],
   },
   faq: {
-    title: 'What carriers ask us about this platform',
+    title: 'Questions carriers ask about the platform',
     items: [
       {
-        q: 'How does the platform tell a customer wait from an ordinary stop?',
-        a: 'With four checks on every stop: is the truck inside a customer’s zone, is that customer on this trip, did the weight sensor show loading or unloading, and how much free time does the contract allow. Only a stop that passes all four becomes billable waiting time.',
+        q: 'Do we have to replace our existing systems to bill demurrage?',
+        a: 'No. The platform runs alongside the telematics and accounting you already use: it reads from them, stores a copy of its own and layers stop classification, fees, reconciliation and reporting on top.',
       },
       {
-        q: 'Which telematics and sensors does it work with?',
-        a: 'It is built on Wialon GPS with tank fuel sensors and CAN weight sensors. Other telematics platforms with an API connect the same way: positions, geofences and sensor readings flow in and attach to trips.',
+        q: 'How does it tell waiting at a customer apart from any other stop?',
+        a: 'Every stop is checked four ways: whether the truck is in a customer’s zone, whether that customer belongs to the trip, whether the weight sensor registered loading or unloading, and what free time the contract allows. Waiting becomes billable only when all four checks pass.',
       },
       {
-        q: 'What happens when the AI cannot read an invoice?',
-        a: 'Nothing is guessed. Every field carries a confidence score. An unsure read goes to a second AI model, and if it is still unclear the invoice waits in the review lane with the doubtful field highlighted for a person to confirm.',
+        q: 'What telematics and sensors are supported?',
+        a: 'The build pairs Wialon GPS with fuel sensors in the tanks and CAN weight sensors. Any other telematics platform that offers an API can be connected in the same way, feeding positions, geofences and sensor data into trips.',
       },
       {
-        q: 'Does demurrage calculation require replacing our current systems?',
-        a: 'No. A platform like this sits next to your telematics and accounting: it reads from them, keeps its own copy of the data and adds classification, fees, reconciliation and reports on top.',
+        q: 'What if the AI can’t read an invoice?',
+        a: 'The system does not guess. Every field is scored for confidence; low-scoring values are reread by a second AI model, and whatever stays unclear lands with a person in the review lane, the problem field highlighted.',
       },
       {
-        q: 'Does the work with Sahil Transport continue?',
-        a: 'Yes. The partnership continues with Aibaycan Logistics ERP, our logistics ERP that takes a shipment from the order to the money in the bank.',
+        q: 'Is Aibaycan still working with Sahil Transport?',
+        a: 'Yes. The partnership goes on with Aibaycan Logistics ERP, our logistics ERP that tracks each shipment from order through to payment reaching the bank.',
       },
     ],
   },
@@ -698,8 +698,8 @@ const en = {
     engineering: 'Engineering',
     erp: 'What’s next',
   },
-  sampleDataNote: 'Names, plates and figures on screens are sample data.',
-  mockupAriaLabel: 'Illustrative product screen with sample data',
+  sampleDataNote: 'All names, plates and numbers shown on screens are sample data.',
+  mockupAriaLabel: 'Product screen illustration using sample data',
 } satisfies CaseBase;
 
 export type SahilTransportCopy = typeof en;

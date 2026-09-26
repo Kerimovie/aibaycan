@@ -1,26 +1,26 @@
-// eTəhsil case study (/[locale]/projects/etehsil-az), AZ. Ported from Atlas `src/i18n/az/cases/etehsil.ts`,
+// eTəhsil case study (/[locale]/projects/etehsil-az), AZ. Prose written for Aibaycan (not shared with other sites),
 // typed against the EN type source. Names and figures on screens are sample data.
 import type { EtehsilCopy } from './en';
 
 const az: EtehsilCopy = {
   seo: {
-    title: 'eTəhsil: tədris mərkəzi proqramı, kurs idarəetmə sistemi',
+    title: 'eTəhsil — kurs və tədris mərkəzləri üçün idarəetmə proqramı',
     description:
-      'Qurduğumuz və idarə etdiyimiz tədris mərkəzi və repetitor proqramı eTəhsil: dərs cədvəli, davamiyyət, borclar, müqavilələr, imtahanlar, valideyn portalı.',
+      'Aibaycan-ın qurub idarə etdiyi eTəhsil kurslar və repetitorlar üçün SaaS-dır: avtomatik cədvəl, davamiyyət, borc izləmə, müqavilə, imtahan və valideyn portalı.',
   },
-  h1: 'Tədris mərkəzləri üçün kurs idarəetmə sistemi və repetitor proqramı',
+  h1: 'Kurs mərkəzini və fərdi repetitorluğu idarə edən proqram',
   hero: {
-    eyebrow: 'EdTech · SaaS platforması',
-    title: 'Bütün tədris mərkəzi bir ekranda',
-    accent: 'bir ekranda',
-    lead: 'eTəhsil tədris mərkəzləri və fərdi repetitorlar üçün öz SaaS platformamızdır: onu biz layihələndirib qurmuşuq və özümüz idarə edirik. Cədvəl, davamiyyət, ödəniş və borclar, müqavilələr, imtahanlar, valideynlər və əmək haqqı Azərbaycan, ingilis və rus dillərində vahid sistem kimi işləyir.',
-    primaryCta: 'Oxşar layihəni müzakirə edək',
+    eyebrow: 'SaaS platforması · EdTech',
+    title: 'Kurs mərkəzinin bütün işi tək ekranda',
+    accent: 'tək ekranda',
+    lead: 'eTəhsil kurs mərkəzləri və müstəqil repetitorlar üçün bizə məxsus SaaS platformasıdır: dizaynından koduna qədər onu biz hazırlamışıq, gündəlik idarəsini də özümüz aparırıq. Dərs cədvəli, davamiyyət, ödəniş və borclar, müqavilələr, imtahanlar, valideynlərlə əlaqə və müəllim maaşı burada bir sistemdə birləşir; interfeys Azərbaycan, ingilis və rus dillərindədir.',
+    primaryCta: 'Belə bir layihə planlayaq',
   },
   facts: { platforms: 'Veb · PWA', languages: 'AZ · EN · RU' },
 
   heroScreen: {
     label:
-      'Nümunə məlumatlarla eTəhsil ekranı: Demo Akademiyanın həftəlik dərs cədvəli, gecikmiş borc kartı, saxlanmış davamiyyət qeydi və davam edən imtahan',
+      'eTəhsil ekranının nümunə məlumatlı maketi: Demo Akademiyanın həftəlik cədvəli, vaxtı keçmiş borc kartı, yadda saxlanmış davamiyyət və hazırda gedən imtahan',
     url: 'etehsil.az',
     centre: 'Demo Akademiya',
     view: 'Bu həftə',
@@ -39,13 +39,13 @@ const az: EtehsilCopy = {
   challenge: {
     id: 'challenge',
     km: '07:45',
-    eyebrow: 'Problem',
-    title: 'Dəftərlər, cədvəl faylları və yazışma qrupları ilə işləyən mərkəz',
-    accent: 'Dəftərlər, cədvəl faylları və yazışma qrupları',
-    lead: 'İlk dərsdən əvvəl administrator artıq kağız jurnal, bir faylda dərs cədvəli, digər faylda borc siyahısı və hər sinif üçün ayrıca WhatsApp qrupu arasında vurnuxur. Mərkəzin hər parçası kiminsə əlindədir, bütöv mənzərəni isə heç kim görmür. Rəhbər ayın necə keçdiyini yalnız ay bitəndən sonra öyrənir.',
+    eyebrow: 'Başlanğıc nöqtəsi',
+    title: 'Kağız jurnal, səpələnmiş fayllar və bitməyən yazışmalar',
+    accent: 'bitməyən yazışmalar',
+    lead: 'Administratorun günü dərsdən xeyli əvvəl başlayır: kağız jurnal, bir faylda dərs cədvəli, başqa faylda borclular, hər sinfə ayrıca WhatsApp qrupu. Hər kəsin əlində mərkəzin bir parçası var, amma tam mənzərəni görən yoxdur. Ayın yekunu isə rəhbərə ancaq ay artıq geridə qalanda məlum olur.',
     desk: {
       label:
-        'Köhnə iş qaydasının təsviri: qeydləri pozulmuş kağız davamiyyət jurnalı, otaq toqquşması olan cədvəl faylı və suallarla dolu valideyn qrupu',
+        'Köhnə iş qaydası: qeydləri pozulub-yazılmış kağız jurnal, eyni otağa iki qrup düşən cədvəl faylı və sualla dolub-daşan valideyn çatı',
       register: {
         title: 'Jurnal · Oktyabr',
         rows: ['Aysel D.', 'Murad N.', 'Kamran T.', 'Nərmin Q.', 'Tural H.'],
@@ -72,54 +72,54 @@ const az: EtehsilCopy = {
     },
     pains: [
       {
-        title: 'Dərslər üst-üstə düşür',
-        text: 'İki qrup eyni otağa yazılır və bu, yalnız hər iki qrup eyni qapıdan girəndə üzə çıxır.',
+        title: 'Eyni otaq, iki qrup',
+        text: 'Otaq iki qrupa birdən verilir və səhv ancaq hər iki qrup eyni qapının ağzında rastlaşanda bilinir.',
       },
       {
-        title: 'Davamiyyət əl ilə köçürülür',
-        text: 'Müəllim kağız jurnalda işarələyir, kimsə bunu yenidən yazır və ardıcıl üç dərsi buraxan tələbəni heç kim görmür.',
+        title: 'Jurnal yenidən köçürülür',
+        text: 'Müəllim qeydi kağıza yazır, sonra kimsə onu kompüterə köçürür; üç dərsi dalbadal buraxan tələbə isə diqqətdən kənarda qalır.',
       },
       {
-        title: 'Borclar kiminsə yaddaşındadır',
-        text: 'Kimin nə qədər və nə vaxtdan borclu olduğu ay sonunda qeydlərdən bərpa edilir. Xatırlatmalar ya gec gedir, ya heç getmir.',
+        title: 'Borclar yaddaşa ümid',
+        text: 'Kimin nə qədər borcu olduğu və nə vaxtdan gecikdiyi ay sonunda qeydlərdən bir-bir toplanır. Xatırlatma ya gecikir, ya ümumiyyətlə göndərilmir.',
       },
       {
-        title: 'Müqavilə və imtahanlar əl ilə hazırlanır',
-        text: 'Hər müqavilə tələbə-tələbə Word-də dəyişdirilir. Hər imtahan sual-sual yığılır, eyni otaq üçün ayrı variantlar hazırlamaq isə demək olar ki, mümkün deyil.',
+        title: 'Müqavilə və imtahan əl ilə',
+        text: 'Müqavilə hər tələbə üçün Word-də ayrıca düzəldilir. İmtahan sual-sual yığılır, bir otaqdakı tələbələrə fərqli variantlar hazırlamaq isə praktikada alınmır.',
       },
       {
-        title: 'Əmək haqqı kalkulyatorda',
-        text: 'Müəllim maaşı üçün dərslər qrup-qrup sayılır, valideynlər isə övladının gəlib-gəlmədiyini və nə qədər borcu qaldığını soruşmaq üçün zəng edir.',
+        title: 'Maaş kalkulyatorla hesablanır',
+        text: 'Müəllim maaşını çıxarmaq üçün hər qrupun dərsləri tək-tək sayılır, bu arada valideynlər zəng edib uşağın dərsdə olub-olmadığını və qalan borcu soruşur.',
       },
     ],
-    flowTitle: 'eTəhsil bunları vahid axına çevirir',
-    flow: ['Dərs keçilir', 'Davamiyyət qeydə alınır', 'Borc yenidən hesablanır', 'Valideyn görür', 'Rəhbər ayın nəticəsini görür'],
+    flowTitle: 'eTəhsil-də bunların hamısı bir axındır',
+    flow: ['Dərs keçirilir', 'Davamiyyət işarələnir', 'Balans yenilənir', 'Valideyn bunu görür', 'Rəhbər yekunu görür'],
   },
 
   schedule: {
     id: 'schedule',
     km: '08:00',
-    eyebrow: 'Cədvəl · Otaqlar',
-    title: 'Kurs cədvəli özü qurulur, otaq isə eyni vaxtda iki qrupa verilmir',
-    accent: 'özü qurulur',
-    lead: 'Qrupun həftəlik şablonunu bir dəfə daxil edirsiniz. eTəhsil onu kursun bütün dərslərinə çevirir, hər dərsə öz tarixini, otağını və müəllimini verir və bütün mərkəzi vahid təqvimdə saxlayır.',
+    eyebrow: 'Dərs cədvəli · Otaqlar',
+    title: 'Bütün kurs cədvəli avtomatik hazırlanır, otaq toqquşması olmur',
+    accent: 'avtomatik hazırlanır',
+    lead: 'Qrupun həftəlik qrafiki cəmi bir dəfə yazılır. Ondan eTəhsil kursun bütün dərslərini çıxarır, hər birinə tarix, otaq və müəllim bağlayır, bütün mərkəzi isə ortaq təqvimdə göstərir.',
     steps: [
       {
-        title: 'Həftəlik şablon təyin olunur',
-        text: 'Günlər, başlama saatı, müddət, otaq və müəllim, üstəlik kursdakı dərslərin sayı. Cədvəlin ehtiyac duyduğu yeganə məlumat budur.',
+        title: 'Həftəni təsvir edin',
+        text: 'Hansı günlər, saat neçədə, nə qədər, hansı otaqda və kimlə, bir də kursda neçə dərs olduğu. Cədvəl üçün başqa heç nə tələb olunmur.',
       },
       {
-        title: 'Hər dərs öz tarixini alır',
-        text: 'eTəhsil kursun hər dərsini yaradır və bitmə tarixini sonuncu dərsə görə təyin edir. Cədvəl yenidən yaradılanda yalnız gələcək dərslər əvəz olunur, keçilmiş dərslərə toxunulmur.',
+        title: 'Hər dərsin öz tarixi var',
+        text: 'Kursun bütün dərsləri yaradılır, bitmə tarixi də sonuncu dərsdən götürülür. Yenidən yaratsanız, yalnız qarşıdakı dərslər dəyişir; keçilmişlər olduğu kimi qalır.',
       },
       {
-        title: 'Otaqlarda toqquşma olmur',
-        text: 'Dərs iki qrupu eyni vaxtda eyni otağa salacaqsa, eTəhsil onu bloklayır və otağın nə vaxt tutulduğunu göstərir. Qərarı rəhbər sinif qapısında yox, ekranda verir.',
+        title: 'Bir otaqda iki qrup olmur',
+        text: 'Dərs eyni saatda eyni otağa iki qrup yerləşdirəcəksə, eTəhsil buna icazə vermir və otağın hansı vaxt məşğul olduğunu göstərir. Rəhbər məsələni sinfin qapısı ağzında deyil, ekranda həll edir.',
       },
     ],
     screen: {
       label:
-        'Nümunə məlumatlarla cədvəl ekranları: IELTS B2 qrupu üçün həftəlik şablon forması, nömrələnmiş dərslərlə dolan oktyabr təqvimi və toqquşan Riyaziyyat 11 dərsinin bloklanıb başqa otağa keçirildiyi otaq lövhəsi',
+        'Nümunə məlumatlı cədvəl maketləri: IELTS B2 qrupunun həftəlik qrafik forması, oktyabr təqviminin nömrəli dərslərlə dolması və Riyaziyyat 11 ilə toqquşmanı bloklayıb dərsi boş otağa keçirən otaq lövhəsi',
       patternTitle: 'Həftəlik şablon',
       fields: [
         { label: 'Qrup', value: 'IELTS B2' },
@@ -148,10 +148,10 @@ const az: EtehsilCopy = {
       resolved: 'Otaq 3-ə keçirildi',
     },
     features: [
-      { title: 'Gün, həftə, ay və il', text: 'Bütün mərkəz üçün vahid təqvim, müəllim və ya qrupa görə süzgəclə.' },
-      { title: 'Dərsin ləğvi və köçürülməsi', text: 'Səbəb qeyd olunur, ləğv edilmiş dərs isə davamiyyətə təsir etmir.' },
-      { title: 'Otaqlar və tutum', text: 'Hər otaq yer sayı ilə saxlanılır, hər dərs bir otağa bağlanır.' },
-      { title: 'Dəyişiklik hamıya çatır', text: 'Dərs ləğv olunanda və ya başqa vaxta keçəndə tələbə və müəllim bildiriş alır.' },
+      { title: 'Gündən ilə qədər görünüş', text: 'Bütün mərkəz üçün bir təqvim; onu müəllimə və ya qrupa görə süzmək olar.' },
+      { title: 'Ləğv və köçürmə', text: 'Hər dəyişikliyin səbəbi yazılır, ləğv olunan dərs isə qayıb kimi sayılmır.' },
+      { title: 'Otaqlar və yer sayı', text: 'Otaqlar tutumu ilə birlikdə saxlanılır, hər dərs konkret otağa aiddir.' },
+      { title: 'Hamı xəbər tutur', text: 'Dərs ləğv ediləndə və ya vaxtı dəyişəndə tələbələr və müəllimlər bildiriş alır.' },
     ],
   },
 
@@ -159,12 +159,12 @@ const az: EtehsilCopy = {
     id: 'attendance',
     km: '10:30',
     eyebrow: 'Davamiyyət · Valideyn portalı',
-    title: 'Müəllimin telefonunda işarələnir. Valideynin telefonunda görünür.',
-    accent: 'Valideynin telefonunda görünür.',
-    lead: 'Müəllim dərsi açır, «Hamı iştirak edir» düyməsinə toxunur, evdə qalan tələbənin qeydini dəyişir və yadda saxlayır. Valideyn həmin dərsi keçid və PIN kodla açılan portalda görür. Tətbiq yükləmək, hesab açmaq lazım deyil.',
+    title: 'Qeyd müəllimdən, nəticə valideynin ekranında',
+    accent: 'valideynin ekranında',
+    lead: 'Dərs başlayanda müəllimə üç hərəkət kifayətdir: «Hamı iştirak edir», gəlməyən yeganə tələbənin statusunu dəyişmək və «Yadda saxla». Valideyn bu qeydi keçid və PIN kodla daxil olduğu portalda izləyir: tətbiq quraşdırmaq da, hesab yaratmaq da lazım gəlmir.',
     teacherPhone: {
       label:
-        'Nümunə məlumatlarla müəllim telefonu: IELTS B2 dərsinin davamiyyəti, bir tələbədən başqa hamı iştirak edir, qeyd saxlanılıb və 24 saatdan sonra kilidlənir',
+        'Müəllim telefonunun nümunə məlumatlı maketi: IELTS B2 dərsində biri istisna olmaqla hamı gəlib, qeyd saxlanılıb və 24 saatdan sonra kilidlənəcək',
       time: 'Bu gün · 10:30',
       group: 'IELTS B2 · Otaq 2',
       topic: 'Mövzu: Reading · skimming',
@@ -177,7 +177,7 @@ const az: EtehsilCopy = {
     },
     parentPhone: {
       label:
-        'Nümunə məlumatlarla valideyn portalı: keçid və PIN kodla açılır, davamiyyəti, aktiv qrupları, gözləyən ödənişi və son dərsləri göstərir',
+        'Valideyn portalının nümunə məlumatlı maketi: keçid və PIN kodla giriş, davamiyyət, aktiv qruplar, gözlənilən ödəniş və son dərslər',
       portal: 'Valideyn portalı',
       centre: 'Demo Akademiya',
       pin: 'PIN kodu daxil edin',
@@ -195,23 +195,23 @@ const az: EtehsilCopy = {
         { when: 'Ş. 12:00 · Riyaziyyat 11', status: 'Gəldi' },
       ],
     },
-    sync: 'Bir qeyd · iki ekran',
+    sync: 'Eyni qeyd · iki ekranda',
     points: [
       {
-        label: 'Bir toxunuş',
-        text: '«Hamı iştirak edir» bütün qrupu işarələyir, müəllim yalnız istisnaları dəyişir: qayıb və ya üzrlü.',
+        label: 'Tək toxunuş',
+        text: '«Hamı iştirak edir» bütün qrupu bir dəfəyə qeyd edir; müəllimə yalnız istisnaları — qayıb və ya üzrlü — dəyişmək qalır.',
       },
       {
         label: '24 saatlıq kilid',
-        text: 'Müəllimin qeydləri 24 saatdan sonra kilidlənir. Bundan sonra onları yalnız mərkəzin rəhbərliyi aça bilər.',
+        text: '24 saat keçəndən sonra müəllim qeydləri dəyişə bilmir; onları yenidən açmaq yalnız mərkəz rəhbərliyinin əlindədir.',
       },
       {
         label: 'Risk siyahısı',
-        text: 'Dərsləri ardıcıl buraxan tələbələr valideyn soruşmamışdan xeyli əvvəl ayrıca siyahıya düşür.',
+        text: 'Dərsləri dalbadal buraxanlar valideyn sual verməmişdən çox-çox əvvəl ayrıca siyahıda toplanır.',
       },
       {
         label: 'Valideyn portalı',
-        text: 'Şəxsi keçid və PIN kod bir övladın davamiyyətini, ödənişlərini və cədvəlini açır. Yalnız baxmaq üçündür, başqa heç nə.',
+        text: 'Şəxsi keçid və PIN yalnız bir uşağın davamiyyətini, ödənişlərini və cədvəlini göstərir: ancaq baxış, artıq heç nə.',
       },
     ],
   },
@@ -220,17 +220,17 @@ const az: EtehsilCopy = {
     id: 'payments',
     km: '12:30',
     eyebrow: 'Kassa · Borclar',
-    title: 'Hər borcun adı, gün sayı və xatırlatması var',
-    accent: 'xatırlatması var',
-    lead: 'Tələbə qeydiyyatdan keçəndə ödəniş planı özü yaranır. Nağd, kart və ya köçürmə, tam və ya qismən — hər ödəniş qəbzlə həmin plana yazılır. Kassa ən çox gecikənləri yuxarı çıxarır, hər biri üçün WhatsApp xatırlatması isə bir klik məsafəsindədir.',
+    title: 'Kim, nə qədər gecikib — xatırlatma da hazırdır',
+    accent: 'xatırlatma da hazırdır',
+    lead: 'Tələbə kursa yazılan kimi onun ödəniş planı yaranır. Nağd, kartla və ya köçürmə ilə, tam yaxud hissə-hissə — hər ödəniş bu plana əlavə olunur və qəbz alır. Kassa ən uzun müddət ödəməyənləri siyahının başına çıxarır, onlardan hər birinə WhatsApp xatırlatması göndərmək isə bir klikdir.',
     screen: {
       label:
-        'Nümunə məlumatlarla kassa: ümumi və gecikmiş borc, gecikmə gününə görə sıralanmış tələbələr, WhatsApp xatırlatması üçün seçilmiş üç tələbə və qəbzlə qeydə alınmış bir ödəniş',
+        'Kassanın nümunə məlumatlı maketi: ümumi və gecikmiş borclar, gecikmə gününə görə düzülmüş tələbələr, WhatsApp xatırlatması üçün seçilən üç nəfər və qəbzlə qeydə alınan ödəniş',
       title: 'Kassa',
       kpis: [
-        { label: 'Ümumi borc', before: '2 430 ₼', after: '2 210 ₼', meta: '8 tələbə' },
-        { label: 'Gecikmiş', before: '1 180 ₼', after: '960 ₼', meta: '4 → 3 tələbə' },
-        { label: 'Oktyabrda yığılan', before: '6 880 ₼', after: '7 100 ₼', meta: 'Bu ay ödənilib' },
+        { label: 'Ümumi borc', before: '2 430 ₼', after: '2 210 ₼', meta: '8 tələbə' },
+        { label: 'Gecikmiş', before: '1 180 ₼', after: '960 ₼', meta: '4 → 3 tələbə' },
+        { label: 'Oktyabrda yığılan', before: '6 880 ₼', after: '7 100 ₼', meta: 'Bu ay ödənilib' },
       ],
       filters: ['Gecikmiş', 'Bu ay ödənilməli', 'Borcu yoxdur', 'Planı yoxdur'],
       rows: [
@@ -246,7 +246,7 @@ const az: EtehsilCopy = {
     },
     chat: {
       label:
-        'Nümunə məlumatlarla WhatsApp xatırlatmaları: kassadan valideynlər üçün hazırlanmış gecikmiş ödənişlər barədə üç mesaj',
+        'WhatsApp xatırlatmalarının nümunə məlumatlı maketi: birbaşa kassadan hazırlanıb valideynlərə ünvanlanan, gecikmiş ödənişlərlə bağlı üç mesaj',
       title: 'WhatsApp · xatırlatmalar',
       messages: [
         {
@@ -258,15 +258,15 @@ const az: EtehsilCopy = {
       ],
     },
     features: [
-      { title: 'Ödəniş planları', text: 'Aylıq və ya hissə-hissə, qeydiyyat zamanı yaradılır, lazım olduqda endirimlə.' },
-      { title: 'Qismən ödəniş və avans', text: 'Məbləğin bir hissəsi indi ödənilir və ya avans növbəti aya keçir. Qalıq özü yenidən hesablanır.' },
+      { title: 'Ödəniş planları', text: 'Qeydiyyat anında qurulur: aylıq və ya hissə-hissə, endirim düşürsə, o da nəzərə alınır.' },
+      { title: 'Hissə-hissə ödəniş və avans', text: 'İndi bir hissəni ödəmək və ya avansı gələn aya keçirmək olar. Qalıq avtomatik yenilənir.' },
       {
-        title: 'Qəbz və şəffaf tarixçə',
-        text: 'Hər ödənişə qəbz verilir. Ləğv edilmiş ödəniş tarixçədə qalır, borc isə avtomatik bərpa olunur.',
+        title: 'Qəbzlər və tam tarixçə',
+        text: 'Hər ödəniş üçün qəbz çıxır. Ləğv olunan ödəniş tarixçədən silinmir, borc isə öz-özünə geri qayıdır.',
       },
       {
-        title: 'Hər əməkdaş yalnız lazım olanı görür',
-        text: 'Qəbul masası ödənişləri qəbul edib qəbz verir, mərkəzin ümumi gəlirini isə heç vaxt görmür.',
+        title: 'Rola görə giriş',
+        text: 'Qəbul masası ödəniş alır və qəbz verir, amma mərkəzin ümumi gəliri ona görünmür.',
       },
     ],
   },
@@ -275,12 +275,12 @@ const az: EtehsilCopy = {
     id: 'contracts',
     km: '14:00',
     eyebrow: 'Müqavilələr',
-    title: 'Mərkəzin öz müqaviləsi bir kliklə doldurulur və nömrələnir',
-    accent: 'doldurulur və nömrələnir',
-    lead: 'Mərkəz artıq istifadə etdiyi Word müqaviləsini yükləyir. eTəhsil hər dəyişəni tanıyır, doldura bilmədiyi sahələr barədə xəbərdarlıq edir və hər tələbə üçün tələbə, valideyn, kurs və ödəniş məlumatları artıq yerində olan nömrələnmiş PDF hazırlayır.',
+    title: 'İşlətdiyiniz müqavilə avtomatik doldurulub nömrələnir',
+    accent: 'avtomatik doldurulub nömrələnir',
+    lead: 'Mərkəz hazırda işlətdiyi Word müqaviləsini sistemə yükləyir. eTəhsil içindəki hər dəyişəni aşkar edir, məlumatı olmayanları əvvəlcədən bildirir və hər tələbəyə tələbənin, valideynin, kursun və ödənişin məlumatları ilə doldurulmuş nömrəli PDF verir.',
     screen: {
       label:
-        'Nümunə məlumatlarla müqavilənin hazırlanması: Word şablonunun altı dəyişəni bir-bir tələbə üçün nömrələnmiş PDF müqavilənin sahələrinə uyğunlaşdırılır, sonra müqavilə imzalanmış kimi qeyd olunur',
+        'Müqavilə hazırlanmasının nümunə məlumatlı maketi: Word şablonundakı altı dəyişən növbə ilə tələbənin nömrəli PDF müqaviləsinə köçür, sonra müqavilə imzalanmış kimi işarələnir',
       file: 'muqavile_standart.docx',
       template: 'Şablon',
       ready: 'Hazırdır · 6 dəyişənin 6-sı doldurulacaq',
@@ -301,19 +301,19 @@ const az: EtehsilCopy = {
     },
     points: [
       {
-        label: 'Öz formanız',
-        text: 'Mərkəz hüquqi mətnini saxlayır. eTəhsil yalnız məlumatları doldurur, hər dil üçün isə standart şablon təyin olunur.',
+        label: 'Sizin mətniniz',
+        text: 'Hüquqi mətn mərkəzin yazdığı kimi qalır, eTəhsil ancaq məlumatları yerləşdirir. Hər dil üçün standart şablon da var.',
       },
       {
         label: 'Dəyişən yoxlaması',
-        text: 'Doldurulmadan olduğu kimi çap olunacaq sahələr hələ ilk müqavilə hazırlanmazdan əvvəl göstərilir.',
+        text: 'Xam dəyişən kimi çapa düşə biləcək sahələr ilk müqavilə verilməzdən əvvəl işarələnir.',
       },
-      { label: 'Nömrələmə', text: 'Müqavilə nömrələrini sistem ardıcıl verir, ona görə nömrə heç vaxt təkrarlanmır.' },
+      { label: 'Nömrələmə', text: 'Nömrələri sistem ardıcıllıqla verir, iki müqavilə eyni nömrəni ala bilməz.' },
       {
         label: 'İmza statusu',
-        text: 'İmza gözləyən, imzalanmış və ya müddəti bitmiş; bitməsinə az qalan müqavilələr önə çıxır.',
+        text: 'Gözləyir, imzalanıb və ya müddəti bitib; bitməsinə az qalanlar yuxarı qalxır.',
       },
-      { label: 'Müqaviləsi olmayanlar', text: 'Hələ müqaviləsi olmayan aktiv tələbələr ayrıca siyahıda görünür.' },
+      { label: 'Müqaviləsizlər', text: 'Müqaviləsi hələ bağlanmamış aktiv tələbələr ayrıca siyahıda toplanır.' },
     ],
   },
 
@@ -321,12 +321,12 @@ const az: EtehsilCopy = {
     id: 'exams',
     km: '16:00',
     eyebrow: 'Sual bankı · İmtahanlar',
-    title: '3 addımlı imtahan konstruktoru və hər tələbəyə ayrıca variant',
-    accent: 'hər tələbəyə ayrıca variant',
-    lead: 'İmtahana ad verin, hər fənn üçün sual sayını və mövzu tərkibini seçin — eTəhsil hər variantı mərkəzin sual bankından heç bir sualı təkrarlamadan doldurur. Tələbələr imtahanı taymerlə verir, cavablar mümkün olan hər yerdə avtomatik yoxlanılır, nəticələr isə mövzular üzrə təhlil olunur.',
+    title: 'İmtahan 3 addımda qurulur, hər tələbə öz variantını alır',
+    accent: 'hər tələbə öz variantını alır',
+    lead: 'İmtahanın adını yazın, fənləri seçin və hər fənn üzrə neçə sual, hansı mövzulardan düşəcəyini göstərin. Qalanını eTəhsil edir: bütün variantları mərkəzin sual bankından, heç bir sualı iki dəfə işlətmədən toplayır. Tələbələr taymerlə yazır, avtomatik yoxlana bilən nə varsa, avtomatik yoxlanılır, nəticələr isə mövzu-mövzu açılır.',
     builder: {
       label:
-        'Nümunə məlumatlarla imtahan şablonu konstruktoru: üç addım (əsas məlumat, fənlər, suallar) və sual ardıcıllığı fərqlənən dörd variant',
+        'İmtahan şablonu konstruktorunun nümunə məlumatlı maketi: üç addım (əsas, fənlər, suallar) və sualları fərqli sırada düzülmüş dörd variant',
       title: 'Yeni imtahan şablonu',
       steps: ['Əsas', 'Fənlər', 'Suallar'],
       basics: [
@@ -348,7 +348,7 @@ const az: EtehsilCopy = {
     },
     taking: {
       label:
-        'Nümunə məlumatlarla tələbənin imtahan ekranı: beş cavab variantı olan riyaziyyat sualı, geri sayan taymer və qeydə alınmış pəncərə dəyişməsi',
+        'İmtahan yazan tələbənin ekranı (nümunə məlumat): beş variantlı riyaziyyat sualı, işləyən taymer və qeydə düşmüş pəncərə dəyişməsi',
       section: 'Riyaziyyat · 12/25',
       left: 'qalıb',
       question: '3x − 7 = 11 olarsa, x nəyə bərabərdir?',
@@ -359,7 +359,7 @@ const az: EtehsilCopy = {
     },
     results: {
       label:
-        'Nümunə məlumatlarla imtahan nəticələri: bal paylanması qrafiki və səhv payı ən yüksək olan dörd mövzu',
+        'İmtahan nəticələri (nümunə məlumat): balların paylanma qrafiki və ən çox səhv edilən dörd mövzu',
       title: 'Nəticələr · Sınaq imtahanı',
       distribution: 'Bal paylanması',
       scale: ['0', '50', '100'],
@@ -375,19 +375,19 @@ const az: EtehsilCopy = {
     features: [
       {
         title: 'Sual bankı',
-        text: 'Tək seçimli və uyğunlaşdırma suallarından ədədi cavab və esseyə qədər doqquz sual tipi: fənn, mövzu və çətinlik üzrə çeşidlənir, riyazi ifadələr yazmaq mümkündür.',
+        text: 'Doqquz sual tipi — tək seçimdən və uyğunlaşdırmadan tutmuş ədədi cavaba və esseyə qədər. Fənn, mövzu və çətinliyə görə qruplaşdırılır, riyazi yazılış dəstəklənir.',
       },
       {
-        title: 'Şablonlar və variantlar',
-        text: 'Şablon imtahanın reseptini bir dəfə saxlayır. Hər dəfə yeni variantlar doldurulur və bir və ya bir neçə qrupa verilir.',
+        title: 'Şablon və variantlar',
+        text: 'İmtahanın tərkibi şablonda bir dəfə saxlanılır; hər istifadədə yeni variantlar yaranır və bir və ya bir neçə qrupa təyin olunur.',
       },
       {
-        title: 'Vaxt məhdudiyyətli və qonaq imtahanları',
-        text: 'Ümumi və ya bölmə üzrə vaxt, avtomatik təhvil, pəncərə dəyişməsinin izlənməsi və kənar iştirakçılar üçün istəyə görə PIN kodlu qonaq keçidi.',
+        title: 'Vaxtlı və qonaq imtahanları',
+        text: 'Bütün imtahana və ya hər bölməyə ayrıca vaxt, avtomatik təhvil, pəncərə dəyişməsinə nəzarət, kənardan gələnlər üçün isə istəyə bağlı PIN-li qonaq keçidi.',
       },
       {
-        title: 'Qiymətləndirmə və analitika',
-        text: 'Qapalı suallar avtomatik, açıq cavablar müəllim tərəfindən yoxlanılır; səhvlər həm mərkəz, həm də hər tələbə üzrə mövzu-mövzu sayılır.',
+        title: 'Yoxlama və analitika',
+        text: 'Qapalı sualları sistem, açıq cavabları müəllim yoxlayır; səhvlər mövzulara görə həm bütün mərkəz, həm də ayrı-ayrı tələbə üzrə hesablanır.',
       },
     ],
   },
@@ -396,15 +396,15 @@ const az: EtehsilCopy = {
     id: 'owner',
     km: '21:00',
     eyebrow: 'Rəhbər paneli · Əmək haqqı',
-    title: 'Rəhbər ayın nəticəsini ay bitmədən görür',
-    accent: 'ay bitmədən görür',
-    lead: 'Gəlirlər kassadan avtomatik düşür. Xərclər kateqoriyalar üzrə yazılır, daimi xərclər isə özü təkrarlanır. Müəllim maaşı qruplara və keçilmiş dərslərə görə hesablanır, rəhbər tərəfindən təsdiqlənir və müəllim tərəfindən qəbul edilir. Bir panel mərkəzin vəziyyətini istənilən dövr üzrə göstərir.',
+    title: 'Ay bitməmiş, yekun artıq ekranda',
+    accent: 'yekun artıq ekranda',
+    lead: 'Gəlir kassadan özü axıb gəlir. Xərclər kateqoriyalara görə daxil edilir, daimi xərcləri isə hər ay yenidən yazmaq lazım deyil. Müəllim maaşı qrup və keçirilmiş dərs sayına görə hesablanır: rəhbər təsdiq edir, müəllim qəbul edir. Mərkəzin istənilən dövrdəki vəziyyəti bir paneldə görünür.',
     dashboard: {
       label:
-        'Nümunə məlumatlarla rəhbər paneli: aylıq gəlir, gecikmiş borc, risk altında olan tələbələr, davamiyyət, doluluq və ümumi marja göstəriciləri',
+        'Rəhbər panelinin nümunə məlumatlı maketi: aylıq gəlir, gecikmiş borc, risk qrupundakı tələbələr, habelə davamiyyət, doluluq və ümumi marja göstəriciləri',
       title: 'İdarə paneli · Oktyabr',
       periods: ['Bu ay', '3 ay', '12 ay'],
-      revenue: { label: 'Aylıq gəlir', value: '7 100 ₼', meta: 'sentyabrla müqayisədə +6%' },
+      revenue: { label: 'Aylıq gəlir', value: '7 100 ₼', meta: 'sentyabrla müqayisədə +6%' },
       debt: { label: 'Gecikmiş borc', value: '960 ₼', meta: '3 tələbə' },
       risk: { label: 'Risk altında', value: '5', meta: 'Ardıcıl buraxılan dərslər' },
       gauges: [
@@ -415,7 +415,7 @@ const az: EtehsilCopy = {
     },
     pnl: {
       label:
-        'Nümunə məlumatlarla mənfəət və zərər qrafiki: tələbə ödənişləri və digər gəlirdən kirayə, kommunal, marketinq və müəllim ödənişləri çıxılır, xalis nəticə alınır',
+        'Mənfəət və zərər qrafiki (nümunə məlumat): tələbə ödənişləri və digər gəlirlərdən kirayə, kommunal, marketinq və müəllim ödənişləri çıxılır, geriyə xalis nəticə qalır',
       title: 'Mənfəət və zərər · Oktyabr',
       rows: [
         { label: 'Tələbə ödənişləri', value: 7100 },
@@ -429,11 +429,11 @@ const az: EtehsilCopy = {
     },
     payroll: {
       label:
-        'Nümunə məlumatlarla müəllim əmək haqqı: qrupları, keçilmiş dərsləri və məbləğləri ilə üç müəllim; rəhbər ödənişləri təsdiqləyir, müəllimlər qəbul edir',
+        'Müəllim əmək haqqı cədvəli (nümunə məlumat): üç müəllim, onların qrupları, keçirilmiş dərsləri və məbləğləri; ödənişi rəhbər təsdiqləyir, müəllim qəbul edir',
       title: 'Müəllim əmək haqqı · Oktyabr',
       columns: ['Müəllim', 'Qrup', 'Dərs', 'Məbləğ', 'Status'],
       rows: [
-        { name: 'Leyla K.', groups: '3', lessons: '36', amount: '1 080 ₼' },
+        { name: 'Leyla K.', groups: '3', lessons: '36', amount: '1 080 ₼' },
         { name: 'Rauf M.', groups: '2', lessons: '24', amount: '840 ₼' },
         { name: 'Nigar S.', groups: '2', lessons: '20', amount: '680 ₼' },
       ],
@@ -443,29 +443,29 @@ const az: EtehsilCopy = {
       approve: 'Təsdiqlə',
     },
     features: [
-      { title: 'Gəlir və xərclər', text: 'Mərkəzin öz kateqoriyaları, təkrarlanan xərclər və dövrlərin yan-yana müqayisəsi.' },
+      { title: 'Gəlir və xərc', text: 'Mərkəzin özünün təyin etdiyi kateqoriyalar, daimi xərclər və dövrlərin bir-biri ilə müqayisəsi.' },
       {
-        title: 'Müəllim əmək haqqı',
-        text: 'Qrup və keçilmiş dərsə görə hesablanır. Rəhbər təsdiqləyir, müəllim qəbul edir və ya imtina edir.',
+        title: 'Müəllim maaşı',
+        text: 'Qruplara və faktiki keçirilmiş dərslərə əsasən çıxarılır. Rəhbər təsdiqləyir, müəllim razılaşır və ya imtina edir.',
       },
       {
-        title: 'Mühasib üçün hesabatlar',
-        text: 'Maliyyə hesabatı CSV və PDF formatında ixrac olunur, mühasib rolu isə maliyyəni tələbə məlumatları olmadan görür.',
+        title: 'Mühasib üçün hazır hesabat',
+        text: 'Maliyyə hesabatını CSV və PDF-ə çıxarmaq olur; mühasib rolu maliyyəyə baxır, tələbə məlumatlarına isə çıxışı yoxdur.',
       },
-      { title: 'İstənilən dövr', text: 'Bu ay, keçən ay, son 3, 6 və ya 12 ay, yaxud istədiyiniz aralıq.' },
+      { title: 'Çevik dövr seçimi', text: 'Cari və ya ötən ay, son 3, 6, 12 ay, yaxud özünüz seçdiyiniz tarix aralığı.' },
     ],
   },
 
   engineering: {
     id: 'engineering',
     km: 'SaaS',
-    eyebrow: 'Mühəndislik',
-    title: 'Bir platforma, çox mərkəz: hər mərkəzin məlumatı yalnız özünündür',
-    accent: 'yalnız özünündür',
-    lead: 'eTəhsil multi-tenant SaaS platformadır: hər mərkəz və hər repetitor ayrıca iş sahəsində işləyir, məlumatların izolyasiyası isə yalnız tətbiq kodunda deyil, verilənlər bazasının özündə təmin olunur. Bu təməlin üzərində icazələr, təhlükəsiz giriş, bildirişlər və üç dildə quraşdırıla bilən tətbiq qurmuşuq.',
+    eyebrow: 'Texniki tərəf',
+    title: 'Çox mərkəz bir platformada, amma məlumatları bir-birinə qapalıdır',
+    accent: 'bir-birinə qapalıdır',
+    lead: 'eTəhsil multi-tenant SaaS kimi qurulub: hər mərkəzin və hər repetitorun ayrıca iş sahəsi (tenant) var, onların məlumatını bir-birindən ayıran isə təkcə tətbiq kodu deyil, verilənlər bazasının özüdür. Bu nüvənin üzərində icazələr sistemi, təhlükəsiz giriş, bildirişlər və üç dildə telefona qurulan tətbiq hazırlamışıq.',
     isolation: {
       label:
-        'Diaqram: üç nümunə iş sahəsi bir verilənlər bazasına sorğu göndərir; hər sorğu yalnız öz iş sahəsinin sətirlərinə çatır, başqa iş sahəsinin məlumatına uzanan sorğu isə bloklanır',
+        'Sxem: üç nümunə iş sahəsi ortaq verilənlər bazasına müraciət edir; hər müraciət ancaq öz iş sahəsinə aid sətirlərə çatır, özgə iş sahəsinə uzanan müraciət isə bloklanır',
       tenants: ['Demo Akademiya', 'Nümunə Kurs', 'Repetitor · Leyla K.'],
       database: 'Bir verilənlər bazası',
       policy: 'İzolyasiya bazanın özündə',
@@ -473,29 +473,29 @@ const az: EtehsilCopy = {
     },
     principles: [
       {
-        title: 'Məlumatların izolyasiyası',
-        text: 'Hər mərkəzin qeydləri verilənlər bazası səviyyəsində ayrılıb, ona görə bir mərkəz başqa mərkəzin məlumatını heç vaxt oxumur.',
+        title: 'Məlumat təcridi',
+        text: 'Hər mərkəzin sətirləri bazanın özündə hasarlanıb, buna görə bir mərkəz digərinin məlumatını heç cür oxuya bilməz.',
       },
       {
         title: 'Rollar və icazələr',
-        text: 'Qəbul masası və mühasib kimi hazır rollar, baxmaq, əlavə etmək, dəyişmək və silmək səviyyəsinə qədər fərdi icazə qrupları; müəllim isə yalnız öz qruplarını görür.',
+        text: 'Qəbul masası, mühasib kimi hazır rollar; baxmaq, əlavə etmək, redaktə və silməyə qədər incələnən fərdi icazə qrupları; müəllimə isə yalnız öz qrupları açıqdır.',
       },
-      { title: 'Təhlükəsiz giriş', text: 'İki faktorlu autentifikasiya (2FA), Google ilə giriş, əməkdaş və müəllimlər üçün dəvət keçidləri.' },
+      { title: 'Təhlükəsiz giriş', text: 'İki faktorlu doğrulama (2FA), Google hesabı ilə giriş, əməkdaş və müəllimlər üçün dəvət linkləri.' },
       {
-        title: 'Bir hesab, üç iş sahəsi',
-        text: 'Eyni şəxs biznes, müəllim və tələbə iş sahələri arasında ikinci hesab açmadan keçid edir.',
-      },
-      {
-        title: 'Quraşdırıla bilən PWA',
-        text: 'Tətbiq istənilən telefona quraşdırılır; Azərbaycan, ingilis və ya rus dilində, açıq və tünd temada.',
+        title: 'Bir hesab — üç iş sahəsi',
+        text: 'Eyni insan ikinci hesab açmadan biznes, müəllim və tələbə iş sahələri arasında keçə bilir.',
       },
       {
-        title: 'Testlərlə qorunur',
-        text: 'Avtomatlaşdırılmış arxitektura testləri modullar üzrə məlumat izolyasiyasını və icazə qaydalarını yoxlayır.',
+        title: 'Telefona qurulan PWA',
+        text: 'Tətbiqi istənilən telefona qurmaq olar; dil — Azərbaycan, ingilis və ya rus, tema — açıq və ya tünd.',
+      },
+      {
+        title: 'Testlərin nəzarətində',
+        text: 'Avtomatik arxitektura testləri bütün modullarda iş sahələrinin təcridini və icazə qaydalarını yoxlayır.',
       },
     ],
     languages: {
-      title: 'Bir interfeys · üç dil',
+      title: 'Eyni interfeys · üç dil',
       codes: ['AZ', 'EN', 'RU'],
       words: [
         ['Davamiyyət', 'Attendance', 'Посещаемость'],
@@ -504,75 +504,75 @@ const az: EtehsilCopy = {
         ['Müqavilələr', 'Contracts', 'Договоры'],
       ],
     },
-    integrationsTitle: 'Hazır inteqrasiyalar',
+    integrationsTitle: 'Qoşulmuş xidmətlər',
     integrations: [
-      { name: 'Payriff', note: 'Kartla onlayn balans artırma' },
-      { name: 'Google', note: 'Google hesabı ilə giriş' },
-      { name: 'WhatsApp', note: 'Kassadan ödəniş xatırlatmaları' },
-      { name: 'Telegram', note: 'Bot vasitəsilə bildirişlər' },
-      { name: 'E-poçt', note: 'Dəvətlər və bildirişlər' },
-      { name: 'Web push', note: 'Brauzerdə və telefonda bildirişlər' },
+      { name: 'Payriff', note: 'Kartla onlayn balans artırılması' },
+      { name: 'Google', note: 'Google hesabı ilə daxil olmaq' },
+      { name: 'WhatsApp', note: 'Ödəniş xatırlatmaları birbaşa kassadan' },
+      { name: 'Telegram', note: 'Bot üzərindən bildirişlər' },
+      { name: 'E-poçt', note: 'Dəvət və bildirişlər' },
+      { name: 'Web push', note: 'Brauzer və telefon bildirişləri' },
     ],
   },
 
   role: {
-    eyebrow: 'Rolumuz',
-    title: 'Aibaycan nə etdi',
+    eyebrow: 'Bizim işimiz',
+    title: 'Aibaycan-ın gördüyü işlər',
     items: [
       {
         title: 'Məhsul və UX dizaynı',
-        text: 'Mərkəzlərin, repetitorların, müəllimlərin, tələbələrin və valideynlərin real iş qaydasını öyrəndik və hər biri üçün doğru ekranı olan vahid məhsul layihələndirdik.',
+        text: 'Mərkəzlərin, repetitorların, müəllimlərin, tələbələrin və valideynlərin gündəlik işini yaxından araşdırdıq və hər birinə lazım olan ekranı verən tək bir məhsul düşündük.',
       },
       {
         title: 'Multi-tenant arxitektura',
-        text: 'Multi-tenant modeli, rolları və icazələri, verilənlər bazası səviyyəsində təmin olunan məlumat izolyasiyasını ilk kod sətrindən layihələndirdik.',
+        text: 'İş sahələri modelini, rolları, icazələri və bazanın özündə işləyən məlumat təcridini lap ilk kod sətrindən planladıq.',
       },
       {
         title: 'Full-stack mühəndislik',
-        text: 'API-ni, quraşdırıla bilən veb-tətbiqi, ictimai saytı, DOCX şablonlarından müqavilə hazırlayan mühərriki, variantları və analitikası olan imtahan mühərrikini qurduq.',
+        text: 'API-ni, telefona qurulan veb-tətbiqi, ictimai saytı, DOCX şablonları ilə işləyən müqavilə mühərrikini, variantlı və analitikalı imtahan mühərrikini hazırladıq.',
       },
       {
         title: 'İnteqrasiyalar',
-        text: 'Payriff ilə kartla onlayn balans artırmanı, Google ilə girişi, WhatsApp xatırlatmalarını, Telegram, e-poçt və web push bildirişlərini qoşduq.',
+        text: 'Payriff üzərindən kartla balans artırmanı, Google ilə girişi, WhatsApp xatırlatmalarını, həmçinin Telegram, e-poçt və web push bildirişlərini sistemə bağladıq.',
       },
       {
-        title: 'İşə salma və idarəetmə',
-        text: 'eTəhsil-i canlı SaaS məhsulu kimi istifadəyə verdik və onu özümüz idarə edirik: yeni buraxılışlar, dəstək və yeni modullar.',
+        title: 'İstifadəyə vermə və dəstək',
+        text: 'eTəhsil-i canlı SaaS məhsulu kimi işə saldıq və onu özümüz işlədirik: yeni buraxılışlar, istifadəçi dəstəyi, əlavə modullar.',
       },
     ],
   },
   stack: {
-    eyebrow: 'Texnologiyalar',
-    title: 'Müasir veb texnologiyaları üzərində qurulub',
+    eyebrow: 'Texnoloji baza',
+    title: 'TypeScript əsaslı müasir stek',
     groups: [
       { label: 'Veb-tətbiq', items: ['TypeScript', 'React', 'PWA'] },
-      { label: 'Sayt', items: ['Next.js'] },
+      { label: 'İctimai sayt', items: ['Next.js'] },
       { label: 'API', items: ['NestJS', 'TypeScript'] },
       { label: 'Data', items: ['PostgreSQL', 'Redis'] },
     ],
   },
   faq: {
-    title: 'eTəhsil barədə ən çox verilən suallar',
+    title: 'eTəhsil haqqında suallar',
     items: [
       {
-        q: 'eTəhsil real, işlək məhsuldurmu?',
-        a: 'Bəli. eTəhsil öz məhsulumuzdur və canlıdır: sayt və tətbiq etehsil.az ünvanında işləyir. Onu biz layihələndirib qurmuşuq və özümüz idarə edirik.',
+        q: 'eTəhsil həqiqətən işləyən məhsuldur, yoxsa konsepsiya?',
+        a: 'İşləyən məhsuldur. eTəhsil bizim öz məhsulumuzdur: saytı və tətbiqi etehsil.az-da aktivdir. Dizaynı da, kodu da, gündəlik idarəsi də bizdədir.',
       },
       {
-        q: 'Hər mərkəzin məlumatı necə ayrı saxlanılır?',
-        a: 'Hər mərkəz ayrıca iş sahəsində işləyir, məlumatların izolyasiyası isə yalnız tətbiq kodunda deyil, verilənlər bazasının özündə təmin olunur. Mərkəzin daxilində isə kimin nəyi görəcəyini rollar və icazələr müəyyən edir: müəllim yalnız öz qruplarını görür, qəbul masası ümumi gəliri görmür, valideyn isə yalnız öz övladını görür.',
+        q: 'Bir mərkəzin məlumatı digərindən necə ayrılır?',
+        a: 'Hər mərkəz ayrıca iş sahəsidir və bu ayrılığı təkcə tətbiq kodu yox, verilənlər bazasının özü təmin edir. Mərkəzin içində isə kimin nəyə baxa biləcəyini rollar və icazələr həll edir: müəllim ancaq öz qruplarına baxa bilir, qəbul masası ümumi gəlirə çıxış əldə etmir, valideyn isə yalnız öz övladını görür.',
       },
       {
-        q: 'Valideyn və müəllim nəsə quraşdırmalıdırmı?',
-        a: 'Xeyr. Valideyn şəxsi keçidi açıb PIN kodu daxil edir. Müəllimlər, əməkdaşlar və tələbələr veb-tətbiqdən istifadə edir; o, telefona PWA kimi Azərbaycan, ingilis və ya rus dilində quraşdırılır.',
+        q: 'Hansı yerli xidmətlərlə inteqrasiya var?',
+        a: 'Payriff (kartla onlayn balans artırma), Google (hesabla giriş), WhatsApp (ödəniş xatırlatmaları), bildirişlərdə isə Telegram, e-poçt və web push işləyir.',
       },
       {
-        q: 'Hansı yerli xidmətlərə qoşulur?',
-        a: 'Kartla onlayn balans artırma üçün Payriff, Google ilə giriş, ödəniş xatırlatmaları üçün WhatsApp, bildirişlər üçün isə Telegram, e-poçt və web push.',
+        q: 'Valideynlərin və müəllimlərin nəyisə quraşdırması lazımdır?',
+        a: 'Lazım deyil. Valideyn ona göndərilən şəxsi keçidi açır və PIN kodu yazır. Müəllimlər, əməkdaşlar və tələbələr veb-tətbiqdə işləyir; onu telefona PWA kimi qurmaq da olar — Azərbaycan, ingilis və ya rus dilində.',
       },
       {
-        q: 'Başqa sahə üçün belə bir platformaya ehtiyacımız var. Haradan başlayaq?',
-        a: 'Sizin proseslərinizdən. eTəhsil-in təməli digər vertikal SaaS məhsullarına və daxili sistemlərə birbaşa keçir: multi-tenant arxitektura, rollar və icazələr, şablondan sənədlər, ödənişlər, bildirişlər və idarəetmə panelləri. İşinizin bu gün necə getdiyini bizə danışın, konkret planla qayıdırıq.',
+        q: 'Başqa sahə üçün oxşar platforma lazımdır. İş haradan başlayır?',
+        a: 'İş qaydanızı öyrənməkdən. eTəhsil-in altında duran həllər — multi-tenant arxitektura, rollar və icazələr, şablon əsasında sənədlər, ödənişlər, bildirişlər, idarəetmə panelləri — başqa vertikal SaaS məhsullarına və daxili sistemlərə olduğu kimi köçürülə bilir. Bu gün işin necə qurulduğunu danışın, biz konkret planla qayıdaq.',
       },
     ],
   },
@@ -586,8 +586,8 @@ const az: EtehsilCopy = {
     owner: 'Rəhbər',
     engineering: 'Mühəndislik',
   },
-  sampleDataNote: 'Ekranlardakı adlar və rəqəmlər nümunə kimi verilib.',
-  mockupAriaLabel: 'Nümunə məlumatlarla eTəhsil ekranının təsviri',
+  sampleDataNote: 'Ekranlarda görünən ad və rəqəmlər şərtidir.',
+  mockupAriaLabel: 'eTəhsil ekranının nümunə məlumatlı maketi',
 };
 
 export default az;

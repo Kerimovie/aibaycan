@@ -6,6 +6,7 @@ import { cx } from './cx';
 import { caseFontVariables } from './fonts';
 import { ScrollProgress } from './ScrollProgress';
 import './styles/cinematic.css';
+import './styles/aibaycan-theme.css';
 
 export interface CinematicPageProps {
   /** Chapters shown on the right-edge rail (ids must exist on the page). Omit to hide the rail. */

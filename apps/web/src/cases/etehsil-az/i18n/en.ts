@@ -1,27 +1,27 @@
-// eTəhsil case study (/[locale]/projects/etehsil-az), EN. Ported from Atlas `src/i18n/en/cases/etehsil.ts`.
-// Type source for the case: AZ/RU are typed `EtehsilCopy`. Mockup data is obviously fictional (Demo Academy, first
-// names with an initial) and every figure on a screen is sample data.
+// eTəhsil case study (/[locale]/projects/etehsil-az), EN. Prose written for Aibaycan (not shared with other sites);
+// mockup data kept in sync with the scenes. Type source for the case: AZ/RU are typed `EtehsilCopy`. Mockup data is
+// obviously fictional (Demo Academy, first names with an initial) and every figure on a screen is sample data.
 import type { CaseBase } from '../../types';
 
 const en = {
   seo: {
-    title: 'eTəhsil: Education Centre Management Software',
+    title: 'eTəhsil: Learning Centre & Tutoring Management System',
     description:
-      'Education centre management software we built and run: eTəhsil schedules lessons, tracks attendance and debts, fills contracts, builds exams, informs parents.',
+      'eTəhsil is the SaaS Aibaycan built and operates for course centres and tutors: auto-scheduling, attendance, debt tracking, contracts, exams and a parent portal.',
   },
-  h1: 'Education centre management software for course centres and tutors',
+  h1: 'Software that runs course centres and private tutoring',
   hero: {
-    eyebrow: 'EdTech · Multi-tenant SaaS',
-    title: 'The whole education centre on one screen',
-    accent: 'on one screen',
-    lead: 'We designed, built and run eTəhsil, our SaaS platform for education centres and private tutors. Schedules, attendance, payments and debts, contracts, exams, parents and payroll work as one system in Azerbaijani, English and Russian.',
-    primaryCta: 'Discuss a similar project',
+    eyebrow: 'Multi-tenant SaaS · EdTech',
+    title: 'A course centre, run from a single screen',
+    accent: 'a single screen',
+    lead: 'eTəhsil is a SaaS platform of ours for course centres and independent tutors, and we took it from design through build to day-to-day operation. It joins timetables, attendance, fees and debts, contracts, exams, parent access and teacher pay into one system, available in Azerbaijani, English and Russian.',
+    primaryCta: 'Plan a project like this',
   },
   facts: { platforms: 'Web · PWA', languages: 'AZ · EN · RU' },
 
   heroScreen: {
     label:
-      'Illustrative eTəhsil screen with sample data: the week timetable of Demo Academy, an overdue debt card, a saved attendance record and a running exam',
+      'Sample-data mockup of eTəhsil: Demo Academy’s weekly timetable, a card for overdue debt, a stored attendance record and an exam in progress',
     url: 'etehsil.az',
     centre: 'Demo Academy',
     view: 'This week',
@@ -40,13 +40,13 @@ const en = {
   challenge: {
     id: 'challenge' as const,
     km: '07:45',
-    eyebrow: 'The challenge',
-    title: 'A centre that runs on notebooks, spreadsheets and group chats',
-    accent: 'notebooks, spreadsheets and group chats',
-    lead: 'Before the first lesson, the administrator is already juggling a paper register, a timetable in one spreadsheet, a debt list in another and a WhatsApp group for every class. Everyone holds a piece of the centre and nobody sees all of it. The owner learns how the month went only after it has ended.',
+    eyebrow: 'The starting point',
+    title: 'Held together by paper, spreadsheets and chat groups',
+    accent: 'paper, spreadsheets and chat groups',
+    lead: 'The admin’s day starts long before class, switching between a paper register, one spreadsheet for the timetable, another for who owes money, and a separate WhatsApp group per class. Each person holds a fragment of the centre; no one has the full picture. Month-end results reach the owner only when the month is already history.',
     desk: {
       label:
-        'Illustration of the old way of working: a paper attendance register with crossed-out marks, a timetable spreadsheet with a room clash and a parents’ group chat full of questions',
+        'The old routine, illustrated: a paper attendance register full of crossings-out, a timetable spreadsheet with two groups in one room, and a parents’ chat overflowing with questions',
       register: {
         title: 'Register · October',
         rows: ['Aysel D.', 'Murad N.', 'Kamran T.', 'Nərmin Q.', 'Tural H.'],
@@ -73,54 +73,54 @@ const en = {
     },
     pains: [
       {
-        title: 'Timetables clash',
-        text: 'Two groups are booked into one room, and the clash only surfaces when both walk through the same door.',
+        title: 'Double-booked rooms',
+        text: 'Two groups end up with the same room, and nobody finds out until both arrive at the same door.',
       },
       {
-        title: 'Attendance copied by hand',
-        text: 'Teachers tick paper registers, someone retypes them, and nobody notices the student who has missed three lessons in a row.',
+        title: 'Registers retyped by hand',
+        text: 'Marks go on paper, then someone types them up again, and a student absent for three lessons running slips by unnoticed.',
       },
       {
-        title: 'Debts live in someone’s memory',
-        text: 'Who owes what, and for how long, is rebuilt from notes at the end of the month. Reminders go out late or never.',
+        title: 'Debts tracked from memory',
+        text: 'At month end, someone pieces together from scattered notes who owes how much and since when. Reminders are late, if they go out at all.',
       },
       {
-        title: 'Contracts and exams made by hand',
-        text: 'Every contract is edited in Word, student by student. Every exam is assembled question by question, and separate variants for one room are close to impossible.',
+        title: 'Contracts and exams built manually',
+        text: 'Each contract is a Word file edited for one student at a time. Exams are put together one question after another, and giving one room several different variants is barely feasible.',
       },
       {
-        title: 'Payroll on a calculator',
-        text: 'Teacher pay means counting lessons group by group, while parents keep calling to ask whether their child came and what is still owed.',
+        title: 'Payroll by calculator',
+        text: 'Working out teacher pay means tallying lessons for each group, and meanwhile parents phone in to ask whether their child attended and how much is left to pay.',
       },
     ],
-    flowTitle: 'eTəhsil turns it into one flow',
-    flow: ['A lesson is held', 'Attendance is recorded', 'The debt recalculates', 'The parent sees it', 'The owner sees the month'],
+    flowTitle: 'With eTəhsil, it becomes a single flow',
+    flow: ['The lesson takes place', 'Attendance gets marked', 'The balance updates', 'Parents see it', 'The owner sees the results'],
   },
 
   schedule: {
     id: 'schedule' as const,
     km: '08:00',
-    eyebrow: 'Schedule · Rooms',
-    title: 'The course schedule builds itself and never double-books a room',
-    accent: 'builds itself',
-    lead: 'Enter a group’s weekly pattern once. eTəhsil turns it into every lesson of the course, each with its own date, room and teacher, and keeps the whole centre in one calendar.',
+    eyebrow: 'Timetable · Rooms',
+    title: 'A full course timetable generated for you, with no room clashes',
+    accent: 'generated for you',
+    lead: 'A group’s weekly rhythm is entered just once. From it, eTəhsil creates every lesson in the course, with a date, room and teacher attached to each, and places the entire centre on a shared calendar.',
     steps: [
       {
-        title: 'Set the weekly pattern',
-        text: 'Days, start time, length, room and teacher, plus the number of lessons in the course. That is the only input the schedule needs.',
+        title: 'Describe the week',
+        text: 'Which days, what time, how long, which room and teacher, and how many lessons the course has. Nothing else is required to build the schedule.',
       },
       {
-        title: 'Every lesson gets a date',
-        text: 'eTəhsil generates each lesson of the course and sets the end date from the last one. Regenerating replaces only future lessons and never touches lessons already held.',
+        title: 'Dates for every lesson',
+        text: 'All lessons of the course are created, and the course end date follows from the final one. If you regenerate, only upcoming lessons are replaced; past ones stay exactly as they were.',
       },
       {
-        title: 'Rooms stay free of clashes',
-        text: 'If a lesson would put two groups in one room at the same time, eTəhsil blocks it and says when the room is taken. The owner decides at the screen, not at the classroom door.',
+        title: 'No two groups in one room',
+        text: 'Should a lesson place two groups in the same room at the same hour, eTəhsil stops it and shows when that room is occupied. The owner settles it on screen, not outside the classroom.',
       },
     ],
     screen: {
       label:
-        'Illustrative schedule screens with sample data: a weekly pattern form for the IELTS B2 group, an October calendar filling with numbered lessons, and a room board where a clashing Math 11 lesson is blocked and moved to another room',
+        'Sample-data timetable mockups: the weekly pattern form for IELTS B2, an October calendar filling up with numbered lessons, and a room board that blocks a clashing Math 11 lesson and sends it to a free room',
       patternTitle: 'Weekly pattern',
       fields: [
         { label: 'Group', value: 'IELTS B2' },
@@ -149,23 +149,23 @@ const en = {
       resolved: 'Moved to Room 3',
     },
     features: [
-      { title: 'Day, week, month and year', text: 'One calendar for the whole centre, filtered by teacher or group.' },
-      { title: 'Cancel or move a lesson', text: 'The reason is recorded, and a cancelled lesson never counts against attendance.' },
-      { title: 'Rooms and capacity', text: 'Every room is stored with its seats, and every lesson is tied to a room.' },
-      { title: 'Changes reach people', text: 'Students and teachers get a notification when a lesson is cancelled or rescheduled.' },
+      { title: 'Day to year views', text: 'A single calendar covers the centre, with filters for each teacher or group.' },
+      { title: 'Cancellations and moves', text: 'Each change keeps its reason, and cancelled lessons are never counted as absences.' },
+      { title: 'Rooms with seat counts', text: 'Rooms are saved along with their capacity, and each lesson belongs to a room.' },
+      { title: 'Everyone is told', text: 'When a lesson is cancelled or moved, students and teachers receive a notification.' },
     ],
   },
 
   attendance: {
     id: 'attendance' as const,
     km: '10:30',
-    eyebrow: 'Attendance · Parent portal',
-    title: 'Marked on the teacher’s phone. Seen on the parent’s.',
-    accent: 'Seen on the parent’s.',
-    lead: 'The teacher opens the lesson, taps All present, switches the one student who stayed home and saves. The parent sees that lesson in a portal that opens with a link and a PIN. No app to install, no account to create.',
+    eyebrow: 'Attendance · Parents’ portal',
+    title: 'One tap by the teacher, visible to the parent.',
+    accent: 'visible to the parent.',
+    lead: 'In class, the teacher opens the lesson, hits All present, flips the mark for the one student who stayed at home, and saves. Parents find that same lesson in a portal they reach through a link plus a PIN, with nothing to download and no sign-up.',
     teacherPhone: {
       label:
-        'Illustrative teacher phone with sample data: attendance for the IELTS B2 lesson, all students present except one absent, saved and locking in 24 hours',
+        'Sample-data mockup of a teacher’s phone: IELTS B2 attendance with everyone present but one student, saved, with a 24-hour lock',
       time: 'Today · 10:30',
       group: 'IELTS B2 · Room 2',
       topic: 'Topic: Reading · skimming',
@@ -178,7 +178,7 @@ const en = {
     },
     parentPhone: {
       label:
-        'Illustrative parent portal with sample data: opened with a link and a PIN, showing attendance, active groups, a pending payment and the latest lessons',
+        'Sample-data mockup of the parent portal, reached by link and PIN: attendance, active groups, one payment due and recent lessons',
       portal: 'Parent portal',
       centre: 'Demo Academy',
       pin: 'Enter PIN',
@@ -196,23 +196,23 @@ const en = {
         { when: 'Sat 12:00 · Math 11', status: 'Present' },
       ],
     },
-    sync: 'One record · two screens',
+    sync: 'Same record · both screens',
     points: [
       {
-        label: 'One tap',
-        text: 'All present marks the whole group, so the teacher changes only the exceptions: absent or excused.',
+        label: 'Single tap',
+        text: 'All present fills in the whole group, so the teacher adjusts only the exceptions: absent or excused.',
       },
       {
         label: '24-hour lock',
-        text: 'A teacher’s marks lock after 24 hours. From then on only the centre’s management can reopen them.',
+        text: 'Once 24 hours pass, the teacher can no longer change the marks; only centre management can unlock them.',
       },
       {
         label: 'At-risk list',
-        text: 'Students who miss lessons in a row gather on their own list, long before a parent has to ask.',
+        text: 'Anyone missing lessons back to back lands on a separate list well before a parent needs to ask.',
       },
       {
         label: 'Parent portal',
-        text: 'A personal link and a PIN open one child’s attendance, payments and schedule. Read-only, and nothing else.',
+        text: 'One personal link and a PIN show a single child’s attendance, payments and timetable. View-only, with nothing beyond that.',
       },
     ],
   },
@@ -221,17 +221,17 @@ const en = {
     id: 'payments' as const,
     km: '12:30',
     eyebrow: 'Cash desk · Debts',
-    title: 'Every debt has a name, a day count and a reminder',
-    accent: 'a reminder',
-    lead: 'Enrolment creates the student’s payment plan. Cash, card or transfer, full or partial, every payment lands against that plan with a receipt. The cash desk puts the latest payers on top, and a WhatsApp reminder for each of them is one click away.',
+    title: 'Who owes, how long, and a reminder ready to send',
+    accent: 'a reminder ready to send',
+    lead: 'Enrolling a student sets up their payment plan. Whether it comes as cash, card or bank transfer, in full or in part, each payment is booked against that plan and issued a receipt. The cash desk lists the longest-overdue payers first, and a WhatsApp reminder to any of them takes a single click.',
     screen: {
       label:
-        'Illustrative cash desk with sample data: outstanding and overdue totals, students sorted by days overdue, three selected for WhatsApp reminders and one payment recorded with a receipt',
+        'Sample-data cash desk mockup: total and overdue balances, students ranked by days late, three picked for WhatsApp reminders, and a payment recorded with its receipt',
       title: 'Cash desk',
       kpis: [
-        { label: 'Outstanding', before: '2 430 ₼', after: '2 210 ₼', meta: '8 students' },
-        { label: 'Overdue', before: '1 180 ₼', after: '960 ₼', meta: '4 → 3 students' },
-        { label: 'Collected in October', before: '6 880 ₼', after: '7 100 ₼', meta: 'Paid this month' },
+        { label: 'Outstanding', before: '2 430 ₼', after: '2 210 ₼', meta: '8 students' },
+        { label: 'Overdue', before: '1 180 ₼', after: '960 ₼', meta: '4 → 3 students' },
+        { label: 'Collected in October', before: '6 880 ₼', after: '7 100 ₼', meta: 'Paid this month' },
       ],
       filters: ['Overdue', 'Due this month', 'Paid up', 'No plan'],
       rows: [
@@ -247,7 +247,7 @@ const en = {
     },
     chat: {
       label:
-        'Illustrative WhatsApp reminders with sample data: three messages about overdue payments, prepared from the cash desk for parents',
+        'Sample-data WhatsApp mockup: three overdue-payment reminders to parents, prepared straight from the cash desk',
       title: 'WhatsApp · reminders',
       messages: [
         {
@@ -259,15 +259,15 @@ const en = {
       ],
     },
     features: [
-      { title: 'Payment plans', text: 'Monthly or in instalments, created on enrolment, with discounts where they apply.' },
-      { title: 'Partial payments and advances', text: 'Pay part now or carry an advance into next month. The balance recalculates itself.' },
+      { title: 'Payment plans', text: 'Set up at enrolment, monthly or in instalments, with any discounts that apply.' },
+      { title: 'Part-payments and prepayment', text: 'Pay a portion today, or move an advance into the next month. The balance updates on its own.' },
       {
-        title: 'Receipts and a clean trail',
-        text: 'Every payment gets a receipt. A voided payment keeps its history and restores the debt automatically.',
+        title: 'Receipts and full history',
+        text: 'A receipt is issued for each payment. Voiding one keeps it in the history and puts the debt back automatically.',
       },
       {
-        title: 'Staff see what they need',
-        text: 'Reception records payments and hands out receipts without ever seeing the centre’s total income.',
+        title: 'Access by role',
+        text: 'Front-desk staff take payments and hand over receipts, yet the centre’s total income stays hidden from them.',
       },
     ],
   },
@@ -276,12 +276,12 @@ const en = {
     id: 'contracts' as const,
     km: '14:00',
     eyebrow: 'Contracts',
-    title: 'The centre’s own contract, filled and numbered in one click',
-    accent: 'filled and numbered',
-    lead: 'The centre uploads the Word contract it already uses. eTəhsil recognises every placeholder, warns about any it cannot fill, and produces a numbered PDF for each student with the student’s, parent’s, course and payment details already in place.',
+    title: 'The contract you already use, auto-filled and numbered',
+    accent: 'auto-filled and numbered',
+    lead: 'A centre uploads the Word contract it works with today. eTəhsil picks up each placeholder, flags those it has no data for, and outputs a numbered PDF per student with the student, parent, course and payment details filled in.',
     screen: {
       label:
-        'Illustrative contract generation with sample data: a Word template whose six placeholders are matched one by one to a numbered PDF contract for a student, which is then marked as signed',
+        'Sample-data contract mockup: six placeholders in a Word template are matched in turn to a student’s numbered PDF contract, which is then marked as signed',
       file: 'contract_standard.docx',
       template: 'Template',
       ready: 'Ready · 6 of 6 placeholders will be filled',
@@ -302,19 +302,19 @@ const en = {
     },
     points: [
       {
-        label: 'Your own form',
-        text: 'The centre keeps its legal wording. eTəhsil only fills in the data, with a default template for each language.',
+        label: 'Your wording',
+        text: 'Legal text stays exactly as the centre wrote it; eTəhsil only inserts the data. Each language has a default template.',
       },
       {
         label: 'Placeholder check',
-        text: 'Fields that would print as literal text are flagged before a single contract goes out.',
+        text: 'Any field that would appear as raw placeholder text is flagged before the first contract is issued.',
       },
-      { label: 'Numbering', text: 'The system issues contract numbers in sequence, so a number never repeats.' },
+      { label: 'Numbering', text: 'Numbers are assigned by the system in order, so no two contracts ever share one.' },
       {
         label: 'Signature status',
-        text: 'Awaiting, signed or expired, with contracts close to their end date brought forward.',
+        text: 'Awaiting, signed or expired, and contracts nearing their end date move to the top.',
       },
-      { label: 'Contract gap', text: 'Active students who have no contract yet appear on their own list.' },
+      { label: 'Missing contracts', text: 'A separate list shows active students who still have no contract.' },
     ],
   },
 
@@ -322,12 +322,12 @@ const en = {
     id: 'exams' as const,
     km: '16:00',
     eyebrow: 'Question bank · Exams',
-    title: 'A 3-step exam builder and a unique variant for every student',
-    accent: 'a unique variant for every student',
-    lead: 'Name the exam, choose the subjects with a question count and topic mix for each, and eTəhsil fills every variant from the centre’s question bank without repeating a question. Students sit it against a timer, answers are marked automatically wherever possible, and the results break down by topic.',
+    title: 'Build an exam in 3 steps, give each student their own variant',
+    accent: 'their own variant',
+    lead: 'Give the exam a name, pick the subjects, and set how many questions each one takes and from which topics. eTəhsil then draws every variant from the centre’s question bank, with no question used twice. Students work against a timer, anything that can be auto-marked is, and results are split out by topic.',
     builder: {
       label:
-        'Illustrative exam template builder with sample data: three steps (basics, subjects, questions) and four variants whose question order differs',
+        'Sample-data mockup of the exam template builder: its steps for basics, subjects and questions, plus four variants with the questions shuffled differently',
       title: 'New exam template',
       steps: ['Basics', 'Subjects', 'Questions'],
       basics: [
@@ -349,7 +349,7 @@ const en = {
     },
     taking: {
       label:
-        'Illustrative student exam screen with sample data: a mathematics question with five options, a countdown timer and a recorded tab switch',
+        'Sample-data student exam screen: a maths question with five answer options, a countdown timer and a logged tab switch',
       section: 'Mathematics · 12 of 25',
       left: 'left',
       question: 'If 3x − 7 = 11, what is x?',
@@ -360,7 +360,7 @@ const en = {
     },
     results: {
       label:
-        'Illustrative exam results with sample data: a score distribution chart and the four topics with the highest share of mistakes',
+        'Sample-data exam results: a chart of how scores are spread and the four topics where most mistakes were made',
       title: 'Results · Mock exam',
       distribution: 'Score distribution',
       scale: ['0', '50', '100'],
@@ -376,19 +376,19 @@ const en = {
     features: [
       {
         title: 'Question bank',
-        text: 'Nine question types, from single choice and matching to numeric and essay, sorted by subject, topic and difficulty, with maths input.',
+        text: 'Nine question types, essays and numeric answers among them alongside single choice and matching, organised by subject, topic and difficulty, with support for maths notation.',
       },
       {
         title: 'Templates and variants',
-        text: 'A template stores the recipe once. Each run fills fresh variants and gives them to one group or several.',
+        text: 'The template holds the recipe. Every run produces new variants and assigns them to one group or to several.',
       },
       {
-        title: 'Timed and guest exams',
-        text: 'Total or per-section time, automatic submission, tab-switch tracking and a guest link with an optional PIN for outside candidates.',
+        title: 'Timed exams and guest access',
+        text: 'A limit for the whole exam or per section, tab-switch tracking, submission that happens by itself when time runs out, and a guest link for external candidates, with a PIN if wanted.',
       },
       {
         title: 'Marking and analytics',
-        text: 'Closed questions are marked automatically, open answers by the teacher, and mistakes are counted by topic for the centre and for each student.',
+        text: 'The system marks closed questions, teachers mark open ones, and errors are tallied by topic for the whole centre and for each student.',
       },
     ],
   },
@@ -397,15 +397,15 @@ const en = {
     id: 'owner' as const,
     km: '21:00',
     eyebrow: 'Owner dashboard · Payroll',
-    title: 'The owner sees the month before it ends',
-    accent: 'before it ends',
-    lead: 'Income arrives from the cash desk by itself. Expenses go in by category, and recurring ones repeat on their own. Teacher pay is calculated from groups and lessons held, approved by the owner and accepted by the teacher. One dashboard shows the centre for any period.',
+    title: 'The month’s results, while it is still running',
+    accent: 'while it is still running',
+    lead: 'Income flows in from the cash desk automatically. Expenses are logged by category, and recurring costs repeat without re-entry. Teacher pay is worked out from groups and lessons held; the owner approves it and the teacher accepts. A single dashboard shows the centre across whatever period you pick.',
     dashboard: {
       label:
-        'Illustrative owner dashboard with sample data: monthly revenue, overdue debt, at-risk students, attendance, occupancy and gross margin gauges',
+        'Sample-data owner dashboard mockup: monthly revenue, overdue debt, students at risk, and gauges for attendance, occupancy and gross margin',
       title: 'Dashboard · October',
       periods: ['This month', '3 months', '12 months'],
-      revenue: { label: 'Monthly revenue', value: '7 100 ₼', meta: '+6% on September' },
+      revenue: { label: 'Monthly revenue', value: '7 100 ₼', meta: '+6% on September' },
       debt: { label: 'Overdue debt', value: '960 ₼', meta: '3 students' },
       risk: { label: 'At-risk students', value: '5', meta: 'Missed lessons in a row' },
       gauges: [
@@ -416,7 +416,7 @@ const en = {
     },
     pnl: {
       label:
-        'Illustrative profit and loss chart with sample data: student payments and other income, minus rent, utilities, marketing and teacher payouts, give the net result',
+        'Sample-data profit and loss chart: student payments plus other income, less rent, utilities, marketing and teacher payouts, leaving the net result',
       title: 'Profit and loss · October',
       rows: [
         { label: 'Student payments', value: 7100 },
@@ -430,11 +430,11 @@ const en = {
     },
     payroll: {
       label:
-        'Illustrative teacher payroll with sample data: three teachers with groups, lessons held and amounts; the owner approves payouts and teachers accept them',
+        'Sample-data teacher payroll mockup: three teachers with their groups, lessons held and amounts; the owner signs off each payout and the teacher then accepts it',
       title: 'Teacher payroll · October',
       columns: ['Teacher', 'Groups', 'Lessons', 'Amount', 'Status'],
       rows: [
-        { name: 'Leyla K.', groups: '3', lessons: '36', amount: '1 080 ₼' },
+        { name: 'Leyla K.', groups: '3', lessons: '36', amount: '1 080 ₼' },
         { name: 'Rauf M.', groups: '2', lessons: '24', amount: '840 ₼' },
         { name: 'Nigar S.', groups: '2', lessons: '20', amount: '680 ₼' },
       ],
@@ -444,29 +444,29 @@ const en = {
       approve: 'Approve',
     },
     features: [
-      { title: 'Income and expenses', text: 'The centre’s own categories, recurring costs and side-by-side periods.' },
+      { title: 'Income and spending', text: 'Categories the centre defines itself, recurring expenses, and period-over-period comparison.' },
       {
-        title: 'Teacher payroll',
-        text: 'Calculated per group and lesson held. The owner approves, the teacher accepts or declines.',
+        title: 'Teacher pay',
+        text: 'Based on groups and lessons actually held. The owner signs off; the teacher accepts or rejects.',
       },
       {
-        title: 'Reports for the accountant',
-        text: 'The financial report exports to CSV and PDF, and the accountant role sees finance without student records.',
+        title: 'Accountant-ready reports',
+        text: 'Export the financial report to CSV or PDF. The accountant role gets the finances without seeing student records.',
       },
-      { title: 'Any period', text: 'This month, last month, the last 3, 6 or 12 months, or a custom range.' },
+      { title: 'Flexible periods', text: 'This month or last, the past 3, 6 or 12 months, or dates you set yourself.' },
     ],
   },
 
   engineering: {
     id: 'engineering' as const,
     km: 'SaaS',
-    eyebrow: 'Engineering',
-    title: 'One platform for many centres, and each centre’s data stays its own',
-    accent: 'stays its own',
-    lead: 'eTəhsil is a multi-tenant SaaS. Every centre and every tutor works in a separate tenant, and tenant data isolation is enforced in the database itself, not only in application code. Around that core we built permissions, secure sign-in, notifications and an installable app in three languages.',
+    eyebrow: 'Under the hood',
+    title: 'Many centres on one platform, none able to see another’s data',
+    accent: 'none able to see another’s data',
+    lead: 'eTəhsil runs as a multi-tenant SaaS: each centre and each tutor gets a separate tenant, and the database itself, not just the application code, keeps tenant data apart. On top of that foundation we added permissions, secure login, notifications and a three-language app you can install.',
     isolation: {
       label:
-        'Diagram: three sample tenants send requests into one database; each request reaches only its own tenant’s rows, and a request that reaches for another tenant is blocked',
+        'Diagram: three sample tenants query a single database; every request is limited to its own tenant’s rows, and one that reaches into another tenant is blocked',
       tenants: ['Demo Academy', 'Nümunə Kurs', 'Tutor · Leyla K.'],
       database: 'One database',
       policy: 'Isolation enforced in the database',
@@ -474,29 +474,29 @@ const en = {
     },
     principles: [
       {
-        title: 'Tenant data isolation',
-        text: 'Each centre’s rows are fenced off in the database, so one centre never reads another centre’s data.',
+        title: 'Tenant isolation',
+        text: 'Rows belonging to each centre are walled off at database level, so no centre can ever read another’s data.',
       },
       {
         title: 'Roles and permissions',
-        text: 'Ready roles such as reception and accountant, custom groups down to view, add, edit and delete, and teachers limited to their own groups.',
+        text: 'Built-in roles like reception and accountant, custom permission groups as fine-grained as view, add, edit and delete, and teachers who see only their own groups.',
       },
-      { title: 'Secure sign-in', text: 'Two-factor authentication, Google sign-in and invitation links for staff and teachers.' },
+      { title: 'Secure login', text: 'Two-factor authentication, sign-in with Google, and invite links for staff and teachers.' },
       {
-        title: 'One account, three workspaces',
-        text: 'The same person moves between business, teacher and student workspaces without a second account.',
+        title: 'One login, three workspaces',
+        text: 'A single person can switch between the business, teacher and student workspaces without opening a second account.',
       },
       {
         title: 'Installable PWA',
-        text: 'The app installs on any phone, in Azerbaijani, English or Russian, with light and dark themes.',
+        text: 'Install it on any phone and use it in Azerbaijani, English or Russian, in a light or a dark theme.',
       },
       {
-        title: 'Guarded by tests',
-        text: 'Automated architecture tests check the tenant isolation and permission rules across modules.',
+        title: 'Covered by tests',
+        text: 'Automated architecture tests verify tenant isolation and permission rules in every module.',
       },
     ],
     languages: {
-      title: 'One interface · three languages',
+      title: 'Same interface · three languages',
       codes: ['AZ', 'EN', 'RU'],
       words: [
         ['Davamiyyət', 'Attendance', 'Посещаемость'],
@@ -505,75 +505,75 @@ const en = {
         ['Müqavilələr', 'Contracts', 'Договоры'],
       ],
     },
-    integrationsTitle: 'Integrations built in',
+    integrationsTitle: 'Built-in integrations',
     integrations: [
-      { name: 'Payriff', note: 'Online card top-ups' },
-      { name: 'Google', note: 'Sign-in with a Google account' },
-      { name: 'WhatsApp', note: 'Payment reminders from the cash desk' },
-      { name: 'Telegram', note: 'Notifications through a bot' },
-      { name: 'Email', note: 'Invitations and notifications' },
-      { name: 'Web push', note: 'Notifications in the browser and on the phone' },
+      { name: 'Payriff', note: 'Top up online by card' },
+      { name: 'Google', note: 'Log in with a Google account' },
+      { name: 'WhatsApp', note: 'Payment reminders sent from the cash desk' },
+      { name: 'Telegram', note: 'Notifications via a bot' },
+      { name: 'Email', note: 'Invites and notifications' },
+      { name: 'Web push', note: 'Browser and phone notifications' },
     ],
   },
 
   role: {
-    eyebrow: 'Our role',
-    title: 'What Aibaycan did',
+    eyebrow: 'Our part',
+    title: 'What Aibaycan delivered',
     items: [
       {
         title: 'Product and UX design',
-        text: 'We mapped how centres, tutors, teachers, students and parents actually work, and designed one product with the right screen for each of them.',
+        text: 'We studied the real routines of centres, tutors, teachers, students and parents, then shaped one product that gives each of them the screen they need.',
       },
       {
         title: 'Multi-tenant architecture',
-        text: 'We designed the tenant model, roles and permissions, and data isolation enforced in the database from the first line of code.',
+        text: 'From the very first line of code we planned the tenant model, the roles and permissions, and data isolation enforced by the database.',
       },
       {
-        title: 'Full-stack engineering',
-        text: 'We built the API, the installable web app, the public website, the contract engine from DOCX templates and the exam engine with variants and analytics.',
+        title: 'Full-stack development',
+        text: 'We wrote the API, a web app that installs on phones, the public site, a contract engine working from DOCX templates, and an exam engine with variants and analytics.',
       },
       {
         title: 'Integrations',
-        text: 'We connected Payriff online card top-ups, Google sign-in, WhatsApp reminders, and Telegram, email and web push notifications.',
+        text: 'We wired in Payriff card top-ups, Google sign-in, WhatsApp reminders, and notifications over Telegram, email and web push.',
       },
       {
-        title: 'Launch and operation',
-        text: 'We launched eTəhsil as a live SaaS product and run it ourselves: releases, support and new modules.',
+        title: 'Launch and operations',
+        text: 'We took eTəhsil live as a SaaS product and operate it ourselves, shipping releases, handling support and adding modules.',
       },
     ],
   },
   stack: {
-    eyebrow: 'Stack',
-    title: 'Built on a modern TypeScript stack',
+    eyebrow: 'Technology',
+    title: 'A modern TypeScript stack underneath',
     groups: [
       { label: 'Web app', items: ['TypeScript', 'React', 'PWA'] },
-      { label: 'Website', items: ['Next.js'] },
+      { label: 'Public site', items: ['Next.js'] },
       { label: 'API', items: ['NestJS', 'TypeScript'] },
       { label: 'Data', items: ['PostgreSQL', 'Redis'] },
     ],
   },
   faq: {
-    title: 'What buyers ask about eTəhsil',
+    title: 'eTəhsil: common questions',
     items: [
       {
-        q: 'Is eTəhsil a real, working product?',
-        a: 'Yes. eTəhsil is our own product and it is live: the website and the app are online at etehsil.az. We designed and built it, and we run it.',
+        q: 'Is eTəhsil actually in use, or just a concept?',
+        a: 'It is live. eTəhsil is our own product, with the website and the app running at etehsil.az. We designed it, built it and keep it running.',
       },
       {
-        q: 'How is each centre’s data kept separate?',
-        a: 'Every centre is its own tenant, and isolation is enforced in the database, not only in application code. Inside a centre, roles and permissions decide what each person sees: a teacher sees only their own groups, reception never sees total income, and a parent sees one child.',
+        q: 'How do you keep one centre’s data apart from another’s?',
+        a: 'Each centre is a separate tenant, and the database enforces that separation rather than relying on application code alone. Within a centre, roles and permissions set what everyone can see: a teacher is limited to their own groups, the front desk has no view of total income, and a parent can open only their own child.',
       },
       {
-        q: 'Do parents and teachers have to install anything?',
-        a: 'No. Parents open a personal link and enter a PIN. Teachers, staff and students use the web app, which installs on a phone as a PWA in Azerbaijani, English or Russian.',
+        q: 'Which local services are integrated?',
+        a: 'Online card top-ups through Payriff, sign-in with Google, payment reminders over WhatsApp, and notifications through Telegram, email and web push.',
       },
       {
-        q: 'Which local services does it connect to?',
-        a: 'Payriff for online card top-ups, Google sign-in, WhatsApp for payment reminders, and Telegram, email and web push for notifications.',
+        q: 'Is there anything parents or teachers need to install?',
+        a: 'Nothing. A parent opens their personal link and types in a PIN. Teachers, staff and students work in the web app, which can be added to a phone as a PWA and runs in Azerbaijani, English or Russian.',
       },
       {
-        q: 'We need a platform like this for another sector. Where do we start?',
-        a: 'With your processes. The foundations of eTəhsil carry straight over to other vertical SaaS products and internal systems: multi-tenant architecture, roles and permissions, documents from templates, payments, notifications and dashboards. Tell us how your work runs today and we come back with a concrete plan.',
+        q: 'How would we start on a similar platform for another industry?',
+        a: 'By looking at how you work. What sits under eTəhsil, namely multi-tenant architecture, roles and permissions, template-based documents, payments, notifications and dashboards, transfers directly to other vertical SaaS products and internal tools. Walk us through your current processes and we will return with a specific plan.',
       },
     ],
   },
@@ -587,8 +587,8 @@ const en = {
     owner: 'Owner',
     engineering: 'Engineering',
   },
-  sampleDataNote: 'Names and figures on screens are sample data.',
-  mockupAriaLabel: 'Illustrative eTəhsil screen with sample data',
+  sampleDataNote: 'All names and numbers shown on screens are illustrative.',
+  mockupAriaLabel: 'eTəhsil screen mockup with sample data',
 } satisfies CaseBase;
 
 export type EtehsilCopy = typeof en;

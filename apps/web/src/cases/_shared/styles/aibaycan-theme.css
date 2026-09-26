@@ -1,0 +1,55 @@
+/*
+ * Aibaycan retint of the cinematic kit (loaded after cinematic.css and every case stylesheet).
+ *
+ * The case pages were ported from the Atlas BIP site; this file moves them onto Aibaycan's brand so the two sites do
+ * not look identical: surfaces go from Atlas's blue-grey asphalt + warm beige paper to Aibaycan navy (#020824) +
+ * cool paper, and every accent preset collapses to Aibaycan red (#EE1027 family). Mockup-internal colours (product
+ * UIs inside the scenes) are left alone on purpose.
+ *
+ * Selectors repeat `.cine` to outrank the presets (`.cine[data-accent='…']`, 0,2,0) and Molecion's warm surface set,
+ * whatever order the bundler emits the stylesheets in.
+ *
+ * Contrast: accent #ff2e44 is 5.4:1 on navy #020824; ink-accent #c90d22 is 5.2:1 on paper #eef0f5; ink button text
+ * #0b1230 on the accent is 4.8:1.
+ */
+@layer components {
+  .cine.cine.cine,
+  .cine.cine.cine[data-accent] {
+    --cine-asphalt: #020824;
+    --cine-night: #0a1336;
+    --cine-night-2: #111d4a;
+    --cine-rule: #25315c;
+    --cine-white: #f4f6fb;
+    --cine-fog: #98a2bf;
+    --cine-dim: #7b86a6;
+    --cine-paper: #eef0f5;
+    --cine-paper-2: #dfe3ec;
+    --cine-paper-card: #fbfcfe;
+    --cine-ink: #0b1230;
+    --cine-ink-2: #465070;
+    --cine-radius: 16px;
+  }
+
+  .cine.cine.cine,
+  .cine.cine.cine[data-accent],
+  .cine.cine.cine [data-accent] {
+    --cine-accent: #ff2e44;
+    --cine-accent-soft: #ff6b7b;
+    --cine-accent-hover: #ff4a5e;
+    --cine-accent-ink: #c90d22;
+    --cine-accent-deep: #ee1027;
+  }
+
+  /* The violet preset lifted text and buttons to its soft tone; with a single red accent they use the base one. */
+  .cine.cine.cine[data-accent] {
+    --cine-accent-text: var(--cine-accent);
+  }
+  .cine.cine.cine[data-accent] .cine-btn--primary {
+    border-color: var(--cine-accent);
+    background: var(--cine-accent);
+  }
+  .cine.cine.cine[data-accent] .cine-btn--primary:hover {
+    border-color: var(--cine-accent-hover);
+    background: var(--cine-accent-hover);
+  }
+}
